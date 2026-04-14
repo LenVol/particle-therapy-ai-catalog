@@ -1,0 +1,21 @@
+llm:
+  enabled: false
+  model: gpt-4.1-mini
+  max_repos_per_run: 25
+  max_readme_chars: 4000
+  max_description_chars: 500
+  max_topics: 20
+  max_completion_tokens: 350
+  request_timeout: 60
+  retry:
+    max_attempts: 6
+    base_sleep_seconds: 2.0
+
+scraper:
+  min_heuristic_score: 4
+  github_per_query: 25
+  gitlab_per_query: 25
+  polite_sleep_seconds: 0.35
+  classify_sleep_seconds: 1.25
+  use_gitlab: true
+  cache_classifications: true

@@ -95,6 +95,5 @@ def gitlab_get_file(project_id: int, path: str, ref: str) -> str:
     except Exception:
         return ""
 
-
 def polite_sleep(seconds: float = 0.35) -> None:
     time.sleep(seconds)

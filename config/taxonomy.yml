@@ -1,17 +1,58 @@
+strong_particle_therapy_terms:
+  - particle therapy
+  - proton therapy
+  - proton radiotherapy
+  - hadron therapy
+  - ion beam therapy
+  - carbon ion therapy
+  - carbon-ion therapy
+  - heavy ion therapy
+  - adaptive proton therapy
+
 particle_therapy_terms:
   - particle therapy
   - proton therapy
-  - ion beam therapy
+  - proton radiotherapy
   - hadron therapy
-  - carbon ion
-  - heavy ion
-  - pencil beam
-  - treatment planning
-  - dose calculation
-  - dose prediction
-  - range verification
-  - let prediction
+  - ion beam therapy
+  - carbon ion therapy
+  - carbon-ion therapy
+  - heavy ion therapy
   - adaptive proton therapy
+  - proton beam therapy
+  - pencil beam scanning
+  - proton arc therapy
+  - intensity modulated proton therapy
+  - impt
+  - carbon ion radiotherapy
+  - hadron radiotherapy
+  - particle radiotherapy
+
+support_terms:
+  - dose prediction
+  - dose calculation
+  - dose optimization
+  - treatment planning
+  - treatment plan
+  - range verification
+  - let
+  - let prediction
+  - linear energy transfer
+  - rbe
+  - rbe prediction
+  - relative biological effectiveness
+  - pencil beam
+  - beam monitoring
+  - beam delivery
+  - image guidance
+  - contouring
+  - segmentation
+  - outcome prediction
+  - toxicity prediction
+  - survival prediction
+  - uncertainty estimation
+  - monte carlo
+  - reconstruction
 
 ai_terms:
   - deep learning
@@ -22,36 +63,66 @@ ai_terms:
   - rnn
   - lstm
   - transformer
-  - segmentation
-  - classification
-  - regression
-  - reinforcement learning
   - pytorch
   - tensorflow
   - keras
-  - xgboost
   - scikit-learn
+  - xgboost
   - random forest
   - autoencoder
   - u-net
   - unet
+  - segmentation model
+  - classification
+  - regression
+  - reinforcement learning
+  - foundation model
 
 negative_terms:
   - awesome-list
+  - awesome list
   - paper list
+  - papers list
   - reading list
+  - literature review
+  - review article
+  - survey paper
   - curriculum vitae
   - syllabus
+  - lecture notes
   - slides only
+  - benchmark results only
+  - conference presentation
+
+generic_radiotherapy_terms:
+  - radiotherapy
+  - radiation therapy
+  - photon therapy
+  - photon radiotherapy
+  - linac
+  - cone beam ct
+  - cbct
+  - ct
+  - mri
+  - x-ray
+  - external beam radiotherapy
 
 categories:
   - segmentation
   - dose prediction
+  - dose calculation
   - treatment planning
   - range verification
+  - let prediction
+  - rbe prediction
   - outcome modeling
+  - toxicity modeling
   - image reconstruction
   - beam monitoring
   - contouring
-  - synthetic data
   - uncertainty estimation
+  - adaptive therapy
+  - synthetic data
+  - research code
+  - software tool
+  - dataset or preprocessing

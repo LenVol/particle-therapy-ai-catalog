@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI/ML in Particle Therapy Catalog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>AI/ML in Particle Therapy Catalog</h1>
+      <p class="subtitle">
+        Automatically discovered repositories at the intersection of particle therapy and machine learning / AI.
+      </p>
+    </header>
+
+    <section class="toolbar">
+      <div class="toolbar-grid">
+        <div class="field">
+          <label for="search">Search</label>
+          <input id="search" type="search" placeholder="Search name, description, topics, categories...">
+        </div>
+
+        <div class="field">
+          <label for="platformFilter">Platform</label>
+          <select id="platformFilter">
+            <option value="">All platforms</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="categoryFilter">Category</label>
+          <select id="categoryFilter">
+            <option value="">All categories</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="confidenceFilter">Min confidence</label>
+          <select id="confidenceFilter">
+            <option value="0">Any</option>
+            <option value="0.25">0.25</option>
+            <option value="0.50">0.50</option>
+            <option value="0.75">0.75</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="sortBy">Sort by</label>
+          <select id="sortBy">
+            <option value="confidence">Confidence</option>
+            <option value="stars">Stars</option>
+            <option value="updated">Last updated</option>
+            <option value="heuristic">Heuristic score</option>
+            <option value="name">Name</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="toolbar-actions">
+        <button id="resetFilters" type="button">Reset filters</button>
+      </div>
+    </section>
+
+    <section class="stats" id="stats"></section>
+    <section class="results" id="results"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
