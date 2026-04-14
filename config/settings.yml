@@ -12,7 +12,7 @@ llm:
     base_sleep_seconds: 2.0
 
 scraper:
-  min_heuristic_score: 4
+  min_heuristic_score: 3
   github_per_query: 25
   gitlab_per_query: 25
   polite_sleep_seconds: 0.35

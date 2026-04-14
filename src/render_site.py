@@ -11,68 +11,89 @@ INDEX_HTML = """<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI/ML in Particle Therapy Catalog</title>
+  <meta name="description" content="A curated catalog of repositories at the intersection of particle therapy and AI/ML.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="container">
+  <div class="page-shell">
     <header class="hero">
-      <h1>AI/ML in Particle Therapy Catalog</h1>
-      <p class="subtitle">
-        Automatically discovered repositories at the intersection of particle therapy and machine learning / AI.
-      </p>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">AI + PARTICLE THERAPY</span>
+          <h1>Repository Atlas</h1>
+          <p class="hero-text">
+            A curated, searchable catalog of open repositories related to particle therapy,
+            proton therapy, hadron therapy, and machine learning.
+          </p>
+        </div>
+
+        <div class="hero-panel">
+          <div class="hero-stat">
+            <span class="hero-stat-label">Indexed repositories</span>
+            <span class="hero-stat-value" id="heroRepoCount">0</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Visible after filters</span>
+            <span class="hero-stat-value" id="heroVisibleCount">0</span>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <section class="toolbar">
-      <div class="toolbar-grid">
-        <div class="field">
-          <label for="search">Search</label>
-          <input id="search" type="search" placeholder="Search name, description, topics, categories...">
+    <main class="main-content">
+      <section class="controls">
+        <div class="controls-grid">
+          <label class="control">
+            <span>Search</span>
+            <input id="search" type="search" placeholder="Search repositories, categories, tags...">
+          </label>
+
+          <label class="control">
+            <span>Platform</span>
+            <select id="platformFilter">
+              <option value="">All platforms</option>
+            </select>
+          </label>
+
+          <label class="control">
+            <span>Category</span>
+            <select id="categoryFilter">
+              <option value="">All categories</option>
+            </select>
+          </label>
+
+          <label class="control">
+            <span>Min confidence</span>
+            <select id="confidenceFilter">
+              <option value="0">Any</option>
+              <option value="0.25">0.25</option>
+              <option value="0.50">0.50</option>
+              <option value="0.75">0.75</option>
+            </select>
+          </label>
+
+          <label class="control">
+            <span>Sort by</span>
+            <select id="sortBy">
+              <option value="confidence">Confidence</option>
+              <option value="stars">Stars</option>
+              <option value="updated">Last updated</option>
+              <option value="heuristic">Heuristic score</option>
+              <option value="name">Name</option>
+            </select>
+          </label>
         </div>
 
-        <div class="field">
-          <label for="platformFilter">Platform</label>
-          <select id="platformFilter">
-            <option value="">All platforms</option>
-          </select>
+        <div class="controls-actions">
+          <button id="resetFilters" type="button">Reset filters</button>
         </div>
+      </section>
 
-        <div class="field">
-          <label for="categoryFilter">Category</label>
-          <select id="categoryFilter">
-            <option value="">All categories</option>
-          </select>
-        </div>
+      <section class="stats-bar" id="stats"></section>
 
-        <div class="field">
-          <label for="confidenceFilter">Min confidence</label>
-          <select id="confidenceFilter">
-            <option value="0">Any</option>
-            <option value="0.25">0.25</option>
-            <option value="0.50">0.50</option>
-            <option value="0.75">0.75</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="sortBy">Sort by</label>
-          <select id="sortBy">
-            <option value="confidence">Confidence</option>
-            <option value="stars">Stars</option>
-            <option value="updated">Last updated</option>
-            <option value="heuristic">Heuristic score</option>
-            <option value="name">Name</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="toolbar-actions">
-        <button id="resetFilters" type="button">Reset filters</button>
-      </div>
-    </section>
-
-    <section class="stats" id="stats"></section>
-    <section class="results" id="results"></section>
-  </main>
+      <section class="cards-grid" id="results"></section>
+    </main>
+  </div>
 
   <script src="app.js"></script>
 </body>
@@ -108,33 +129,36 @@ function formatDate(value) {
   return date.toISOString().slice(0, 10);
 }
 
-function confidenceClass(confidence) {
-  if (confidence >= 0.75) return "badge-good";
-  if (confidence >= 0.50) return "badge-ok";
-  return "badge-low";
+function scoreTone(confidence) {
+  if (confidence >= 0.75) return "high";
+  if (confidence >= 0.50) return "mid";
+  return "low";
 }
 
 function buildStats(items, totalItems) {
   const totalStars = items.reduce((sum, item) => sum + (item.stars || 0), 0);
-  const platformCounts = items.reduce((acc, item) => {
-    const key = item.platform || "unknown";
-    acc[key] = (acc[key] || 0) + 1;
-    return acc;
-  }, {});
+  const avgConfidence = items.length
+    ? (items.reduce((sum, item) => sum + (item.classification?.confidence || 0), 0) / items.length).toFixed(2)
+    : "0.00";
 
-  const pieces = [
-    `<div class="stat-card"><div class="stat-value">${items.length}</div><div class="stat-label">Shown</div></div>`,
-    `<div class="stat-card"><div class="stat-value">${totalItems}</div><div class="stat-label">Total indexed</div></div>`,
-    `<div class="stat-card"><div class="stat-value">${totalStars}</div><div class="stat-label">Stars shown</div></div>`,
-  ];
-
-  for (const [platform, count] of Object.entries(platformCounts).sort()) {
-    pieces.push(
-      `<div class="stat-card"><div class="stat-value">${count}</div><div class="stat-label">${escapeHtml(platform)}</div></div>`
-    );
-  }
-
-  return pieces.join("");
+  return `
+    <div class="stat-pill">
+      <span class="stat-label">Shown</span>
+      <span class="stat-value">${items.length}</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Total indexed</span>
+      <span class="stat-value">${totalItems}</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Stars shown</span>
+      <span class="stat-value">${totalStars}</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Avg confidence</span>
+      <span class="stat-value">${avgConfidence}</span>
+    </div>
+  `;
 }
 
 function getSearchBlob(item) {
@@ -145,13 +169,11 @@ function getSearchBlob(item) {
     (item.topics || []).join(" "),
     (cls.categories || []).join(" "),
     (cls.reasons || []).join(" "),
-    (cls.summary || ""),
-    (item.manual_note || ""),
+    cls.summary || "",
+    item.manual_note || "",
     (item.manual_tags || []).join(" "),
     cls.likely_tool_type || ""
-  ]
-    .join(" ")
-    .toLowerCase();
+  ].join(" ").toLowerCase();
 }
 
 function sortItems(items, sortBy) {
@@ -161,24 +183,10 @@ function sortItems(items, sortBy) {
     const aCls = a.classification || {};
     const bCls = b.classification || {};
 
-    if (sortBy === "stars") {
-      return (b.stars || 0) - (a.stars || 0);
-    }
-
-    if (sortBy === "updated") {
-      const aDate = a.updated_at || "";
-      const bDate = b.updated_at || "";
-      return bDate.localeCompare(aDate);
-    }
-
-    if (sortBy === "heuristic") {
-      return (b.heuristic_total_score || 0) - (a.heuristic_total_score || 0);
-    }
-
-    if (sortBy === "name") {
-      return (a.full_name || "").localeCompare(b.full_name || "");
-    }
-
+    if (sortBy === "stars") return (b.stars || 0) - (a.stars || 0);
+    if (sortBy === "updated") return (b.updated_at || "").localeCompare(a.updated_at || "");
+    if (sortBy === "heuristic") return (b.heuristic_total_score || 0) - (a.heuristic_total_score || 0);
+    if (sortBy === "name") return (a.full_name || "").localeCompare(b.full_name || "");
     return (bCls.confidence || 0) - (aCls.confidence || 0);
   });
 
@@ -189,23 +197,10 @@ function matchesFilters(item, filters) {
   const cls = item.classification || {};
   const query = filters.query.trim().toLowerCase();
 
-  if (query) {
-    const blob = getSearchBlob(item);
-    if (!blob.includes(query)) return false;
-  }
-
-  if (filters.platform && (item.platform || "") !== filters.platform) {
-    return false;
-  }
-
-  if (filters.category) {
-    const categories = cls.categories || [];
-    if (!categories.includes(filters.category)) return false;
-  }
-
-  if ((cls.confidence || 0) < filters.minConfidence) {
-    return false;
-  }
+  if (query && !getSearchBlob(item).includes(query)) return false;
+  if (filters.platform && (item.platform || "") !== filters.platform) return false;
+  if (filters.category && !(cls.categories || []).includes(filters.category)) return false;
+  if ((cls.confidence || 0) < filters.minConfidence) return false;
 
   return true;
 }
@@ -217,7 +212,7 @@ function renderCards(items) {
     results.innerHTML = `
       <div class="empty-state">
         <h2>No repositories match the current filters.</h2>
-        <p>Try broadening the search or resetting the filters.</p>
+        <p>Try a broader search or reset the filters.</p>
       </div>
     `;
     return;
@@ -229,88 +224,76 @@ function renderCards(items) {
     const reasons = cls.reasons || [];
     const warnings = cls.warnings || [];
     const topics = item.topics || [];
-    const manualTags = item.manual_tags || [];
-    const stars = item.stars ?? 0;
-    const updatedAt = formatDate(item.updated_at);
     const confidence = Number(cls.confidence || 0).toFixed(2);
+    const tone = scoreTone(cls.confidence || 0);
 
     return `
-      <article class="card">
-        <div class="card-header">
+      <a class="repo-card tone-${tone}" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(item.full_name || "")}">
+        <div class="repo-card-top">
           <div>
-            <h2 class="repo-name">
-              <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
-                ${escapeHtml(item.full_name || "")}
-              </a>
-            </h2>
-            <p class="repo-description">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
+            <div class="repo-kicker">${escapeHtml(item.platform || "unknown")} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
+            <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
+            <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
           </div>
-          <div class="badges">
-            <span class="badge">${escapeHtml(item.platform || "unknown")}</span>
-            <span class="badge">${escapeHtml(cls.likely_tool_type || "unclear")}</span>
-            <span class="badge ${confidenceClass(cls.confidence || 0)}">confidence ${confidence}</span>
-          </div>
+          <div class="confidence-badge">${confidence}</div>
         </div>
 
-        <div class="meta">
-          <span><strong>Stars:</strong> ${stars}</span>
-          <span><strong>Updated:</strong> ${escapeHtml(updatedAt)}</span>
-          <span><strong>Heuristic:</strong> ${escapeHtml(item.heuristic_total_score ?? "")}</span>
-          <span><strong>Language:</strong> ${escapeHtml(item.language || "Unknown")}</span>
+        <div class="repo-meta-row">
+          <span>★ ${item.stars || 0}</span>
+          <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
+          <span>Heuristic ${escapeHtml(item.heuristic_total_score ?? "")}</span>
         </div>
 
         ${
           categories.length
-            ? `<div class="section"><div class="section-title">Categories</div><div class="chips">${
-                categories.map(x => `<span class="chip">${escapeHtml(x)}</span>`).join("")
-              }</div></div>`
-            : ""
+            ? `<div class="chip-row">${categories.slice(0, 4).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
+            : `<div class="chip-row"></div>`
         }
 
-        ${
-          topics.length
-            ? `<div class="section"><div class="section-title">Topics</div><div class="chips">${
-                topics.slice(0, 12).map(x => `<span class="chip subtle">${escapeHtml(x)}</span>`).join("")
-              }</div></div>`
-            : ""
-        }
+        <div class="hover-panel">
+          ${
+            topics.length
+              ? `<div class="hover-block">
+                  <div class="hover-label">Topics</div>
+                  <div class="chip-row">${topics.slice(0, 8).map(x => `<span class="chip chip-subtle">${escapeHtml(x)}</span>`).join("")}</div>
+                </div>`
+              : ""
+          }
 
-        ${
-          manualTags.length
-            ? `<div class="section"><div class="section-title">Manual tags</div><div class="chips">${
-                manualTags.map(x => `<span class="chip highlight">${escapeHtml(x)}</span>`).join("")
-              }</div></div>`
-            : ""
-        }
+          ${
+            reasons.length
+              ? `<div class="hover-block">
+                  <div class="hover-label">Why included</div>
+                  <ul class="hover-list">${reasons.slice(0, 3).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+                </div>`
+              : ""
+          }
 
-        ${
-          reasons.length
-            ? `<div class="section"><div class="section-title">Why included</div><ul class="clean-list">${
-                reasons.slice(0, 4).map(x => `<li>${escapeHtml(x)}</li>`).join("")
-              }</ul></div>`
-            : ""
-        }
+          ${
+            warnings.length
+              ? `<div class="hover-block">
+                  <div class="hover-label">Warnings</div>
+                  <ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+                </div>`
+              : ""
+          }
 
-        ${
-          warnings.length
-            ? `<div class="section"><div class="section-title">Warnings</div><ul class="clean-list warning-list">${
-                warnings.slice(0, 4).map(x => `<li>${escapeHtml(x)}</li>`).join("")
-              }</ul></div>`
-            : ""
-        }
-
-        ${
-          item.manual_note
-            ? `<div class="section"><div class="section-title">Curator note</div><p>${escapeHtml(item.manual_note)}</p></div>`
-            : ""
-        }
-      </article>
+          ${
+            item.manual_note
+              ? `<div class="hover-block">
+                  <div class="hover-label">Curator note</div>
+                  <p class="hover-note">${escapeHtml(item.manual_note)}</p>
+                </div>`
+              : ""
+          }
+        </div>
+      </a>
     `;
   }).join("");
 }
 
 function populateSelect(selectEl, values, placeholderLabel) {
-  const existing = selectEl.value;
+  const current = selectEl.value;
   selectEl.innerHTML = `<option value="">${placeholderLabel}</option>`;
   for (const value of values) {
     const option = document.createElement("option");
@@ -318,7 +301,7 @@ function populateSelect(selectEl, values, placeholderLabel) {
     option.textContent = value;
     selectEl.appendChild(option);
   }
-  selectEl.value = existing;
+  selectEl.value = current;
 }
 
 async function main() {
@@ -332,10 +315,10 @@ async function main() {
   const stats = document.getElementById("stats");
   const resetButton = document.getElementById("resetFilters");
 
+  document.getElementById("heroRepoCount").textContent = rawItems.length;
+
   const platforms = uniqueSorted(rawItems.map(item => item.platform));
-  const categories = uniqueSorted(
-    rawItems.flatMap(item => (item.classification?.categories || []))
-  );
+  const categories = uniqueSorted(rawItems.flatMap(item => item.classification?.categories || []));
 
   populateSelect(platformFilter, platforms, "All platforms");
   populateSelect(categoryFilter, categories, "All categories");
@@ -345,12 +328,13 @@ async function main() {
       query: search.value || "",
       platform: platformFilter.value || "",
       category: categoryFilter.value || "",
-      minConfidence: Number(confidenceFilter.value || 0),
+      minConfidence: Number(confidenceFilter.value || 0)
     };
 
     const filtered = rawItems.filter(item => matchesFilters(item, filters));
     const sorted = sortItems(filtered, sortBy.value || "confidence");
 
+    document.getElementById("heroVisibleCount").textContent = sorted.length;
     stats.innerHTML = buildStats(sorted, rawItems.length);
     renderCards(sorted);
   }
@@ -389,237 +373,335 @@ STYLES_CSS = """* {
 }
 
 :root {
-  --bg: #f7f8fb;
-  --card: #ffffff;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --accent: #2563eb;
-  --accent-soft: #dbeafe;
-  --good: #166534;
-  --good-bg: #dcfce7;
-  --ok: #92400e;
-  --ok-bg: #fef3c7;
-  --low: #991b1b;
-  --low-bg: #fee2e2;
-  --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --bg-0: #f3f9fd;
+  --bg-1: #eaf4fb;
+  --bg-2: #dcecf8;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --border: rgba(80, 132, 180, 0.18);
+  --text: #10324a;
+  --muted: #56758c;
+  --primary: #1976b8;
+  --primary-2: #2f94d1;
+  --primary-3: #79bfe8;
+  --shadow: 0 14px 40px rgba(19, 83, 126, 0.12);
+  --shadow-strong: 0 22px 54px rgba(19, 83, 126, 0.18);
+  --high-bg: linear-gradient(135deg, rgba(22, 118, 184, 0.16), rgba(121, 191, 232, 0.14));
+  --mid-bg: linear-gradient(135deg, rgba(30, 116, 170, 0.11), rgba(123, 187, 220, 0.10));
+  --low-bg: linear-gradient(135deg, rgba(111, 164, 197, 0.12), rgba(221, 241, 252, 0.18));
 }
 
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
-  color: var(--text);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(151, 211, 241, 0.35), transparent 34%),
+    radial-gradient(circle at top right, rgba(92, 171, 219, 0.18), transparent 26%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1) 48%, #f8fcff);
 }
 
 body {
   line-height: 1.5;
 }
 
-.container {
-  width: min(1120px, calc(100vw - 2rem));
-  margin: 0 auto;
-  padding: 2rem 0 4rem;
+.page-shell {
+  min-height: 100vh;
 }
 
 .hero {
-  margin-bottom: 1.5rem;
+  padding: 3.5rem 1.25rem 2rem;
 }
 
-.hero h1 {
-  margin: 0 0 0.4rem;
-  font-size: clamp(1.9rem, 3vw, 2.8rem);
-  line-height: 1.1;
+.hero-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.7fr 0.9fr;
+  gap: 1.2rem;
+  align-items: stretch;
 }
 
-.subtitle {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1rem;
+.hero-copy,
+.hero-panel,
+.controls,
+.stat-pill,
+.repo-card,
+.empty-state {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-.toolbar {
-  background: var(--card);
+.hero-copy {
+  background: linear-gradient(135deg, rgba(255,255,255,0.78), rgba(255,255,255,0.62));
   border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 2rem 2rem 1.8rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.65rem;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(25, 118, 184, 0.10);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.hero-text {
+  max-width: 62ch;
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.hero-panel {
+  background: linear-gradient(160deg, rgba(25, 118, 184, 0.93), rgba(72, 160, 213, 0.88));
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 28px;
+  box-shadow: var(--shadow-strong);
+  padding: 1.4rem;
+  color: white;
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+}
+
+.hero-stat {
   border-radius: 18px;
+  background: rgba(255,255,255,0.10);
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.hero-stat-label {
+  display: block;
+  opacity: 0.85;
+  font-size: 0.85rem;
+}
+
+.hero-stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 0.18rem;
+}
+
+.main-content {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.controls {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
   box-shadow: var(--shadow);
   padding: 1rem;
-  margin: 1.25rem 0 1.25rem;
 }
 
-.toolbar-grid {
+.controls-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 0.9rem;
 }
 
-.field {
+.control {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
-.field label {
-  font-size: 0.9rem;
+.control span {
+  font-size: 0.85rem;
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 input[type="search"],
 select,
 button {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: #fff;
-  padding: 0.78rem 0.9rem;
-  font-size: 0.95rem;
+  appearance: none;
+  border: 1px solid rgba(92, 151, 193, 0.22);
+  background: rgba(255,255,255,0.92);
   color: var(--text);
+  border-radius: 16px;
+  padding: 0.85rem 0.95rem;
+  font-size: 0.95rem;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 input[type="search"]:focus,
 select:focus,
 button:focus {
-  outline: 2px solid var(--accent-soft);
-  border-color: var(--accent);
+  outline: none;
+  border-color: var(--primary-2);
+  box-shadow: 0 0 0 4px rgba(47, 148, 209, 0.12);
 }
 
-.toolbar-actions {
-  margin-top: 0.9rem;
+.controls-actions {
   display: flex;
   justify-content: flex-end;
+  margin-top: 0.9rem;
 }
 
 button {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--primary);
 }
 
 button:hover {
-  border-color: var(--accent);
+  transform: translateY(-1px);
 }
 
-.stats {
+.stats-bar {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.8rem;
-  margin: 0 0 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0 1.1rem;
 }
 
-.stat-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 0.9rem 1rem;
-  box-shadow: var(--shadow);
-}
-
-.stat-value {
-  font-size: 1.35rem;
-  font-weight: 800;
-}
-
-.stat-label {
-  color: var(--muted);
-  font-size: 0.88rem;
-}
-
-.results {
-  display: grid;
-  gap: 1rem;
-}
-
-.card {
-  background: var(--card);
+.stat-pill {
+  background: var(--surface-strong);
   border: 1px solid var(--border);
   border-radius: 18px;
   box-shadow: var(--shadow);
-  padding: 1.15rem 1.15rem 1rem;
+  padding: 0.95rem 1rem;
 }
 
-.card-header {
-  display: flex;
+.stat-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-top: 0.1rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   gap: 1rem;
+}
+
+.repo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-height: 300px;
+  text-decoration: none;
+  color: inherit;
+  padding: 1.1rem;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.repo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  z-index: 0;
+}
+
+.repo-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.repo-card.tone-high::before {
+  background: var(--high-bg);
+}
+
+.repo-card.tone-mid::before {
+  background: var(--mid-bg);
+}
+
+.repo-card.tone-low::before {
+  background: var(--low-bg);
+}
+
+.repo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+  border-color: rgba(47, 148, 209, 0.32);
+}
+
+.repo-card-top {
+  display: flex;
   justify-content: space-between;
+  gap: 1rem;
   align-items: flex-start;
 }
 
-.repo-name {
-  margin: 0 0 0.35rem;
-  font-size: 1.2rem;
+.repo-kicker {
+  color: var(--primary);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.repo-name a {
-  color: var(--accent);
-  text-decoration: none;
+.repo-title {
+  margin: 0.28rem 0 0.35rem;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
-.repo-name a:hover {
-  text-decoration: underline;
-}
-
-.repo-description {
+.repo-summary {
   margin: 0;
-  color: var(--muted);
-}
-
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  justify-content: flex-end;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.32rem 0.65rem;
-  border-radius: 999px;
-  background: #f3f4f6;
-  color: #374151;
-  font-size: 0.82rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.badge-good {
-  background: var(--good-bg);
-  color: var(--good);
-}
-
-.badge-ok {
-  background: var(--ok-bg);
-  color: var(--ok);
-}
-
-.badge-low {
-  background: var(--low-bg);
-  color: var(--low);
-}
-
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin: 0.95rem 0 0.5rem;
   color: var(--muted);
   font-size: 0.93rem;
 }
 
-.section {
-  margin-top: 0.85rem;
-}
-
-.section-title {
-  font-size: 0.84rem;
+.confidence-badge {
+  min-width: 56px;
+  text-align: center;
+  padding: 0.45rem 0.65rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(47, 148, 209, 0.18);
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  margin-bottom: 0.4rem;
+  color: var(--primary);
 }
 
-.chips {
+.repo-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  color: var(--muted);
+  font-size: 0.87rem;
+}
+
+.chip-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
@@ -628,68 +710,129 @@ button:hover {
 .chip {
   display: inline-flex;
   align-items: center;
-  padding: 0.3rem 0.65rem;
   border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-size: 0.82rem;
-  font-weight: 600;
+  padding: 0.32rem 0.62rem;
+  font-size: 0.79rem;
+  font-weight: 700;
 }
 
-.chip.subtle {
-  background: #f3f4f6;
-  color: #4b5563;
+.chip-primary {
+  background: rgba(25, 118, 184, 0.12);
+  color: var(--primary);
 }
 
-.chip.highlight {
-  background: #ede9fe;
-  color: #6d28d9;
+.chip-subtle {
+  background: rgba(255,255,255,0.7);
+  color: #4f6a7d;
+  border: 1px solid rgba(80, 132, 180, 0.12);
 }
 
-.clean-list {
+.hover-panel {
+  margin-top: auto;
+  border-top: 1px solid rgba(80, 132, 180, 0.12);
+  padding-top: 0.9rem;
+  opacity: 0.82;
+  transform: translateY(8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.repo-card:hover .hover-panel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-block + .hover-block {
+  margin-top: 0.7rem;
+}
+
+.hover-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.hover-list {
   margin: 0;
-  padding-left: 1.2rem;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 .warning-list {
-  color: #92400e;
+  color: #946b21;
+}
+
+.hover-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .empty-state {
-  background: var(--card);
+  grid-column: 1 / -1;
+  background: var(--surface-strong);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-  padding: 1.5rem;
+  border-radius: 24px;
+  padding: 1.6rem;
   text-align: center;
+  box-shadow: var(--shadow);
 }
 
-@media (max-width: 960px) {
-  .toolbar-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.empty-state h2 {
+  margin-top: 0;
+}
+
+.empty-state p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 980px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
   }
 
-  .card-header {
-    flex-direction: column;
+  .controls-grid {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .badges {
-    justify-content: flex-start;
+  .stats-bar {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 640px) {
-  .container {
-    width: min(100vw - 1rem, 1120px);
-    padding-top: 1rem;
+  .hero {
+    padding-top: 1.5rem;
   }
 
-  .toolbar-grid {
+  .hero-copy,
+  .hero-panel,
+  .controls {
+    border-radius: 20px;
+  }
+
+  .controls-grid {
     grid-template-columns: 1fr;
   }
 
-  .card {
-    padding: 1rem;
+  .stats-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .repo-card {
+    min-height: 280px;
+  }
+
+  .repo-card-top {
+    flex-direction: column;
   }
 }
 """

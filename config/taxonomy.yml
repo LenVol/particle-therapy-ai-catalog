@@ -77,22 +77,15 @@ ai_terms:
   - regression
   - reinforcement learning
   - foundation model
+  - prediction
+  - model
+  - training
 
 negative_terms:
-  - awesome-list
-  - awesome list
   - paper list
   - papers list
-  - reading list
   - literature review
   - review article
-  - survey paper
-  - curriculum vitae
-  - syllabus
-  - lecture notes
-  - slides only
-  - benchmark results only
-  - conference presentation
 
 generic_radiotherapy_terms:
   - radiotherapy
