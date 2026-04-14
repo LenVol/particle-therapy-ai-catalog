@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+.pytest_cache/
+.DS_Store
+
+# generated data
+data/catalog.json
+data/all_candidates.json
+
+# keep published site committed, except temp files
+site/*.tmp

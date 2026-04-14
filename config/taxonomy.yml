@@ -1,0 +1,57 @@
+particle_therapy_terms:
+  - particle therapy
+  - proton therapy
+  - ion beam therapy
+  - hadron therapy
+  - carbon ion
+  - heavy ion
+  - pencil beam
+  - treatment planning
+  - dose calculation
+  - dose prediction
+  - range verification
+  - let prediction
+  - adaptive proton therapy
+
+ai_terms:
+  - deep learning
+  - machine learning
+  - artificial intelligence
+  - neural network
+  - cnn
+  - rnn
+  - lstm
+  - transformer
+  - segmentation
+  - classification
+  - regression
+  - reinforcement learning
+  - pytorch
+  - tensorflow
+  - keras
+  - xgboost
+  - scikit-learn
+  - random forest
+  - autoencoder
+  - u-net
+  - unet
+
+negative_terms:
+  - awesome-list
+  - paper list
+  - reading list
+  - curriculum vitae
+  - syllabus
+  - slides only
+
+categories:
+  - segmentation
+  - dose prediction
+  - treatment planning
+  - range verification
+  - outcome modeling
+  - image reconstruction
+  - beam monitoring
+  - contouring
+  - synthetic data
+  - uncertainty estimation
