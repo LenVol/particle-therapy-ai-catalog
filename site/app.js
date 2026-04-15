@@ -26,33 +26,36 @@ function formatDate(value) {
   return date.toISOString().slice(0, 10);
 }
 
-function confidenceClass(confidence) {
-  if (confidence >= 0.75) return "badge-good";
-  if (confidence >= 0.50) return "badge-ok";
-  return "badge-low";
+function scoreTone(confidence) {
+  if (confidence >= 0.75) return "high";
+  if (confidence >= 0.50) return "mid";
+  return "low";
 }
 
 function buildStats(items, totalItems) {
   const totalStars = items.reduce((sum, item) => sum + (item.stars || 0), 0);
-  const platformCounts = items.reduce((acc, item) => {
-    const key = item.platform || "unknown";
-    acc[key] = (acc[key] || 0) + 1;
-    return acc;
-  }, {});
+  const avgConfidence = items.length
+    ? (items.reduce((sum, item) => sum + (item.classification?.confidence || 0), 0) / items.length).toFixed(2)
+    : "0.00";
 
-  const pieces = [
-    `<div class="stat-card"><div class="stat-value">${items.length}</div><div class="stat-label">Shown</div></div>`,
-    `<div class="stat-card"><div class="stat-value">${totalItems}</div><div class="stat-label">Total indexed</div></div>`,
-    `<div class="stat-card"><div class="stat-value">${totalStars}</div><div class="stat-label">Stars shown</div></div>`,
-  ];
-
-  for (const [platform, count] of Object.entries(platformCounts).sort()) {
-    pieces.push(
-      `<div class="stat-card"><div class="stat-value">${count}</div><div class="stat-label">${escapeHtml(platform)}</div></div>`
-    );
-  }
-
-  return pieces.join("");
+  return `
+    <div class="stat-pill">
+      <span class="stat-label">Shown</span>
+      <span class="stat-value">${items.length}</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Total indexed</span>
+      <span class="stat-value">${totalItems}</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Stars shown</span>
+      <span class="stat-value">${totalStars}</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Avg confidence</span>
+      <span class="stat-value">${avgConfidence}</span>
+    </div>
+  `;
 }
 
 function getSearchBlob(item) {
@@ -63,13 +66,11 @@ function getSearchBlob(item) {
     (item.topics || []).join(" "),
     (cls.categories || []).join(" "),
     (cls.reasons || []).join(" "),
-    (cls.summary || ""),
-    (item.manual_note || ""),
+    cls.summary || "",
+    item.manual_note || "",
     (item.manual_tags || []).join(" "),
     cls.likely_tool_type || ""
-  ]
-    .join(" ")
-    .toLowerCase();
+  ].join(" ").toLowerCase();
 }
 
 function sortItems(items, sortBy) {
@@ -79,24 +80,10 @@ function sortItems(items, sortBy) {
     const aCls = a.classification || {};
     const bCls = b.classification || {};
 
-    if (sortBy === "stars") {
-      return (b.stars || 0) - (a.stars || 0);
-    }
-
-    if (sortBy === "updated") {
-      const aDate = a.updated_at || "";
-      const bDate = b.updated_at || "";
-      return bDate.localeCompare(aDate);
-    }
-
-    if (sortBy === "heuristic") {
-      return (b.heuristic_total_score || 0) - (a.heuristic_total_score || 0);
-    }
-
-    if (sortBy === "name") {
-      return (a.full_name || "").localeCompare(b.full_name || "");
-    }
-
+    if (sortBy === "stars") return (b.stars || 0) - (a.stars || 0);
+    if (sortBy === "updated") return (b.updated_at || "").localeCompare(a.updated_at || "");
+    if (sortBy === "heuristic") return (b.heuristic_total_score || 0) - (a.heuristic_total_score || 0);
+    if (sortBy === "name") return (a.full_name || "").localeCompare(b.full_name || "");
     return (bCls.confidence || 0) - (aCls.confidence || 0);
   });
 
@@ -107,23 +94,10 @@ function matchesFilters(item, filters) {
   const cls = item.classification || {};
   const query = filters.query.trim().toLowerCase();
 
-  if (query) {
-    const blob = getSearchBlob(item);
-    if (!blob.includes(query)) return false;
-  }
-
-  if (filters.platform && (item.platform || "") !== filters.platform) {
-    return false;
-  }
-
-  if (filters.category) {
-    const categories = cls.categories || [];
-    if (!categories.includes(filters.category)) return false;
-  }
-
-  if ((cls.confidence || 0) < filters.minConfidence) {
-    return false;
-  }
+  if (query && !getSearchBlob(item).includes(query)) return false;
+  if (filters.platform && (item.platform || "") !== filters.platform) return false;
+  if (filters.category && !(cls.categories || []).includes(filters.category)) return false;
+  if ((cls.confidence || 0) < filters.minConfidence) return false;
 
   return true;
 }
@@ -135,7 +109,7 @@ function renderCards(items) {
     results.innerHTML = `
       <div class="empty-state">
         <h2>No repositories match the current filters.</h2>
-        <p>Try broadening the search or resetting the filters.</p>
+        <p>Try a broader search or reset the filters.</p>
       </div>
     `;
     return;
@@ -147,88 +121,76 @@ function renderCards(items) {
     const reasons = cls.reasons || [];
     const warnings = cls.warnings || [];
     const topics = item.topics || [];
-    const manualTags = item.manual_tags || [];
-    const stars = item.stars ?? 0;
-    const updatedAt = formatDate(item.updated_at);
     const confidence = Number(cls.confidence || 0).toFixed(2);
+    const tone = scoreTone(cls.confidence || 0);
 
     return `
-      <article class="card">
-        <div class="card-header">
+      <a class="repo-card tone-${tone}" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(item.full_name || "")}">
+        <div class="repo-card-top">
           <div>
-            <h2 class="repo-name">
-              <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
-                ${escapeHtml(item.full_name || "")}
-              </a>
-            </h2>
-            <p class="repo-description">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
+            <div class="repo-kicker">${escapeHtml(item.platform || "unknown")} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
+            <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
+            <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
           </div>
-          <div class="badges">
-            <span class="badge">${escapeHtml(item.platform || "unknown")}</span>
-            <span class="badge">${escapeHtml(cls.likely_tool_type || "unclear")}</span>
-            <span class="badge ${confidenceClass(cls.confidence || 0)}">confidence ${confidence}</span>
-          </div>
+          <div class="confidence-badge">${confidence}</div>
         </div>
 
-        <div class="meta">
-          <span><strong>Stars:</strong> ${stars}</span>
-          <span><strong>Updated:</strong> ${escapeHtml(updatedAt)}</span>
-          <span><strong>Heuristic:</strong> ${escapeHtml(item.heuristic_total_score ?? "")}</span>
-          <span><strong>Language:</strong> ${escapeHtml(item.language || "Unknown")}</span>
+        <div class="repo-meta-row">
+          <span>★ ${item.stars || 0}</span>
+          <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
+          <span>Heuristic ${escapeHtml(item.heuristic_total_score ?? "")}</span>
         </div>
 
         ${
           categories.length
-            ? `<div class="section"><div class="section-title">Categories</div><div class="chips">${
-                categories.map(x => `<span class="chip">${escapeHtml(x)}</span>`).join("")
-              }</div></div>`
-            : ""
+            ? `<div class="chip-row">${categories.slice(0, 4).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
+            : `<div class="chip-row"></div>`
         }
 
-        ${
-          topics.length
-            ? `<div class="section"><div class="section-title">Topics</div><div class="chips">${
-                topics.slice(0, 12).map(x => `<span class="chip subtle">${escapeHtml(x)}</span>`).join("")
-              }</div></div>`
-            : ""
-        }
+        <div class="hover-panel">
+          ${
+            topics.length
+              ? `<div class="hover-block">
+                  <div class="hover-label">Topics</div>
+                  <div class="chip-row">${topics.slice(0, 8).map(x => `<span class="chip chip-subtle">${escapeHtml(x)}</span>`).join("")}</div>
+                </div>`
+              : ""
+          }
 
-        ${
-          manualTags.length
-            ? `<div class="section"><div class="section-title">Manual tags</div><div class="chips">${
-                manualTags.map(x => `<span class="chip highlight">${escapeHtml(x)}</span>`).join("")
-              }</div></div>`
-            : ""
-        }
+          ${
+            reasons.length
+              ? `<div class="hover-block">
+                  <div class="hover-label">Why included</div>
+                  <ul class="hover-list">${reasons.slice(0, 3).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+                </div>`
+              : ""
+          }
 
-        ${
-          reasons.length
-            ? `<div class="section"><div class="section-title">Why included</div><ul class="clean-list">${
-                reasons.slice(0, 4).map(x => `<li>${escapeHtml(x)}</li>`).join("")
-              }</ul></div>`
-            : ""
-        }
+          ${
+            warnings.length
+              ? `<div class="hover-block">
+                  <div class="hover-label">Warnings</div>
+                  <ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+                </div>`
+              : ""
+          }
 
-        ${
-          warnings.length
-            ? `<div class="section"><div class="section-title">Warnings</div><ul class="clean-list warning-list">${
-                warnings.slice(0, 4).map(x => `<li>${escapeHtml(x)}</li>`).join("")
-              }</ul></div>`
-            : ""
-        }
-
-        ${
-          item.manual_note
-            ? `<div class="section"><div class="section-title">Curator note</div><p>${escapeHtml(item.manual_note)}</p></div>`
-            : ""
-        }
-      </article>
+          ${
+            item.manual_note
+              ? `<div class="hover-block">
+                  <div class="hover-label">Curator note</div>
+                  <p class="hover-note">${escapeHtml(item.manual_note)}</p>
+                </div>`
+              : ""
+          }
+        </div>
+      </a>
     `;
   }).join("");
 }
 
 function populateSelect(selectEl, values, placeholderLabel) {
-  const existing = selectEl.value;
+  const current = selectEl.value;
   selectEl.innerHTML = `<option value="">${placeholderLabel}</option>`;
   for (const value of values) {
     const option = document.createElement("option");
@@ -236,7 +198,7 @@ function populateSelect(selectEl, values, placeholderLabel) {
     option.textContent = value;
     selectEl.appendChild(option);
   }
-  selectEl.value = existing;
+  selectEl.value = current;
 }
 
 async function main() {
@@ -250,10 +212,10 @@ async function main() {
   const stats = document.getElementById("stats");
   const resetButton = document.getElementById("resetFilters");
 
+  document.getElementById("heroRepoCount").textContent = rawItems.length;
+
   const platforms = uniqueSorted(rawItems.map(item => item.platform));
-  const categories = uniqueSorted(
-    rawItems.flatMap(item => (item.classification?.categories || []))
-  );
+  const categories = uniqueSorted(rawItems.flatMap(item => item.classification?.categories || []));
 
   populateSelect(platformFilter, platforms, "All platforms");
   populateSelect(categoryFilter, categories, "All categories");
@@ -263,12 +225,13 @@ async function main() {
       query: search.value || "",
       platform: platformFilter.value || "",
       category: categoryFilter.value || "",
-      minConfidence: Number(confidenceFilter.value || 0),
+      minConfidence: Number(confidenceFilter.value || 0)
     };
 
     const filtered = rawItems.filter(item => matchesFilters(item, filters));
     const sorted = sortItems(filtered, sortBy.value || "confidence");
 
+    document.getElementById("heroVisibleCount").textContent = sorted.length;
     stats.innerHTML = buildStats(sorted, rawItems.length);
     renderCards(sorted);
   }

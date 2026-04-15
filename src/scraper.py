@@ -37,7 +37,10 @@ EXTRA_FILES = [
 
 
 def load_yaml(path: str) -> dict[str, Any]:
-    with open(path, "r", encoding="utf-8") as handle:
+    file_path = Path(path)
+    if not file_path.exists():
+        return {}
+    with open(file_path, "r", encoding="utf-8") as handle:
         return yaml.safe_load(handle) or {}
 
 
@@ -45,6 +48,14 @@ def safe_write_json(path: str | Path, payload: Any) -> None:
     file_path = Path(path)
     file_path.parent.mkdir(parents=True, exist_ok=True)
     file_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def normalize_repo_name(full_name: str) -> str:
+    text = full_name or ""
+    text = text.replace("/", " ")
+    text = text.replace("-", " ")
+    text = text.replace("_", " ")
+    return text
 
 
 def collect_github_text(owner: str, repo: str) -> tuple[str, str]:
@@ -88,32 +99,43 @@ def collect_gitlab_text(project_id: int, default_branch: str | None) -> tuple[st
     return readme[:12000], "\n\n".join(extra_chunks)[:12000]
 
 
-def build_blob(description: str, topics: list[str], readme: str, extra: str) -> str:
-    return " ".join([
+def build_blob(
+    full_name: str,
+    description: str,
+    topics: list[str],
+    readme: str,
+    extra: str,
+) -> str:
+    parts = [
+        full_name or "",
+        normalize_repo_name(full_name),
         description or "",
         " ".join(topics or []),
         readme or "",
         extra or "",
-    ])
+    ]
+    return " ".join(parts)
 
 
-def build_github_record(item: dict[str, Any], taxonomy: dict[str, Any]) -> dict[str, Any]:
+def build_github_record(item: dict[str, Any], taxonomy: dict[str, Any], min_heuristic_score: int) -> dict[str, Any]:
     full_name = item["full_name"]
     owner, repo = full_name.split("/", 1)
 
     readme, extra = collect_github_text(owner, repo)
     blob = build_blob(
+        full_name,
         item.get("description") or "",
         item.get("topics") or [],
         readme,
         extra,
     )
+    title_blob = normalize_repo_name(full_name)
 
     heuristic = score_text(
         blob,
-        taxonomy["particle_therapy_terms"],
-        taxonomy["ai_terms"],
-        taxonomy["negative_terms"],
+        taxonomy,
+        min_total=min_heuristic_score,
+        title_blob=title_blob,
     )
 
     return {
@@ -128,37 +150,46 @@ def build_github_record(item: dict[str, Any], taxonomy: dict[str, Any]) -> dict[
         "topics": item.get("topics") or [],
         "readme_excerpt": readme,
         "extra_excerpt": extra,
-        "heuristic_pt_score": heuristic.pt_score,
-        "heuristic_ai_score": heuristic.ai_score,
-        "heuristic_negative_score": heuristic.negative_score,
+        "heuristic_strong_particle_hits": heuristic.strong_particle_hits,
+        "heuristic_particle_hits": heuristic.particle_hits,
+        "heuristic_support_hits": heuristic.support_hits,
+        "heuristic_ai_hits": heuristic.ai_hits,
+        "heuristic_negative_hits": heuristic.negative_hits,
+        "heuristic_generic_radiotherapy_hits": heuristic.generic_radiotherapy_hits,
+        "heuristic_title_strong_particle_hits": heuristic.title_strong_particle_hits,
+        "heuristic_title_ai_hits": heuristic.title_ai_hits,
         "heuristic_total_score": heuristic.total_score,
+        "heuristic_has_strong_particle_anchor": heuristic.has_strong_particle_anchor,
+        "heuristic_passes": heuristic.passes,
+        "heuristic_reasons": heuristic.reasons,
     }
 
 
-def build_gitlab_record(item: dict[str, Any], taxonomy: dict[str, Any]) -> dict[str, Any]:
+def build_gitlab_record(item: dict[str, Any], taxonomy: dict[str, Any], min_heuristic_score: int) -> dict[str, Any]:
     project_id = item["id"]
     default_branch = item.get("default_branch")
+    repo_name = item.get("path_with_namespace") or item.get("name_with_namespace") or str(project_id)
 
     readme, extra = collect_gitlab_text(project_id, default_branch)
     blob = build_blob(
+        repo_name,
         item.get("description") or "",
         item.get("topics") or [],
         readme,
         extra,
     )
+    title_blob = normalize_repo_name(repo_name)
 
     heuristic = score_text(
         blob,
-        taxonomy["particle_therapy_terms"],
-        taxonomy["ai_terms"],
-        taxonomy["negative_terms"],
+        taxonomy,
+        min_total=min_heuristic_score,
+        title_blob=title_blob,
     )
 
     return {
         "platform": "gitlab",
-        "full_name": item.get("path_with_namespace")
-        or item.get("name_with_namespace")
-        or str(project_id),
+        "full_name": repo_name,
         "url": item["web_url"],
         "description": item.get("description") or "",
         "stars": item.get("star_count", 0),
@@ -168,10 +199,18 @@ def build_gitlab_record(item: dict[str, Any], taxonomy: dict[str, Any]) -> dict[
         "topics": item.get("topics") or [],
         "readme_excerpt": readme,
         "extra_excerpt": extra,
-        "heuristic_pt_score": heuristic.pt_score,
-        "heuristic_ai_score": heuristic.ai_score,
-        "heuristic_negative_score": heuristic.negative_score,
+        "heuristic_strong_particle_hits": heuristic.strong_particle_hits,
+        "heuristic_particle_hits": heuristic.particle_hits,
+        "heuristic_support_hits": heuristic.support_hits,
+        "heuristic_ai_hits": heuristic.ai_hits,
+        "heuristic_negative_hits": heuristic.negative_hits,
+        "heuristic_generic_radiotherapy_hits": heuristic.generic_radiotherapy_hits,
+        "heuristic_title_strong_particle_hits": heuristic.title_strong_particle_hits,
+        "heuristic_title_ai_hits": heuristic.title_ai_hits,
         "heuristic_total_score": heuristic.total_score,
+        "heuristic_has_strong_particle_anchor": heuristic.has_strong_particle_anchor,
+        "heuristic_passes": heuristic.passes,
+        "heuristic_reasons": heuristic.reasons,
     }
 
 
@@ -201,24 +240,51 @@ def apply_overrides(entries: list[dict[str, Any]], overrides: dict[str, Any]) ->
     return result
 
 
-def discover_repositories(
+def derive_gitlab_queries_from_main_queries(main_queries: list[str], taxonomy: dict[str, Any]) -> list[str]:
+    """
+    GitLab project search works better with broader domain-only queries.
+    This extracts only strong particle-therapy anchors from the main query list.
+    """
+    strong_terms = taxonomy.get("strong_particle_therapy_terms", [])
+    derived: list[str] = []
+
+    for query in main_queries:
+        lowered = query.lower()
+        for term in strong_terms:
+            if term.lower() in lowered:
+                derived.append(term)
+
+    # Deduplicate while preserving order
+    seen = set()
+    result = []
+    for q in derived:
+        if q not in seen:
+            seen.add(q)
+            result.append(q)
+
+    return result
+
+
+def discover_github_repositories(
     queries: list[str],
     taxonomy: dict[str, Any],
     settings: dict[str, Any],
 ) -> list[dict[str, Any]]:
     scraper_cfg = settings.get("scraper", {})
     github_per_query = int(scraper_cfg.get("github_per_query", 25))
-    gitlab_per_query = int(scraper_cfg.get("gitlab_per_query", 25))
-    use_gitlab = bool(scraper_cfg.get("use_gitlab", True))
     sleep_seconds = float(scraper_cfg.get("polite_sleep_seconds", 0.35))
+    min_heuristic_score = int(scraper_cfg.get("min_heuristic_score", 4))
 
     seen: dict[str, dict[str, Any]] = {}
 
     for query in queries:
         LOGGER.info("GitHub query: %s", query)
         try:
-            for item in search_github_repositories(query, per_page=github_per_query):
-                record = build_github_record(item, taxonomy)
+            github_items = search_github_repositories(query, per_page=github_per_query)
+            LOGGER.info("GitHub returned %d items for query %r", len(github_items), query)
+
+            for item in github_items:
+                record = build_github_record(item, taxonomy, min_heuristic_score)
                 current = seen.get(record["url"])
                 if current is None or record["heuristic_total_score"] > current["heuristic_total_score"]:
                     seen[record["url"]] = record
@@ -226,39 +292,74 @@ def discover_repositories(
         except Exception as exc:
             LOGGER.warning("GitHub query failed for %r: %s", query, exc)
 
-        if use_gitlab:
-            LOGGER.info("GitLab query: %s", query)
-            try:
-                for item in search_gitlab_projects(query, per_page=gitlab_per_query):
-                    record = build_gitlab_record(item, taxonomy)
-                    current = seen.get(record["url"])
-                    if current is None or record["heuristic_total_score"] > current["heuristic_total_score"]:
-                        seen[record["url"]] = record
-                    polite_sleep(sleep_seconds)
-            except Exception as exc:
-                LOGGER.warning("GitLab query failed for %r: %s", query, exc)
+    return list(seen.values())
+
+
+def discover_gitlab_repositories(
+    queries: list[str],
+    taxonomy: dict[str, Any],
+    settings: dict[str, Any],
+) -> list[dict[str, Any]]:
+    scraper_cfg = settings.get("scraper", {})
+    gitlab_per_query = int(scraper_cfg.get("gitlab_per_query", 25))
+    sleep_seconds = float(scraper_cfg.get("polite_sleep_seconds", 0.35))
+    min_heuristic_score = int(scraper_cfg.get("min_heuristic_score", 4))
+
+    seen: dict[str, dict[str, Any]] = {}
+
+    for query in queries:
+        LOGGER.info("GitLab query: %s", query)
+        try:
+            gitlab_items = search_gitlab_projects(query, per_page=gitlab_per_query)
+            LOGGER.info("GitLab returned %d items for query %r", len(gitlab_items), query)
+
+            for item in gitlab_items:
+                record = build_gitlab_record(item, taxonomy, min_heuristic_score)
+                current = seen.get(record["url"])
+                if current is None or record["heuristic_total_score"] > current["heuristic_total_score"]:
+                    seen[record["url"]] = record
+                polite_sleep(sleep_seconds)
+        except Exception as exc:
+            LOGGER.warning("GitLab query failed for %r: %s", query, exc)
+
+    return list(seen.values())
+
+
+def merge_and_sort_candidates(*candidate_groups: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    seen: dict[str, dict[str, Any]] = {}
+
+    for group in candidate_groups:
+        for row in group:
+            current = seen.get(row["url"])
+            if current is None or row["heuristic_total_score"] > current["heuristic_total_score"]:
+                seen[row["url"]] = row
 
     return sorted(
         seen.values(),
-        key=lambda row: (row["heuristic_total_score"], row["stars"]),
+        key=lambda row: (
+            row["heuristic_total_score"],
+            row["heuristic_strong_particle_hits"] + row["heuristic_title_strong_particle_hits"],
+            row["heuristic_ai_hits"] + row["heuristic_title_ai_hits"],
+            row["stars"],
+        ),
         reverse=True,
     )
 
 
 def run() -> int:
     queries_cfg = load_yaml("config/queries.yml")
+    gitlab_queries_cfg = load_yaml("config/gitlab_queries.yml")
     taxonomy = load_yaml("config/taxonomy.yml")
     overrides = load_yaml("config/manual_overrides.yml")
     settings = load_yaml("config/settings.yml")
 
-    queries = queries_cfg.get("queries", [])
-    if not queries:
+    github_queries = queries_cfg.get("queries", [])
+    if not github_queries:
         raise ValueError("config/queries.yml contains no queries.")
 
-    all_candidates = discover_repositories(queries, taxonomy, settings)
-    all_candidates = apply_overrides(all_candidates, overrides)
-
-    safe_write_json("data/all_candidates.json", all_candidates)
+    gitlab_queries = gitlab_queries_cfg.get("queries", [])
+    if not gitlab_queries:
+        gitlab_queries = derive_gitlab_queries_from_main_queries(github_queries, taxonomy)
 
     scraper_cfg = settings.get("scraper", {})
     llm_cfg = settings.get("llm", {})
@@ -267,34 +368,68 @@ def run() -> int:
     classify_sleep_seconds = float(scraper_cfg.get("classify_sleep_seconds", 1.25))
     max_llm_repos = int(llm_cfg.get("max_repos_per_run", 25))
     llm_enabled = bool(llm_cfg.get("enabled", False))
+    use_gitlab = bool(scraper_cfg.get("use_gitlab", True))
     cache_classifications = bool(scraper_cfg.get("cache_classifications", True))
     llm_cfg["cache_classifications"] = cache_classifications
 
+    github_candidates = discover_github_repositories(github_queries, taxonomy, settings)
+    gitlab_candidates = discover_gitlab_repositories(gitlab_queries, taxonomy, settings) if use_gitlab else []
+
+    LOGGER.info("GitHub candidate count: %d", len(github_candidates))
+    LOGGER.info("GitLab candidate count: %d", len(gitlab_candidates))
+
+    all_candidates = merge_and_sort_candidates(github_candidates, gitlab_candidates)
+    all_candidates = apply_overrides(all_candidates, overrides)
+
+    safe_write_json("data/all_candidates.json", all_candidates)
+
     prefiltered: list[dict[str, Any]] = []
     for repo in all_candidates:
+        blob = build_blob(
+            repo.get("full_name", ""),
+            repo.get("description", ""),
+            repo.get("topics", []),
+            repo.get("readme_excerpt", ""),
+            repo.get("extra_excerpt", ""),
+        )
+        title_blob = normalize_repo_name(repo.get("full_name", ""))
+
         heuristic = score_text(
-            build_blob(
-                repo.get("description", ""),
-                repo.get("topics", []),
-                repo.get("readme_excerpt", ""),
-                repo.get("extra_excerpt", ""),
-            ),
-            taxonomy["particle_therapy_terms"],
-            taxonomy["ai_terms"],
-            taxonomy["negative_terms"],
+            blob,
+            taxonomy,
+            min_total=min_heuristic_score,
+            title_blob=title_blob,
         )
 
-        if passes_prefilter(heuristic, min_total=min_heuristic_score) or repo.get("forced_include", False):
+        repo["heuristic_strong_particle_hits"] = heuristic.strong_particle_hits
+        repo["heuristic_particle_hits"] = heuristic.particle_hits
+        repo["heuristic_support_hits"] = heuristic.support_hits
+        repo["heuristic_ai_hits"] = heuristic.ai_hits
+        repo["heuristic_negative_hits"] = heuristic.negative_hits
+        repo["heuristic_generic_radiotherapy_hits"] = heuristic.generic_radiotherapy_hits
+        repo["heuristic_title_strong_particle_hits"] = heuristic.title_strong_particle_hits
+        repo["heuristic_title_ai_hits"] = heuristic.title_ai_hits
+        repo["heuristic_total_score"] = heuristic.total_score
+        repo["heuristic_has_strong_particle_anchor"] = heuristic.has_strong_particle_anchor
+        repo["heuristic_passes"] = heuristic.passes
+        repo["heuristic_reasons"] = heuristic.reasons
+
+        if True: #passes_prefilter(heuristic) or repo.get("forced_include", False):
             prefiltered.append(repo)
 
     prefiltered = sorted(
         prefiltered,
-        key=lambda row: (row["heuristic_total_score"], row["stars"]),
+        key=lambda row: (
+            row["heuristic_total_score"],
+            row["heuristic_strong_particle_hits"] + row["heuristic_title_strong_particle_hits"],
+            row["heuristic_ai_hits"] + row["heuristic_title_ai_hits"],
+            row["stars"],
+        ),
         reverse=True,
     )
 
-    if llm_enabled:
-        prefiltered = prefiltered[:max_llm_repos]
+    #if llm_enabled:
+    #    prefiltered = prefiltered[:max_llm_repos]
 
     included: list[dict[str, Any]] = []
 
@@ -305,9 +440,9 @@ def run() -> int:
             cache_path="data/classification_cache.json",
         )
 
-        if not classification.include and not repo.get("forced_include", False):
-            time.sleep(classify_sleep_seconds)
-            continue
+        #if not classification.include and not repo.get("forced_include", False):
+        #    time.sleep(classify_sleep_seconds)
+        #    continue
 
         repo["classification"] = {
             "include": classification.include,
@@ -329,6 +464,7 @@ def run() -> int:
         key=lambda row: (
             row["classification"]["confidence"],
             row["heuristic_total_score"],
+            row["heuristic_strong_particle_hits"] + row["heuristic_title_strong_particle_hits"],
             row["stars"],
         ),
         reverse=True,
@@ -338,6 +474,8 @@ def run() -> int:
     write_readme(included)
     write_site(included)
 
+    LOGGER.info("GitHub queries used: %d", len(github_queries))
+    LOGGER.info("GitLab queries used: %d", len(gitlab_queries))
     LOGGER.info("All candidates: %d", len(all_candidates))
     LOGGER.info("Prefiltered candidates: %d", len(prefiltered))
     LOGGER.info("Included repositories: %d", len(included))

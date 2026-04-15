@@ -43,12 +43,18 @@ def gitlab_headers() -> dict[str, str]:
 
 
 def search_github_repositories(query: str, per_page: int = 25) -> list[dict[str, Any]]:
-    return _request_json(
+    data = _request_json(
         "GET",
         "https://api.github.com/search/repositories",
         headers=github_headers(),
-        params={"q": query, "sort": "updated", "order": "desc", "per_page": per_page},
-    ).get("items", [])
+        params={
+            "q": query,
+            "sort": "updated",
+            "order": "desc",
+            "per_page": per_page,
+        },
+    )
+    return data.get("items", [])
 
 
 def github_get_file(owner: str, repo: str, path: str) -> str:
@@ -60,8 +66,10 @@ def github_get_file(owner: str, repo: str, path: str) -> str:
         )
     except Exception:
         return ""
+
     if data.get("encoding") != "base64":
         return ""
+
     try:
         return base64.b64decode(data["content"]).decode("utf-8", errors="ignore")
     except Exception:
@@ -69,11 +77,23 @@ def github_get_file(owner: str, repo: str, path: str) -> str:
 
 
 def search_gitlab_projects(query: str, per_page: int = 25) -> list[dict[str, Any]]:
+    """
+    Use the GitLab Projects API instead of /search?scope=projects.
+
+    This searches project name/path/description and is typically much better
+    for repository discovery.
+    """
     return _request_json(
         "GET",
-        "https://gitlab.com/api/v4/search",
+        "https://gitlab.com/api/v4/projects",
         headers=gitlab_headers(),
-        params={"scope": "projects", "search": query, "per_page": per_page},
+        params={
+            "search": query,
+            "simple": True,
+            "order_by": "last_activity_at",
+            "sort": "desc",
+            "per_page": per_page,
+        },
     )
 
 
@@ -88,12 +108,15 @@ def gitlab_get_file(project_id: int, path: str, ref: str) -> str:
         )
     except Exception:
         return ""
+
     if data.get("encoding") != "base64":
         return ""
+
     try:
         return base64.b64decode(data["content"]).decode("utf-8", errors="ignore")
     except Exception:
         return ""
+
 
 def polite_sleep(seconds: float = 0.35) -> None:
     time.sleep(seconds)
