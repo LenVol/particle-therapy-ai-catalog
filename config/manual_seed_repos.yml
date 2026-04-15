@@ -5,3 +5,11 @@ repos:
     tags:
       - treatment planning
       - software tool
+
+  - url: https://github.com/opaserr/dota
+    always_include: true
+    note: Transformer-based dose calculation for proton and photon
+    tags: 
+      - dose calculation
+      - transformer  
+

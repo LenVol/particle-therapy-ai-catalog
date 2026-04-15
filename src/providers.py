@@ -86,7 +86,7 @@ def search_github_repositories(query: str, per_page: int = 25) -> list[dict[str,
         "https://api.github.com/search/repositories",
         headers=github_headers(),
         params={
-            "q": query,
+            "q": f"{query} fork:false",
             "sort": "updated",
             "order": "desc",
             "per_page": per_page,
