@@ -414,7 +414,7 @@ def run() -> int:
         repo["heuristic_passes"] = heuristic.passes
         repo["heuristic_reasons"] = heuristic.reasons
 
-        if True: #passes_prefilter(heuristic) or repo.get("forced_include", False):
+        if passes_prefilter(heuristic) or repo.get("forced_include", False):
             prefiltered.append(repo)
 
     prefiltered = sorted(

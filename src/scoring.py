@@ -66,8 +66,8 @@ def score_text(
     total_score += title_ai_hits * 2
     total_score -= negative_hits * 4
 
-    if generic_radiotherapy_hits > 0 and not has_strong_particle_anchor:
-        total_score -= 5
+    #if generic_radiotherapy_hits > 0 and not has_strong_particle_anchor:
+    #    total_score -= 5
 
     reasons: list[str] = []
     if strong_particle_hits:
