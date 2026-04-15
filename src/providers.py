@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import base64
 import os
-import re
 import time
 from typing import Any
 
@@ -122,6 +121,28 @@ def github_get_file(owner: str, repo: str, path: str) -> str:
         return ""
 
 
+def github_list_repository_paths(owner: str, repo: str, branch: str | None = None) -> list[str]:
+    """
+    Returns a lightweight recursive path listing for a GitHub repo.
+    """
+    try:
+        data = _request_json(
+            "GET",
+            f"https://api.github.com/repos/{owner}/{repo}/git/trees/{branch or 'HEAD'}",
+            headers=github_headers(),
+            params={"recursive": "1"},
+        )
+    except Exception:
+        return []
+
+    paths: list[str] = []
+    for item in data.get("tree", []):
+        path = item.get("path")
+        if path:
+            paths.append(path)
+    return paths
+
+
 def search_gitlab_projects(query: str, per_page: int = 25) -> list[dict[str, Any]]:
     return _request_json(
         "GET",
@@ -167,27 +188,42 @@ def gitlab_get_file(project_id: int, path: str, ref: str) -> str:
         return ""
 
 
-def parse_repo_url(url: str) -> tuple[str, str] | None:
+def gitlab_list_repository_paths(project_id: int, ref: str) -> list[str]:
     """
-    Returns:
-      ("github", "owner/repo")
-      ("gitlab", "group/project")
+    Returns a shallow-ish recursive path listing for a GitLab repo by walking the tree.
     """
-    if not url:
-        return None
+    results: list[str] = []
+    page = 1
 
-    cleaned = url.strip().rstrip("/")
-    cleaned = re.sub(r"\.git$", "", cleaned)
+    while True:
+        try:
+            data = _request_json(
+                "GET",
+                f"https://gitlab.com/api/v4/projects/{project_id}/repository/tree",
+                headers=gitlab_headers(),
+                params={
+                    "ref": ref,
+                    "recursive": True,
+                    "per_page": 100,
+                    "page": page,
+                },
+            )
+        except Exception:
+            return results
 
-    m = re.match(r"^https?://github\.com/([^/]+/[^/]+)$", cleaned, re.IGNORECASE)
-    if m:
-        return "github", m.group(1)
+        if not data:
+            break
 
-    m = re.match(r"^https?://gitlab\.com/([^/]+(?:/[^/]+)+)$", cleaned, re.IGNORECASE)
-    if m:
-        return "gitlab", m.group(1)
+        for item in data:
+            path = item.get("path")
+            if path:
+                results.append(path)
 
-    return None
+        if len(data) < 100:
+            break
+        page += 1
+
+    return results
 
 
 def polite_sleep(seconds: float = 0.35) -> None:

@@ -1,15 +1,53 @@
 repos:
   - url: https://github.com/e0404/matRad
     always_include: true
-    note: Nice open-source radiotherapy treatment planning toolkit;
+    platform: github
+    full_name: e0404/matRad
+    description: Open-source radiotherapy treatment planning toolkit with relevance to proton and particle therapy research.
+    language: MATLAB
+    topics:
+      - proton therapy
+      - ion therapy
+      - photon therapy
+      - treatment planning
+      - software tool
+    note: Nice open access treatment plannig tool
     tags:
       - treatment planning
       - software tool
+    has_code: true
+    readme_excerpt: >
+      matRad is an open-source treatment planning toolkit...
 
   - url: https://github.com/opaserr/dota
     always_include: true
+    platforn: github
+    fullname: opaserr/dota
+    description: Data-driven particle transport algorithm for fast dose calculations. 
+    language: Jupyter Notebook
+    topics: 
+      - proton therapy
+      - photon therapy
+      - dose calculation
     note: Transformer-based dose calculation for proton and photon
     tags: 
       - dose calculation
-      - transformer  
-
+      - transformer 
+    has_code: true
+    readme_excepert: This repository contains the code to calculate the dose... 
+  - url: https://github.com/BeppeMagro/pymkm
+    always_include: true
+    platform: github
+    full_name: BeppeMagro/pymkm
+    description: Microdosimetric Kinetic Model utilities for radiobiology research and hadrontherapy 
+    language: python
+    topics:
+      - RBE modeling
+      - ion therapy
+    note: Python framework for rbe calculation with the micro-dosimetric kinetic model 
+    tags: 
+      - RBE modeling
+      - software tool
+    has_code: true
+    readme_excerpt: > 
+      pyMKM is an open-source Python package for the computation of microdosimetric quantities...
