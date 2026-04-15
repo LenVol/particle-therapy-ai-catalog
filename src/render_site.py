@@ -63,22 +63,10 @@ INDEX_HTML = """<!doctype html>
           </label>
 
           <label class="control">
-            <span>Min confidence</span>
-            <select id="confidenceFilter">
-              <option value="0">Any</option>
-              <option value="0.25">0.25</option>
-              <option value="0.50">0.50</option>
-              <option value="0.75">0.75</option>
-            </select>
-          </label>
-
-          <label class="control">
             <span>Sort by</span>
             <select id="sortBy">
-              <option value="confidence">Confidence</option>
               <option value="stars">Stars</option>
               <option value="updated">Last updated</option>
-              <option value="heuristic">Heuristic score</option>
               <option value="name">Name</option>
             </select>
           </label>
@@ -129,17 +117,8 @@ function formatDate(value) {
   return date.toISOString().slice(0, 10);
 }
 
-function scoreTone(confidence) {
-  if (confidence >= 0.75) return "high";
-  if (confidence >= 0.50) return "mid";
-  return "low";
-}
-
 function buildStats(items, totalItems) {
   const totalStars = items.reduce((sum, item) => sum + (item.stars || 0), 0);
-  const avgConfidence = items.length
-    ? (items.reduce((sum, item) => sum + (item.classification?.confidence || 0), 0) / items.length).toFixed(2)
-    : "0.00";
 
   return `
     <div class="stat-pill">
@@ -154,10 +133,6 @@ function buildStats(items, totalItems) {
       <span class="stat-label">Stars shown</span>
       <span class="stat-value">${totalStars}</span>
     </div>
-    <div class="stat-pill">
-      <span class="stat-label">Avg confidence</span>
-      <span class="stat-value">${avgConfidence}</span>
-    </div>
   `;
 }
 
@@ -168,7 +143,6 @@ function getSearchBlob(item) {
     item.description,
     (item.topics || []).join(" "),
     (cls.categories || []).join(" "),
-    (cls.reasons || []).join(" "),
     cls.summary || "",
     item.manual_note || "",
     (item.manual_tags || []).join(" "),
@@ -180,14 +154,9 @@ function sortItems(items, sortBy) {
   const sorted = [...items];
 
   sorted.sort((a, b) => {
-    const aCls = a.classification || {};
-    const bCls = b.classification || {};
-
-    if (sortBy === "stars") return (b.stars || 0) - (a.stars || 0);
     if (sortBy === "updated") return (b.updated_at || "").localeCompare(a.updated_at || "");
-    if (sortBy === "heuristic") return (b.heuristic_total_score || 0) - (a.heuristic_total_score || 0);
     if (sortBy === "name") return (a.full_name || "").localeCompare(b.full_name || "");
-    return (bCls.confidence || 0) - (aCls.confidence || 0);
+    return (b.stars || 0) - (a.stars || 0);
   });
 
   return sorted;
@@ -200,7 +169,6 @@ function matchesFilters(item, filters) {
   if (query && !getSearchBlob(item).includes(query)) return false;
   if (filters.platform && (item.platform || "") !== filters.platform) return false;
   if (filters.category && !(cls.categories || []).includes(filters.category)) return false;
-  if ((cls.confidence || 0) < filters.minConfidence) return false;
 
   return true;
 }
@@ -221,27 +189,23 @@ function renderCards(items) {
   results.innerHTML = items.map(item => {
     const cls = item.classification || {};
     const categories = cls.categories || [];
-    const reasons = cls.reasons || [];
     const warnings = cls.warnings || [];
     const topics = item.topics || [];
-    const confidence = Number(cls.confidence || 0).toFixed(2);
-    const tone = scoreTone(cls.confidence || 0);
 
     return `
-      <a class="repo-card tone-${tone}" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(item.full_name || "")}">
+      <a class="repo-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(item.full_name || "")}">
         <div class="repo-card-top">
           <div>
             <div class="repo-kicker">${escapeHtml(item.platform || "unknown")} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
             <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
             <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
           </div>
-          <div class="confidence-badge">${confidence}</div>
         </div>
 
         <div class="repo-meta-row">
           <span>★ ${item.stars || 0}</span>
           <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
-          <span>Heuristic ${escapeHtml(item.heuristic_total_score ?? "")}</span>
+          <span>${escapeHtml(item.language || "Unknown")}</span>
         </div>
 
         ${
@@ -261,18 +225,9 @@ function renderCards(items) {
           }
 
           ${
-            reasons.length
-              ? `<div class="hover-block">
-                  <div class="hover-label">Why included</div>
-                  <ul class="hover-list">${reasons.slice(0, 3).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
-                </div>`
-              : ""
-          }
-
-          ${
             warnings.length
               ? `<div class="hover-block">
-                  <div class="hover-label">Warnings</div>
+                  <div class="hover-label">Notes</div>
                   <ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
                 </div>`
               : ""
@@ -309,7 +264,6 @@ async function main() {
 
   const platformFilter = document.getElementById("platformFilter");
   const categoryFilter = document.getElementById("categoryFilter");
-  const confidenceFilter = document.getElementById("confidenceFilter");
   const sortBy = document.getElementById("sortBy");
   const search = document.getElementById("search");
   const stats = document.getElementById("stats");
@@ -327,19 +281,18 @@ async function main() {
     const filters = {
       query: search.value || "",
       platform: platformFilter.value || "",
-      category: categoryFilter.value || "",
-      minConfidence: Number(confidenceFilter.value || 0)
+      category: categoryFilter.value || ""
     };
 
     const filtered = rawItems.filter(item => matchesFilters(item, filters));
-    const sorted = sortItems(filtered, sortBy.value || "confidence");
+    const sorted = sortItems(filtered, sortBy.value || "stars");
 
     document.getElementById("heroVisibleCount").textContent = sorted.length;
     stats.innerHTML = buildStats(sorted, rawItems.length);
     renderCards(sorted);
   }
 
-  [platformFilter, categoryFilter, confidenceFilter, sortBy, search].forEach(el => {
+  [platformFilter, categoryFilter, sortBy, search].forEach(el => {
     el.addEventListener("input", update);
     el.addEventListener("change", update);
   });
@@ -348,8 +301,7 @@ async function main() {
     search.value = "";
     platformFilter.value = "";
     categoryFilter.value = "";
-    confidenceFilter.value = "0";
-    sortBy.value = "confidence";
+    sortBy.value = "stars";
     update();
   });
 
@@ -383,12 +335,9 @@ STYLES_CSS = """* {
   --muted: #56758c;
   --primary: #1976b8;
   --primary-2: #2f94d1;
-  --primary-3: #79bfe8;
   --shadow: 0 14px 40px rgba(19, 83, 126, 0.12);
   --shadow-strong: 0 22px 54px rgba(19, 83, 126, 0.18);
-  --high-bg: linear-gradient(135deg, rgba(22, 118, 184, 0.16), rgba(121, 191, 232, 0.14));
-  --mid-bg: linear-gradient(135deg, rgba(30, 116, 170, 0.11), rgba(123, 187, 220, 0.10));
-  --low-bg: linear-gradient(135deg, rgba(111, 164, 197, 0.12), rgba(221, 241, 252, 0.18));
+  --card-bg: linear-gradient(135deg, rgba(22, 118, 184, 0.10), rgba(121, 191, 232, 0.10));
 }
 
 html, body {
@@ -515,7 +464,7 @@ body {
 
 .controls-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 0.9rem;
 }
 
@@ -570,7 +519,7 @@ button:hover {
 
 .stats-bar {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
   margin: 1rem 0 1.1rem;
 }
@@ -608,7 +557,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  min-height: 300px;
+  min-height: 280px;
   text-decoration: none;
   color: inherit;
   padding: 1.1rem;
@@ -627,25 +576,13 @@ button:hover {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 1;
+  background: var(--card-bg);
   z-index: 0;
 }
 
 .repo-card > * {
   position: relative;
   z-index: 1;
-}
-
-.repo-card.tone-high::before {
-  background: var(--high-bg);
-}
-
-.repo-card.tone-mid::before {
-  background: var(--mid-bg);
-}
-
-.repo-card.tone-low::before {
-  background: var(--low-bg);
 }
 
 .repo-card:hover {
@@ -680,17 +617,6 @@ button:hover {
   margin: 0;
   color: var(--muted);
   font-size: 0.93rem;
-}
-
-.confidence-badge {
-  min-width: 56px;
-  text-align: center;
-  padding: 0.45rem 0.65rem;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(47, 148, 209, 0.18);
-  font-weight: 800;
-  color: var(--primary);
 }
 
 .repo-meta-row {
@@ -800,7 +726,7 @@ button:hover {
   }
 
   .stats-bar {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -819,16 +745,12 @@ button:hover {
     grid-template-columns: 1fr;
   }
 
-  .stats-bar {
-    grid-template-columns: 1fr;
-  }
-
   .cards-grid {
     grid-template-columns: 1fr;
   }
 
   .repo-card {
-    min-height: 280px;
+    min-height: 260px;
   }
 
   .repo-card-top {
@@ -854,12 +776,10 @@ def write_site(entries: list[dict[str, Any]]) -> None:
         row.setdefault("updated_at", None)
         row.setdefault("license", None)
         row.setdefault("topics", [])
-        row.setdefault("heuristic_total_score", 0)
         row.setdefault("manual_note", "")
         row.setdefault("manual_tags", [])
         row.setdefault("classification", {})
         row["classification"].setdefault("include", True)
-        row["classification"].setdefault("confidence", 0.0)
         row["classification"].setdefault("summary", row.get("description", ""))
         row["classification"].setdefault("particle_therapy_relevance", "unknown")
         row["classification"].setdefault("ml_relevance", "unknown")

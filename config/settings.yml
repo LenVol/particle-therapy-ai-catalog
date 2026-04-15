@@ -13,8 +13,8 @@ llm:
 
 scraper:
   min_heuristic_score: 4
-  github_per_query: 50
-  gitlab_per_query: 50
+  github_per_query: 25
+  gitlab_per_query: 25
   polite_sleep_seconds: 0.35
   classify_sleep_seconds: 1.25
   use_gitlab: true
