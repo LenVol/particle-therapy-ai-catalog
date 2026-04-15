@@ -78,7 +78,6 @@ INDEX_HTML = """<!doctype html>
       </section>
 
       <section class="stats-bar" id="stats"></section>
-
       <section class="cards-grid" id="results"></section>
     </main>
   </div>
@@ -89,21 +88,21 @@ INDEX_HTML = """<!doctype html>
 """
 
 
-APP_JS = r"""async function loadCatalog() {
-  const response = await fetch("catalog.json");
-  if (!response.ok) {
-    throw new Error(`Failed to load catalog.json: ${response.status}`);
-  }
-  return await response.json();
-}
-
-function escapeHtml(value) {
+APP_JS = r"""function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+async function loadCatalog() {
+  const response = await fetch("catalog.json");
+  if (!response.ok) {
+    throw new Error(`Failed to load catalog.json: ${response.status}`);
+  }
+  return await response.json();
 }
 
 function uniqueSorted(values) {
@@ -154,8 +153,12 @@ function sortItems(items, sortBy) {
   const sorted = [...items];
 
   sorted.sort((a, b) => {
-    if (sortBy === "updated") return (b.updated_at || "").localeCompare(a.updated_at || "");
-    if (sortBy === "name") return (a.full_name || "").localeCompare(b.full_name || "");
+    if (sortBy === "updated") {
+      return (b.updated_at || "").localeCompare(a.updated_at || "");
+    }
+    if (sortBy === "name") {
+      return (a.full_name || "").localeCompare(b.full_name || "");
+    }
     return (b.stars || 0) - (a.stars || 0);
   });
 
@@ -175,6 +178,7 @@ function matchesFilters(item, filters) {
 
 function renderCards(items) {
   const results = document.getElementById("results");
+  if (!results) return;
 
   if (!items.length) {
     results.innerHTML = `
@@ -248,6 +252,7 @@ function renderCards(items) {
 }
 
 function populateSelect(selectEl, values, placeholderLabel) {
+  if (!selectEl) return;
   const current = selectEl.value;
   selectEl.innerHTML = `<option value="">${placeholderLabel}</option>`;
   for (const value of values) {
@@ -259,6 +264,12 @@ function populateSelect(selectEl, values, placeholderLabel) {
   selectEl.value = current;
 }
 
+function addSafeListener(el, eventName, handler) {
+  if (el) {
+    el.addEventListener(eventName, handler);
+  }
+}
+
 async function main() {
   const rawItems = await loadCatalog();
 
@@ -268,8 +279,16 @@ async function main() {
   const search = document.getElementById("search");
   const stats = document.getElementById("stats");
   const resetButton = document.getElementById("resetFilters");
+  const heroRepoCount = document.getElementById("heroRepoCount");
+  const heroVisibleCount = document.getElementById("heroVisibleCount");
 
-  document.getElementById("heroRepoCount").textContent = rawItems.length;
+  if (!stats) {
+    throw new Error("Missing required page element: stats");
+  }
+
+  if (heroRepoCount) {
+    heroRepoCount.textContent = String(rawItems.length);
+  }
 
   const platforms = uniqueSorted(rawItems.map(item => item.platform));
   const categories = uniqueSorted(rawItems.flatMap(item => item.classification?.categories || []));
@@ -279,44 +298,57 @@ async function main() {
 
   function update() {
     const filters = {
-      query: search.value || "",
-      platform: platformFilter.value || "",
-      category: categoryFilter.value || ""
+      query: search?.value || "",
+      platform: platformFilter?.value || "",
+      category: categoryFilter?.value || ""
     };
 
     const filtered = rawItems.filter(item => matchesFilters(item, filters));
-    const sorted = sortItems(filtered, sortBy.value || "stars");
+    const sorted = sortItems(filtered, sortBy?.value || "stars");
 
-    document.getElementById("heroVisibleCount").textContent = sorted.length;
+    if (heroVisibleCount) {
+      heroVisibleCount.textContent = String(sorted.length);
+    }
+
     stats.innerHTML = buildStats(sorted, rawItems.length);
     renderCards(sorted);
   }
 
   [platformFilter, categoryFilter, sortBy, search].forEach(el => {
-    el.addEventListener("input", update);
-    el.addEventListener("change", update);
+    addSafeListener(el, "input", update);
+    addSafeListener(el, "change", update);
   });
 
-  resetButton.addEventListener("click", () => {
-    search.value = "";
-    platformFilter.value = "";
-    categoryFilter.value = "";
-    sortBy.value = "stars";
+  addSafeListener(resetButton, "click", () => {
+    if (search) search.value = "";
+    if (platformFilter) platformFilter.value = "";
+    if (categoryFilter) categoryFilter.value = "";
+    if (sortBy) sortBy.value = "stars";
     update();
   });
 
   update();
 }
 
-main().catch(error => {
+function renderFatalError(error) {
   const results = document.getElementById("results");
+  if (!results) return;
+
   results.innerHTML = `
     <div class="empty-state">
       <h2>Could not load catalog</h2>
-      <p>${escapeHtml(error.message || String(error))}</p>
+      <p>${escapeHtml(error?.message || String(error))}</p>
     </div>
   `;
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    main().catch(renderFatalError);
+  });
+} else {
+  main().catch(renderFatalError);
+}
 """
 
 
@@ -327,7 +359,6 @@ STYLES_CSS = """* {
 :root {
   --bg-0: #f3f9fd;
   --bg-1: #eaf4fb;
-  --bg-2: #dcecf8;
   --surface: rgba(255, 255, 255, 0.78);
   --surface-strong: rgba(255, 255, 255, 0.92);
   --border: rgba(80, 132, 180, 0.18);
@@ -557,7 +588,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  min-height: 280px;
+  min-height: 260px;
   text-decoration: none;
   color: inherit;
   padding: 1.1rem;
@@ -566,10 +597,7 @@ button:hover {
   background: var(--surface-strong);
   box-shadow: var(--shadow);
   overflow: hidden;
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 .repo-card::before {
@@ -747,10 +775,6 @@ button:hover {
 
   .cards-grid {
     grid-template-columns: 1fr;
-  }
-
-  .repo-card {
-    min-height: 260px;
   }
 
   .repo-card-top {

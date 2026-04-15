@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import base64
 import os
+import re
 import time
 from typing import Any
 
@@ -16,14 +17,6 @@ SESSION.headers.update({"User-Agent": "particle-therapy-ai-catalog/1.0"})
 
 
 def _request_json(method: str, url: str, *, headers=None, params=None, json_body=None) -> Any:
-    """
-    Generic JSON request helper with basic retry and rate-limit handling.
-
-    Handles:
-    - GitHub primary rate limits via x-ratelimit-reset
-    - retry-after headers
-    - burst/secondary-limit-like 403/429 responses with backoff
-    """
     max_attempts = 6
     last_response: requests.Response | None = None
 
@@ -102,6 +95,14 @@ def search_github_repositories(query: str, per_page: int = 25) -> list[dict[str,
     return data.get("items", [])
 
 
+def get_github_repository(owner: str, repo: str) -> dict[str, Any]:
+    return _request_json(
+        "GET",
+        f"https://api.github.com/repos/{owner}/{repo}",
+        headers=github_headers(),
+    )
+
+
 def github_get_file(owner: str, repo: str, path: str) -> str:
     try:
         data = _request_json(
@@ -136,6 +137,15 @@ def search_gitlab_projects(query: str, per_page: int = 25) -> list[dict[str, Any
     )
 
 
+def get_gitlab_project(project_path: str) -> dict[str, Any]:
+    encoded = requests.utils.quote(project_path, safe="")
+    return _request_json(
+        "GET",
+        f"https://gitlab.com/api/v4/projects/{encoded}",
+        headers=gitlab_headers(),
+    )
+
+
 def gitlab_get_file(project_id: int, path: str, ref: str) -> str:
     encoded = requests.utils.quote(path, safe="")
     try:
@@ -155,6 +165,29 @@ def gitlab_get_file(project_id: int, path: str, ref: str) -> str:
         return base64.b64decode(data["content"]).decode("utf-8", errors="ignore")
     except Exception:
         return ""
+
+
+def parse_repo_url(url: str) -> tuple[str, str] | None:
+    """
+    Returns:
+      ("github", "owner/repo")
+      ("gitlab", "group/project")
+    """
+    if not url:
+        return None
+
+    cleaned = url.strip().rstrip("/")
+    cleaned = re.sub(r"\.git$", "", cleaned)
+
+    m = re.match(r"^https?://github\.com/([^/]+/[^/]+)$", cleaned, re.IGNORECASE)
+    if m:
+        return "github", m.group(1)
+
+    m = re.match(r"^https?://gitlab\.com/([^/]+(?:/[^/]+)+)$", cleaned, re.IGNORECASE)
+    if m:
+        return "gitlab", m.group(1)
+
+    return None
 
 
 def polite_sleep(seconds: float = 0.35) -> None:

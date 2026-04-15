@@ -1,0 +1,7 @@
+repos:
+  - url: https://github.com/e0404/matRad
+    always_include: true
+    note: Nice open-source radiotherapy treatment planning toolkit;
+    tags:
+      - treatment planning
+      - software tool
