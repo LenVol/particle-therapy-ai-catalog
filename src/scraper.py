@@ -571,7 +571,7 @@ def run() -> int:
         prefiltered = prefiltered[:max_llm_repos]
 
     for repo in prefiltered:
-    classification = classify_repo(repo=repo, llm_cfg=llm_cfg, cache_path="data/classification_cache.json")
+        classification = classify_repo(repo=repo, llm_cfg=llm_cfg, cache_path="data/classification_cache.json")
 
         if not classification.include and not repo.get("forced_include", False):
             time.sleep(classify_sleep_seconds)
