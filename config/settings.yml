@@ -15,10 +15,10 @@ scraper:
   min_heuristic_score: 4
   github_per_query: 25
   gitlab_per_query: 25
-  polite_sleep_seconds: 0.5
-  classify_sleep_seconds: 1.25
+  polite_sleep_seconds: 0.3
+  classify_sleep_seconds: .1
   use_gitlab: true
   cache_classifications: true
-  require_code: true
-  min_readme_words: 60
+  require_code: false
+  min_readme_words: 20
   force_include_bypasses_quality_filters: true

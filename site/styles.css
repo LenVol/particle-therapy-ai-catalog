@@ -5,7 +5,6 @@
 :root {
   --bg-0: #f3f9fd;
   --bg-1: #eaf4fb;
-  --bg-2: #dcecf8;
   --surface: rgba(255, 255, 255, 0.78);
   --surface-strong: rgba(255, 255, 255, 0.92);
   --border: rgba(80, 132, 180, 0.18);
@@ -13,12 +12,9 @@
   --muted: #56758c;
   --primary: #1976b8;
   --primary-2: #2f94d1;
-  --primary-3: #79bfe8;
   --shadow: 0 14px 40px rgba(19, 83, 126, 0.12);
   --shadow-strong: 0 22px 54px rgba(19, 83, 126, 0.18);
-  --high-bg: linear-gradient(135deg, rgba(22, 118, 184, 0.16), rgba(121, 191, 232, 0.14));
-  --mid-bg: linear-gradient(135deg, rgba(30, 116, 170, 0.11), rgba(123, 187, 220, 0.10));
-  --low-bg: linear-gradient(135deg, rgba(111, 164, 197, 0.12), rgba(221, 241, 252, 0.18));
+  --card-bg: linear-gradient(135deg, rgba(22, 118, 184, 0.10), rgba(121, 191, 232, 0.10));
 }
 
 html, body {
@@ -145,7 +141,7 @@ body {
 
 .controls-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 0.9rem;
 }
 
@@ -200,7 +196,7 @@ button:hover {
 
 .stats-bar {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
   margin: 1rem 0 1.1rem;
 }
@@ -238,7 +234,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  min-height: 300px;
+  min-height: 260px;
   text-decoration: none;
   color: inherit;
   padding: 1.1rem;
@@ -247,35 +243,20 @@ button:hover {
   background: var(--surface-strong);
   box-shadow: var(--shadow);
   overflow: hidden;
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 .repo-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 1;
+  background: var(--card-bg);
   z-index: 0;
 }
 
 .repo-card > * {
   position: relative;
   z-index: 1;
-}
-
-.repo-card.tone-high::before {
-  background: var(--high-bg);
-}
-
-.repo-card.tone-mid::before {
-  background: var(--mid-bg);
-}
-
-.repo-card.tone-low::before {
-  background: var(--low-bg);
 }
 
 .repo-card:hover {
@@ -310,17 +291,6 @@ button:hover {
   margin: 0;
   color: var(--muted);
   font-size: 0.93rem;
-}
-
-.confidence-badge {
-  min-width: 56px;
-  text-align: center;
-  padding: 0.45rem 0.65rem;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(47, 148, 209, 0.18);
-  font-weight: 800;
-  color: var(--primary);
 }
 
 .repo-meta-row {
@@ -430,7 +400,7 @@ button:hover {
   }
 
   .stats-bar {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -449,16 +419,8 @@ button:hover {
     grid-template-columns: 1fr;
   }
 
-  .stats-bar {
-    grid-template-columns: 1fr;
-  }
-
   .cards-grid {
     grid-template-columns: 1fr;
-  }
-
-  .repo-card {
-    min-height: 280px;
   }
 
   .repo-card-top {

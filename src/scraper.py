@@ -460,7 +460,7 @@ def merge_and_sort_candidates(*candidate_groups: list[dict[str, Any]]) -> list[d
 def passes_quality_filters(repo: dict[str, Any], settings: dict[str, Any]) -> bool:
     scraper_cfg = settings.get("scraper", {})
     require_code = bool(scraper_cfg.get("require_code", True))
-    min_readme_words = int(scraper_cfg.get("min_readme_words", 100))
+    min_readme_words = int(scraper_cfg.get("min_readme_words", 20))
     bypass = bool(scraper_cfg.get("force_include_bypasses_quality_filters", True))
 
     if repo.get("forced_include", False) and bypass:

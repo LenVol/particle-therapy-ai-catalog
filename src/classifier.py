@@ -91,7 +91,7 @@ def fallback_classify(repo: dict[str, Any]) -> RepoClassification:
     total = int(repo.get("heuristic_total_score", 0))
 
     return RepoClassification(
-        include=pt >=1,
+        include=True,
         confidence=min(0.95, max(0.10, total / 12.0)),
         summary=repo.get("description") or "Keyword-matched repository.",
         particle_therapy_relevance="high" if pt >= 2 else ("medium" if pt >= 1 else "none"),
