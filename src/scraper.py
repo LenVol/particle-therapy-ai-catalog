@@ -566,31 +566,31 @@ def run() -> int:
         reverse=True,
     )
 
+    included: list[dict[str, Any]] = []
     if llm_enabled:
         prefiltered = prefiltered[:max_llm_repos]
 
-    included: list[dict[str, Any]] = []
-    for repo in prefiltered:
-        classification = classify_repo(repo=repo, llm_cfg=llm_cfg, cache_path="data/classification_cache.json")
+        for repo in prefiltered:
+            classification = classify_repo(repo=repo, llm_cfg=llm_cfg, cache_path="data/classification_cache.json")
 
-        if not classification.include and not repo.get("forced_include", False):
+            if not classification.include and not repo.get("forced_include", False):
+                time.sleep(classify_sleep_seconds)
+                continue
+
+            repo["classification"] = {
+                "include": classification.include,
+                "confidence": classification.confidence,
+                "summary": classification.summary,
+                "particle_therapy_relevance": classification.particle_therapy_relevance,
+                "ml_relevance": classification.ml_relevance,
+                "categories": classification.categories,
+                "reasons": classification.reasons,
+                "warnings": classification.warnings,
+                "likely_tool_type": classification.likely_tool_type,
+            }
+
+            included.append(repo)
             time.sleep(classify_sleep_seconds)
-            continue
-
-        repo["classification"] = {
-            "include": classification.include,
-            "confidence": classification.confidence,
-            "summary": classification.summary,
-            "particle_therapy_relevance": classification.particle_therapy_relevance,
-            "ml_relevance": classification.ml_relevance,
-            "categories": classification.categories,
-            "reasons": classification.reasons,
-            "warnings": classification.warnings,
-            "likely_tool_type": classification.likely_tool_type,
-        }
-
-        included.append(repo)
-        time.sleep(classify_sleep_seconds)
 
     included = sorted(
         included,
