@@ -22,7 +22,7 @@ repos:
   - url: https://github.com/opaserr/dota
     always_include: true
     platforn: github
-    fullname: opaserr/dota
+    full_name: opaserr/dota
     description: Data-driven particle transport algorithm for fast dose calculations. 
     language: Jupyter Notebook
     topics: 
