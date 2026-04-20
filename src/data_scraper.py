@@ -77,6 +77,9 @@ PARTICLE_TERMS = [
     "rbe",
     "impt",
     "pencil beam",
+    "proton",
+    "hadron",
+    "carbon ion",
 ]
 
 AI_TERMS = [
@@ -166,35 +169,66 @@ def strip_html(text: str) -> str:
     return re.sub(r"<[^>]+>", " ", text or "")
 
 
+def safe_hf_attr(obj: Any, name: str, default: Any = None) -> Any:
+    try:
+        return getattr(obj, name, default)
+    except Exception:
+        return default
+
+
 # -------------------------
 # Hugging Face datasets
 # -------------------------
 
 def search_huggingface_datasets(query: str, limit: int) -> list[dict[str, Any]]:
-    """
-    Use the official huggingface_hub client instead of raw /api/datasets.
-    """
     items: list[dict[str, Any]] = []
     try:
         results = HF_API.list_datasets(
             search=query,
             sort="downloads",
-            direction=-1,
             limit=limit,
             full=True,
         )
         for ds in results:
             items.append({
-                "id": getattr(ds, "id", None),
-                "downloads": getattr(ds, "downloads", None),
-                "likes": getattr(ds, "likes", None),
-                "lastModified": getattr(ds, "last_modified", None),
-                "tags": list(getattr(ds, "tags", []) or []),
-                "cardData": getattr(ds, "card_data", None) or {},
-                "description": getattr(ds, "description", None),
+                "id": safe_hf_attr(ds, "id"),
+                "downloads": safe_hf_attr(ds, "downloads"),
+                "likes": safe_hf_attr(ds, "likes"),
+                "lastModified": safe_hf_attr(ds, "last_modified"),
+                "tags": list(safe_hf_attr(ds, "tags", []) or []),
+                "cardData": safe_hf_attr(ds, "card_data", None) or {},
+                "description": safe_hf_attr(ds, "description", None),
             })
     except Exception as exc:
         LOGGER.warning("Hugging Face dataset client search failed for %r: %s", query, exc)
+
+    items.sort(key=lambda x: ((x.get("downloads") or 0), (x.get("likes") or 0)), reverse=True)
+    return items
+
+
+def list_huggingface_datasets_by_author(author: str, limit: int) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
+    try:
+        results = HF_API.list_datasets(
+            author=author,
+            sort="downloads",
+            limit=limit,
+            full=True,
+        )
+        for ds in results:
+            items.append({
+                "id": safe_hf_attr(ds, "id"),
+                "downloads": safe_hf_attr(ds, "downloads"),
+                "likes": safe_hf_attr(ds, "likes"),
+                "lastModified": safe_hf_attr(ds, "last_modified"),
+                "tags": list(safe_hf_attr(ds, "tags", []) or []),
+                "cardData": safe_hf_attr(ds, "card_data", None) or {},
+                "description": safe_hf_attr(ds, "description", None),
+            })
+    except Exception as exc:
+        LOGGER.warning("Hugging Face dataset author listing failed for %r: %s", author, exc)
+
+    items.sort(key=lambda x: ((x.get("downloads") or 0), (x.get("likes") or 0)), reverse=True)
     return items
 
 
@@ -208,17 +242,17 @@ def build_huggingface_dataset_record(
         return None
 
     card_data = item.get("cardData") or {}
+    tags = item.get("tags") or []
+
     summary = (
         card_data.get("summary")
         or item.get("description")
         or card_data.get("description")
-        or ""
+        or " ".join(tags[:20])
     )
-    tags = item.get("tags") or []
-    title = dataset_id
 
     blob = " ".join([
-        title,
+        dataset_id,
         summary,
         " ".join(tags),
         json.dumps(card_data, ensure_ascii=False),
@@ -237,7 +271,7 @@ def build_huggingface_dataset_record(
     return DatasetRecord(
         kind="dataset",
         source="huggingface",
-        title=title,
+        title=dataset_id,
         url=f"https://huggingface.co/datasets/{dataset_id}",
         summary=summary,
         tags=tags[:20],
@@ -260,31 +294,56 @@ def build_huggingface_dataset_record(
 # -------------------------
 
 def search_huggingface_models(query: str, limit: int) -> list[dict[str, Any]]:
-    """
-    Use the official huggingface_hub client instead of raw /api/models.
-    """
     items: list[dict[str, Any]] = []
     try:
         results = HF_API.list_models(
             search=query,
             sort="downloads",
-            direction=-1,
             limit=limit,
             full=True,
         )
         for model in results:
             items.append({
-                "id": getattr(model, "id", None),
-                "downloads": getattr(model, "downloads", None),
-                "likes": getattr(model, "likes", None),
-                "lastModified": getattr(model, "last_modified", None),
-                "tags": list(getattr(model, "tags", []) or []),
-                "cardData": getattr(model, "card_data", None) or {},
-                "pipeline_tag": getattr(model, "pipeline_tag", None),
-                "library_name": getattr(model, "library_name", None),
+                "id": safe_hf_attr(model, "id"),
+                "downloads": safe_hf_attr(model, "downloads"),
+                "likes": safe_hf_attr(model, "likes"),
+                "lastModified": safe_hf_attr(model, "last_modified"),
+                "tags": list(safe_hf_attr(model, "tags", []) or []),
+                "cardData": safe_hf_attr(model, "card_data", None) or {},
+                "pipeline_tag": safe_hf_attr(model, "pipeline_tag"),
+                "library_name": safe_hf_attr(model, "library_name"),
             })
     except Exception as exc:
         LOGGER.warning("Hugging Face model client search failed for %r: %s", query, exc)
+
+    items.sort(key=lambda x: ((x.get("downloads") or 0), (x.get("likes") or 0)), reverse=True)
+    return items
+
+
+def list_huggingface_models_by_author(author: str, limit: int) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
+    try:
+        results = HF_API.list_models(
+            author=author,
+            sort="downloads",
+            limit=limit,
+            full=True,
+        )
+        for model in results:
+            items.append({
+                "id": safe_hf_attr(model, "id"),
+                "downloads": safe_hf_attr(model, "downloads"),
+                "likes": safe_hf_attr(model, "likes"),
+                "lastModified": safe_hf_attr(model, "last_modified"),
+                "tags": list(safe_hf_attr(model, "tags", []) or []),
+                "cardData": safe_hf_attr(model, "card_data", None) or {},
+                "pipeline_tag": safe_hf_attr(model, "pipeline_tag"),
+                "library_name": safe_hf_attr(model, "library_name"),
+            })
+    except Exception as exc:
+        LOGGER.warning("Hugging Face model author listing failed for %r: %s", author, exc)
+
+    items.sort(key=lambda x: ((x.get("downloads") or 0), (x.get("likes") or 0)), reverse=True)
     return items
 
 
@@ -298,14 +357,15 @@ def build_huggingface_model_tool_record(
         return None
 
     card_data = item.get("cardData") or {}
-    summary = (
-        card_data.get("summary")
-        or card_data.get("description")
-        or ""
-    )
     tags = item.get("tags") or []
     pipeline_tag = item.get("pipeline_tag")
     library_name = item.get("library_name")
+
+    summary = (
+        card_data.get("summary")
+        or card_data.get("description")
+        or " ".join([x for x in [pipeline_tag, library_name] if x] + tags[:15])
+    )
 
     blob = " ".join([
         model_id,
@@ -362,11 +422,6 @@ def build_huggingface_model_tool_record(
 # -------------------------
 
 def search_zenodo_records(query: str, limit: int) -> list[dict[str, Any]]:
-    """
-    Search published Zenodo records.
-    Omit sort because previous explicit value caused 400.
-    Limit anonymous size to 25.
-    """
     data = request_json(
         f"{ZENODO_API_BASE}/records",
         params={
@@ -474,15 +529,16 @@ def run_data_scraper() -> int:
 
     ds_cfg = settings.get("data_scraper", {})
     min_heuristic_score = int(ds_cfg.get("min_heuristic_score", 1))
-    hf_limit = int(ds_cfg.get("huggingface_limit_per_query", 30))
+    hf_limit = int(ds_cfg.get("huggingface_limit_per_query", 50))
     zenodo_limit = int(ds_cfg.get("zenodo_limit_per_query", 25))
     sleep_seconds = float(ds_cfg.get("polite_sleep_seconds", 0.5))
-    min_description_words = int(ds_cfg.get("require_description_words", 5))
+    min_description_words = int(ds_cfg.get("require_description_words", 0))
     accepted_record_types = set((ds_cfg.get("zenodo_accept_record_types", []) or []))
     require_ai_terms = bool(ds_cfg.get("zenodo_require_ai_terms", False))
 
     hf_model_queries = queries_cfg.get("huggingface_model_queries", [])
     hf_dataset_queries = queries_cfg.get("huggingface_dataset_queries", [])
+    hf_authors = queries_cfg.get("huggingface_authors", [])
     zenodo_queries = queries_cfg.get("zenodo_queries", [])
 
     dataset_candidates: list[DatasetRecord] = []
@@ -492,7 +548,13 @@ def run_data_scraper() -> int:
         LOGGER.info("Hugging Face model query: %s", query)
         try:
             items = search_huggingface_models(query, hf_limit)
-            LOGGER.info("Hugging Face models returned %d items for %r", len(items), query)
+            LOGGER.info("Hugging Face raw model items for %r: %d", query, len(items))
+            for item in items[:5]:
+                LOGGER.info(
+                    "HF model sample: id=%s tags=%s",
+                    item.get("id"),
+                    ",".join(item.get("tags", [])[:5]),
+                )
             for item in items:
                 record = build_huggingface_model_tool_record(
                     item,
@@ -509,7 +571,13 @@ def run_data_scraper() -> int:
         LOGGER.info("Hugging Face dataset query: %s", query)
         try:
             items = search_huggingface_datasets(query, hf_limit)
-            LOGGER.info("Hugging Face datasets returned %d items for %r", len(items), query)
+            LOGGER.info("Hugging Face raw dataset items for %r: %d", query, len(items))
+            for item in items[:5]:
+                LOGGER.info(
+                    "HF dataset sample: id=%s tags=%s",
+                    item.get("id"),
+                    ",".join(item.get("tags", [])[:5]),
+                )
             for item in items:
                 record = build_huggingface_dataset_record(
                     item,
@@ -521,6 +589,35 @@ def run_data_scraper() -> int:
                 polite_sleep(sleep_seconds)
         except Exception as exc:
             LOGGER.warning("Hugging Face dataset query failed for %r: %s", query, exc)
+
+    for author in hf_authors:
+        LOGGER.info("Hugging Face author/org: %s", author)
+        try:
+            model_items = list_huggingface_models_by_author(author, hf_limit)
+            LOGGER.info("Hugging Face author model items for %r: %d", author, len(model_items))
+            for item in model_items:
+                record = build_huggingface_model_tool_record(
+                    item,
+                    min_heuristic_score,
+                    min_description_words,
+                )
+                if record:
+                    tool_candidates.append(record)
+                polite_sleep(sleep_seconds)
+
+            dataset_items = list_huggingface_datasets_by_author(author, hf_limit)
+            LOGGER.info("Hugging Face author dataset items for %r: %d", author, len(dataset_items))
+            for item in dataset_items:
+                record = build_huggingface_dataset_record(
+                    item,
+                    min_heuristic_score,
+                    min_description_words,
+                )
+                if record:
+                    dataset_candidates.append(record)
+                polite_sleep(sleep_seconds)
+        except Exception as exc:
+            LOGGER.warning("Hugging Face author harvesting failed for %r: %s", author, exc)
 
     for query in zenodo_queries:
         LOGGER.info("Zenodo query: %s", query)

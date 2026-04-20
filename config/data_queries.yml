@@ -1,4 +1,6 @@
 huggingface_model_queries:
+  - AI4MIRO
+  - PortPy-Project
   - proton therapy
   - particle therapy
   - hadron therapy
@@ -14,6 +16,7 @@ huggingface_model_queries:
 
 huggingface_dataset_queries:
   - proton therapy
+  - PortPy-Project
   - particle therapy
   - hadron therapy
   - carbon ion therapy

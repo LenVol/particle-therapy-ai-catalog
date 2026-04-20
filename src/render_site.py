@@ -921,7 +921,6 @@ button {
 }
 """
 
-
 def write_site(entries: list[dict[str, Any]]) -> None:
     site_dir = Path("site")
     site_dir.mkdir(parents=True, exist_ok=True)
@@ -951,11 +950,35 @@ def write_site(entries: list[dict[str, Any]]) -> None:
         row["classification"].setdefault("likely_tool_type", "unclear")
         normalized_entries.append(row)
 
+    # tools
     (site_dir / "catalog.json").write_text(
         json.dumps(normalized_entries, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
+
+    # datasets / records
+    data_dir = Path("data")
+
+    datasets_path = data_dir / "datasets.json"
+    if datasets_path.exists():
+        (site_dir / "datasets.json").write_text(
+            datasets_path.read_text(encoding="utf-8"),
+            encoding="utf-8",
+        )
+    else:
+        (site_dir / "datasets.json").write_text("[]", encoding="utf-8")
+
+    hf_model_tools_path = data_dir / "hf_model_tools.json"
+    if hf_model_tools_path.exists():
+        (site_dir / "hf_model_tools.json").write_text(
+            hf_model_tools_path.read_text(encoding="utf-8"),
+            encoding="utf-8",
+        )
+    else:
+        (site_dir / "hf_model_tools.json").write_text("[]", encoding="utf-8")
+
     (site_dir / "index.html").write_text(INDEX_HTML, encoding="utf-8")
     (site_dir / "app.js").write_text(APP_JS, encoding="utf-8")
     (site_dir / "styles.css").write_text(STYLES_CSS, encoding="utf-8")
     (site_dir / ".nojekyll").write_text("", encoding="utf-8")
+
