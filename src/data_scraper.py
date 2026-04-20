@@ -10,18 +10,18 @@ from typing import Any
 
 import requests
 import yaml
+from huggingface_hub import HfApi
 
 LOGGER = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
-HF_API_BASE = "https://huggingface.co/api"
 ZENODO_API_BASE = "https://zenodo.org/api"
-
 USER_AGENT = "particle-therapy-ai-catalog-data/1.0"
 REQUEST_TIMEOUT = 30
 
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": USER_AGENT})
+HF_API = HfApi()
 
 
 @dataclass
@@ -75,6 +75,8 @@ PARTICLE_TERMS = [
     "range verification",
     "let",
     "rbe",
+    "impt",
+    "pencil beam",
 ]
 
 AI_TERMS = [
@@ -169,11 +171,31 @@ def strip_html(text: str) -> str:
 # -------------------------
 
 def search_huggingface_datasets(query: str, limit: int) -> list[dict[str, Any]]:
-    data = request_json(
-        f"{HF_API_BASE}/datasets",
-        params={"search": query, "limit": limit, "full": "true"},
-    )
-    return data if isinstance(data, list) else []
+    """
+    Use the official huggingface_hub client instead of raw /api/datasets.
+    """
+    items: list[dict[str, Any]] = []
+    try:
+        results = HF_API.list_datasets(
+            search=query,
+            sort="downloads",
+            direction=-1,
+            limit=limit,
+            full=True,
+        )
+        for ds in results:
+            items.append({
+                "id": getattr(ds, "id", None),
+                "downloads": getattr(ds, "downloads", None),
+                "likes": getattr(ds, "likes", None),
+                "lastModified": getattr(ds, "last_modified", None),
+                "tags": list(getattr(ds, "tags", []) or []),
+                "cardData": getattr(ds, "card_data", None) or {},
+                "description": getattr(ds, "description", None),
+            })
+    except Exception as exc:
+        LOGGER.warning("Hugging Face dataset client search failed for %r: %s", query, exc)
+    return items
 
 
 def build_huggingface_dataset_record(
@@ -186,7 +208,12 @@ def build_huggingface_dataset_record(
         return None
 
     card_data = item.get("cardData") or {}
-    summary = card_data.get("summary") or item.get("description") or ""
+    summary = (
+        card_data.get("summary")
+        or item.get("description")
+        or card_data.get("description")
+        or ""
+    )
     tags = item.get("tags") or []
     title = dataset_id
 
@@ -197,7 +224,11 @@ def build_huggingface_dataset_record(
         json.dumps(card_data, ensure_ascii=False),
     ])
 
-    particle_hits, ai_hits, total, reasons, passes = score_blob(blob, min_total=min_heuristic_score, require_ai=False)
+    particle_hits, ai_hits, total, reasons, passes = score_blob(
+        blob,
+        min_total=min_heuristic_score,
+        require_ai=False,
+    )
     if not passes:
         return None
     if count_words(summary) < min_description_words:
@@ -229,11 +260,32 @@ def build_huggingface_dataset_record(
 # -------------------------
 
 def search_huggingface_models(query: str, limit: int) -> list[dict[str, Any]]:
-    data = request_json(
-        f"{HF_API_BASE}/models",
-        params={"search": query, "limit": limit, "full": "true"},
-    )
-    return data if isinstance(data, list) else []
+    """
+    Use the official huggingface_hub client instead of raw /api/models.
+    """
+    items: list[dict[str, Any]] = []
+    try:
+        results = HF_API.list_models(
+            search=query,
+            sort="downloads",
+            direction=-1,
+            limit=limit,
+            full=True,
+        )
+        for model in results:
+            items.append({
+                "id": getattr(model, "id", None),
+                "downloads": getattr(model, "downloads", None),
+                "likes": getattr(model, "likes", None),
+                "lastModified": getattr(model, "last_modified", None),
+                "tags": list(getattr(model, "tags", []) or []),
+                "cardData": getattr(model, "card_data", None) or {},
+                "pipeline_tag": getattr(model, "pipeline_tag", None),
+                "library_name": getattr(model, "library_name", None),
+            })
+    except Exception as exc:
+        LOGGER.warning("Hugging Face model client search failed for %r: %s", query, exc)
+    return items
 
 
 def build_huggingface_model_tool_record(
@@ -246,21 +298,39 @@ def build_huggingface_model_tool_record(
         return None
 
     card_data = item.get("cardData") or {}
-    summary = card_data.get("summary") or item.get("description") or ""
+    summary = (
+        card_data.get("summary")
+        or card_data.get("description")
+        or ""
+    )
     tags = item.get("tags") or []
+    pipeline_tag = item.get("pipeline_tag")
+    library_name = item.get("library_name")
 
     blob = " ".join([
         model_id,
         summary,
         " ".join(tags),
+        str(pipeline_tag or ""),
+        str(library_name or ""),
         json.dumps(card_data, ensure_ascii=False),
     ])
 
-    particle_hits, ai_hits, total, reasons, passes = score_blob(blob, min_total=min_heuristic_score, require_ai=False)
+    particle_hits, ai_hits, total, reasons, passes = score_blob(
+        blob,
+        min_total=min_heuristic_score,
+        require_ai=False,
+    )
     if not passes:
         return None
     if count_words(summary) < min_description_words:
         return None
+
+    topics = list(tags[:20])
+    if pipeline_tag and pipeline_tag not in topics:
+        topics.append(pipeline_tag)
+    if library_name and library_name not in topics:
+        topics.append(library_name)
 
     return ToolRecord(
         kind="tool",
@@ -272,7 +342,7 @@ def build_huggingface_model_tool_record(
         language=None,
         updated_at=item.get("lastModified"),
         license=card_data.get("license") or item.get("license"),
-        topics=tags[:20],
+        topics=topics,
         classification={
             "include": True,
             "confidence": 0,
@@ -290,13 +360,12 @@ def build_huggingface_model_tool_record(
 # -------------------------
 # Zenodo records -> data & records
 # -------------------------
+
 def search_zenodo_records(query: str, limit: int) -> list[dict[str, Any]]:
     """
     Search published Zenodo records.
-
-    We intentionally omit the sort parameter because Zenodo's current
-    records API rejects our previous literal sort token ("mostrecent")
-    with HTTP 400. The default ranking is good enough for discovery.
+    Omit sort because previous explicit value caused 400.
+    Limit anonymous size to 25.
     """
     data = request_json(
         f"{ZENODO_API_BASE}/records",
@@ -306,6 +375,7 @@ def search_zenodo_records(query: str, limit: int) -> list[dict[str, Any]]:
         },
     )
     return data.get("hits", {}).get("hits", [])
+
 
 def build_zenodo_record(
     item: dict[str, Any],
@@ -375,7 +445,11 @@ def dedupe_dataset_records(records: list[DatasetRecord]) -> list[DatasetRecord]:
 
     return sorted(
         seen.values(),
-        key=lambda r: ((r.downloads or 0) + (r.likes or 0), r.heuristic_total_score, r.updated_at or ""),
+        key=lambda r: (
+            (r.downloads or 0) + (r.likes or 0),
+            r.heuristic_total_score,
+            r.updated_at or "",
+        ),
         reverse=True,
     )
 
@@ -401,9 +475,9 @@ def run_data_scraper() -> int:
     ds_cfg = settings.get("data_scraper", {})
     min_heuristic_score = int(ds_cfg.get("min_heuristic_score", 1))
     hf_limit = int(ds_cfg.get("huggingface_limit_per_query", 30))
-    zenodo_limit = int(ds_cfg.get("zenodo_limit_per_query", 30))
+    zenodo_limit = int(ds_cfg.get("zenodo_limit_per_query", 25))
     sleep_seconds = float(ds_cfg.get("polite_sleep_seconds", 0.5))
-    min_description_words = int(ds_cfg.get("require_description_words", 10))
+    min_description_words = int(ds_cfg.get("require_description_words", 5))
     accepted_record_types = set((ds_cfg.get("zenodo_accept_record_types", []) or []))
     require_ai_terms = bool(ds_cfg.get("zenodo_require_ai_terms", False))
 
@@ -420,7 +494,11 @@ def run_data_scraper() -> int:
             items = search_huggingface_models(query, hf_limit)
             LOGGER.info("Hugging Face models returned %d items for %r", len(items), query)
             for item in items:
-                record = build_huggingface_model_tool_record(item, min_heuristic_score, min_description_words)
+                record = build_huggingface_model_tool_record(
+                    item,
+                    min_heuristic_score,
+                    min_description_words,
+                )
                 if record:
                     tool_candidates.append(record)
                 polite_sleep(sleep_seconds)
@@ -433,7 +511,11 @@ def run_data_scraper() -> int:
             items = search_huggingface_datasets(query, hf_limit)
             LOGGER.info("Hugging Face datasets returned %d items for %r", len(items), query)
             for item in items:
-                record = build_huggingface_dataset_record(item, min_heuristic_score, min_description_words)
+                record = build_huggingface_dataset_record(
+                    item,
+                    min_heuristic_score,
+                    min_description_words,
+                )
                 if record:
                     dataset_candidates.append(record)
                 polite_sleep(sleep_seconds)

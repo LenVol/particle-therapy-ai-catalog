@@ -19,11 +19,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -56,11 +56,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -93,11 +93,11 @@
       "Lomax, Antony John"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -132,11 +132,11 @@
       "Vasi, Fabiano"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -305,11 +305,11 @@
       "Saidova Sevara"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -548,11 +548,11 @@
       "Waddington, David"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -602,11 +602,11 @@
       "Chamorro, Natalia"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -708,11 +708,11 @@
       "Bertolet-Reina, Alejandro"
     ],
     "record_type": "video",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -735,11 +735,11 @@
       "on behalf of the Bergen pCT collaboration"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
+    "heuristic_total_score": 12,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
+      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -2023,6 +2023,32 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Linac Design within HITRIPlus for Particle Therapy",
+    "url": "https://zenodo.org/records/7225625",
+    "summary": " Within the EU Horizon 2020 programme a linac was designed, which is starting from the concept as used at the 4 European cancer therapy centers applying light ions up to carbon. The new linac will in its simpliest version allow ion beam injection into synchrotrons at 5 A MeV, with high beam transmission and allowing currents up to 5 mA 𝛼 -particles. An advanced ECR &ndash; ion source will inject into an RFQ &ndash; IH-DTL combination. The DTL concept allows upgraded versions for A/q &ndash; values up to two and with beam energies of 7.1 A MeV from IH &ndash; tank2 and 10 A MeV from IH-tank3. The higher beam injection energies for light ions allow for relaxed synchrotron operation conditions at lowest magnetic field levels. A main argument for the DTL extensions however is an additional linac function as radioisotope facility driver. The 7.1 A MeV are especially defined for the clean production of 211At, which may play a future role in cancer therapy. The linac will allow for high duty-factors &ndash; up to 10%, to fulfil the needs for efficient radioisotope production. Solid state amplifiers with matched design RF power levels (up to 600 kW for IH3) will be used. ",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2022-09-02",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.7225625",
+    "creators": [
+      "Ratzinger, U.",
+      "Koubek, B.",
+      "Podlech, H.",
+      "Vretenar, M."
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Freestanding and Supported MoS2 Monolayers under Cluster Irradiation: Insights from Molecular Dynamics Simulations",
     "url": "https://zenodo.org/records/5163084",
     "summary": "  ABSTRACT : Two-dimensional (2D) materials with nanometer-size holes are promising systems&nbsp;for DNA sequencing, water purification, and molecule selection/separation. However, controllable&nbsp;creation of holes with uniform sizes and shapes is still a challenge, especially when the 2D material&nbsp;consists of several atomic layers as, e.g., MoS2, the archetypical transition metal dichalcogenide.&nbsp;We use analytical potential molecular dynamics simulations to study the response of 2D MoS2 to&nbsp;cluster irradiation. We model both freestanding and supported sheets and assess the amount of&nbsp;damage created in MoS2 by the impacts of noble gas clusters in a wide range of cluster energies&nbsp;and incident angles. We show that cluster irradiation can be used to produce uniform holes in 2D&nbsp;MoS2 with the diameter being dependent on cluster size and energy. Energetic clusters can also be&nbsp;used to displace sulfur atoms preferentially from either top or bottom layers of S atoms in MoS2&nbsp;and also clean the surface of MoS2 sheets from adsorbents. Our results for MoS2, which should be&nbsp;relevant to other 2D transition metal dichalcogenides, suggest new routes toward",
@@ -2053,32 +2079,6 @@
     "heuristic_reasons": [
       "Matched 1 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Linac Design within HITRIPlus for Particle Therapy",
-    "url": "https://zenodo.org/records/7225625",
-    "summary": " Within the EU Horizon 2020 programme a linac was designed, which is starting from the concept as used at the 4 European cancer therapy centers applying light ions up to carbon. The new linac will in its simpliest version allow ion beam injection into synchrotrons at 5 A MeV, with high beam transmission and allowing currents up to 5 mA 𝛼 -particles. An advanced ECR &ndash; ion source will inject into an RFQ &ndash; IH-DTL combination. The DTL concept allows upgraded versions for A/q &ndash; values up to two and with beam energies of 7.1 A MeV from IH &ndash; tank2 and 10 A MeV from IH-tank3. The higher beam injection energies for light ions allow for relaxed synchrotron operation conditions at lowest magnetic field levels. A main argument for the DTL extensions however is an additional linac function as radioisotope facility driver. The 7.1 A MeV are especially defined for the clean production of 211At, which may play a future role in cancer therapy. The linac will allow for high duty-factors &ndash; up to 10%, to fulfil the needs for efficient radioisotope production. Solid state amplifiers with matched design RF power levels (up to 600 kW for IH3) will be used. ",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2022-09-02",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.7225625",
-    "creators": [
-      "Ratzinger, U.",
-      "Koubek, B.",
-      "Podlech, H.",
-      "Vretenar, M."
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
     ]
   },
   {
@@ -2376,11 +2376,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -2409,11 +2409,11 @@
       "Nabha, Racell"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
+    "heuristic_total_score": 12,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
+      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -2509,11 +2509,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -2596,11 +2596,11 @@
       "Jaroslav Solc"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -2632,11 +2632,11 @@
       "Lomax, Antony John"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -2671,11 +2671,11 @@
       "Vasi, Fabiano"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -2705,11 +2705,11 @@
       "Hrbacek, Jan"
     ],
     "record_type": "software",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -2742,11 +2742,11 @@
       "Mantovani, Laura"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
+    "heuristic_total_score": 12,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
+      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -2771,11 +2771,11 @@
       "Chamorro, Natalia"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -2906,11 +2906,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -2943,11 +2943,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -2980,11 +2980,11 @@
       "Lomax, Antony John"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -3019,11 +3019,11 @@
       "Vasi, Fabiano"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -3225,11 +3225,11 @@
       "Saidova Sevara"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -3468,11 +3468,11 @@
       "Waddington, David"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -3522,11 +3522,11 @@
       "Chamorro, Natalia"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -3628,11 +3628,11 @@
       "Bertolet-Reina, Alejandro"
     ],
     "record_type": "video",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -3736,11 +3736,11 @@
       "Rogowski, Viktor"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 2,
-    "heuristic_total_score": 12,
+    "heuristic_total_score": 16,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 2 AI/ML term(s)."
     ]
   },
@@ -3792,11 +3792,11 @@
       "Oancea Cristina, Granja Carlos, Marek Lukas, Jakubek Jan, Solc Jaroslav, Bodenstein Elisabeth, Grantz Sebastian, Pavelke Jorg, Pivec Jiri"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -3844,11 +3844,11 @@
       "Jaroslav Solc"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -3883,11 +3883,11 @@
       "Vasi, Fabiano"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -3947,6 +3947,34 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Single pencil beam benchmark of a module for Monte Carlo simulation of proton transport in the PENELOPE code",
+    "url": "https://zenodo.org/records/4804021",
+    "summary": " Background and purpose: PENH is a recently coded module for simulation of proton transport in conjunction with the Monte Carlo code PENELOPE. PENELOPE applies class II simulation to all type of interactions, in particular, to elastic collisions. PENH uses calculated differential cross sections for proton elastic collisions that include electron screening effects as well as nuclear structure effects. Proton-induced nuclear reactions are simulated from information in the ENDF-6 database or from alternative nuclear databases in ENDF format. The purpose of this work is to benchmark this module by simulating absorbed dose distributions from a single finite spot size proton pencil beam in water. \n\n  \nMaterials and methods: Monte Carlo simulations with PENH are compared with simulation results from TOPAS Monte Carlo (v3.1p2) and RayStation Monte Carlo (v6). Different beam models are examined in terms of mean energy and energy spread to match the measured profiles. The phase-space file is derived from experimental measurements. Simulated absorbed dose distributions are compared to experimental data obtained with the ionization chamber array MatriXX 2D detector (IBA Dosimetry) in a water t",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2020-12-10",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1002/mp.14598",
+    "creators": [
+      "Verbeek, Nico",
+      "Wulff, Jörg",
+      "Bäumer, Christian",
+      "Timmermann, Beate",
+      "Brualla, Lorenzo"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 10,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Evaluating the technical feasibility of biology-guided dose painting in proton therapy",
     "url": "https://zenodo.org/records/17019830",
     "summary": "  Abstract  \n  Biology-guided voxel-level inverse prescription mapping for dose painting (DP) using diffusion-weighted magnetic resonance imaging was evaluated for technical feasibility in proton therapy for 10 skull-base chordoma patients. Patient-specific DP prescriptions were generated from tumour cellularity and implemented in a clinical treatment planning system. Compared with uniform plans, DP achieved lower conformity (although &gt;97%), improved target dose metrics, reduced doses to most organs at risk, and increased tumour control probability without exceeding clinical constraints. DP proton therapy is technically feasible and may enhance treatment effectiveness.  ",
@@ -3976,39 +4004,11 @@
       "Waddington, David"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Single pencil beam benchmark of a module for Monte Carlo simulation of proton transport in the PENELOPE code",
-    "url": "https://zenodo.org/records/4804021",
-    "summary": " Background and purpose: PENH is a recently coded module for simulation of proton transport in conjunction with the Monte Carlo code PENELOPE. PENELOPE applies class II simulation to all type of interactions, in particular, to elastic collisions. PENH uses calculated differential cross sections for proton elastic collisions that include electron screening effects as well as nuclear structure effects. Proton-induced nuclear reactions are simulated from information in the ENDF-6 database or from alternative nuclear databases in ENDF format. The purpose of this work is to benchmark this module by simulating absorbed dose distributions from a single finite spot size proton pencil beam in water. \n\n  \nMaterials and methods: Monte Carlo simulations with PENH are compared with simulation results from TOPAS Monte Carlo (v3.1p2) and RayStation Monte Carlo (v6). Different beam models are examined in terms of mean energy and energy spread to match the measured profiles. The phase-space file is derived from experimental measurements. Simulated absorbed dose distributions are compared to experimental data obtained with the ionization chamber array MatriXX 2D detector (IBA Dosimetry) in a water t",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2020-12-10",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.1002/mp.14598",
-    "creators": [
-      "Verbeek, Nico",
-      "Wulff, Jörg",
-      "Bäumer, Christian",
-      "Timmermann, Beate",
-      "Brualla, Lorenzo"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -4095,11 +4095,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -4121,11 +4121,11 @@
       "Saidova Sevara"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -4154,11 +4154,11 @@
       "Nabha, Racell"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
+    "heuristic_total_score": 12,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
+      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -4181,11 +4181,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -4218,11 +4218,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -4255,11 +4255,11 @@
       "Lomax, Antony John"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -4294,11 +4294,11 @@
       "Vasi, Fabiano"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -4547,11 +4547,11 @@
       "Waddington, David"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -4584,11 +4584,11 @@
       "Mantovani, Laura"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
+    "heuristic_total_score": 12,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
+      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -4675,11 +4675,11 @@
       "Hrbacek, Jan"
     ],
     "record_type": "software",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -4728,11 +4728,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -4792,11 +4792,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -4832,41 +4832,11 @@
       "Santoro, Armando"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Pushing the limits of Geant4 precision and CPU efficiency for protontherapy treatments with GAMOS",
-    "url": "https://zenodo.org/records/19599545",
-    "summary": " Background: While modern commercial Treatment Planning Systems (TPS) have incorporated simplified Monte Carlo methods to improve dose calculation accuracy, applications based on general-purpose Monte Carlo are still widely recognised as the gold standard for precision in radiotherapy. Purpose: To achieve better precision than the state-of-the-art commercial TPS, we developed a detailed precise source model for the pencil beam scanning proton therapy machine at Cl&iacute;nica Universidad de Navarra using GAMOS/Geant4. Method: Our methodology includes a Courant-Snyder model using the Twiss Parameters to characterize the beam envelope evolution, with three Gaussians for each coordinate, precise tuning of beam energy accounting for propagation through the accelerator nozzle, and a comprehensive analysis of all hadronic and electromagnetic models and parameters. We implemented an automated fitting tool to match experimental data for each of the 98 accelerator energies. Results: Using this approach, we achieved a beam description where 100% of points meet the 1%/1mm gamma criterion, and integrated depth dose (IDD) range precision within a few tens of microns-exceeding the precision we c",
-    "tags": [
-      "proton therapy, Monte Carlo simulation, GAMOS/Geant4"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2026-04-15",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.19599545",
-    "creators": [
-      "Arce, Pedro",
-      "Azcona, Juan Diego",
-      "Alberto, Viñals",
-      "Lagares, Juan Ignacio",
-      "Chamorro, Natalia"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -4899,11 +4869,41 @@
       "Lomax, Antony John"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Pushing the limits of Geant4 precision and CPU efficiency for protontherapy treatments with GAMOS",
+    "url": "https://zenodo.org/records/19599545",
+    "summary": " Background: While modern commercial Treatment Planning Systems (TPS) have incorporated simplified Monte Carlo methods to improve dose calculation accuracy, applications based on general-purpose Monte Carlo are still widely recognised as the gold standard for precision in radiotherapy. Purpose: To achieve better precision than the state-of-the-art commercial TPS, we developed a detailed precise source model for the pencil beam scanning proton therapy machine at Cl&iacute;nica Universidad de Navarra using GAMOS/Geant4. Method: Our methodology includes a Courant-Snyder model using the Twiss Parameters to characterize the beam envelope evolution, with three Gaussians for each coordinate, precise tuning of beam energy accounting for propagation through the accelerator nozzle, and a comprehensive analysis of all hadronic and electromagnetic models and parameters. We implemented an automated fitting tool to match experimental data for each of the 98 accelerator energies. Results: Using this approach, we achieved a beam description where 100% of points meet the 1%/1mm gamma criterion, and integrated depth dose (IDD) range precision within a few tens of microns-exceeding the precision we c",
+    "tags": [
+      "proton therapy, Monte Carlo simulation, GAMOS/Geant4"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2026-04-15",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.19599545",
+    "creators": [
+      "Arce, Pedro",
+      "Azcona, Juan Diego",
+      "Alberto, Viñals",
+      "Lagares, Juan Ignacio",
+      "Chamorro, Natalia"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 10,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -4931,11 +4931,11 @@
       "Nabha, Racell"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
+    "heuristic_total_score": 12,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
+      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -4993,11 +4993,11 @@
       "Vasi, Fabiano"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -5194,11 +5194,11 @@
       "Saidova Sevara"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -5496,11 +5496,11 @@
       "on behalf of the Bergen pCT collaboration"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
+    "heuristic_total_score": 12,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
+      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -5636,11 +5636,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -5673,11 +5673,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -5738,11 +5738,11 @@
       "Lomax, Antony John"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -5777,11 +5777,11 @@
       "Vasi, Fabiano"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -5952,11 +5952,11 @@
       "Oancea Cristina, Granja Carlos, Marek Lukas, Jakubek Jan, Solc Jaroslav, Bodenstein Elisabeth, Grantz Sebastian, Pavelke Jorg, Pivec Jiri"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -6011,11 +6011,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -6048,11 +6048,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -6085,38 +6085,11 @@
       "Lomax, Antony John"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Studies on Cell Inactivation Efficiency of Gamma and Proton Radiation Using MTT Assay",
-    "url": "https://zenodo.org/records/3611417",
-    "summary": " The radiation damage of proton beam on tissues and cells has attracted attention and the unique radiobiological effects make proton radiation a useful tool for the investigation of radiation damage mechanisms.&nbsp; Potential use of protons and other charged particles for cancer treatment offer several advantages over low LET radiation cancer therapy.&nbsp; In the present study the effect of different doses of gamma and proton beams from the Folded Tandem Ion Accelerator (FOTIA) on human tumor adeno carcinoma (HT 29) cells has been analysed using MTT (Thiazolyl Blue Tetrazolium Bromide) assay.&nbsp;&nbsp; The cell proliferation of HT 29 cells after irradiation has been anlysed using MTT assay after a post irradiation incubation of 72 hrs.&nbsp; The results of these investigations are presented and discussed in the paper. ",
-    "tags": [
-      "Proton Beam, Gamma Radiation, Accelerator, Cell Survival, MTT Assay"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2015-08-15",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.3611417",
-    "creators": [
-      "Praveen Joseph",
-      "Bhat N N",
-      "Narayana Y"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -6151,12 +6124,39 @@
       "Vasi, Fabiano"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Studies on Cell Inactivation Efficiency of Gamma and Proton Radiation Using MTT Assay",
+    "url": "https://zenodo.org/records/3611417",
+    "summary": " The radiation damage of proton beam on tissues and cells has attracted attention and the unique radiobiological effects make proton radiation a useful tool for the investigation of radiation damage mechanisms.&nbsp; Potential use of protons and other charged particles for cancer treatment offer several advantages over low LET radiation cancer therapy.&nbsp; In the present study the effect of different doses of gamma and proton beams from the Folded Tandem Ion Accelerator (FOTIA) on human tumor adeno carcinoma (HT 29) cells has been analysed using MTT (Thiazolyl Blue Tetrazolium Bromide) assay.&nbsp;&nbsp; The cell proliferation of HT 29 cells after irradiation has been anlysed using MTT assay after a post irradiation incubation of 72 hrs.&nbsp; The results of these investigations are presented and discussed in the paper. ",
+    "tags": [
+      "Proton Beam, Gamma Radiation, Accelerator, Cell Survival, MTT Assay"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2015-08-15",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.3611417",
+    "creators": [
+      "Praveen Joseph",
+      "Bhat N N",
+      "Narayana Y"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
     ]
   },
   {
@@ -6535,11 +6535,11 @@
       "Saidova Sevara"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
+    "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_total_score": 14,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
+      "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -6587,11 +6587,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -6624,11 +6624,11 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
+    "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
+      "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
     ]
   },
@@ -6753,11 +6753,51 @@
       "Lomax, Antony John"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Validation of a Monte Carlo Framework for Out-of-Field Dose Calculations in Proton Therapy",
+    "url": "https://zenodo.org/records/6692198",
+    "summary": " Proton therapy enables to deliver highly conformed dose distributions owing to the \ncharacteristic Bragg peak and the finite range of protons. However, during proton therapy, \nsecondary neutrons are created, which can travel long distances and deposit dose in outof-field volumes. This out-of-field absorbed dose needs to be considered for radiationinduced secondary cancers, which are particularly relevant in the case of pediatric \ntreatments. Unfortunately, no method exists in clinics for the computation of the out-offield dose distributions in proton therapy. To help overcome this limitation, a \ncomputational tool has been developed based on the Monte Carlo code TOPAS. The \npurpose of this work is to evaluate the accuracy of this tool in comparison to experimental \ndata obtained from an anthropomorphic phantom irradiation. An anthropomorphic \nphantom of a 5-year-old child (ATOM, CIRS) was irradiated for a brain tumor treatment \nin an IBA Proteus Plus facility using a pencil beam dedicated nozzle. The treatment \nconsisted of three pencil beam scanning fields employing a lucite range shifter. Proton \nenergies ranged from 100 to 165 MeV. A median dose of 50.4 Gy(RBE) with 1.8 Gy(RBE)",
+    "tags": [
+      "proton therapy",
+      "anthropomorphic pediatric phantom",
+      "Monte Carlo simulation",
+      "out-of-field dosimetry",
+      "TLD",
+      "bubble detector"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2022-06-08",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.3389/fonc.2022.882489",
+    "creators": [
+      "De Saint-Hubert, Marijke",
+      "Verbeek, Nico",
+      "Bäumer, Christian",
+      "Esser, Johannes",
+      "Wulff, Jörg",
+      "Nabha, Racell",
+      "Van Hoey, Olivier",
+      "Dabin, Jérémie",
+      "Stuckmann, Florian",
+      "Vasi, Fabiano"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 14,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -6795,46 +6835,6 @@
     "heuristic_reasons": [
       "Matched 1 particle-therapy term(s).",
       "Matched 1 negative term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Validation of a Monte Carlo Framework for Out-of-Field Dose Calculations in Proton Therapy",
-    "url": "https://zenodo.org/records/6692198",
-    "summary": " Proton therapy enables to deliver highly conformed dose distributions owing to the \ncharacteristic Bragg peak and the finite range of protons. However, during proton therapy, \nsecondary neutrons are created, which can travel long distances and deposit dose in outof-field volumes. This out-of-field absorbed dose needs to be considered for radiationinduced secondary cancers, which are particularly relevant in the case of pediatric \ntreatments. Unfortunately, no method exists in clinics for the computation of the out-offield dose distributions in proton therapy. To help overcome this limitation, a \ncomputational tool has been developed based on the Monte Carlo code TOPAS. The \npurpose of this work is to evaluate the accuracy of this tool in comparison to experimental \ndata obtained from an anthropomorphic phantom irradiation. An anthropomorphic \nphantom of a 5-year-old child (ATOM, CIRS) was irradiated for a brain tumor treatment \nin an IBA Proteus Plus facility using a pencil beam dedicated nozzle. The treatment \nconsisted of three pencil beam scanning fields employing a lucite range shifter. Proton \nenergies ranged from 100 to 165 MeV. A median dose of 50.4 Gy(RBE) with 1.8 Gy(RBE)",
-    "tags": [
-      "proton therapy",
-      "anthropomorphic pediatric phantom",
-      "Monte Carlo simulation",
-      "out-of-field dosimetry",
-      "TLD",
-      "bubble detector"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2022-06-08",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.3389/fonc.2022.882489",
-    "creators": [
-      "De Saint-Hubert, Marijke",
-      "Verbeek, Nico",
-      "Bäumer, Christian",
-      "Esser, Johannes",
-      "Wulff, Jörg",
-      "Nabha, Racell",
-      "Van Hoey, Olivier",
-      "Dabin, Jérémie",
-      "Stuckmann, Florian",
-      "Vasi, Fabiano"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
     ]
   },
   {
