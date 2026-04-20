@@ -89,6 +89,7 @@ def score_text(
 
     passes = (
         negative_hits == 0 and 
+        strong_particle_hits >= 1 and 
         #and ((ai_hits + title_ai_hits) >= 1)
         total_score >= min_total
     )

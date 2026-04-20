@@ -108,7 +108,7 @@ negative_terms:
   - attention-knockout
   - david-v2
   - oracle
-  - lasso-predict
+  - lasso
   - dashboard
   - skeleton-graph
   - stock
@@ -117,6 +117,9 @@ negative_terms:
   - proton pump inhibitor
   - datawhisper
   - mamacare
+  - proton mail
+  - spell check
+  - spin
     
 generic_radiotherapy_terms:
   - radiotherapy

@@ -31,8 +31,6 @@ queries:
   - 'proton therapy prediction'
   - 'ion beam therapy prediction'
   - 'hadron therapy prediction'
-  - 'LET prediction'
-  - 'particle therapy outcome prediction'
   - 'range verification'
   - 'LET proton'
   - 'pencil beam machine learning'
@@ -50,4 +48,3 @@ queries:
   - 'real-time adaptive particle therapy'
   - 'proton therapy dose engine'
   - 'ion imaging'
-  - 'proton imaging'
