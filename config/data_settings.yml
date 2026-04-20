@@ -1,0 +1,19 @@
+data_scraper:
+  huggingface_limit_per_query: 30
+  zenodo_limit_per_query: 25
+  polite_sleep_seconds: 0.5
+  min_heuristic_score: 1
+  require_description_words: 10
+
+  zenodo_accept_record_types:
+    - dataset
+    - software
+    - publication
+    - poster
+    - presentation
+    - lesson
+    - image
+    - video
+    - other
+
+  zenodo_require_ai_terms: false

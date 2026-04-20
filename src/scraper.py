@@ -459,6 +459,14 @@ def build_manual_seed_record(
     )
     return None
 
+def load_json(path: str | Path) -> Any:
+    file_path = Path(path)
+    if not file_path.exists():
+        return []
+    try:
+        return json.loads(file_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
 
 def derive_gitlab_queries_from_main_queries(main_queries: list[str], taxonomy: dict[str, Any]) -> list[str]:
     strong_terms = taxonomy.get("strong_particle_therapy_terms", [])
@@ -733,6 +741,24 @@ def run() -> int:
         reverse=True,
     )
 
+    hf_model_tools = load_json("data/hf_model_tools.json")
+    if hf_model_tools:
+        included.extend(hf_model_tools)
+        # dedupe by URL, keep higher-star item
+        deduped = {}
+        for row in included:
+            current = deduped.get(row["url"])
+            if current is None or row.get("stars", 0) > current.get("stars", 0):
+                deduped[row["url"]] = row
+        included = sorted(
+            deduped.values(),
+            key=lambda row: (
+                row.get("stars", 0),
+                row.get("classification", {}).get("confidence", 0),
+                row.get("heuristic_total_score", 0),
+            ),
+            reverse=True,
+        )
     safe_write_json("data/catalog.json", included)
     write_readme(included)
     write_site(included)

@@ -36,6 +36,7 @@ jobs:
           OPENAI_MODEL: gpt-4.1-mini
         run: |
           python run.py
+          python run_data.py
 
       - name: Commit updated catalog
         run: |

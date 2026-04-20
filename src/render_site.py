@@ -11,7 +11,7 @@ INDEX_HTML = """<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI/ML in Particle Therapy Catalog</title>
-  <meta name="description" content="A curated catalog of repositories at the intersection of particle therapy and AI/ML.">
+  <meta name="description" content="A curated catalog of repositories and datasets at the intersection of particle therapy and AI/ML.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,44 +20,49 @@ INDEX_HTML = """<!doctype html>
       <div class="hero-inner">
         <div class="hero-copy">
           <span class="eyebrow">AI + PARTICLE THERAPY</span>
-          <h1>Repository Atlas</h1>
+          <h1>Research Atlas</h1>
           <p class="hero-text">
-            A curated, searchable catalog of open repositories related to particle therapy,
-            proton therapy, hadron therapy, and machine learning.
+            A curated, searchable catalog of tools, models, datasets, and records related to
+            particle therapy, proton therapy, hadron therapy, and machine learning.
           </p>
         </div>
 
         <div class="hero-panel">
           <div class="hero-stat">
-            <span class="hero-stat-label">Indexed repositories</span>
-            <span class="hero-stat-value" id="heroRepoCount">0</span>
+            <span class="hero-stat-label">Visible items</span>
+            <span class="hero-stat-value" id="heroVisibleCount">0</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-label">Visible after filters</span>
-            <span class="hero-stat-value" id="heroVisibleCount">0</span>
+            <span class="hero-stat-label">Current tab</span>
+            <span class="hero-stat-value" id="heroCurrentTab">Tools</span>
           </div>
         </div>
       </div>
     </header>
 
     <main class="main-content">
+      <section class="tabs">
+        <button class="tab-button active" id="tabTools" type="button">Tools</button>
+        <button class="tab-button" id="tabDatasets" type="button">Data &amp; Records</button>
+      </section>
+
       <section class="controls">
         <div class="controls-grid">
           <label class="control">
             <span>Search</span>
-            <input id="search" type="search" placeholder="Search repositories, categories, tags...">
+            <input id="search" type="search" placeholder="Search titles, descriptions, categories, tags...">
           </label>
 
           <label class="control">
-            <span>Platform</span>
-            <select id="platformFilter">
-              <option value="">All platforms</option>
+            <span>Source</span>
+            <select id="sourceFilter">
+              <option value="">All sources</option>
             </select>
           </label>
 
           <label class="control">
-            <span>Category</span>
-            <select id="categoryFilter">
+            <span>Category / Tag</span>
+            <select id="tagFilter">
               <option value="">All categories</option>
             </select>
           </label>
@@ -65,7 +70,7 @@ INDEX_HTML = """<!doctype html>
           <label class="control">
             <span>Sort by</span>
             <select id="sortBy">
-              <option value="stars">Stars</option>
+              <option value="popularity">Popularity</option>
               <option value="updated">Last updated</option>
               <option value="name">Name</option>
             </select>
@@ -97,10 +102,11 @@ APP_JS = r"""function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-async function loadCatalog() {
-  const response = await fetch("catalog.json");
+async function loadJson(path) {
+  const response = await fetch(path);
   if (!response.ok) {
-    throw new Error(`Failed to load catalog.json: ${response.status}`);
+    if (response.status === 404) return [];
+    throw new Error(`Failed to load ${path}: ${response.status}`);
   }
   return await response.json();
 }
@@ -116,17 +122,26 @@ function formatDate(value) {
   return date.toISOString().slice(0, 10);
 }
 
-function buildStats(items, totalItems) {
-  const totalStars = items.reduce((sum, item) => sum + (item.stars || 0), 0);
+function buildStats(items, mode) {
+  if (mode === "datasets") {
+    const totalDownloads = items.reduce((sum, item) => sum + (item.downloads || 0), 0);
+    return `
+      <div class="stat-pill">
+        <span class="stat-label">Shown</span>
+        <span class="stat-value">${items.length}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Downloads shown</span>
+        <span class="stat-value">${totalDownloads}</span>
+      </div>
+    `;
+  }
 
+  const totalStars = items.reduce((sum, item) => sum + (item.stars || 0), 0);
   return `
     <div class="stat-pill">
       <span class="stat-label">Shown</span>
       <span class="stat-value">${items.length}</span>
-    </div>
-    <div class="stat-pill">
-      <span class="stat-label">Total indexed</span>
-      <span class="stat-value">${totalItems}</span>
     </div>
     <div class="stat-pill">
       <span class="stat-label">Stars shown</span>
@@ -135,7 +150,7 @@ function buildStats(items, totalItems) {
   `;
 }
 
-function getSearchBlob(item) {
+function getToolSearchBlob(item) {
   const cls = item.classification || {};
   return [
     item.full_name,
@@ -149,106 +164,193 @@ function getSearchBlob(item) {
   ].join(" ").toLowerCase();
 }
 
-function sortItems(items, sortBy) {
+function getDatasetSearchBlob(item) {
+  return [
+    item.title,
+    item.summary,
+    (item.tags || []).join(" "),
+    (item.creators || []).join(" "),
+    item.source || "",
+    item.license || "",
+    item.record_type || "",
+    item.kind || "",
+    item.doi || ""
+  ].join(" ").toLowerCase();
+}
+
+function getItemSource(item, mode) {
+  return mode === "datasets" ? (item.source || "") : (item.platform || item.source || "");
+}
+
+function getItemTags(item, mode) {
+  if (mode === "datasets") return item.tags || [];
+  const cls = item.classification || {};
+  return [...(cls.categories || []), ...(item.topics || []), ...(item.manual_tags || [])];
+}
+
+function sortItems(items, sortBy, mode) {
   const sorted = [...items];
 
   sorted.sort((a, b) => {
     if (sortBy === "updated") {
       return (b.updated_at || "").localeCompare(a.updated_at || "");
     }
+
     if (sortBy === "name") {
-      return (a.full_name || "").localeCompare(b.full_name || "");
+      const aName = mode === "datasets" ? (a.title || "") : (a.full_name || "");
+      const bName = mode === "datasets" ? (b.title || "") : (b.full_name || "");
+      return aName.localeCompare(bName);
     }
+
+    if (mode === "datasets") {
+      return ((b.downloads || 0) + (b.likes || 0)) - ((a.downloads || 0) + (a.likes || 0));
+    }
+
     return (b.stars || 0) - (a.stars || 0);
   });
 
   return sorted;
 }
 
-function matchesFilters(item, filters) {
-  const cls = item.classification || {};
+function matchesFilters(item, filters, mode) {
   const query = filters.query.trim().toLowerCase();
+  const blob = mode === "datasets" ? getDatasetSearchBlob(item) : getToolSearchBlob(item);
 
-  if (query && !getSearchBlob(item).includes(query)) return false;
-  if (filters.platform && (item.platform || "") !== filters.platform) return false;
-  if (filters.category && !(cls.categories || []).includes(filters.category)) return false;
+  if (query && !blob.includes(query)) return false;
+  if (filters.source && getItemSource(item, mode) !== filters.source) return false;
+
+  if (filters.tag) {
+    const tags = getItemTags(item, mode);
+    if (!tags.includes(filters.tag)) return false;
+  }
 
   return true;
 }
 
-function renderCards(items) {
+function renderToolCard(item) {
+  const cls = item.classification || {};
+  const categories = cls.categories || [];
+  const warnings = cls.warnings || [];
+  const topics = item.topics || [];
+  const sourceLabel = item.platform || item.source || "unknown";
+
+  return `
+    <a class="repo-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+      <div class="repo-card-top">
+        <div>
+          <div class="repo-kicker">${escapeHtml(sourceLabel)} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
+          <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
+          <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
+        </div>
+      </div>
+
+      <div class="repo-meta-row">
+        <span>★ ${item.stars || 0}</span>
+        <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
+        <span>${escapeHtml(item.language || "Unknown")}</span>
+      </div>
+
+      ${
+        categories.length
+          ? `<div class="chip-row">${categories.slice(0, 4).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
+          : `<div class="chip-row"></div>`
+      }
+
+      <div class="hover-panel">
+        ${
+          topics.length
+            ? `<div class="hover-block">
+                <div class="hover-label">Topics</div>
+                <div class="chip-row">${topics.slice(0, 8).map(x => `<span class="chip chip-subtle">${escapeHtml(x)}</span>`).join("")}</div>
+              </div>`
+            : ""
+        }
+
+        ${
+          warnings.length
+            ? `<div class="hover-block">
+                <div class="hover-label">Notes</div>
+                <ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+              </div>`
+            : ""
+        }
+
+        ${
+          item.manual_note
+            ? `<div class="hover-block">
+                <div class="hover-label">Curator note</div>
+                <p class="hover-note">${escapeHtml(item.manual_note)}</p>
+              </div>`
+            : ""
+        }
+      </div>
+    </a>
+  `;
+}
+
+function renderDatasetCard(item) {
+  return `
+    <a class="repo-card dataset-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+      <div class="repo-card-top">
+        <div>
+          <div class="repo-kicker">${escapeHtml(item.source || "record")} · ${escapeHtml(item.record_type || item.kind || "record")}${item.doi ? ` · DOI` : ""}</div>
+          <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
+          <p class="repo-summary">${escapeHtml(item.summary || "No description available.")}</p>
+        </div>
+      </div>
+
+      <div class="repo-meta-row">
+        <span>Downloads ${item.downloads || 0}</span>
+        <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
+        <span>${escapeHtml(item.license || "Unknown license")}</span>
+      </div>
+
+      ${
+        (item.tags || []).length
+          ? `<div class="chip-row">${(item.tags || []).slice(0, 6).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
+          : `<div class="chip-row"></div>`
+      }
+
+      <div class="hover-panel">
+        ${
+          (item.creators || []).length
+            ? `<div class="hover-block">
+                <div class="hover-label">Creators</div>
+                <p class="hover-note">${escapeHtml((item.creators || []).slice(0, 6).join(", "))}</p>
+              </div>`
+            : ""
+        }
+
+        ${
+          item.doi
+            ? `<div class="hover-block">
+                <div class="hover-label">DOI</div>
+                <p class="hover-note">${escapeHtml(item.doi)}</p>
+              </div>`
+            : ""
+        }
+      </div>
+    </a>
+  `;
+}
+
+function renderCards(items, mode) {
   const results = document.getElementById("results");
   if (!results) return;
 
   if (!items.length) {
     results.innerHTML = `
       <div class="empty-state">
-        <h2>No repositories match the current filters.</h2>
+        <h2>No items match the current filters.</h2>
         <p>Try a broader search or reset the filters.</p>
       </div>
     `;
     return;
   }
 
-  results.innerHTML = items.map(item => {
-    const cls = item.classification || {};
-    const categories = cls.categories || [];
-    const warnings = cls.warnings || [];
-    const topics = item.topics || [];
-
-    return `
-      <a class="repo-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(item.full_name || "")}">
-        <div class="repo-card-top">
-          <div>
-            <div class="repo-kicker">${escapeHtml(item.platform || "unknown")} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
-            <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
-            <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
-          </div>
-        </div>
-
-        <div class="repo-meta-row">
-          <span>★ ${item.stars || 0}</span>
-          <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
-          <span>${escapeHtml(item.language || "Unknown")}</span>
-        </div>
-
-        ${
-          categories.length
-            ? `<div class="chip-row">${categories.slice(0, 4).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
-            : `<div class="chip-row"></div>`
-        }
-
-        <div class="hover-panel">
-          ${
-            topics.length
-              ? `<div class="hover-block">
-                  <div class="hover-label">Topics</div>
-                  <div class="chip-row">${topics.slice(0, 8).map(x => `<span class="chip chip-subtle">${escapeHtml(x)}</span>`).join("")}</div>
-                </div>`
-              : ""
-          }
-
-          ${
-            warnings.length
-              ? `<div class="hover-block">
-                  <div class="hover-label">Notes</div>
-                  <ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
-                </div>`
-              : ""
-          }
-
-          ${
-            item.manual_note
-              ? `<div class="hover-block">
-                  <div class="hover-label">Curator note</div>
-                  <p class="hover-note">${escapeHtml(item.manual_note)}</p>
-                </div>`
-              : ""
-          }
-        </div>
-      </a>
-    `;
-  }).join("");
+  results.innerHTML = items.map(item => (
+    mode === "datasets" ? renderDatasetCard(item) : renderToolCard(item)
+  )).join("");
 }
 
 function populateSelect(selectEl, values, placeholderLabel) {
@@ -265,68 +367,88 @@ function populateSelect(selectEl, values, placeholderLabel) {
 }
 
 function addSafeListener(el, eventName, handler) {
-  if (el) {
-    el.addEventListener(eventName, handler);
-  }
+  if (el) el.addEventListener(eventName, handler);
 }
 
 async function main() {
-  const rawItems = await loadCatalog();
+  const [tools, datasets] = await Promise.all([
+    loadJson("catalog.json"),
+    loadJson("datasets.json")
+  ]);
 
-  const platformFilter = document.getElementById("platformFilter");
-  const categoryFilter = document.getElementById("categoryFilter");
+  const state = { mode: "tools" };
+
+  const sourceFilter = document.getElementById("sourceFilter");
+  const tagFilter = document.getElementById("tagFilter");
   const sortBy = document.getElementById("sortBy");
   const search = document.getElementById("search");
   const stats = document.getElementById("stats");
   const resetButton = document.getElementById("resetFilters");
-  const heroRepoCount = document.getElementById("heroRepoCount");
   const heroVisibleCount = document.getElementById("heroVisibleCount");
+  const heroCurrentTab = document.getElementById("heroCurrentTab");
+  const tabTools = document.getElementById("tabTools");
+  const tabDatasets = document.getElementById("tabDatasets");
 
-  if (!stats) {
-    throw new Error("Missing required page element: stats");
+  function getCurrentItems() {
+    return state.mode === "datasets" ? datasets : tools;
   }
 
-  if (heroRepoCount) {
-    heroRepoCount.textContent = String(rawItems.length);
+  function refreshFilters() {
+    const items = getCurrentItems();
+    const sources = uniqueSorted(items.map(item => getItemSource(item, state.mode)));
+    const tags = uniqueSorted(items.flatMap(item => getItemTags(item, state.mode)));
+
+    populateSelect(sourceFilter, sources, "All sources");
+    populateSelect(tagFilter, tags, "All categories");
   }
-
-  const platforms = uniqueSorted(rawItems.map(item => item.platform));
-  const categories = uniqueSorted(rawItems.flatMap(item => item.classification?.categories || []));
-
-  populateSelect(platformFilter, platforms, "All platforms");
-  populateSelect(categoryFilter, categories, "All categories");
 
   function update() {
+    const items = getCurrentItems();
+
     const filters = {
       query: search?.value || "",
-      platform: platformFilter?.value || "",
-      category: categoryFilter?.value || ""
+      source: sourceFilter?.value || "",
+      tag: tagFilter?.value || ""
     };
 
-    const filtered = rawItems.filter(item => matchesFilters(item, filters));
-    const sorted = sortItems(filtered, sortBy?.value || "stars");
+    const filtered = items.filter(item => matchesFilters(item, filters, state.mode));
+    const sorted = sortItems(filtered, sortBy?.value || "popularity", state.mode);
 
-    if (heroVisibleCount) {
-      heroVisibleCount.textContent = String(sorted.length);
-    }
+    if (heroVisibleCount) heroVisibleCount.textContent = String(sorted.length);
+    if (heroCurrentTab) heroCurrentTab.textContent = state.mode === "datasets" ? "Data & Records" : "Tools";
+    if (stats) stats.innerHTML = buildStats(sorted, state.mode);
 
-    stats.innerHTML = buildStats(sorted, rawItems.length);
-    renderCards(sorted);
+    renderCards(sorted, state.mode);
   }
 
-  [platformFilter, categoryFilter, sortBy, search].forEach(el => {
-    addSafeListener(el, "input", update);
-    addSafeListener(el, "change", update);
-  });
+  function setMode(mode) {
+    state.mode = mode;
+    if (tabTools) tabTools.classList.toggle("active", mode === "tools");
+    if (tabDatasets) tabDatasets.classList.toggle("active", mode === "datasets");
+    if (sortBy) sortBy.value = "popularity";
+    if (sourceFilter) sourceFilter.value = "";
+    if (tagFilter) tagFilter.value = "";
+    refreshFilters();
+    update();
+  }
+
+  addSafeListener(search, "input", update);
+  addSafeListener(sourceFilter, "change", update);
+  addSafeListener(tagFilter, "change", update);
+  addSafeListener(sortBy, "change", update);
 
   addSafeListener(resetButton, "click", () => {
     if (search) search.value = "";
-    if (platformFilter) platformFilter.value = "";
-    if (categoryFilter) categoryFilter.value = "";
-    if (sortBy) sortBy.value = "stars";
+    if (sourceFilter) sourceFilter.value = "";
+    if (tagFilter) tagFilter.value = "";
+    if (sortBy) sortBy.value = "popularity";
     update();
   });
 
+  addSafeListener(tabTools, "click", () => setMode("tools"));
+  addSafeListener(tabDatasets, "click", () => setMode("datasets"));
+
+  refreshFilters();
   update();
 }
 
@@ -391,7 +513,7 @@ body {
 }
 
 .hero {
-  padding: 3.5rem 1.25rem 2rem;
+  padding: 3.5rem 1.25rem 1.5rem;
 }
 
 .hero-inner {
@@ -408,7 +530,8 @@ body {
 .controls,
 .stat-pill,
 .repo-card,
-.empty-state {
+.empty-state,
+.tabs {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -485,6 +608,33 @@ body {
   padding: 0 1.25rem 3rem;
 }
 
+.tabs {
+  display: inline-flex;
+  gap: 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 14px;
+  padding: 0.7rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background: rgba(25, 118, 184, 0.12);
+  color: var(--primary);
+  border-color: rgba(25, 118, 184, 0.16);
+}
+
 .controls {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -521,15 +671,6 @@ button {
   border-radius: 16px;
   padding: 0.85rem 0.95rem;
   font-size: 0.95rem;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-}
-
-input[type="search"]:focus,
-select:focus,
-button:focus {
-  outline: none;
-  border-color: var(--primary-2);
-  box-shadow: 0 0 0 4px rgba(47, 148, 209, 0.12);
 }
 
 .controls-actions {
@@ -544,13 +685,9 @@ button {
   color: var(--primary);
 }
 
-button:hover {
-  transform: translateY(-1px);
-}
-
 .stats-bar {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem;
   margin: 1rem 0 1.1rem;
 }
@@ -765,7 +902,8 @@ button:hover {
 
   .hero-copy,
   .hero-panel,
-  .controls {
+  .controls,
+  .tabs {
     border-radius: 20px;
   }
 
@@ -791,7 +929,7 @@ def write_site(entries: list[dict[str, Any]]) -> None:
     normalized_entries: list[dict[str, Any]] = []
     for item in entries:
         row = dict(item)
-        row.setdefault("platform", "")
+        row.setdefault("platform", row.get("source", ""))
         row.setdefault("full_name", "")
         row.setdefault("url", "")
         row.setdefault("description", "")

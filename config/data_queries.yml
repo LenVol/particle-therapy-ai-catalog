@@ -1,0 +1,44 @@
+huggingface_model_queries:
+  - proton therapy
+  - particle therapy
+  - hadron therapy
+  - carbon ion therapy
+  - ion beam therapy
+  - proton radiotherapy
+  - adaptive proton therapy
+  - proton dose prediction
+  - proton segmentation
+  - proton treatment planning
+  - carbon ion segmentation
+  - hadron segmentation
+
+huggingface_dataset_queries:
+  - proton therapy
+  - particle therapy
+  - hadron therapy
+  - carbon ion therapy
+  - ion beam therapy
+  - proton radiotherapy
+  - adaptive proton therapy
+  - proton dose prediction
+  - proton segmentation
+  - proton treatment planning
+  - carbon ion segmentation
+  - hadron segmentation
+
+zenodo_queries:
+  - proton therapy
+  - particle therapy
+  - hadron therapy
+  - carbon ion therapy
+  - ion beam therapy
+  - proton radiotherapy
+  - adaptive proton therapy
+  - proton dose prediction
+  - proton segmentation
+  - proton treatment planning
+  - carbon ion segmentation
+  - hadron segmentation
+  - range verification proton
+  - LET proton
+  - RBE proton
