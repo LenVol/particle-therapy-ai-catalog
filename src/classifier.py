@@ -86,19 +86,53 @@ SCHEMA = {
 
 
 def fallback_classify(repo: dict[str, Any]) -> RepoClassification:
-    pt = int(repo.get("heuristic_pt_score", 0))
-    ai = int(repo.get("heuristic_ai_score", 0))
+    strong_hits = int(repo.get("heuristic_strong_particle_hits", 0))
+    particle_hits = int(repo.get("heuristic_particle_hits", 0))
+    ai_hits = int(repo.get("heuristic_ai_hits", 0))
+    title_strong_hits = int(repo.get("heuristic_title_strong_particle_hits", 0))
+    title_ai_hits = int(repo.get("heuristic_title_ai_hits", 0))
     total = int(repo.get("heuristic_total_score", 0))
 
+    pt_total = strong_hits + particle_hits + title_strong_hits
+    ai_total = ai_hits + title_ai_hits
+    include = bool(repo.get("heuristic_passes", False)) or bool(repo.get("forced_include", False))
+
+    summary = (
+        repo.get("description")
+        or repo.get("manual_note")
+        or "Included by heuristic/manual filtering."
+    )
+
+    categories = repo.get("manual_tags", []) or []
+    reasons = list(repo.get("heuristic_reasons", []) or [])
+    warnings: list[str] = []
+
+    if repo.get("is_manual"):
+        reasons.append(f"Manual seed source: {repo.get('manual_source', 'unknown')}.")
+    if repo.get("forced_include"):
+        reasons.append("Forced include was enabled for this repository.")
+    if repo.get("readme_word_count", 0) < 20:
+        warnings.append("Very short README.")
+    if not repo.get("has_code", True):
+        warnings.append("Code presence could not be verified.")
+
     return RepoClassification(
-        include=True,
-        confidence=min(0.95, max(0.10, total / 12.0)),
-        summary=repo.get("description") or "Keyword-matched repository.",
-        particle_therapy_relevance="high" if pt >= 2 else ("medium" if pt >= 1 else "none"),
-        ml_relevance="high" if ai >= 2 else ("medium" if ai >= 1 else "none"),
-        categories=[],
-        reasons=["Fallback heuristic classifier used."],
-        warnings=[],
+        include=include,
+        confidence=min(0.95, max(0.10, total / 20.0)),
+        summary=summary,
+        particle_therapy_relevance=(
+            "high" if (strong_hits + title_strong_hits) >= 1 and pt_total >= 2
+            else "medium" if pt_total >= 1
+            else "none"
+        ),
+        ml_relevance=(
+            "high" if ai_total >= 2
+            else "medium" if ai_total >= 1
+            else "none"
+        ),
+        categories=categories,
+        reasons=reasons,
+        warnings=warnings,
         likely_tool_type="unclear",
     )
 
@@ -124,13 +158,25 @@ def build_repo_fingerprint(repo: dict[str, Any], llm_cfg: dict[str, Any]) -> str
 
     payload = {
         "url": repo.get("url"),
+        "full_name": repo.get("full_name"),
         "description": (repo.get("description") or "")[:max_description_chars],
         "topics": (repo.get("topics") or [])[:max_topics],
         "readme_excerpt": (repo.get("readme_excerpt") or "")[:max_readme_chars],
-        "heuristic_pt_score": repo.get("heuristic_pt_score", 0),
-        "heuristic_ai_score": repo.get("heuristic_ai_score", 0),
-        "heuristic_negative_score": repo.get("heuristic_negative_score", 0),
+        "manual_note": repo.get("manual_note", ""),
+        "manual_tags": repo.get("manual_tags", []),
+        "is_manual": repo.get("is_manual", False),
+        "manual_source": repo.get("manual_source"),
+        "heuristic_strong_particle_hits": repo.get("heuristic_strong_particle_hits", 0),
+        "heuristic_particle_hits": repo.get("heuristic_particle_hits", 0),
+        "heuristic_support_hits": repo.get("heuristic_support_hits", 0),
+        "heuristic_ai_hits": repo.get("heuristic_ai_hits", 0),
+        "heuristic_negative_hits": repo.get("heuristic_negative_hits", 0),
+        "heuristic_generic_radiotherapy_hits": repo.get("heuristic_generic_radiotherapy_hits", 0),
+        "heuristic_title_strong_particle_hits": repo.get("heuristic_title_strong_particle_hits", 0),
+        "heuristic_title_ai_hits": repo.get("heuristic_title_ai_hits", 0),
         "heuristic_total_score": repo.get("heuristic_total_score", 0),
+        "heuristic_has_strong_particle_anchor": repo.get("heuristic_has_strong_particle_anchor", False),
+        "heuristic_passes": repo.get("heuristic_passes", False),
     }
     raw = json.dumps(payload, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
@@ -152,12 +198,25 @@ def trim_repo_for_llm(repo: dict[str, Any], llm_cfg: dict[str, Any]) -> dict[str
         "license": repo.get("license"),
         "topics": (repo.get("topics") or [])[:max_topics],
         "readme_excerpt": (repo.get("readme_excerpt") or "")[:max_readme_chars],
-        "heuristic_pt_score": repo.get("heuristic_pt_score", 0),
-        "heuristic_ai_score": repo.get("heuristic_ai_score", 0),
-        "heuristic_negative_score": repo.get("heuristic_negative_score", 0),
-        "heuristic_total_score": repo.get("heuristic_total_score", 0),
         "manual_note": repo.get("manual_note", ""),
         "manual_tags": repo.get("manual_tags", []),
+        "is_manual": repo.get("is_manual", False),
+        "manual_source": repo.get("manual_source"),
+        "forced_include": repo.get("forced_include", False),
+        "has_code": repo.get("has_code", False),
+        "readme_word_count": repo.get("readme_word_count", 0),
+        "heuristic_strong_particle_hits": repo.get("heuristic_strong_particle_hits", 0),
+        "heuristic_particle_hits": repo.get("heuristic_particle_hits", 0),
+        "heuristic_support_hits": repo.get("heuristic_support_hits", 0),
+        "heuristic_ai_hits": repo.get("heuristic_ai_hits", 0),
+        "heuristic_negative_hits": repo.get("heuristic_negative_hits", 0),
+        "heuristic_generic_radiotherapy_hits": repo.get("heuristic_generic_radiotherapy_hits", 0),
+        "heuristic_title_strong_particle_hits": repo.get("heuristic_title_strong_particle_hits", 0),
+        "heuristic_title_ai_hits": repo.get("heuristic_title_ai_hits", 0),
+        "heuristic_total_score": repo.get("heuristic_total_score", 0),
+        "heuristic_has_strong_particle_anchor": repo.get("heuristic_has_strong_particle_anchor", False),
+        "heuristic_passes": repo.get("heuristic_passes", False),
+        "heuristic_reasons": repo.get("heuristic_reasons", []),
     }
 
 
@@ -190,12 +249,12 @@ def classify_repo(
     trimmed_repo = trim_repo_for_llm(repo, llm_cfg)
 
     system = (
-        "You classify repositories for a public catalog focused on repositories "
-        "that are relevant to both particle therapy and AI/ML. "
-        "Be conservative. Exclude generic radiotherapy repositories unless proton, ion, "
-        "hadron, or particle-therapy relevance is clear. Exclude generic AI repositories "
-        "unless particle-therapy relevance is clear. "
-        "A research-code repository may still be included if it is genuinely relevant."
+        "You classify repositories for a catalog focused on particle therapy and AI/ML. "
+        "Include repositories that are directly about AI/ML in particle therapy, and also include "
+        "foundational particle-therapy software tools that are clearly relevant to research workflows "
+        "around AI/ML, treatment planning, dose calculation, segmentation, adaptation, or analysis. "
+        "Exclude unrelated generic ML repositories and unrelated generic radiotherapy repositories. "
+        "Research code is acceptable; the repository does not need to be a polished end-user tool."
     )
 
     payload = {

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import base64
 import os
+import re
 import time
 from typing import Any
 
@@ -15,7 +16,14 @@ SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": "particle-therapy-ai-catalog/1.0"})
 
 
-def _request_json(method: str, url: str, *, headers=None, params=None, json_body=None) -> Any:
+def _request_json(
+    method: str,
+    url: str,
+    *,
+    headers: dict[str, str] | None = None,
+    params: dict[str, Any] | None = None,
+    json_body: dict[str, Any] | None = None,
+) -> Any:
     max_attempts = 6
     last_response: requests.Response | None = None
 
@@ -54,7 +62,7 @@ def _request_json(method: str, url: str, *, headers=None, params=None, json_body
                 time.sleep(sleep_for)
                 continue
 
-            time.sleep(min(60, 2 ** attempt))
+            time.sleep(min(60, 2**attempt))
             continue
 
         response.raise_for_status()
@@ -73,11 +81,15 @@ def github_headers() -> dict[str, str]:
 
 
 def gitlab_headers() -> dict[str, str]:
-    headers = {}
+    headers: dict[str, str] = {}
     if GITLAB_TOKEN:
         headers["PRIVATE-TOKEN"] = GITLAB_TOKEN
     return headers
 
+
+# =========================
+# GitHub
+# =========================
 
 def search_github_repositories(query: str, per_page: int = 25) -> list[dict[str, Any]]:
     data = _request_json(
@@ -122,29 +134,29 @@ def github_get_file(owner: str, repo: str, path: str) -> str:
 
 
 def github_list_repository_paths(owner: str, repo: str, branch: str | None = None) -> list[str]:
-    """
-    Returns a lightweight recursive path listing for a GitHub repo.
-    """
+    ref = branch or "HEAD"
     try:
         data = _request_json(
             "GET",
-            f"https://api.github.com/repos/{owner}/{repo}/git/trees/{branch or 'HEAD'}",
+            f"https://api.github.com/repos/{owner}/{repo}/git/trees/{ref}",
             headers=github_headers(),
             params={"recursive": "1"},
         )
     except Exception:
         return []
 
-    paths: list[str] = []
-    for item in data.get("tree", []):
-        path = item.get("path")
-        if path:
-            paths.append(path)
-    return paths
+    return [item["path"] for item in data.get("tree", []) if item.get("path")]
 
+
+# =========================
+# GitLab (UPDATED)
+# =========================
 
 def search_gitlab_projects(query: str, per_page: int = 25) -> list[dict[str, Any]]:
-    return _request_json(
+    """
+    Search GitLab and EXCLUDE forks.
+    """
+    data = _request_json(
         "GET",
         "https://gitlab.com/api/v4/projects",
         headers=gitlab_headers(),
@@ -154,8 +166,29 @@ def search_gitlab_projects(query: str, per_page: int = 25) -> list[dict[str, Any
             "order_by": "last_activity_at",
             "sort": "desc",
             "per_page": per_page,
+            "forks": "false",  # best-effort filter
         },
     )
+
+    items = data or []
+
+    # HARD FILTER (reliable)
+    filtered: list[dict[str, Any]] = []
+    for item in items:
+        # GitLab fork indicator
+        if item.get("forked_from_project"):
+            continue
+
+        # Optional: extra safety heuristic
+        # Some edge cases don't include forked_from_project in simple mode
+        if item.get("namespace", {}).get("kind") == "user" and item.get("forks_count", 0) == 0:
+            # likely original repo — keep
+            filtered.append(item)
+        else:
+            # still include if no fork parent
+            filtered.append(item)
+
+    return filtered
 
 
 def get_gitlab_project(project_path: str) -> dict[str, Any]:
@@ -189,9 +222,6 @@ def gitlab_get_file(project_id: int, path: str, ref: str) -> str:
 
 
 def gitlab_list_repository_paths(project_id: int, ref: str) -> list[str]:
-    """
-    Returns a shallow-ish recursive path listing for a GitLab repo by walking the tree.
-    """
     results: list[str] = []
     page = 1
 
@@ -214,16 +244,35 @@ def gitlab_list_repository_paths(project_id: int, ref: str) -> list[str]:
         if not data:
             break
 
-        for item in data:
-            path = item.get("path")
-            if path:
-                results.append(path)
+        results.extend(item["path"] for item in data if item.get("path"))
 
         if len(data) < 100:
             break
         page += 1
 
     return results
+
+
+# =========================
+# URL Parsing
+# =========================
+
+def parse_repo_url(url: str) -> tuple[str, str] | None:
+    if not url:
+        return None
+
+    cleaned = url.strip().rstrip("/")
+    cleaned = re.sub(r"\.git$", "", cleaned)
+
+    m = re.match(r"^https?://github\.com/([^/]+/[^/]+)$", cleaned, re.IGNORECASE)
+    if m:
+        return "github", m.group(1)
+
+    m = re.match(r"^https?://gitlab\.com/([^/]+(?:/[^/]+)+)$", cleaned, re.IGNORECASE)
+    if m:
+        return "gitlab", m.group(1)
+
+    return None
 
 
 def polite_sleep(seconds: float = 0.35) -> None:

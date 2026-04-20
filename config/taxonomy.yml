@@ -10,6 +10,8 @@ strong_particle_therapy_terms:
   - adaptive proton therapy
   - ion imaging
   - ion therapy
+  - patient 
+  - medical
 
 particle_therapy_terms:
   - particle therapy
@@ -86,11 +88,36 @@ ai_terms:
   - training
 
 negative_terms:
-  - paper list
-  - papers list
-  - literature review
-  - review article
-
+  - jet 
+  - rna
+  - course
+  - soccer
+  - battery 
+  - market
+  - surromod
+  - internship
+  - advance_ai
+  - customer
+  - loan
+  - next-letter-prediction
+  - data-science-practical
+  - image-forgery
+  - traffic
+  - us-visa
+  - anime
+  - attention-knockout
+  - david-v2
+  - oracle
+  - lasso-predict
+  - dashboard
+  - skeleton-graph
+  - stock
+  - pouch
+  - vehicle
+  - proton pump inhibitor
+  - datawhisper
+  - mamacare
+    
 generic_radiotherapy_terms:
   - radiotherapy
   - radiation therapy

@@ -18,6 +18,7 @@ from src.providers import (
     github_list_repository_paths,
     gitlab_get_file,
     gitlab_list_repository_paths,
+    parse_repo_url,
     polite_sleep,
     search_github_repositories,
     search_gitlab_projects,
@@ -85,10 +86,37 @@ def repo_has_code(paths: list[str]) -> bool:
         name = lower.split("/")[-1]
         if name in CODE_FILENAMES:
             return True
-        for ext in CODE_EXTENSIONS:
-            if lower.endswith(ext):
-                return True
+        if any(lower.endswith(ext) for ext in CODE_EXTENSIONS):
+            return True
     return False
+
+
+def coalesce(preferred: Any, fallback: Any) -> Any:
+    if preferred is None:
+        return fallback
+    if isinstance(preferred, str) and not preferred.strip():
+        return fallback
+    if isinstance(preferred, list) and len(preferred) == 0:
+        return fallback
+    return preferred
+
+
+def build_blob(
+    full_name: str,
+    description: str,
+    topics: list[str],
+    readme: str,
+    extra: str,
+) -> str:
+    parts = [
+        full_name or "",
+        normalize_repo_name(full_name),
+        description or "",
+        " ".join(topics or []),
+        readme or "",
+        extra or "",
+    ]
+    return " ".join(parts)
 
 
 def collect_github_text_and_paths(owner: str, repo: str, branch: str | None) -> tuple[str, str, list[str]]:
@@ -134,18 +162,6 @@ def collect_gitlab_text_and_paths(project_id: int, default_branch: str | None) -
     return readme[:12000], "\n\n".join(extra_chunks)[:12000], paths
 
 
-def build_blob(full_name: str, description: str, topics: list[str], readme: str, extra: str) -> str:
-    parts = [
-        full_name or "",
-        normalize_repo_name(full_name),
-        description or "",
-        " ".join(topics or []),
-        readme or "",
-        extra or "",
-    ]
-    return " ".join(parts)
-
-
 def build_github_record(item: dict[str, Any], taxonomy: dict[str, Any], min_heuristic_score: int) -> dict[str, Any]:
     full_name = item["full_name"]
     owner, repo = full_name.split("/", 1)
@@ -171,6 +187,8 @@ def build_github_record(item: dict[str, Any], taxonomy: dict[str, Any], min_heur
         "has_code": repo_has_code(paths),
         "repo_paths_sample": paths[:200],
         "is_fork": item.get("fork", False),
+        "is_manual": False,
+        "manual_source": None,
         "heuristic_strong_particle_hits": heuristic.strong_particle_hits,
         "heuristic_particle_hits": heuristic.particle_hits,
         "heuristic_support_hits": heuristic.support_hits,
@@ -212,6 +230,8 @@ def build_gitlab_record(item: dict[str, Any], taxonomy: dict[str, Any], min_heur
         "has_code": repo_has_code(paths),
         "repo_paths_sample": paths[:200],
         "is_fork": bool(item.get("forked_from_project")),
+        "is_manual": False,
+        "manual_source": None,
         "heuristic_strong_particle_hits": heuristic.strong_particle_hits,
         "heuristic_particle_hits": heuristic.particle_hits,
         "heuristic_support_hits": heuristic.support_hits,
@@ -234,6 +254,7 @@ def apply_overrides(entries: list[dict[str, Any]], overrides: dict[str, Any]) ->
     tags = overrides.get("tags", {})
 
     result: list[dict[str, Any]] = []
+
     for entry in entries:
         if entry["url"] in excluded:
             continue
@@ -244,6 +265,7 @@ def apply_overrides(entries: list[dict[str, Any]], overrides: dict[str, Any]) ->
         if entry["url"] in tags:
             entry["manual_tags"] = tags[entry["url"]]
         result.append(entry)
+
     return result
 
 
@@ -252,23 +274,26 @@ def load_manual_seed_repos() -> list[dict[str, Any]]:
 
     yaml_cfg = load_yaml("config/manual_seed_repos.yml")
     for repo in yaml_cfg.get("repos", []):
-        if repo.get("url"):
-            rows.append({
-                "url": repo["url"].strip(),
-                "always_include": bool(repo.get("always_include", False)),
-                "platform": repo.get("platform", "manual"),
-                "full_name": repo.get("full_name", ""),
-                "description": repo.get("description", ""),
-                "language": repo.get("language"),
-                "topics": repo.get("topics", []) or [],
-                "note": repo.get("note", ""),
-                "tags": repo.get("tags", []) or [],
-                "stars": int(repo.get("stars", 0) or 0),
-                "updated_at": repo.get("updated_at"),
-                "license": repo.get("license"),
-                "readme_excerpt": repo.get("readme_excerpt", ""),
-                "has_code": bool(repo.get("has_code", True)),
-            })
+        url = (repo.get("url") or "").strip()
+        if not url:
+            continue
+
+        rows.append({
+            "url": url,
+            "always_include": bool(repo.get("always_include", False)),
+            "platform": repo.get("platform", "manual"),
+            "full_name": repo.get("full_name", ""),
+            "description": repo.get("description", ""),
+            "language": repo.get("language"),
+            "topics": repo.get("topics", []) or [],
+            "note": repo.get("note", ""),
+            "tags": repo.get("tags", []) or [],
+            "stars": int(repo.get("stars", 0) or 0),
+            "updated_at": repo.get("updated_at"),
+            "license": repo.get("license"),
+            "readme_excerpt": repo.get("readme_excerpt", ""),
+            "has_code": bool(repo.get("has_code", True)),
+        })
 
     csv_path = Path("data/manual_seed_repos.csv")
     if csv_path.exists():
@@ -278,6 +303,7 @@ def load_manual_seed_repos() -> list[dict[str, Any]]:
                 url = (row.get("url") or "").strip()
                 if not url:
                     continue
+
                 tags = [x.strip() for x in (row.get("tags") or "").split(";") if x.strip()]
                 topics = [x.strip() for x in (row.get("topics") or "").split(";") if x.strip()]
                 always_include = str(row.get("always_include", "")).strip().lower() in {"1", "true", "yes", "y"}
@@ -306,7 +332,37 @@ def load_manual_seed_repos() -> list[dict[str, Any]]:
     return list(deduped.values())
 
 
-def build_manual_metadata_record(seed: dict[str, Any], taxonomy: dict[str, Any], min_heuristic_score: int) -> dict[str, Any] | None:
+def merge_seed_overrides(live_record: dict[str, Any], seed: dict[str, Any]) -> dict[str, Any]:
+    record = dict(live_record)
+
+    record["platform"] = coalesce(record.get("platform"), seed.get("platform", "manual"))
+    record["full_name"] = coalesce(record.get("full_name"), seed.get("full_name"))
+    record["description"] = coalesce(record.get("description"), seed.get("description", ""))
+    record["language"] = coalesce(record.get("language"), seed.get("language"))
+    record["topics"] = coalesce(record.get("topics"), seed.get("topics", []) or [])
+    record["stars"] = coalesce(record.get("stars"), int(seed.get("stars", 0) or 0))
+    record["updated_at"] = coalesce(record.get("updated_at"), seed.get("updated_at"))
+    record["license"] = coalesce(record.get("license"), seed.get("license"))
+    record["readme_excerpt"] = coalesce(record.get("readme_excerpt"), seed.get("readme_excerpt", ""))
+    record["has_code"] = record.get("has_code", bool(seed.get("has_code", True)))
+
+    if seed.get("always_include"):
+        record["forced_include"] = True
+    if seed.get("note"):
+        record["manual_note"] = seed["note"]
+    if seed.get("tags"):
+        record["manual_tags"] = seed.get("tags", []) or []
+
+    record["is_manual"] = True
+    record["manual_source"] = "live+yaml"
+    return record
+
+
+def build_manual_metadata_record(
+    seed: dict[str, Any],
+    taxonomy: dict[str, Any],
+    min_heuristic_score: int,
+) -> dict[str, Any] | None:
     if not seed.get("url"):
         return None
 
@@ -337,6 +393,7 @@ def build_manual_metadata_record(seed: dict[str, Any], taxonomy: dict[str, Any],
         "repo_paths_sample": [],
         "is_fork": False,
         "is_manual": True,
+        "manual_source": "yaml-only",
         "forced_include": bool(seed.get("always_include", False)),
         "manual_note": seed.get("note", ""),
         "manual_tags": seed.get("tags", []) or [],
@@ -355,12 +412,49 @@ def build_manual_metadata_record(seed: dict[str, Any], taxonomy: dict[str, Any],
     }
 
 
-def build_manual_seed_record(seed: dict[str, Any], taxonomy: dict[str, Any], min_heuristic_score: int) -> dict[str, Any] | None:
+def build_live_manual_seed_record(
+    seed: dict[str, Any],
+    taxonomy: dict[str, Any],
+    min_heuristic_score: int,
+) -> dict[str, Any] | None:
+    parsed = parse_repo_url(seed.get("url", ""))
+    if not parsed:
+        return None
+
+    platform, repo_path = parsed
+
+    try:
+        if platform == "github":
+            owner, repo = repo_path.split("/", 1)
+            item = get_github_repository(owner, repo)
+            live_record = build_github_record(item, taxonomy, min_heuristic_score)
+            return merge_seed_overrides(live_record, seed)
+
+        if platform == "gitlab":
+            item = get_gitlab_project(repo_path)
+            live_record = build_gitlab_record(item, taxonomy, min_heuristic_score)
+            return merge_seed_overrides(live_record, seed)
+    except Exception as exc:
+        LOGGER.warning("Live fetch failed for manual seed %s: %s", seed.get("url"), exc)
+
+    return None
+
+
+def build_manual_seed_record(
+    seed: dict[str, Any],
+    taxonomy: dict[str, Any],
+    min_heuristic_score: int,
+) -> dict[str, Any] | None:
+    live_record = build_live_manual_seed_record(seed, taxonomy, min_heuristic_score)
+    if live_record is not None:
+        return live_record
+
     if seed.get("full_name") and seed.get("description"):
         return build_manual_metadata_record(seed, taxonomy, min_heuristic_score)
 
     LOGGER.warning(
-        "Skipping manual seed without sufficient metadata: %s (need at least full_name and description)",
+        "Skipping manual seed without sufficient metadata after live fetch failed: %s "
+        "(need at least full_name and description for YAML fallback)",
         seed.get("url", "<missing-url>"),
     )
     return None
@@ -385,7 +479,11 @@ def derive_gitlab_queries_from_main_queries(main_queries: list[str], taxonomy: d
     return result
 
 
-def discover_github_repositories(queries: list[str], taxonomy: dict[str, Any], settings: dict[str, Any]) -> list[dict[str, Any]]:
+def discover_github_repositories(
+    queries: list[str],
+    taxonomy: dict[str, Any],
+    settings: dict[str, Any],
+) -> list[dict[str, Any]]:
     scraper_cfg = settings.get("scraper", {})
     github_per_query = int(scraper_cfg.get("github_per_query", 25))
     sleep_seconds = float(scraper_cfg.get("polite_sleep_seconds", 0.35))
@@ -412,7 +510,11 @@ def discover_github_repositories(queries: list[str], taxonomy: dict[str, Any], s
     return list(seen.values())
 
 
-def discover_gitlab_repositories(queries: list[str], taxonomy: dict[str, Any], settings: dict[str, Any]) -> list[dict[str, Any]]:
+def discover_gitlab_repositories(
+    queries: list[str],
+    taxonomy: dict[str, Any],
+    settings: dict[str, Any],
+) -> list[dict[str, Any]]:
     scraper_cfg = settings.get("scraper", {})
     gitlab_per_query = int(scraper_cfg.get("gitlab_per_query", 25))
     sleep_seconds = float(scraper_cfg.get("polite_sleep_seconds", 0.35))
@@ -439,6 +541,7 @@ def discover_gitlab_repositories(queries: list[str], taxonomy: dict[str, Any], s
 
 def merge_and_sort_candidates(*candidate_groups: list[dict[str, Any]]) -> list[dict[str, Any]]:
     seen: dict[str, dict[str, Any]] = {}
+
     for group in candidate_groups:
         for row in group:
             current = seen.get(row["url"])
@@ -460,18 +563,15 @@ def merge_and_sort_candidates(*candidate_groups: list[dict[str, Any]]) -> list[d
 def passes_quality_filters(repo: dict[str, Any], settings: dict[str, Any]) -> bool:
     scraper_cfg = settings.get("scraper", {})
     require_code = bool(scraper_cfg.get("require_code", True))
-    min_readme_words = int(scraper_cfg.get("min_readme_words", 20))
+    min_readme_words = int(scraper_cfg.get("min_readme_words", 100))
     bypass = bool(scraper_cfg.get("force_include_bypasses_quality_filters", True))
 
     if repo.get("forced_include", False) and bypass:
         return True
-
     if require_code and not repo.get("has_code", False):
         return False
-
     if repo.get("readme_word_count", 0) < min_readme_words:
         return False
-
     return True
 
 
@@ -515,14 +615,23 @@ def run() -> int:
     LOGGER.info("GitLab candidate count: %d", len(gitlab_candidates))
     LOGGER.info("Manual seed candidate count: %d", len(manual_seed_candidates))
 
-    all_candidates = merge_and_sort_candidates(github_candidates, gitlab_candidates, manual_seed_candidates)
+    all_candidates = merge_and_sort_candidates(
+        github_candidates,
+        gitlab_candidates,
+        manual_seed_candidates,
+    )
     all_candidates = apply_overrides(all_candidates, overrides)
 
     safe_write_json("data/all_candidates.json", all_candidates)
 
     prefiltered: list[dict[str, Any]] = []
+    dropped_forks = 0
+    dropped_quality = 0
+    dropped_prefilter = 0
+
     for repo in all_candidates:
         if repo.get("is_fork") and not repo.get("forced_include", False):
+            dropped_forks += 1
             continue
 
         blob = build_blob(
@@ -550,10 +659,13 @@ def run() -> int:
         repo["heuristic_reasons"] = heuristic.reasons
 
         if not passes_quality_filters(repo, settings):
+            dropped_quality += 1
             continue
 
         if passes_prefilter(heuristic) or repo.get("forced_include", False):
             prefiltered.append(repo)
+        else:
+            dropped_prefilter += 1
 
     prefiltered = sorted(
         prefiltered,
@@ -566,31 +678,50 @@ def run() -> int:
         reverse=True,
     )
 
-    included: list[dict[str, Any]] = []
     if llm_enabled:
         prefiltered = prefiltered[:max_llm_repos]
 
+    included: list[dict[str, Any]] = []
+
     for repo in prefiltered:
-        classification = classify_repo(repo=repo, llm_cfg=llm_cfg, cache_path="data/classification_cache.json")
+        if llm_enabled:
+            classification = classify_repo(
+                repo=repo,
+                llm_cfg=llm_cfg,
+                cache_path="data/classification_cache.json",
+            )
 
-        if not classification.include and not repo.get("forced_include", False):
+            if not classification.include and not repo.get("forced_include", False):
+                time.sleep(classify_sleep_seconds)
+                continue
+
+            repo["classification"] = {
+                "include": classification.include,
+                "confidence": classification.confidence,
+                "summary": classification.summary,
+                "particle_therapy_relevance": classification.particle_therapy_relevance,
+                "ml_relevance": classification.ml_relevance,
+                "categories": classification.categories,
+                "reasons": classification.reasons,
+                "warnings": classification.warnings,
+                "likely_tool_type": classification.likely_tool_type,
+            }
+
+            included.append(repo)
             time.sleep(classify_sleep_seconds)
-            continue
-
-        repo["classification"] = {
-            "include": classification.include,
-            "confidence": classification.confidence,
-            "summary": classification.summary,
-            "particle_therapy_relevance": classification.particle_therapy_relevance,
-            "ml_relevance": classification.ml_relevance,
-            "categories": classification.categories,
-            "reasons": classification.reasons,
-            "warnings": classification.warnings,
-            "likely_tool_type": classification.likely_tool_type,
-        }
-
-        included.append(repo)
-        time.sleep(classify_sleep_seconds)
+        else:
+            repo["classification"] = {
+                "include": True,
+                "confidence": 0,
+                "summary": repo.get("description") or "Included by heuristic/manual filtering.",
+                "particle_therapy_relevance": None,
+                "ml_relevance": None,
+                "categories": repo.get("manual_tags", []) or [],
+                "reasons": [],
+                "warnings": [],
+                "likely_tool_type": "unclear",
+            }
+            included.append(repo)
 
     included = sorted(
         included,
@@ -609,6 +740,9 @@ def run() -> int:
     LOGGER.info("GitHub queries used: %d", len(github_queries))
     LOGGER.info("GitLab queries used: %d", len(gitlab_queries))
     LOGGER.info("All candidates: %d", len(all_candidates))
+    LOGGER.info("Dropped forks: %d", dropped_forks)
+    LOGGER.info("Dropped by quality filters: %d", dropped_quality)
+    LOGGER.info("Dropped by heuristic prefilter: %d", dropped_prefilter)
     LOGGER.info("Prefiltered candidates: %d", len(prefiltered))
     LOGGER.info("Included repositories: %d", len(included))
 

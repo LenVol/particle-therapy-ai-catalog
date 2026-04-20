@@ -88,6 +88,7 @@ def score_text(
         reasons.append("Generic radiotherapy terms found without a strong particle-therapy anchor.")
 
     passes = (
+        negative_hits == 0 and 
         #and ((ai_hits + title_ai_hits) >= 1)
         total_score >= min_total
     )
