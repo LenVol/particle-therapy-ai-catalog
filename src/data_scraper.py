@@ -114,10 +114,22 @@ def load_yaml(path: str) -> dict[str, Any]:
         return yaml.safe_load(handle) or {}
 
 
+def _json_default(obj: Any) -> Any:
+    if hasattr(obj, "isoformat"):
+        try:
+            return obj.isoformat()
+        except Exception:
+            pass
+    return str(obj)
+
+
 def safe_write_json(path: str | Path, payload: Any) -> None:
     file_path = Path(path)
     file_path.parent.mkdir(parents=True, exist_ok=True)
-    file_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    file_path.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False, default=_json_default),
+        encoding="utf-8",
+    )
 
 
 def normalize(text: str) -> str:
@@ -176,6 +188,17 @@ def safe_hf_attr(obj: Any, name: str, default: Any = None) -> Any:
         return default
 
 
+def normalize_datetime_like(value: Any) -> str | None:
+    if value is None:
+        return None
+    if hasattr(value, "isoformat"):
+        try:
+            return value.isoformat()
+        except Exception:
+            return str(value)
+    return str(value)
+
+
 # -------------------------
 # Hugging Face datasets
 # -------------------------
@@ -194,7 +217,7 @@ def search_huggingface_datasets(query: str, limit: int) -> list[dict[str, Any]]:
                 "id": safe_hf_attr(ds, "id"),
                 "downloads": safe_hf_attr(ds, "downloads"),
                 "likes": safe_hf_attr(ds, "likes"),
-                "lastModified": safe_hf_attr(ds, "last_modified"),
+                "lastModified": normalize_datetime_like(safe_hf_attr(ds, "last_modified")),
                 "tags": list(safe_hf_attr(ds, "tags", []) or []),
                 "cardData": safe_hf_attr(ds, "card_data", None) or {},
                 "description": safe_hf_attr(ds, "description", None),
@@ -220,7 +243,7 @@ def list_huggingface_datasets_by_author(author: str, limit: int) -> list[dict[st
                 "id": safe_hf_attr(ds, "id"),
                 "downloads": safe_hf_attr(ds, "downloads"),
                 "likes": safe_hf_attr(ds, "likes"),
-                "lastModified": safe_hf_attr(ds, "last_modified"),
+                "lastModified": normalize_datetime_like(safe_hf_attr(ds, "last_modified")),
                 "tags": list(safe_hf_attr(ds, "tags", []) or []),
                 "cardData": safe_hf_attr(ds, "card_data", None) or {},
                 "description": safe_hf_attr(ds, "description", None),
@@ -255,7 +278,7 @@ def build_huggingface_dataset_record(
         dataset_id,
         summary,
         " ".join(tags),
-        json.dumps(card_data, ensure_ascii=False),
+        json.dumps(card_data, ensure_ascii=False, default=_json_default),
     ])
 
     particle_hits, ai_hits, total, reasons, passes = score_blob(
@@ -307,7 +330,7 @@ def search_huggingface_models(query: str, limit: int) -> list[dict[str, Any]]:
                 "id": safe_hf_attr(model, "id"),
                 "downloads": safe_hf_attr(model, "downloads"),
                 "likes": safe_hf_attr(model, "likes"),
-                "lastModified": safe_hf_attr(model, "last_modified"),
+                "lastModified": normalize_datetime_like(safe_hf_attr(model, "last_modified")),
                 "tags": list(safe_hf_attr(model, "tags", []) or []),
                 "cardData": safe_hf_attr(model, "card_data", None) or {},
                 "pipeline_tag": safe_hf_attr(model, "pipeline_tag"),
@@ -334,7 +357,7 @@ def list_huggingface_models_by_author(author: str, limit: int) -> list[dict[str,
                 "id": safe_hf_attr(model, "id"),
                 "downloads": safe_hf_attr(model, "downloads"),
                 "likes": safe_hf_attr(model, "likes"),
-                "lastModified": safe_hf_attr(model, "last_modified"),
+                "lastModified": normalize_datetime_like(safe_hf_attr(model, "last_modified")),
                 "tags": list(safe_hf_attr(model, "tags", []) or []),
                 "cardData": safe_hf_attr(model, "card_data", None) or {},
                 "pipeline_tag": safe_hf_attr(model, "pipeline_tag"),
@@ -373,7 +396,7 @@ def build_huggingface_model_tool_record(
         " ".join(tags),
         str(pipeline_tag or ""),
         str(library_name or ""),
-        json.dumps(card_data, ensure_ascii=False),
+        json.dumps(card_data, ensure_ascii=False, default=_json_default),
     ])
 
     particle_hits, ai_hits, total, reasons, passes = score_blob(
