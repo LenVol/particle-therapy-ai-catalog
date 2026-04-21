@@ -37,7 +37,7 @@ body {
 }
 
 .hero {
-  padding: 3.5rem 1.25rem 2rem;
+  padding: 3.5rem 1.25rem 1.5rem;
 }
 
 .hero-inner {
@@ -54,7 +54,8 @@ body {
 .controls,
 .stat-pill,
 .repo-card,
-.empty-state {
+.empty-state,
+.tabs {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -131,6 +132,33 @@ body {
   padding: 0 1.25rem 3rem;
 }
 
+.tabs {
+  display: inline-flex;
+  gap: 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 14px;
+  padding: 0.7rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background: rgba(25, 118, 184, 0.12);
+  color: var(--primary);
+  border-color: rgba(25, 118, 184, 0.16);
+}
+
 .controls {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -149,6 +177,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  min-width: 0;
+}
+
+.control-search {
+  min-width: 0;
 }
 
 .control span {
@@ -167,15 +200,10 @@ button {
   border-radius: 16px;
   padding: 0.85rem 0.95rem;
   font-size: 0.95rem;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
-input[type="search"]:focus,
-select:focus,
-button:focus {
-  outline: none;
-  border-color: var(--primary-2);
-  box-shadow: 0 0 0 4px rgba(47, 148, 209, 0.12);
+select {
+  max-width: 100%;
 }
 
 .controls-actions {
@@ -190,13 +218,9 @@ button {
   color: var(--primary);
 }
 
-button:hover {
-  transform: translateY(-1px);
-}
-
 .stats-bar {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem;
   margin: 1rem 0 1.1rem;
 }
@@ -221,6 +245,69 @@ button:hover {
   font-size: 1.35rem;
   font-weight: 800;
   margin-top: 0.1rem;
+}
+
+.dataset-chip-filter {
+  margin-top: 1rem;
+  padding-top: 0.2rem;
+}
+
+.chip-filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.chip-filter-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.chip-clear-button {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.chip-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding: 0.2rem 0.1rem 0.4rem;
+  scrollbar-width: thin;
+}
+
+.filter-chip {
+  flex: 0 0 auto;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(25, 118, 184, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(25, 118, 184, 0.14);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.filter-chip:hover {
+  background: rgba(25, 118, 184, 0.14);
+}
+
+.filter-chip.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.hidden {
+  display: none !important;
 }
 
 .cards-grid {
@@ -411,7 +498,8 @@ button:hover {
 
   .hero-copy,
   .hero-panel,
-  .controls {
+  .controls,
+  .tabs {
     border-radius: 20px;
   }
 
@@ -425,5 +513,9 @@ button:hover {
 
   .repo-card-top {
     flex-direction: column;
+  }
+
+  .filter-chip {
+    max-width: 220px;
   }
 }

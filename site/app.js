@@ -7,10 +7,11 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-async function loadCatalog() {
-  const response = await fetch("catalog.json");
+async function loadJson(path) {
+  const response = await fetch(path);
   if (!response.ok) {
-    throw new Error(`Failed to load catalog.json: ${response.status}`);
+    if (response.status === 404) return [];
+    throw new Error(`Failed to load ${path}: ${response.status}`);
   }
   return await response.json();
 }
@@ -26,17 +27,26 @@ function formatDate(value) {
   return date.toISOString().slice(0, 10);
 }
 
-function buildStats(items, totalItems) {
-  const totalStars = items.reduce((sum, item) => sum + (item.stars || 0), 0);
+function buildStats(items, mode) {
+  if (mode === "datasets") {
+    const totalDownloads = items.reduce((sum, item) => sum + (item.downloads || 0), 0);
+    return `
+      <div class="stat-pill">
+        <span class="stat-label">Shown</span>
+        <span class="stat-value">${items.length}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Downloads shown</span>
+        <span class="stat-value">${totalDownloads}</span>
+      </div>
+    `;
+  }
 
+  const totalStars = items.reduce((sum, item) => sum + (item.stars || 0), 0);
   return `
     <div class="stat-pill">
       <span class="stat-label">Shown</span>
       <span class="stat-value">${items.length}</span>
-    </div>
-    <div class="stat-pill">
-      <span class="stat-label">Total indexed</span>
-      <span class="stat-value">${totalItems}</span>
     </div>
     <div class="stat-pill">
       <span class="stat-label">Stars shown</span>
@@ -45,7 +55,7 @@ function buildStats(items, totalItems) {
   `;
 }
 
-function getSearchBlob(item) {
+function getToolSearchBlob(item) {
   const cls = item.classification || {};
   return [
     item.full_name,
@@ -59,106 +69,178 @@ function getSearchBlob(item) {
   ].join(" ").toLowerCase();
 }
 
-function sortItems(items, sortBy) {
+function getDatasetSearchBlob(item) {
+  return [
+    item.title,
+    item.summary,
+    (item.tags || []).join(" "),
+    (item.creators || []).join(" "),
+    item.source || "",
+    item.license || "",
+    item.record_type || "",
+    item.kind || "",
+    item.doi || ""
+  ].join(" ").toLowerCase();
+}
+
+function getItemSource(item, mode) {
+  return mode === "datasets" ? (item.source || "") : (item.platform || item.source || "");
+}
+
+function getItemTags(item, mode) {
+  if (mode === "datasets") return item.tags || [];
+  const cls = item.classification || {};
+  return [...(cls.categories || []), ...(item.topics || []), ...(item.manual_tags || [])];
+}
+
+function sortItems(items, sortBy, mode) {
   const sorted = [...items];
 
   sorted.sort((a, b) => {
     if (sortBy === "updated") {
       return (b.updated_at || "").localeCompare(a.updated_at || "");
     }
+
     if (sortBy === "name") {
-      return (a.full_name || "").localeCompare(b.full_name || "");
+      const aName = mode === "datasets" ? (a.title || "") : (a.full_name || "");
+      const bName = mode === "datasets" ? (b.title || "") : (b.full_name || "");
+      return aName.localeCompare(bName);
     }
+
+    if (mode === "datasets") {
+      return ((b.downloads || 0) + (b.likes || 0)) - ((a.downloads || 0) + (a.likes || 0));
+    }
+
     return (b.stars || 0) - (a.stars || 0);
   });
 
   return sorted;
 }
 
-function matchesFilters(item, filters) {
+function renderToolCard(item) {
   const cls = item.classification || {};
-  const query = filters.query.trim().toLowerCase();
+  const categories = cls.categories || [];
+  const warnings = cls.warnings || [];
+  const topics = item.topics || [];
+  const sourceLabel = item.platform || item.source || "unknown";
 
-  if (query && !getSearchBlob(item).includes(query)) return false;
-  if (filters.platform && (item.platform || "") !== filters.platform) return false;
-  if (filters.category && !(cls.categories || []).includes(filters.category)) return false;
+  return `
+    <a class="repo-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+      <div class="repo-card-top">
+        <div>
+          <div class="repo-kicker">${escapeHtml(sourceLabel)} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
+          <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
+          <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
+        </div>
+      </div>
 
-  return true;
+      <div class="repo-meta-row">
+        <span>★ ${item.stars || 0}</span>
+        <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
+        <span>${escapeHtml(item.language || "Unknown")}</span>
+      </div>
+
+      ${
+        categories.length
+          ? `<div class="chip-row">${categories.slice(0, 4).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
+          : `<div class="chip-row"></div>`
+      }
+
+      <div class="hover-panel">
+        ${
+          topics.length
+            ? `<div class="hover-block">
+                <div class="hover-label">Topics</div>
+                <div class="chip-row">${topics.slice(0, 8).map(x => `<span class="chip chip-subtle">${escapeHtml(x)}</span>`).join("")}</div>
+              </div>`
+            : ""
+        }
+
+        ${
+          warnings.length
+            ? `<div class="hover-block">
+                <div class="hover-label">Notes</div>
+                <ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+              </div>`
+            : ""
+        }
+
+        ${
+          item.manual_note
+            ? `<div class="hover-block">
+                <div class="hover-label">Curator note</div>
+                <p class="hover-note">${escapeHtml(item.manual_note)}</p>
+              </div>`
+            : ""
+        }
+      </div>
+    </a>
+  `;
 }
 
-function renderCards(items) {
+function renderDatasetCard(item) {
+  return `
+    <a class="repo-card dataset-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+      <div class="repo-card-top">
+        <div>
+          <div class="repo-kicker">${escapeHtml(item.source || "record")} · ${escapeHtml(item.record_type || item.kind || "record")}${item.doi ? ` · DOI` : ""}</div>
+          <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
+          <p class="repo-summary">${escapeHtml(item.summary || "No description available.")}</p>
+        </div>
+      </div>
+
+      <div class="repo-meta-row">
+        <span>Downloads ${item.downloads || 0}</span>
+        <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
+        <span>${escapeHtml(item.license || "Unknown license")}</span>
+      </div>
+
+      ${
+        (item.tags || []).length
+          ? `<div class="chip-row">${(item.tags || []).slice(0, 6).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
+          : `<div class="chip-row"></div>`
+      }
+
+      <div class="hover-panel">
+        ${
+          (item.creators || []).length
+            ? `<div class="hover-block">
+                <div class="hover-label">Creators</div>
+                <p class="hover-note">${escapeHtml((item.creators || []).slice(0, 6).join(", "))}</p>
+              </div>`
+            : ""
+        }
+
+        ${
+          item.doi
+            ? `<div class="hover-block">
+                <div class="hover-label">DOI</div>
+                <p class="hover-note">${escapeHtml(item.doi)}</p>
+              </div>`
+            : ""
+        }
+      </div>
+    </a>
+  `;
+}
+
+function renderCards(items, mode) {
   const results = document.getElementById("results");
   if (!results) return;
 
   if (!items.length) {
     results.innerHTML = `
       <div class="empty-state">
-        <h2>No repositories match the current filters.</h2>
+        <h2>No items match the current filters.</h2>
         <p>Try a broader search or reset the filters.</p>
       </div>
     `;
     return;
   }
 
-  results.innerHTML = items.map(item => {
-    const cls = item.classification || {};
-    const categories = cls.categories || [];
-    const warnings = cls.warnings || [];
-    const topics = item.topics || [];
-
-    return `
-      <a class="repo-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(item.full_name || "")}">
-        <div class="repo-card-top">
-          <div>
-            <div class="repo-kicker">${escapeHtml(item.platform || "unknown")} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
-            <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
-            <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
-          </div>
-        </div>
-
-        <div class="repo-meta-row">
-          <span>★ ${item.stars || 0}</span>
-          <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
-          <span>${escapeHtml(item.language || "Unknown")}</span>
-        </div>
-
-        ${
-          categories.length
-            ? `<div class="chip-row">${categories.slice(0, 4).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
-            : `<div class="chip-row"></div>`
-        }
-
-        <div class="hover-panel">
-          ${
-            topics.length
-              ? `<div class="hover-block">
-                  <div class="hover-label">Topics</div>
-                  <div class="chip-row">${topics.slice(0, 8).map(x => `<span class="chip chip-subtle">${escapeHtml(x)}</span>`).join("")}</div>
-                </div>`
-              : ""
-          }
-
-          ${
-            warnings.length
-              ? `<div class="hover-block">
-                  <div class="hover-label">Notes</div>
-                  <ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
-                </div>`
-              : ""
-          }
-
-          ${
-            item.manual_note
-              ? `<div class="hover-block">
-                  <div class="hover-label">Curator note</div>
-                  <p class="hover-note">${escapeHtml(item.manual_note)}</p>
-                </div>`
-              : ""
-          }
-        </div>
-      </a>
-    `;
-  }).join("");
+  results.innerHTML = items.map(item => (
+    mode === "datasets" ? renderDatasetCard(item) : renderToolCard(item)
+  )).join("");
 }
 
 function populateSelect(selectEl, values, placeholderLabel) {
@@ -175,68 +257,170 @@ function populateSelect(selectEl, values, placeholderLabel) {
 }
 
 function addSafeListener(el, eventName, handler) {
-  if (el) {
-    el.addEventListener(eventName, handler);
-  }
+  if (el) el.addEventListener(eventName, handler);
 }
 
 async function main() {
-  const rawItems = await loadCatalog();
+  const [tools, datasets] = await Promise.all([
+    loadJson("catalog.json"),
+    loadJson("datasets.json")
+  ]);
 
-  const platformFilter = document.getElementById("platformFilter");
-  const categoryFilter = document.getElementById("categoryFilter");
+  const state = {
+    mode: "tools",
+    selectedDatasetChip: "",
+  };
+
+  const sourceFilter = document.getElementById("sourceFilter");
+  const tagFilter = document.getElementById("tagFilter");
+  const tagFilterControl = document.getElementById("tagFilterControl");
+  const datasetChipFilterBlock = document.getElementById("datasetChipFilterBlock");
+  const datasetCategoryChips = document.getElementById("datasetCategoryChips");
+  const clearDatasetChipFilter = document.getElementById("clearDatasetChipFilter");
   const sortBy = document.getElementById("sortBy");
   const search = document.getElementById("search");
   const stats = document.getElementById("stats");
   const resetButton = document.getElementById("resetFilters");
-  const heroRepoCount = document.getElementById("heroRepoCount");
   const heroVisibleCount = document.getElementById("heroVisibleCount");
+  const heroCurrentTab = document.getElementById("heroCurrentTab");
+  const tabTools = document.getElementById("tabTools");
+  const tabDatasets = document.getElementById("tabDatasets");
 
-  if (!stats) {
-    throw new Error("Missing required page element: stats");
+  function getCurrentItems() {
+    return state.mode === "datasets" ? datasets : tools;
   }
 
-  if (heroRepoCount) {
-    heroRepoCount.textContent = String(rawItems.length);
-  }
+  function refreshDatasetChips() {
+    if (!datasetCategoryChips) return;
+    datasetCategoryChips.innerHTML = "";
 
-  const platforms = uniqueSorted(rawItems.map(item => item.platform));
-  const categories = uniqueSorted(rawItems.flatMap(item => item.classification?.categories || []));
+    const items = getCurrentItems();
+    const tags = uniqueSorted(items.flatMap(item => item.tags || []));
 
-  populateSelect(platformFilter, platforms, "All platforms");
-  populateSelect(categoryFilter, categories, "All categories");
+    for (const tag of tags) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "filter-chip";
+      button.textContent = tag;
+      button.title = tag;
 
-  function update() {
-    const filters = {
-      query: search?.value || "",
-      platform: platformFilter?.value || "",
-      category: categoryFilter?.value || ""
-    };
+      if (state.selectedDatasetChip === tag) {
+        button.classList.add("active");
+      }
 
-    const filtered = rawItems.filter(item => matchesFilters(item, filters));
-    const sorted = sortItems(filtered, sortBy?.value || "stars");
+      button.addEventListener("click", () => {
+        state.selectedDatasetChip = state.selectedDatasetChip === tag ? "" : tag;
+        refreshDatasetChips();
+        update();
+      });
 
-    if (heroVisibleCount) {
-      heroVisibleCount.textContent = String(sorted.length);
+      datasetCategoryChips.appendChild(button);
     }
 
-    stats.innerHTML = buildStats(sorted, rawItems.length);
-    renderCards(sorted);
+    if (clearDatasetChipFilter) {
+      clearDatasetChipFilter.classList.toggle("hidden", !state.selectedDatasetChip);
+    }
   }
 
-  [platformFilter, categoryFilter, sortBy, search].forEach(el => {
-    addSafeListener(el, "input", update);
-    addSafeListener(el, "change", update);
-  });
+  function refreshFilters() {
+    const items = getCurrentItems();
+    const sources = uniqueSorted(items.map(item => getItemSource(item, state.mode)));
+
+    populateSelect(sourceFilter, sources, "All sources");
+
+    if (state.mode === "datasets") {
+      if (tagFilterControl) tagFilterControl.classList.add("hidden");
+      if (datasetChipFilterBlock) datasetChipFilterBlock.classList.remove("hidden");
+      refreshDatasetChips();
+    } else {
+      const tags = uniqueSorted(items.flatMap(item => getItemTags(item, state.mode)));
+      populateSelect(tagFilter, tags, "All categories");
+      if (tagFilterControl) tagFilterControl.classList.remove("hidden");
+      if (datasetChipFilterBlock) datasetChipFilterBlock.classList.add("hidden");
+    }
+  }
+
+  function matchesFilters(item, filters, mode) {
+    const query = filters.query.trim().toLowerCase();
+    const blob = mode === "datasets" ? getDatasetSearchBlob(item) : getToolSearchBlob(item);
+
+    if (query && !blob.includes(query)) return false;
+    if (filters.source && getItemSource(item, mode) !== filters.source) return false;
+
+    if (mode === "datasets") {
+      if (state.selectedDatasetChip) {
+        const tags = item.tags || [];
+        if (!tags.includes(state.selectedDatasetChip)) return false;
+      }
+    } else {
+      if (filters.tag) {
+        const tags = getItemTags(item, mode);
+        if (!tags.includes(filters.tag)) return false;
+      }
+    }
+
+    return true;
+  }
+
+  function update() {
+    const items = getCurrentItems();
+
+    const filters = {
+      query: search?.value || "",
+      source: sourceFilter?.value || "",
+      tag: tagFilter?.value || ""
+    };
+
+    const filtered = items.filter(item => matchesFilters(item, filters, state.mode));
+    const sorted = sortItems(filtered, sortBy?.value || "popularity", state.mode);
+
+    if (heroVisibleCount) heroVisibleCount.textContent = String(sorted.length);
+    if (heroCurrentTab) heroCurrentTab.textContent = state.mode === "datasets" ? "Data & Records" : "Tools";
+    if (stats) stats.innerHTML = buildStats(sorted, state.mode);
+
+    renderCards(sorted, state.mode);
+  }
+
+  function setMode(mode) {
+    state.mode = mode;
+    state.selectedDatasetChip = "";
+
+    if (tabTools) tabTools.classList.toggle("active", mode === "tools");
+    if (tabDatasets) tabDatasets.classList.toggle("active", mode === "datasets");
+
+    if (sortBy) sortBy.value = "popularity";
+    if (sourceFilter) sourceFilter.value = "";
+    if (tagFilter) tagFilter.value = "";
+
+    refreshFilters();
+    update();
+  }
+
+  addSafeListener(search, "input", update);
+  addSafeListener(sourceFilter, "change", update);
+  addSafeListener(tagFilter, "change", update);
+  addSafeListener(sortBy, "change", update);
 
   addSafeListener(resetButton, "click", () => {
+    state.selectedDatasetChip = "";
     if (search) search.value = "";
-    if (platformFilter) platformFilter.value = "";
-    if (categoryFilter) categoryFilter.value = "";
-    if (sortBy) sortBy.value = "stars";
+    if (sourceFilter) sourceFilter.value = "";
+    if (tagFilter) tagFilter.value = "";
+    if (sortBy) sortBy.value = "popularity";
+    refreshFilters();
     update();
   });
 
+  addSafeListener(clearDatasetChipFilter, "click", () => {
+    state.selectedDatasetChip = "";
+    refreshDatasetChips();
+    update();
+  });
+
+  addSafeListener(tabTools, "click", () => setMode("tools"));
+  addSafeListener(tabDatasets, "click", () => setMode("datasets"));
+
+  refreshFilters();
   update();
 }
 

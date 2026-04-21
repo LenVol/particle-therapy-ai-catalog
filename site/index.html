@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI/ML in Particle Therapy Catalog</title>
-  <meta name="description" content="A curated catalog of repositories at the intersection of particle therapy and AI/ML.">
+  <meta name="description" content="A curated catalog of repositories and datasets at the intersection of particle therapy and AI/ML.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,44 +13,49 @@
       <div class="hero-inner">
         <div class="hero-copy">
           <span class="eyebrow">AI + PARTICLE THERAPY</span>
-          <h1>Repository Atlas</h1>
+          <h1>Research Atlas</h1>
           <p class="hero-text">
-            A curated, searchable catalog of open repositories related to particle therapy,
-            proton therapy, hadron therapy, and machine learning.
+            A curated, searchable catalog of tools, models, datasets, and records related to
+            particle therapy, proton therapy, hadron therapy, and machine learning.
           </p>
         </div>
 
         <div class="hero-panel">
           <div class="hero-stat">
-            <span class="hero-stat-label">Indexed repositories</span>
-            <span class="hero-stat-value" id="heroRepoCount">0</span>
+            <span class="hero-stat-label">Visible items</span>
+            <span class="hero-stat-value" id="heroVisibleCount">0</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-label">Visible after filters</span>
-            <span class="hero-stat-value" id="heroVisibleCount">0</span>
+            <span class="hero-stat-label">Current tab</span>
+            <span class="hero-stat-value" id="heroCurrentTab">Tools</span>
           </div>
         </div>
       </div>
     </header>
 
     <main class="main-content">
+      <section class="tabs">
+        <button class="tab-button active" id="tabTools" type="button">Tools</button>
+        <button class="tab-button" id="tabDatasets" type="button">Data &amp; Records</button>
+      </section>
+
       <section class="controls">
         <div class="controls-grid">
-          <label class="control">
+          <label class="control control-search">
             <span>Search</span>
-            <input id="search" type="search" placeholder="Search repositories, categories, tags...">
+            <input id="search" type="search" placeholder="Search titles, descriptions, categories, tags...">
           </label>
 
           <label class="control">
-            <span>Platform</span>
-            <select id="platformFilter">
-              <option value="">All platforms</option>
+            <span>Source</span>
+            <select id="sourceFilter">
+              <option value="">All sources</option>
             </select>
           </label>
 
-          <label class="control">
-            <span>Category</span>
-            <select id="categoryFilter">
+          <label class="control" id="tagFilterControl">
+            <span>Category / Tag</span>
+            <select id="tagFilter">
               <option value="">All categories</option>
             </select>
           </label>
@@ -58,11 +63,19 @@
           <label class="control">
             <span>Sort by</span>
             <select id="sortBy">
-              <option value="stars">Stars</option>
+              <option value="popularity">Popularity</option>
               <option value="updated">Last updated</option>
               <option value="name">Name</option>
             </select>
           </label>
+        </div>
+
+        <div class="dataset-chip-filter hidden" id="datasetChipFilterBlock">
+          <div class="chip-filter-header">
+            <span class="chip-filter-label">Categories / Tags</span>
+            <button id="clearDatasetChipFilter" class="chip-clear-button hidden" type="button">Clear</button>
+          </div>
+          <div id="datasetCategoryChips" class="chip-container"></div>
         </div>
 
         <div class="controls-actions">
