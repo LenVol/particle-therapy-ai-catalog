@@ -48,7 +48,7 @@ INDEX_HTML = """<!doctype html>
 
       <section class="controls">
         <div class="controls-grid">
-          <label class="control">
+          <label class="control control-search">
             <span>Search</span>
             <input id="search" type="search" placeholder="Search titles, descriptions, categories, tags...">
           </label>
@@ -60,7 +60,7 @@ INDEX_HTML = """<!doctype html>
             </select>
           </label>
 
-          <label class="control">
+          <label class="control" id="tagFilterControl">
             <span>Category / Tag</span>
             <select id="tagFilter">
               <option value="">All categories</option>
@@ -75,6 +75,14 @@ INDEX_HTML = """<!doctype html>
               <option value="name">Name</option>
             </select>
           </label>
+        </div>
+
+        <div class="dataset-chip-filter hidden" id="datasetChipFilterBlock">
+          <div class="chip-filter-header">
+            <span class="chip-filter-label">Categories / Tags</span>
+            <button id="clearDatasetChipFilter" class="chip-clear-button hidden" type="button">Clear</button>
+          </div>
+          <div id="datasetCategoryChips" class="chip-container"></div>
         </div>
 
         <div class="controls-actions">
@@ -210,21 +218,6 @@ function sortItems(items, sortBy, mode) {
   });
 
   return sorted;
-}
-
-function matchesFilters(item, filters, mode) {
-  const query = filters.query.trim().toLowerCase();
-  const blob = mode === "datasets" ? getDatasetSearchBlob(item) : getToolSearchBlob(item);
-
-  if (query && !blob.includes(query)) return false;
-  if (filters.source && getItemSource(item, mode) !== filters.source) return false;
-
-  if (filters.tag) {
-    const tags = getItemTags(item, mode);
-    if (!tags.includes(filters.tag)) return false;
-  }
-
-  return true;
 }
 
 function renderToolCard(item) {
@@ -376,10 +369,17 @@ async function main() {
     loadJson("datasets.json")
   ]);
 
-  const state = { mode: "tools" };
+  const state = {
+    mode: "tools",
+    selectedDatasetChip: "",
+  };
 
   const sourceFilter = document.getElementById("sourceFilter");
   const tagFilter = document.getElementById("tagFilter");
+  const tagFilterControl = document.getElementById("tagFilterControl");
+  const datasetChipFilterBlock = document.getElementById("datasetChipFilterBlock");
+  const datasetCategoryChips = document.getElementById("datasetCategoryChips");
+  const clearDatasetChipFilter = document.getElementById("clearDatasetChipFilter");
   const sortBy = document.getElementById("sortBy");
   const search = document.getElementById("search");
   const stats = document.getElementById("stats");
@@ -393,13 +393,76 @@ async function main() {
     return state.mode === "datasets" ? datasets : tools;
   }
 
+  function refreshDatasetChips() {
+    if (!datasetCategoryChips) return;
+    datasetCategoryChips.innerHTML = "";
+
+    const items = getCurrentItems();
+    const tags = uniqueSorted(items.flatMap(item => item.tags || []));
+
+    for (const tag of tags) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "filter-chip";
+      button.textContent = tag;
+      button.title = tag;
+
+      if (state.selectedDatasetChip === tag) {
+        button.classList.add("active");
+      }
+
+      button.addEventListener("click", () => {
+        state.selectedDatasetChip = state.selectedDatasetChip === tag ? "" : tag;
+        refreshDatasetChips();
+        update();
+      });
+
+      datasetCategoryChips.appendChild(button);
+    }
+
+    if (clearDatasetChipFilter) {
+      clearDatasetChipFilter.classList.toggle("hidden", !state.selectedDatasetChip);
+    }
+  }
+
   function refreshFilters() {
     const items = getCurrentItems();
     const sources = uniqueSorted(items.map(item => getItemSource(item, state.mode)));
-    const tags = uniqueSorted(items.flatMap(item => getItemTags(item, state.mode)));
 
     populateSelect(sourceFilter, sources, "All sources");
-    populateSelect(tagFilter, tags, "All categories");
+
+    if (state.mode === "datasets") {
+      if (tagFilterControl) tagFilterControl.classList.add("hidden");
+      if (datasetChipFilterBlock) datasetChipFilterBlock.classList.remove("hidden");
+      refreshDatasetChips();
+    } else {
+      const tags = uniqueSorted(items.flatMap(item => getItemTags(item, state.mode)));
+      populateSelect(tagFilter, tags, "All categories");
+      if (tagFilterControl) tagFilterControl.classList.remove("hidden");
+      if (datasetChipFilterBlock) datasetChipFilterBlock.classList.add("hidden");
+    }
+  }
+
+  function matchesFilters(item, filters, mode) {
+    const query = filters.query.trim().toLowerCase();
+    const blob = mode === "datasets" ? getDatasetSearchBlob(item) : getToolSearchBlob(item);
+
+    if (query && !blob.includes(query)) return false;
+    if (filters.source && getItemSource(item, mode) !== filters.source) return false;
+
+    if (mode === "datasets") {
+      if (state.selectedDatasetChip) {
+        const tags = item.tags || [];
+        if (!tags.includes(state.selectedDatasetChip)) return false;
+      }
+    } else {
+      if (filters.tag) {
+        const tags = getItemTags(item, mode);
+        if (!tags.includes(filters.tag)) return false;
+      }
+    }
+
+    return true;
   }
 
   function update() {
@@ -423,11 +486,15 @@ async function main() {
 
   function setMode(mode) {
     state.mode = mode;
+    state.selectedDatasetChip = "";
+
     if (tabTools) tabTools.classList.toggle("active", mode === "tools");
     if (tabDatasets) tabDatasets.classList.toggle("active", mode === "datasets");
+
     if (sortBy) sortBy.value = "popularity";
     if (sourceFilter) sourceFilter.value = "";
     if (tagFilter) tagFilter.value = "";
+
     refreshFilters();
     update();
   }
@@ -438,10 +505,18 @@ async function main() {
   addSafeListener(sortBy, "change", update);
 
   addSafeListener(resetButton, "click", () => {
+    state.selectedDatasetChip = "";
     if (search) search.value = "";
     if (sourceFilter) sourceFilter.value = "";
     if (tagFilter) tagFilter.value = "";
     if (sortBy) sortBy.value = "popularity";
+    refreshFilters();
+    update();
+  });
+
+  addSafeListener(clearDatasetChipFilter, "click", () => {
+    state.selectedDatasetChip = "";
+    refreshDatasetChips();
     update();
   });
 
@@ -653,6 +728,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  min-width: 0;
+}
+
+.control-search {
+  min-width: 0;
 }
 
 .control span {
@@ -671,6 +751,10 @@ button {
   border-radius: 16px;
   padding: 0.85rem 0.95rem;
   font-size: 0.95rem;
+}
+
+select {
+  max-width: 100%;
 }
 
 .controls-actions {
@@ -712,6 +796,69 @@ button {
   font-size: 1.35rem;
   font-weight: 800;
   margin-top: 0.1rem;
+}
+
+.dataset-chip-filter {
+  margin-top: 1rem;
+  padding-top: 0.2rem;
+}
+
+.chip-filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.chip-filter-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.chip-clear-button {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.chip-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding: 0.2rem 0.1rem 0.4rem;
+  scrollbar-width: thin;
+}
+
+.filter-chip {
+  flex: 0 0 auto;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(25, 118, 184, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(25, 118, 184, 0.14);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.filter-chip:hover {
+  background: rgba(25, 118, 184, 0.14);
+}
+
+.filter-chip.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.hidden {
+  display: none !important;
 }
 
 .cards-grid {
@@ -918,8 +1065,13 @@ button {
   .repo-card-top {
     flex-direction: column;
   }
+
+  .filter-chip {
+    max-width: 220px;
+  }
 }
 """
+
 
 def write_site(entries: list[dict[str, Any]]) -> None:
     site_dir = Path("site")
@@ -950,13 +1102,11 @@ def write_site(entries: list[dict[str, Any]]) -> None:
         row["classification"].setdefault("likely_tool_type", "unclear")
         normalized_entries.append(row)
 
-    # tools
     (site_dir / "catalog.json").write_text(
         json.dumps(normalized_entries, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 
-    # datasets / records
     data_dir = Path("data")
 
     datasets_path = data_dir / "datasets.json"
@@ -981,4 +1131,3 @@ def write_site(entries: list[dict[str, Any]]) -> None:
     (site_dir / "app.js").write_text(APP_JS, encoding="utf-8")
     (site_dir / "styles.css").write_text(STYLES_CSS, encoding="utf-8")
     (site_dir / ".nojekyll").write_text("", encoding="utf-8")
-
