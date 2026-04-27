@@ -26,7 +26,7 @@ INDEX_HTML = """<!doctype html>
             particle therapy, proton therapy, hadron therapy, and machine learning.
           </p>
           <div class="hero-actions">
-              <a class="submit-button" href="https://github.com/YOUR_USERNAME/particle-therapy-ai-catalog/issues/new?template=submit-catalog-item.yml" target="_blank" rel="noopener noreferrer">
+              <a class="submit-button" href="https://github.com/LenVol/particle-therapy-ai-catalog/issues/new?template=submit-catalog-item.yml" target="_blank" rel="noopener noreferrer">
                 Submit an item
               </a>
             </div>
