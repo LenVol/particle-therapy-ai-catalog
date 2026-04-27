@@ -1,0 +1,12 @@
+paper_scraper:
+  arxiv_limit_per_query: 25
+  europepmc_limit_per_query: 25
+  crossref_limit_per_query: 25
+  polite_sleep_seconds: 0.4
+
+  min_heuristic_score: 1
+  min_abstract_words: 20
+
+  include_preprints: true
+  include_journal_articles: true
+  include_reviews: false

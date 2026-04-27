@@ -427,3 +427,29 @@ button:hover {
     flex-direction: column;
   }
 }
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.3rem;
+  flex-wrap: wrap;
+}
+
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.15rem;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  box-shadow: 0 12px 28px rgba(25, 118, 184, 0.22);
+  border: 1px solid rgba(255,255,255,0.22);
+}
+
+.submit-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(25, 118, 184, 0.28);
+}

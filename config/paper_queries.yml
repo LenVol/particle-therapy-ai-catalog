@@ -1,0 +1,34 @@
+arxiv_queries:
+  - all:"proton therapy" AND (all:"machine learning" OR all:"deep learning" OR all:"artificial intelligence")
+  - all:"particle therapy" AND (all:"machine learning" OR all:"deep learning" OR all:"artificial intelligence")
+  - all:"hadron therapy" AND (all:"machine learning" OR all:"deep learning" OR all:"artificial intelligence")
+  - all:"carbon ion therapy" AND (all:"machine learning" OR all:"deep learning" OR all:"artificial intelligence")
+  - all:"proton therapy segmentation"
+  - all:"proton therapy dose prediction"
+  - all:"range verification" AND all:proton
+  - all:"LET" AND all:proton
+  - all:"RBE" AND all:proton
+
+europepmc_queries:
+  - '"proton therapy" AND ("machine learning" OR "deep learning" OR "artificial intelligence")'
+  - '"particle therapy" AND ("machine learning" OR "deep learning" OR "artificial intelligence")'
+  - '"hadron therapy" AND ("machine learning" OR "deep learning" OR "artificial intelligence")'
+  - '"carbon ion therapy" AND ("machine learning" OR "deep learning" OR "artificial intelligence")'
+  - '"proton therapy segmentation"'
+  - '"proton therapy dose prediction"'
+  - '"range verification" AND proton'
+  - 'LET AND proton'
+  - 'RBE AND proton'
+
+crossref_queries:
+  - proton therapy machine learning
+  - proton therapy deep learning
+  - particle therapy machine learning
+  - particle therapy deep learning
+  - hadron therapy machine learning
+  - carbon ion therapy machine learning
+  - proton therapy segmentation
+  - proton therapy dose prediction
+  - range verification proton
+  - LET proton
+  - RBE proton

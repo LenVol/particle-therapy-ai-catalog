@@ -37,6 +37,7 @@ jobs:
         run: |
           python run.py
           python run_data.py
+          python run_papers.py
 
       - name: Commit updated catalog
         run: |

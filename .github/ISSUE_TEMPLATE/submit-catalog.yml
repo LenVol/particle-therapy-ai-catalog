@@ -1,0 +1,74 @@
+name: Submit catalog item
+description: Suggest a tool, dataset, record, model, or paper for the Particle Therapy AI Catalog.
+title: "[Submission]: "
+labels:
+  - submission
+body:
+  - type: dropdown
+    id: item_type
+    attributes:
+      label: Item type
+      options:
+        - tool
+        - dataset_or_record
+        - paper
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Public URL
+      placeholder: https://github.com/example/repo
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Name / title
+      placeholder: owner/repo, dataset title, or paper title
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+      placeholder: Briefly describe what this item provides and why it is relevant.
+    validations:
+      required: true
+
+  - type: input
+    id: platform
+    attributes:
+      label: Platform / source
+      placeholder: github, gitlab, huggingface, zenodo, arxiv, journal, institutional
+
+  - type: input
+    id: language
+    attributes:
+      label: Language, if code/model
+      placeholder: Python, MATLAB, R, etc.
+
+  - type: input
+    id: topics
+    attributes:
+      label: Topics / keywords
+      placeholder: proton therapy; deep learning; dose prediction
+
+  - type: textarea
+    id: note
+    attributes:
+      label: Curator note
+      placeholder: Optional context, citation, or why this should be included.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: This URL is publicly accessible.
+          required: true
+        - label: This submission is relevant to particle/proton/hadron/carbon-ion therapy.
+          required: true

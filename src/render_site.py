@@ -11,7 +11,7 @@ INDEX_HTML = """<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI/ML in Particle Therapy Catalog</title>
-  <meta name="description" content="A curated catalog of repositories and datasets at the intersection of particle therapy and AI/ML.">
+  <meta name="description" content="A curated catalog of repositories, datasets, records, and papers at the intersection of particle therapy and AI/ML.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,9 +22,14 @@ INDEX_HTML = """<!doctype html>
           <span class="eyebrow">AI + PARTICLE THERAPY</span>
           <h1>Research Atlas</h1>
           <p class="hero-text">
-            A curated, searchable catalog of tools, models, datasets, and records related to
+            A curated, searchable catalog of tools, models, datasets, records, and papers related to
             particle therapy, proton therapy, hadron therapy, and machine learning.
           </p>
+          <div class="hero-actions">
+              <a class="submit-button" href="https://github.com/YOUR_USERNAME/particle-therapy-ai-catalog/issues/new?template=submit-catalog-item.yml" target="_blank" rel="noopener noreferrer">
+                Submit an item
+              </a>
+            </div>
         </div>
 
         <div class="hero-panel">
@@ -44,6 +49,7 @@ INDEX_HTML = """<!doctype html>
       <section class="tabs">
         <button class="tab-button active" id="tabTools" type="button">Tools</button>
         <button class="tab-button" id="tabDatasets" type="button">Data &amp; Records</button>
+        <button class="tab-button" id="tabPapers" type="button">Papers</button>
       </section>
 
       <section class="controls">
@@ -145,6 +151,19 @@ function buildStats(items, mode) {
     `;
   }
 
+  if (mode === "papers") {
+    return `
+      <div class="stat-pill">
+        <span class="stat-label">Shown</span>
+        <span class="stat-value">${items.length}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Preprints shown</span>
+        <span class="stat-value">${items.filter(x => x.is_preprint).length}</span>
+      </div>
+    `;
+  }
+
   const totalStars = items.reduce((sum, item) => sum + (item.stars || 0), 0);
   return `
     <div class="stat-pill">
@@ -186,12 +205,27 @@ function getDatasetSearchBlob(item) {
   ].join(" ").toLowerCase();
 }
 
+function getPaperSearchBlob(item) {
+  return [
+    item.title,
+    item.abstract,
+    (item.authors || []).join(" "),
+    item.journal || "",
+    item.paper_type || "",
+    item.source || "",
+    item.doi || ""
+  ].join(" ").toLowerCase();
+}
+
 function getItemSource(item, mode) {
-  return mode === "datasets" ? (item.source || "") : (item.platform || item.source || "");
+  if (mode === "datasets") return item.source || "";
+  if (mode === "papers") return item.source || "";
+  return item.platform || item.source || "";
 }
 
 function getItemTags(item, mode) {
   if (mode === "datasets") return item.tags || [];
+  if (mode === "papers") return [item.paper_type || "", item.journal || ""].filter(Boolean);
   const cls = item.classification || {};
   return [...(cls.categories || []), ...(item.topics || []), ...(item.manual_tags || [])];
 }
@@ -201,17 +235,21 @@ function sortItems(items, sortBy, mode) {
 
   sorted.sort((a, b) => {
     if (sortBy === "updated") {
-      return (b.updated_at || "").localeCompare(a.updated_at || "");
+      return (b.updated_at || b.published_at || "").localeCompare(a.updated_at || a.published_at || "");
     }
 
     if (sortBy === "name") {
-      const aName = mode === "datasets" ? (a.title || "") : (a.full_name || "");
-      const bName = mode === "datasets" ? (b.title || "") : (b.full_name || "");
+      const aName = mode === "datasets" ? (a.title || "") : mode === "papers" ? (a.title || "") : (a.full_name || "");
+      const bName = mode === "datasets" ? (b.title || "") : mode === "papers" ? (b.title || "") : (b.full_name || "");
       return aName.localeCompare(bName);
     }
 
     if (mode === "datasets") {
       return ((b.downloads || 0) + (b.likes || 0)) - ((a.downloads || 0) + (a.likes || 0));
+    }
+
+    if (mode === "papers") {
+      return (b.published_at || "").localeCompare(a.published_at || "");
     }
 
     return (b.stars || 0) - (a.stars || 0);
@@ -327,6 +365,45 @@ function renderDatasetCard(item) {
   `;
 }
 
+function renderPaperCard(item) {
+  return `
+    <a class="repo-card paper-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+      <div class="repo-card-top">
+        <div>
+          <div class="repo-kicker">${escapeHtml(item.source || "paper")} · ${escapeHtml(item.paper_type || (item.is_preprint ? "preprint" : "article"))}${item.doi ? ` · DOI` : ""}</div>
+          <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
+          <p class="repo-summary">${escapeHtml(item.abstract || "No abstract available.")}</p>
+        </div>
+      </div>
+
+      <div class="repo-meta-row">
+        <span>${escapeHtml(formatDate(item.published_at))}</span>
+        <span>${escapeHtml(item.journal || (item.is_preprint ? "Preprint" : "Journal article"))}</span>
+      </div>
+
+      <div class="hover-panel">
+        ${
+          (item.authors || []).length
+            ? `<div class="hover-block">
+                <div class="hover-label">Authors</div>
+                <p class="hover-note">${escapeHtml((item.authors || []).slice(0, 8).join(", "))}</p>
+              </div>`
+            : ""
+        }
+
+        ${
+          item.doi
+            ? `<div class="hover-block">
+                <div class="hover-label">DOI</div>
+                <p class="hover-note">${escapeHtml(item.doi)}</p>
+              </div>`
+            : ""
+        }
+      </div>
+    </a>
+  `;
+}
+
 function renderCards(items, mode) {
   const results = document.getElementById("results");
   if (!results) return;
@@ -341,9 +418,11 @@ function renderCards(items, mode) {
     return;
   }
 
-  results.innerHTML = items.map(item => (
-    mode === "datasets" ? renderDatasetCard(item) : renderToolCard(item)
-  )).join("");
+  results.innerHTML = items.map(item => {
+    if (mode === "datasets") return renderDatasetCard(item);
+    if (mode === "papers") return renderPaperCard(item);
+    return renderToolCard(item);
+  }).join("");
 }
 
 function populateSelect(selectEl, values, placeholderLabel) {
@@ -364,9 +443,10 @@ function addSafeListener(el, eventName, handler) {
 }
 
 async function main() {
-  const [tools, datasets] = await Promise.all([
+  const [tools, datasets, papers] = await Promise.all([
     loadJson("catalog.json"),
-    loadJson("datasets.json")
+    loadJson("datasets.json"),
+    loadJson("papers.json")
   ]);
 
   const state = {
@@ -388,9 +468,12 @@ async function main() {
   const heroCurrentTab = document.getElementById("heroCurrentTab");
   const tabTools = document.getElementById("tabTools");
   const tabDatasets = document.getElementById("tabDatasets");
+  const tabPapers = document.getElementById("tabPapers");
 
   function getCurrentItems() {
-    return state.mode === "datasets" ? datasets : tools;
+    if (state.mode === "datasets") return datasets;
+    if (state.mode === "papers") return papers;
+    return tools;
   }
 
   function refreshDatasetChips() {
@@ -428,7 +511,6 @@ async function main() {
   function refreshFilters() {
     const items = getCurrentItems();
     const sources = uniqueSorted(items.map(item => getItemSource(item, state.mode)));
-
     populateSelect(sourceFilter, sources, "All sources");
 
     if (state.mode === "datasets") {
@@ -445,7 +527,11 @@ async function main() {
 
   function matchesFilters(item, filters, mode) {
     const query = filters.query.trim().toLowerCase();
-    const blob = mode === "datasets" ? getDatasetSearchBlob(item) : getToolSearchBlob(item);
+    const blob = mode === "datasets"
+      ? getDatasetSearchBlob(item)
+      : mode === "papers"
+        ? getPaperSearchBlob(item)
+        : getToolSearchBlob(item);
 
     if (query && !blob.includes(query)) return false;
     if (filters.source && getItemSource(item, mode) !== filters.source) return false;
@@ -478,7 +564,12 @@ async function main() {
     const sorted = sortItems(filtered, sortBy?.value || "popularity", state.mode);
 
     if (heroVisibleCount) heroVisibleCount.textContent = String(sorted.length);
-    if (heroCurrentTab) heroCurrentTab.textContent = state.mode === "datasets" ? "Data & Records" : "Tools";
+    if (heroCurrentTab) {
+      heroCurrentTab.textContent =
+        state.mode === "datasets" ? "Data & Records" :
+        state.mode === "papers" ? "Papers" :
+        "Tools";
+    }
     if (stats) stats.innerHTML = buildStats(sorted, state.mode);
 
     renderCards(sorted, state.mode);
@@ -490,6 +581,7 @@ async function main() {
 
     if (tabTools) tabTools.classList.toggle("active", mode === "tools");
     if (tabDatasets) tabDatasets.classList.toggle("active", mode === "datasets");
+    if (tabPapers) tabPapers.classList.toggle("active", mode === "papers");
 
     if (sortBy) sortBy.value = "popularity";
     if (sourceFilter) sourceFilter.value = "";
@@ -522,6 +614,7 @@ async function main() {
 
   addSafeListener(tabTools, "click", () => setMode("tools"));
   addSafeListener(tabDatasets, "click", () => setMode("datasets"));
+  addSafeListener(tabPapers, "click", () => setMode("papers"));
 
   refreshFilters();
   update();
@@ -548,7 +641,7 @@ if (document.readyState === "loading") {
 }
 """
 
-
+# Reuse the same CSS as your latest working version, with paper cards supported by the generic card styles.
 STYLES_CSS = """* {
   box-sizing: border-box;
 }
@@ -579,17 +672,10 @@ html, body {
     linear-gradient(180deg, var(--bg-0), var(--bg-1) 48%, #f8fcff);
 }
 
-body {
-  line-height: 1.5;
-}
+body { line-height: 1.5; }
+.page-shell { min-height: 100vh; }
 
-.page-shell {
-  min-height: 100vh;
-}
-
-.hero {
-  padding: 3.5rem 1.25rem 1.5rem;
-}
+.hero { padding: 3.5rem 1.25rem 1.5rem; }
 
 .hero-inner {
   max-width: 1220px;
@@ -600,13 +686,7 @@ body {
   align-items: stretch;
 }
 
-.hero-copy,
-.hero-panel,
-.controls,
-.stat-pill,
-.repo-card,
-.empty-state,
-.tabs {
+.hero-copy, .hero-panel, .controls, .stat-pill, .repo-card, .empty-state, .tabs {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -664,18 +744,8 @@ body {
   border: 1px solid rgba(255,255,255,0.12);
 }
 
-.hero-stat-label {
-  display: block;
-  opacity: 0.85;
-  font-size: 0.85rem;
-}
-
-.hero-stat-value {
-  display: block;
-  font-size: 2rem;
-  font-weight: 800;
-  margin-top: 0.18rem;
-}
+.hero-stat-label { display: block; opacity: 0.85; font-size: 0.85rem; }
+.hero-stat-value { display: block; font-size: 2rem; font-weight: 800; margin-top: 0.18rem; }
 
 .main-content {
   max-width: 1220px;
@@ -724,26 +794,10 @@ body {
   gap: 0.9rem;
 }
 
-.control {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  min-width: 0;
-}
+.control { display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
+.control span { font-size: 0.85rem; color: var(--muted); font-weight: 700; }
 
-.control-search {
-  min-width: 0;
-}
-
-.control span {
-  font-size: 0.85rem;
-  color: var(--muted);
-  font-weight: 700;
-}
-
-input[type="search"],
-select,
-button {
+input[type="search"], select, button {
   appearance: none;
   border: 1px solid rgba(92, 151, 193, 0.22);
   background: rgba(255,255,255,0.92);
@@ -753,21 +807,8 @@ button {
   font-size: 0.95rem;
 }
 
-select {
-  max-width: 100%;
-}
-
-.controls-actions {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 0.9rem;
-}
-
-button {
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--primary);
-}
+.controls-actions { display: flex; justify-content: flex-end; margin-top: 0.9rem; }
+button { cursor: pointer; font-weight: 700; color: var(--primary); }
 
 .stats-bar {
   display: grid;
@@ -784,53 +825,14 @@ button {
   padding: 0.95rem 1rem;
 }
 
-.stat-label {
-  display: block;
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 700;
-}
+.stat-label { display: block; color: var(--muted); font-size: 0.82rem; font-weight: 700; }
+.stat-value { display: block; font-size: 1.35rem; font-weight: 800; margin-top: 0.1rem; }
 
-.stat-value {
-  display: block;
-  font-size: 1.35rem;
-  font-weight: 800;
-  margin-top: 0.1rem;
-}
-
-.dataset-chip-filter {
-  margin-top: 1rem;
-  padding-top: 0.2rem;
-}
-
-.chip-filter-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.chip-filter-label {
-  font-size: 0.85rem;
-  color: var(--muted);
-  font-weight: 700;
-}
-
-.chip-clear-button {
-  padding: 0.45rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
-}
-
-.chip-container {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0.55rem;
-  overflow-x: auto;
-  padding: 0.2rem 0.1rem 0.4rem;
-  scrollbar-width: thin;
-}
+.dataset-chip-filter { margin-top: 1rem; padding-top: 0.2rem; }
+.chip-filter-header { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.5rem; }
+.chip-filter-label { font-size: 0.85rem; color: var(--muted); font-weight: 700; }
+.chip-clear-button { padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.8rem; }
+.chip-container { display: flex; flex-wrap: nowrap; gap: 0.55rem; overflow-x: auto; padding: 0.2rem 0.1rem 0.4rem; scrollbar-width: thin; }
 
 .filter-chip {
   flex: 0 0 auto;
@@ -847,19 +849,8 @@ button {
   font-weight: 700;
 }
 
-.filter-chip:hover {
-  background: rgba(25, 118, 184, 0.14);
-}
-
-.filter-chip.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
-
-.hidden {
-  display: none !important;
-}
+.filter-chip.active { background: var(--primary); color: white; border-color: var(--primary); }
+.hidden { display: none !important; }
 
 .cards-grid {
   display: grid;
@@ -892,22 +883,12 @@ button {
   z-index: 0;
 }
 
-.repo-card > * {
-  position: relative;
-  z-index: 1;
-}
+.repo-card > * { position: relative; z-index: 1; }
 
 .repo-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-strong);
   border-color: rgba(47, 148, 209, 0.32);
-}
-
-.repo-card-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: flex-start;
 }
 
 .repo-kicker {
@@ -925,11 +906,7 @@ button {
   letter-spacing: -0.02em;
 }
 
-.repo-summary {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.93rem;
-}
+.repo-summary { margin: 0; color: var(--muted); font-size: 0.93rem; }
 
 .repo-meta-row {
   display: flex;
@@ -939,11 +916,7 @@ button {
   font-size: 0.87rem;
 }
 
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 
 .chip {
   display: inline-flex;
@@ -954,16 +927,8 @@ button {
   font-weight: 700;
 }
 
-.chip-primary {
-  background: rgba(25, 118, 184, 0.12);
-  color: var(--primary);
-}
-
-.chip-subtle {
-  background: rgba(255,255,255,0.7);
-  color: #4f6a7d;
-  border: 1px solid rgba(80, 132, 180, 0.12);
-}
+.chip-primary { background: rgba(25, 118, 184, 0.12); color: var(--primary); }
+.chip-subtle { background: rgba(255,255,255,0.7); color: #4f6a7d; border: 1px solid rgba(80, 132, 180, 0.12); }
 
 .hover-panel {
   margin-top: auto;
@@ -974,40 +939,12 @@ button {
   transition: opacity 220ms ease, transform 220ms ease;
 }
 
-.repo-card:hover .hover-panel {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hover-block + .hover-block {
-  margin-top: 0.7rem;
-}
-
-.hover-label {
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-  margin-bottom: 0.35rem;
-}
-
-.hover-list {
-  margin: 0;
-  padding-left: 1.1rem;
-  color: var(--muted);
-  font-size: 0.88rem;
-}
-
-.warning-list {
-  color: #946b21;
-}
-
-.hover-note {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
+.repo-card:hover .hover-panel { opacity: 1; transform: translateY(0); }
+.hover-block + .hover-block { margin-top: 0.7rem; }
+.hover-label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.35rem; }
+.hover-list { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: 0.88rem; }
+.warning-list { color: #946b21; }
+.hover-note { margin: 0; color: var(--muted); font-size: 0.9rem; }
 
 .empty-state {
   grid-column: 1 / -1;
@@ -1019,56 +956,18 @@ button {
   box-shadow: var(--shadow);
 }
 
-.empty-state h2 {
-  margin-top: 0;
-}
-
-.empty-state p {
-  margin-bottom: 0;
-  color: var(--muted);
-}
-
 @media (max-width: 980px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .controls-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .stats-bar {
-    grid-template-columns: 1fr;
-  }
+  .hero-inner { grid-template-columns: 1fr; }
+  .controls-grid { grid-template-columns: 1fr 1fr; }
+  .stats-bar { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
-  .hero {
-    padding-top: 1.5rem;
-  }
-
-  .hero-copy,
-  .hero-panel,
-  .controls,
-  .tabs {
-    border-radius: 20px;
-  }
-
-  .controls-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .repo-card-top {
-    flex-direction: column;
-  }
-
-  .filter-chip {
-    max-width: 220px;
-  }
+  .hero { padding-top: 1.5rem; }
+  .hero-copy, .hero-panel, .controls, .tabs { border-radius: 20px; }
+  .controls-grid { grid-template-columns: 1fr; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .filter-chip { max-width: 220px; }
 }
 """
 
@@ -1108,24 +1007,13 @@ def write_site(entries: list[dict[str, Any]]) -> None:
     )
 
     data_dir = Path("data")
-
-    datasets_path = data_dir / "datasets.json"
-    if datasets_path.exists():
-        (site_dir / "datasets.json").write_text(
-            datasets_path.read_text(encoding="utf-8"),
-            encoding="utf-8",
-        )
-    else:
-        (site_dir / "datasets.json").write_text("[]", encoding="utf-8")
-
-    hf_model_tools_path = data_dir / "hf_model_tools.json"
-    if hf_model_tools_path.exists():
-        (site_dir / "hf_model_tools.json").write_text(
-            hf_model_tools_path.read_text(encoding="utf-8"),
-            encoding="utf-8",
-        )
-    else:
-        (site_dir / "hf_model_tools.json").write_text("[]", encoding="utf-8")
+    for name in ["datasets.json", "hf_model_tools.json", "papers.json"]:
+        src = data_dir / name
+        dst = site_dir / name
+        if src.exists():
+            dst.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+        else:
+            dst.write_text("[]", encoding="utf-8")
 
     (site_dir / "index.html").write_text(INDEX_HTML, encoding="utf-8")
     (site_dir / "app.js").write_text(APP_JS, encoding="utf-8")

@@ -1,0 +1,45 @@
+name: Convert submission to PR
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  submission:
+    if: contains(github.event.issue.labels.*.name, 'submission')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install PyYAML
+
+      - name: Convert issue to YAML submission
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: python scripts/issue_to_submission.py
+
+      - name: Create submission PR
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "Add catalog submission from issue #${{ github.event.issue.number }}"
+          title: "Add catalog submission from issue #${{ github.event.issue.number }}"
+          body: |
+            Automated catalog submission from #${{ github.event.issue.number }}.
+
+            Please review before merging.
+          branch: submission/issue-${{ github.event.issue.number }}
+          labels: submission, automated-pr
