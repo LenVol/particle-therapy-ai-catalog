@@ -35,10 +35,9 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: gpt-4.1-mini
         run: |
-          python run.py
           python run_data.py
           python run_papers.py
-
+          python run.py
       - name: Commit updated catalog
         run: |
           git config user.name "github-actions[bot]"
