@@ -51,3 +51,21 @@ repos:
     has_code: true
     readme_excerpt: > 
       pyMKM is an open-source Python package for the computation of microdosimetric quantities...
+    - url: https://github.com/AndreasSmolders/DiffuseRT
+    always_include: true
+    platform: github
+    full_name: AndreasSmolders/DiffuseRT
+    description: A probabilistic diffusion model to generate alternative anatomies of a patient
+    language: python
+    topics:
+      - radiotherapy
+      - anatomy prediction
+      - adaptation
+    note: Model to estimate likely patient anatomy changes over the treatment course
+    tags:
+      - anatomy prediction
+      - diffusion model
+      - adaptation
+    has_code: true
+    readme_excerpt: >
+      A probabilistic diffusion model to generate alternative anatomies of a patient 
