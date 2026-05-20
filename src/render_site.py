@@ -17,13 +17,28 @@ INDEX_HTML = """<!doctype html>
 <body>
   <div class="page-shell">
     <header class="hero">
-      <div class="hero-inner">
+    <div class="hero-inner">
+  <div class="hero-brand">
+    <a href="https://ptcog.online/" target="_blank" rel="noopener noreferrer" aria-label="Visit PTCOG website">
+      <img
+        src="https://ptcog.online/wp-content/uploads/sites/4/2024/12/PTCOG_Logo_191224.svg"
+        alt="PTCOG logo"
+        class="ptcog-logo"
+      >
+    </a>
+    <div class="brand-copy">
+      <span class="brand-title">PTCOG AI Subcommittee</span>
+      <span class="brand-subtitle">Particle Therapy AI Research Atlas</span>
+    </div>
+  </div>
+
         <div class="hero-copy">
           <span class="eyebrow">AI + PARTICLE THERAPY</span>
           <h1>Research Atlas</h1>
           <p class="hero-text">
-            A curated, searchable catalog of tools, models, datasets, records, and papers related to
-            particle therapy, proton therapy, hadron therapy, and machine learning.
+                A curated, searchable catalog of tools, models, datasets, records, and papers related to
+                particle therapy, proton therapy, hadron therapy, and machine learning.
+                <span class="affiliation">Maintained as part of the PTCOG AI Subcommittee activities.</span>
           </p>
           <div class="hero-actions">
               <a class="submit-button" href="https://github.com/LenVol/particle-therapy-ai-catalog/issues/new?template=submit-catalog-item.yml" target="_blank" rel="noopener noreferrer">
@@ -685,6 +700,54 @@ body { line-height: 1.5; }
   gap: 1.2rem;
   align-items: stretch;
 }
+.hero-brand {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+  padding: 0.25rem 0.35rem;
+}
+
+.ptcog-logo {
+  height: 46px;
+  width: auto;
+  display: block;
+  opacity: 0.95;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.ptcog-logo:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.brand-title {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.brand-subtitle {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.affiliation {
+  display: block;
+  margin-top: 0.85rem;
+  color: var(--primary);
+  font-size: 0.92rem;
+  font-weight: 750;
+}
 
 .hero-copy, .hero-panel, .controls, .stat-pill, .repo-card, .empty-state, .tabs {
   backdrop-filter: blur(16px);
@@ -963,11 +1026,37 @@ button { cursor: pointer; font-weight: 700; color: var(--primary); }
 }
 
 @media (max-width: 640px) {
-  .hero { padding-top: 1.5rem; }
-  .hero-copy, .hero-panel, .controls, .tabs { border-radius: 20px; }
-  .controls-grid { grid-template-columns: 1fr; }
-  .cards-grid { grid-template-columns: 1fr; }
-  .filter-chip { max-width: 220px; }
+  .hero {
+    padding-top: 1.5rem;
+  }
+
+  .hero-copy,
+  .hero-panel,
+  .controls,
+  .tabs {
+    border-radius: 20px;
+  }
+
+  .controls-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-chip {
+    max-width: 220px;
+  }
+
+  /* ADD THIS */
+  .hero-brand {
+    align-items: flex-start;
+  }
+
+  .ptcog-logo {
+    height: 38px;
+  }
 }
 """
 
