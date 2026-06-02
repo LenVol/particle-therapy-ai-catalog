@@ -20,7 +20,7 @@ EUROPEPMC_API = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 CROSSREF_API = "https://api.crossref.org/works"
 
 USER_AGENT = "particle-therapy-ai-catalog-papers/1.0"
-REQUEST_TIMEOUT = 30
+REQUEST_TIMEOUT = 90
 
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": USER_AGENT})
@@ -61,13 +61,11 @@ STRONG_PARTICLE_TERMS = [
     "impt",
 ]
 
-WEAK_PARTICLE_TERMS = [
+CONTEXT_PARTICLE_TERMS = [
     "range verification",
-    "pencil beam",
+    "pencil beam scanning",
     "linear energy transfer",
     "relative biological effectiveness",
-    "let",
-    "rbe",
 ]
 
 AI_TERMS = [
@@ -75,30 +73,25 @@ AI_TERMS = [
     "deep learning",
     "artificial intelligence",
     "neural network",
+    "convolutional neural network",
     "cnn",
     "transformer",
-    "segmentation",
     "auto-segmentation",
-    "classification",
-    "regression",
     "dose prediction",
     "outcome prediction",
     "radiomics",
-    "prediction model",
 ]
 
 NEGATIVE_TERMS = [
-    "infertility",
     "couple therapy",
+    "infertility",
     "sexual satisfaction",
     "psychological",
-    "nursing",
     "counseling",
+    "nursing",
     "policy",
     "editorial",
     "letter to the editor",
-    "review",
-    "survey",
 ]
 
 
@@ -126,50 +119,98 @@ def count_words(text: str) -> int:
     return len(re.findall(r"\b\w+\b", text or ""))
 
 
-def count_hits(text: str, terms: list[str]) -> int:
+def has_phrase(text: str, phrase: str) -> bool:
     blob = normalize(text)
-    return sum(1 for term in terms if normalize(term) in blob)
+    phrase_norm = normalize(phrase)
+    return re.search(rf"\b{re.escape(phrase_norm)}\b", blob) is not None
+
+
+def count_phrase_hits(text: str, terms: list[str]) -> int:
+    return sum(1 for term in terms if has_phrase(text, term))
 
 
 def strip_html(text: str) -> str:
     return re.sub(r"<[^>]+>", " ", text or "")
 
 
-def score_blob(blob: str, min_total: int) -> tuple[int, int, int, list[str], bool]:
-    strong_particle_hits = count_hits(blob, STRONG_PARTICLE_TERMS)
-    weak_particle_hits = count_hits(blob, WEAK_PARTICLE_TERMS)
-    ai_hits = count_hits(blob, AI_TERMS)
-    negative_hits = count_hits(blob, NEGATIVE_TERMS)
-
-    total = (
-        strong_particle_hits * 6
-        + weak_particle_hits * 2
-        + ai_hits * 4
-        - negative_hits * 6
-    )
-
-    reasons: list[str] = []
-    if strong_particle_hits:
-        reasons.append(f"Matched {strong_particle_hits} strong particle-therapy term(s).")
-    if weak_particle_hits:
-        reasons.append(f"Matched {weak_particle_hits} weak particle-therapy term(s).")
-    if ai_hits:
-        reasons.append(f"Matched {ai_hits} AI/ML term(s).")
-    if negative_hits:
-        reasons.append(f"Matched {negative_hits} negative term(s).")
-
-    passes = strong_particle_hits >= 1 and ai_hits >= 1 and total >= min_total
-
-    return strong_particle_hits + weak_particle_hits, ai_hits, total, reasons, passes
-
-
 def polite_sleep(seconds: float) -> None:
     time.sleep(seconds)
 
 
+def request_with_retries(
+    url: str,
+    *,
+    params: dict[str, Any],
+    timeout: int = REQUEST_TIMEOUT,
+    attempts: int = 4,
+    base_sleep: float = 5.0,
+) -> requests.Response:
+    last_exc: Exception | None = None
+
+    for attempt in range(attempts):
+        try:
+            response = SESSION.get(url, params=params, timeout=timeout)
+            response.raise_for_status()
+            return response
+        except requests.RequestException as exc:
+            last_exc = exc
+            sleep_for = base_sleep * (attempt + 1)
+            LOGGER.warning(
+                "Request failed, retrying in %.1fs [%d/%d]: %s",
+                sleep_for,
+                attempt + 1,
+                attempts,
+                exc,
+            )
+            time.sleep(sleep_for)
+
+    if last_exc:
+        raise last_exc
+
+    raise RuntimeError("Request failed without exception.")
+
+
+def score_blob(blob: str, min_total: int) -> tuple[int, int, int, list[str], bool]:
+    strong_particle_hits = count_phrase_hits(blob, STRONG_PARTICLE_TERMS)
+    context_particle_hits = count_phrase_hits(blob, CONTEXT_PARTICLE_TERMS)
+    ai_hits = count_phrase_hits(blob, AI_TERMS)
+    negative_hits = count_phrase_hits(blob, NEGATIVE_TERMS)
+
+    total = (
+        strong_particle_hits * 8
+        + context_particle_hits * 2
+        + ai_hits * 5
+        - negative_hits * 20
+    )
+
+    reasons: list[str] = []
+    if strong_particle_hits:
+        reasons.append(f"Matched {strong_particle_hits} strong particle-therapy phrase(s).")
+    if context_particle_hits:
+        reasons.append(f"Matched {context_particle_hits} contextual particle-therapy phrase(s).")
+    if ai_hits:
+        reasons.append(f"Matched {ai_hits} AI/ML phrase(s).")
+    if negative_hits:
+        reasons.append(f"Matched {negative_hits} negative phrase(s).")
+
+    passes = (
+        negative_hits == 0
+        and strong_particle_hits >= 1
+        and ai_hits >= 1
+        and total >= min_total
+    )
+
+    return strong_particle_hits + context_particle_hits, ai_hits, total, reasons, passes
+
+
 def is_review_like(record_type: str | None, title: str) -> bool:
     text = normalize(" ".join([record_type or "", title or ""]))
-    return "review" in text or "survey" in text or "editorial" in text
+    return (
+        "review" in text
+        or "survey" in text
+        or "editorial" in text
+        or "letter to the editor" in text
+    )
 
 
 def passes_record_filters(
@@ -181,8 +222,10 @@ def passes_record_filters(
 ) -> bool:
     if count_words(abstract) < min_abstract_words:
         return False
+
     if not include_reviews and is_review_like(record_type, title):
         return False
+
     return True
 
 
@@ -190,19 +233,25 @@ def passes_record_filters(
 # arXiv
 # -------------------------
 
-def search_arxiv(query: str, limit: int, min_score: int, include_reviews: bool, min_abstract_words: int) -> list[PaperRecord]:
-    response = SESSION.get(
+def search_arxiv(
+    query: str,
+    limit: int,
+    min_score: int,
+    include_reviews: bool,
+    min_abstract_words: int,
+) -> list[PaperRecord]:
+    response = request_with_retries(
         ARXIV_API,
         params={
             "search_query": query,
             "start": 0,
-            "max_results": limit,
+            "max_results": min(limit, 10),
             "sortBy": "submittedDate",
             "sortOrder": "descending",
         },
-        timeout=REQUEST_TIMEOUT,
+        attempts=4,
+        base_sleep=6.0,
     )
-    response.raise_for_status()
 
     root = ET.fromstring(response.text)
     ns = {"atom": "http://www.w3.org/2005/Atom"}
@@ -256,8 +305,14 @@ def search_arxiv(query: str, limit: int, min_score: int, include_reviews: bool, 
 # Europe PMC
 # -------------------------
 
-def search_europepmc(query: str, limit: int, min_score: int, include_reviews: bool, min_abstract_words: int) -> list[PaperRecord]:
-    response = SESSION.get(
+def search_europepmc(
+    query: str,
+    limit: int,
+    min_score: int,
+    include_reviews: bool,
+    min_abstract_words: int,
+) -> list[PaperRecord]:
+    response = request_with_retries(
         EUROPEPMC_API,
         params={
             "query": query,
@@ -266,9 +321,9 @@ def search_europepmc(query: str, limit: int, min_score: int, include_reviews: bo
             "sort": "DATE_DESC",
             "resultType": "core",
         },
-        timeout=REQUEST_TIMEOUT,
+        attempts=3,
+        base_sleep=3.0,
     )
-    response.raise_for_status()
 
     items = response.json().get("resultList", {}).get("result", [])
     records: list[PaperRecord] = []
@@ -344,8 +399,14 @@ def crossref_date(item: dict[str, Any]) -> str | None:
     return "-".join(str(x) for x in parts[0])
 
 
-def search_crossref(query: str, limit: int, min_score: int, include_reviews: bool, min_abstract_words: int) -> list[PaperRecord]:
-    response = SESSION.get(
+def search_crossref(
+    query: str,
+    limit: int,
+    min_score: int,
+    include_reviews: bool,
+    min_abstract_words: int,
+) -> list[PaperRecord]:
+    response = request_with_retries(
         CROSSREF_API,
         params={
             "query.bibliographic": query,
@@ -353,9 +414,9 @@ def search_crossref(query: str, limit: int, min_score: int, include_reviews: boo
             "sort": "published",
             "order": "desc",
         },
-        timeout=REQUEST_TIMEOUT,
+        attempts=3,
+        base_sleep=3.0,
     )
-    response.raise_for_status()
 
     items = response.json().get("message", {}).get("items", [])
     records: list[PaperRecord] = []
@@ -422,15 +483,15 @@ def dedupe_papers(records: list[PaperRecord]) -> list[PaperRecord]:
             seen[key] = record
             continue
 
-        current_score = current.heuristic_total_score
-        candidate_score = record.heuristic_total_score
-
-        # Prefer higher score, then DOI-bearing records, then Europe PMC/Crossref over arXiv if tied.
-        if candidate_score > current_score:
+        if record.heuristic_total_score > current.heuristic_total_score:
             seen[key] = record
-        elif candidate_score == current_score and record.doi and not current.doi:
+        elif record.heuristic_total_score == current.heuristic_total_score and record.doi and not current.doi:
             seen[key] = record
-        elif candidate_score == current_score and current.source == "arxiv" and record.source in {"europepmc", "crossref"}:
+        elif (
+            record.heuristic_total_score == current.heuristic_total_score
+            and current.source == "arxiv"
+            and record.source in {"europepmc", "crossref"}
+        ):
             seen[key] = record
 
     return sorted(
@@ -448,11 +509,11 @@ def run_paper_scraper() -> int:
     settings = load_yaml("config/paper_settings.yml")
     cfg = settings.get("paper_scraper", {})
 
-    arxiv_limit = int(cfg.get("arxiv_limit_per_query", 25))
+    arxiv_limit = int(cfg.get("arxiv_limit_per_query", 10))
     europepmc_limit = int(cfg.get("europepmc_limit_per_query", 25))
     crossref_limit = int(cfg.get("crossref_limit_per_query", 25))
-    sleep_seconds = float(cfg.get("polite_sleep_seconds", 0.4))
-    min_score = int(cfg.get("min_heuristic_score", 8))
+    sleep_seconds = float(cfg.get("polite_sleep_seconds", 3.2))
+    min_score = int(cfg.get("min_heuristic_score", 13))
     min_abstract_words = int(cfg.get("min_abstract_words", 30))
     include_preprints = bool(cfg.get("include_preprints", True))
     include_journal_articles = bool(cfg.get("include_journal_articles", True))
@@ -464,7 +525,15 @@ def run_paper_scraper() -> int:
         for query in queries_cfg.get("arxiv_queries", []):
             LOGGER.info("arXiv query: %s", query)
             try:
-                candidates.extend(search_arxiv(query, arxiv_limit, min_score, include_reviews, min_abstract_words))
+                candidates.extend(
+                    search_arxiv(
+                        query,
+                        arxiv_limit,
+                        min_score,
+                        include_reviews,
+                        min_abstract_words,
+                    )
+                )
                 polite_sleep(sleep_seconds)
             except Exception as exc:
                 LOGGER.warning("arXiv query failed for %r: %s", query, exc)
@@ -472,7 +541,15 @@ def run_paper_scraper() -> int:
     for query in queries_cfg.get("europepmc_queries", []):
         LOGGER.info("Europe PMC query: %s", query)
         try:
-            candidates.extend(search_europepmc(query, europepmc_limit, min_score, include_reviews, min_abstract_words))
+            candidates.extend(
+                search_europepmc(
+                    query,
+                    europepmc_limit,
+                    min_score,
+                    include_reviews,
+                    min_abstract_words,
+                )
+            )
             polite_sleep(sleep_seconds)
         except Exception as exc:
             LOGGER.warning("Europe PMC query failed for %r: %s", query, exc)
@@ -481,7 +558,15 @@ def run_paper_scraper() -> int:
         for query in queries_cfg.get("crossref_queries", []):
             LOGGER.info("Crossref query: %s", query)
             try:
-                candidates.extend(search_crossref(query, crossref_limit, min_score, include_reviews, min_abstract_words))
+                candidates.extend(
+                    search_crossref(
+                        query,
+                        crossref_limit,
+                        min_score,
+                        include_reviews,
+                        min_abstract_words,
+                    )
+                )
                 polite_sleep(sleep_seconds)
             except Exception as exc:
                 LOGGER.warning("Crossref query failed for %r: %s", query, exc)
@@ -493,6 +578,15 @@ def run_paper_scraper() -> int:
 
     LOGGER.info("Paper candidates: %d", len(candidates))
     LOGGER.info("Paper items kept: %d", len(kept))
+
+    for paper in kept[:10]:
+        LOGGER.info(
+            "KEPT: %s | score=%s | reasons=%s",
+            paper.title,
+            paper.heuristic_total_score,
+            "; ".join(paper.heuristic_reasons),
+        )
+
     return 0
 
 
