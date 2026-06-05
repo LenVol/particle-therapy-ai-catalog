@@ -51,7 +51,7 @@ repos:
     has_code: true
     readme_excerpt: > 
       pyMKM is an open-source Python package for the computation of microdosimetric quantities...
-    - url: https://github.com/AndreasSmolders/DiffuseRT
+  - url: https://github.com/AndreasSmolders/DiffuseRT
     always_include: true
     platform: github
     full_name: AndreasSmolders/DiffuseRT
