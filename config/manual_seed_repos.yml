@@ -18,7 +18,6 @@ repos:
     has_code: true
     readme_excerpt: >
       matRad is an open-source treatment planning toolkit...
-
   - url: https://github.com/opaserr/dota
     always_include: true
     platforn: github
@@ -51,10 +50,10 @@ repos:
     has_code: true
     readme_excerpt: > 
       pyMKM is an open-source Python package for the computation of microdosimetric quantities...
-  - url: https://github.com/AndreasSmolders/DiffuseRT
+  - url: https://github.com/RivettiLuciano/DiffuseRT
     always_include: true
     platform: github
-    full_name: AndreasSmolders/DiffuseRT
+    full_name: RivettiLuciano/DiffuseRT
     description: A probabilistic diffusion model to generate alternative anatomies of a patient
     language: python
     topics:
@@ -69,3 +68,82 @@ repos:
     has_code: true
     readme_excerpt: >
       A probabilistic diffusion model to generate alternative anatomies of a patient 
+  - url: https://github.com/OpenTOPAS/OpenTOPAS
+    always_include: true
+    platform: github
+    full_name: OpenTOPAS/OpenTOPAS
+    description: Monte Carlo tool for particle simulation 
+    language: C++, CMake
+    topics:
+      - radiotherapy
+      - Monte Carlo
+      - Software tool
+    note: Versatile Monte Carlo toolkit for radiotherapy built on top of Geant4
+    tags:
+      - monte carlo
+      - software tool
+    has_code: true
+    readme_excerpt: >
+      The NIH-funded TOPAS project made radiation therapy simulations using the Monte Carlo method easily accessible for the radiotherapy community.
+  - url: https://github.com/pcabrales/prototwin-pet
+    always_include: true
+    platform: github
+    full_name: PCabrales/prototwin-pet
+    description: For fast, 3D delivered dose estimation from a PET image. Also published at https://ieeexplore.ieee.org/document/10847605/
+    language: python, C++
+    topics:
+      - proton therapy
+      - deep learning
+      - PET imaging
+      - dose verification
+    note: 
+    tags:
+      - proton therapy
+      - deep learning
+      - PET imaging
+      - dose verification
+    has_code: true
+    readme_excerpt: >
+      PROTOTWIN-PET (PROTOn therapy digital TWIN models for dose verification with PET) is a patient-specific, realistic, GPU and deep learning-based workflow that integrates open-source, state-of-the-art tools and developed models to verify dose delivery in Proton Therapy (PT). PROTOTWIN-PET is demonstrated on an oropharynx cancer plan and deployed within a day to accurately estimate dose delivery deviations in PT. This enables timely treatment plan adaptations for subsequent sessions, improving the robustness of PT.
+  - url: https://github.com/pcabrales/ppw
+    always_include: true
+    platform: github
+    full_name: PCabrales/ppw
+    description: For improving the mapping of intratumoral washout patterns from noisy, post-proton therapy PET. Also published at https://www.sciencedirect.com/science/article/pii/S001048252600209X
+    language: python, C++
+    topics:
+      - proton therapy
+      - deep learning
+      - PET imaging
+      - intratumoral heterogeneity
+      - biological washout
+    note: 
+    tags:
+      - proton therapy
+      - deep learning
+      - PET imaging
+      - intratumoral heterogeneity
+      - biological washout
+    has_code: true
+    readme_excerpt: >
+      PROTOTWIN-PET Washout is part of the PROTOTWIN project, which aims to guide proton therapy using PET imaging, in this case by improving dose verification and biological tumor characterization.
+  - url: https://github.com/AndreasSmolders/DIRUncertainty
+    always_include: true
+    platform: github
+    full_name: AndreasSmolders/DIRUncertainty
+    description: This repository contains code to predict the uncertainty of a given deformable vector field. It also contains code to use that uncertainty to generate contouring uncertainty or dose accumulation uncertainty. Up until now, the code was designed for CT-to-CT registration, and will likely not work for other registrations. CT-to-syntheticCT should also work, but it was never tested.
+    language: python
+    topics:
+      - deformable image registration
+      - uncertainty 
+      - deep learning 
+      - unsupervised learning
+    note: 
+    tags:
+      - deformable image registration
+      - uncertainty 
+      - deep learning 
+      - unsupervised learning
+    has_code: true
+    readme_excerpt: >
+      This repository contains code to predict the uncertainty of a given deformable vector field. Up until now, the code was designed for CT-to-CT registration, and will likely not work for other registrations. CT-to-syntheticCT should also work, but it was never tested.
