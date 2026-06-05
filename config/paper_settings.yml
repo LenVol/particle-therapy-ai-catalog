@@ -1,5 +1,6 @@
 paper_scraper:
-  arxiv_limit_per_query: 25
+  arxiv_limit_per_query: 10
+  polite_sleep_seconds: 5.0
   europepmc_limit_per_query: 25
   crossref_limit_per_query: 25
   polite_sleep_seconds: 0.4

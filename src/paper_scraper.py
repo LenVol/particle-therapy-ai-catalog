@@ -136,22 +136,36 @@ def strip_html(text: str) -> str:
 def polite_sleep(seconds: float) -> None:
     time.sleep(seconds)
 
-
 def request_with_retries(
     url: str,
     *,
     params: dict[str, Any],
     timeout: int = REQUEST_TIMEOUT,
-    attempts: int = 4,
-    base_sleep: float = 5.0,
+    attempts: int = 5,
+    base_sleep: float = 10.0,
 ) -> requests.Response:
     last_exc: Exception | None = None
+    retry_statuses = {429, 502, 503, 504}
 
     for attempt in range(attempts):
         try:
             response = SESSION.get(url, params=params, timeout=timeout)
+
+            if response.status_code in retry_statuses:
+                sleep_for = base_sleep * (attempt + 1)
+                LOGGER.warning(
+                    "Retryable HTTP %s, retrying in %.1fs [%d/%d]",
+                    response.status_code,
+                    sleep_for,
+                    attempt + 1,
+                    attempts,
+                )
+                time.sleep(sleep_for)
+                continue
+
             response.raise_for_status()
             return response
+
         except requests.RequestException as exc:
             last_exc = exc
             sleep_for = base_sleep * (attempt + 1)
@@ -167,8 +181,7 @@ def request_with_retries(
     if last_exc:
         raise last_exc
 
-    raise RuntimeError("Request failed without exception.")
-
+    raise RuntimeError(f"Request failed after {attempts} attempts: {url}")
 
 def score_blob(blob: str, min_total: int) -> tuple[int, int, int, list[str], bool]:
     strong_particle_hits = count_phrase_hits(blob, STRONG_PARTICLE_TERMS)
@@ -245,12 +258,12 @@ def search_arxiv(
         params={
             "search_query": query,
             "start": 0,
-            "max_results": min(limit, 10),
+            "max_results": min(limit, 5),
             "sortBy": "submittedDate",
             "sortOrder": "descending",
         },
-        attempts=4,
-        base_sleep=6.0,
+        attempts=5,
+        base_sleep=15.0,
     )
 
     root = ET.fromstring(response.text)
