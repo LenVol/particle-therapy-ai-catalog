@@ -107,6 +107,77 @@ def safe_write_json(path: str | Path, payload: Any) -> None:
     file_path.parent.mkdir(parents=True, exist_ok=True)
     file_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
+def load_json_list(path: str | Path) -> list[dict[str, Any]]:
+    file_path = Path(path)
+    if not file_path.exists():
+        return []
+    try:
+        data = json.loads(file_path.read_text(encoding="utf-8"))
+        return data if isinstance(data, list) else []
+    except Exception:
+        return []
+
+
+def paper_key_from_dict(row: dict[str, Any]) -> str:
+    doi = normalize(row.get("doi") or "")
+    if doi:
+        return f"doi:{doi}"
+
+    url = normalize(row.get("url") or "")
+    if url:
+        return f"url:{url}"
+
+    title = normalize(row.get("title") or "")
+    return f"title:{title}" if title else ""
+
+
+def paper_key(record: PaperRecord) -> str:
+    if record.doi:
+        return f"doi:{normalize(record.doi)}"
+    if record.url:
+        return f"url:{normalize(record.url)}"
+    title = normalize(record.title)
+    return f"title:{title}" if title else ""
+
+
+def merge_paper_cache(
+    cached_rows: list[dict[str, Any]],
+    new_records: list[PaperRecord],
+) -> list[dict[str, Any]]:
+    merged: dict[str, dict[str, Any]] = {}
+
+    for row in cached_rows:
+        key = paper_key_from_dict(row)
+        if key:
+            cached = dict(row)
+            cached["cached"] = True
+            merged[key] = cached
+
+    for record in new_records:
+        row = asdict(record)
+        row["cached"] = False
+        key = paper_key(record)
+        if not key:
+            continue
+
+        current = merged.get(key)
+        if current is None:
+            merged[key] = row
+            continue
+
+        if row.get("heuristic_total_score", 0) > current.get("heuristic_total_score", 0):
+            merged[key] = row
+        elif row.get("doi") and not current.get("doi"):
+            merged[key] = row
+
+    return sorted(
+        merged.values(),
+        key=lambda r: (
+            r.get("published_at") or "",
+            r.get("heuristic_total_score", 0),
+        ),
+        reverse=True,
+    )
 
 def normalize(text: str) -> str:
     text = (text or "").lower()
@@ -583,22 +654,19 @@ def run_paper_scraper() -> int:
                 polite_sleep(sleep_seconds)
             except Exception as exc:
                 LOGGER.warning("Crossref query failed for %r: %s", query, exc)
+    new_kept = dedupe_papers(candidates)
 
-    kept = dedupe_papers(candidates)
+    cached_rows = load_json_list("data/papers_cache.json")
+    previous_rows = load_json_list("data/papers.json")
+    merged_rows = merge_paper_cache(cached_rows + previous_rows, new_kept)
 
     safe_write_json("data/all_paper_candidates.json", [asdict(x) for x in candidates])
-    safe_write_json("data/papers.json", [asdict(x) for x in kept])
+    safe_write_json("data/papers_cache.json", merged_rows)
+    safe_write_json("data/papers.json", merged_rows)
 
-    LOGGER.info("Paper candidates: %d", len(candidates))
-    LOGGER.info("Paper items kept: %d", len(kept))
-
-    for paper in kept[:10]:
-        LOGGER.info(
-            "KEPT: %s | score=%s | reasons=%s",
-            paper.title,
-            paper.heuristic_total_score,
-            "; ".join(paper.heuristic_reasons),
-        )
+    LOGGER.info("Paper candidates this run: %d", len(candidates))
+    LOGGER.info("New paper items kept this run: %d", len(new_kept))
+    LOGGER.info("Total paper items after cache merge: %d", len(merged_rows))
 
     return 0
 

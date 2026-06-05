@@ -1096,7 +1096,7 @@ def write_site(entries: list[dict[str, Any]]) -> None:
     )
 
     data_dir = Path("data")
-    for name in ["datasets.json", "hf_model_tools.json", "papers.json"]:
+    for name in ["datasets.json", "hf_model_tools.json", "papers.json","papers_cache.json"]:
         src = data_dir / name
         dst = site_dir / name
         if src.exists():
