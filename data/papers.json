@@ -36,7 +36,7 @@
       "Matched 2 strong particle-therapy phrase(s).",
       "Matched 3 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -62,7 +62,7 @@
       "Matched 1 contextual particle-therapy phrase(s).",
       "Matched 2 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -90,7 +90,7 @@
       "Matched 1 strong particle-therapy phrase(s).",
       "Matched 3 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -125,7 +125,7 @@
       "Matched 1 contextual particle-therapy phrase(s).",
       "Matched 1 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -152,7 +152,7 @@
       "Matched 2 strong particle-therapy phrase(s).",
       "Matched 3 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -180,7 +180,7 @@
       "Matched 2 strong particle-therapy phrase(s).",
       "Matched 2 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -206,7 +206,7 @@
       "Matched 1 strong particle-therapy phrase(s).",
       "Matched 1 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -234,7 +234,7 @@
       "Matched 1 strong particle-therapy phrase(s).",
       "Matched 1 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -261,7 +261,7 @@
       "Matched 1 strong particle-therapy phrase(s).",
       "Matched 2 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -290,7 +290,7 @@
       "Matched 1 strong particle-therapy phrase(s).",
       "Matched 1 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -320,7 +320,7 @@
       "Matched 1 contextual particle-therapy phrase(s).",
       "Matched 1 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -347,7 +347,7 @@
       "Matched 1 strong particle-therapy phrase(s).",
       "Matched 2 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -374,6 +374,6 @@
       "Matched 2 strong particle-therapy phrase(s).",
       "Matched 1 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   }
 ]

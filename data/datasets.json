@@ -1746,14 +1746,14 @@
     "kind": "record",
     "source": "zenodo",
     "title": "WATER EQUIVALENCE OF VARIOUS 3D PRINTED MATERIALS FOR PROTON THERAPY — MONTE CARLO SIMULATION, TREATMENT PLANNING MODELLING AND VALIDATION BY MEASUREMENTS",
-    "url": "https://zenodo.org/records/4726051",
+    "url": "https://zenodo.org/records/4724029",
     "summary": " In this article, Water Equivalent Ratio (WER) of three selected materials: Polylactic Acid (PLA), Acrylonitrilebutadiene Styrene (ABS) and Polyethylene Terephthalate Glycol (PETG) &mdash; commonly used in additive manufacturing technology &mdash; was measured on 60 MeV proton beam and compared with values predicted by Treatment Planning System (TPS) and Monte Carlo (MC) simulation. The agreement within 0.02&ndash;2.98% and 0.11&ndash;6.46% was found between results obtained from the measurement with comparison to the MC simulation and TPS, respectively. It was concluded that 3D printable materials can be safely used in proton therapy. \n\n Uploaded files: \n\n .inp files - Inputs for Fluka simulation for each tested plate&nbsp;(ABS, PETG and PLA as the material names, 0.5, 1.0 and 2.0 are the theoretical widths). \n\n .txt files - raw data for each plate&nbsp;received from measurements on on 60 MeV proton beam. \n\n 2020_Wochnik_ActaPhysPol_raw_data.xlsx&nbsp;- raw data&nbsp;collected in one sheet and analysis. ",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2020-01-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4726051",
+    "doi": "10.5506/APhysPolB.51.409",
     "creators": [
       "Wochnik Agnieszka",
       "Swakoń Jan",
@@ -1772,14 +1772,14 @@
     "kind": "record",
     "source": "zenodo",
     "title": "WATER EQUIVALENCE OF VARIOUS 3D PRINTED MATERIALS FOR PROTON THERAPY — MONTE CARLO SIMULATION, TREATMENT PLANNING MODELLING AND VALIDATION BY MEASUREMENTS",
-    "url": "https://zenodo.org/records/4724029",
+    "url": "https://zenodo.org/records/4726051",
     "summary": " In this article, Water Equivalent Ratio (WER) of three selected materials: Polylactic Acid (PLA), Acrylonitrilebutadiene Styrene (ABS) and Polyethylene Terephthalate Glycol (PETG) &mdash; commonly used in additive manufacturing technology &mdash; was measured on 60 MeV proton beam and compared with values predicted by Treatment Planning System (TPS) and Monte Carlo (MC) simulation. The agreement within 0.02&ndash;2.98% and 0.11&ndash;6.46% was found between results obtained from the measurement with comparison to the MC simulation and TPS, respectively. It was concluded that 3D printable materials can be safely used in proton therapy. \n\n Uploaded files: \n\n .inp files - Inputs for Fluka simulation for each tested plate&nbsp;(ABS, PETG and PLA as the material names, 0.5, 1.0 and 2.0 are the theoretical widths). \n\n .txt files - raw data for each plate&nbsp;received from measurements on on 60 MeV proton beam. \n\n 2020_Wochnik_ActaPhysPol_raw_data.xlsx&nbsp;- raw data&nbsp;collected in one sheet and analysis. ",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2020-01-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5506/APhysPolB.51.409",
+    "doi": "10.5281/zenodo.4726051",
     "creators": [
       "Wochnik Agnieszka",
       "Swakoń Jan",
@@ -2087,34 +2087,6 @@
     "heuristic_reasons": [
       "Matched 1 particle-therapy term(s).",
       "Matched 2 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Artistic representation of a proton-deuteron interaction with proton-proton event in the back",
-    "url": "https://zenodo.org/records/13732468",
-    "summary": " This image represents the proton-deuteron hadronic interaction shown with a high-energy proton-proton event in the back.&nbsp; ",
-    "tags": [
-      "Large Hadron Collider",
-      "ALICE",
-      "Femtoscopy",
-      "Hadron interactions"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2024-09-08",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.13732468",
-    "creators": [
-      "Dobrigkeit Chinellato, David"
-    ],
-    "record_type": "image",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -2477,44 +2449,6 @@
       "Costa, Catia",
       "De Jesus, Janella",
       "Bailey, J. Melanie"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "4DMRI moving lung meshes",
-    "url": "https://zenodo.org/records/5016294",
-    "summary": "  Moving lung meshes extracted from 4DMRIs  \n\n The newest version of the dataset and the documentation can be found on&nbsp; https://gitlab.psi.ch/duetschler_a/4DMRI_moving_lung_meshes . \n\n The moving lung meshes can for example be used to generate synthetic 4DCT(MRI)s. The code for generating 4DCT(MRI)s using a reference CT and the moving lung mesh data can be found on&nbsp; https://gitlab.psi.ch/duetschler_a/4DCT-MRI . \n\n Please cite the following publication when using the data: \n\n Duetschler, A., Bauman, G., Bieri, O., Cattin, P.C., Ehrbar, S., Engin-Deniz, G., Giger, A., Josipovic, M., Jud, C., Krieger, M., Nguyen, D., Persson, G.F., Salomir, R., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Synthetic 4DCT(MRI) lung phantom generation for 4D radiotherapy and image guidance investigations.  Med. Phys..  https://doi.org/10.1002/mp.15591  ",
-    "tags": [
-      "4DMRI",
-      "lung",
-      "intrafraction motion",
-      "4D imaging",
-      "4D numerical phantom",
-      "radiotherapy",
-      "proton therapy"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2021-06-23",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.5016294",
-    "creators": [
-      "Duetschler, Alisha",
-      "Krieger, Miriam",
-      "Giger, Alina",
-      "Salomir, Rares",
-      "Jud, Christoph",
-      "Cattin, Philippe C",
-      "Lomax, Antony J",
-      "Zhang, Ye"
     ],
     "record_type": "dataset",
     "heuristic_particle_hits": 2,
@@ -3118,37 +3052,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Simulated shielding performance of 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO",
-    "url": "https://zenodo.org/records/7621281",
-    "summary": " The 4Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), kevlar (G4_KEVLAR), tungsten (G4_W), stainless steel (G4_STAINLESS_STEEL) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 4Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 6.6e+10 electrons and 3.8e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the four layers being 0.375 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: N",
-    "tags": [
-      "Radiation Shielding",
-      "Geant4",
-      "GRAS",
-      "Total Ionizing Dose",
-      "Multilayer Shielding",
-      "Satellite Shielding"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-02-08",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.7621281",
-    "creators": [
-      "Fetzer, Anton"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Simulated shielding performance of 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO",
     "url": "https://zenodo.org/records/7622159",
     "summary": " The 5Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), tungsten (G4_W) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 5Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 1.4e+11 electrons and 3.1e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the five layers being 0.3 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: Name of the second layer material. \nColumn D: Name of the third lay",
@@ -3165,6 +3068,37 @@
     "downloads": null,
     "likes": null,
     "doi": "10.5281/zenodo.7622159",
+    "creators": [
+      "Fetzer, Anton"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Simulated shielding performance of 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO",
+    "url": "https://zenodo.org/records/7621281",
+    "summary": " The 4Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), kevlar (G4_KEVLAR), tungsten (G4_W), stainless steel (G4_STAINLESS_STEEL) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 4Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 6.6e+10 electrons and 3.8e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the four layers being 0.375 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: N",
+    "tags": [
+      "Radiation Shielding",
+      "Geant4",
+      "GRAS",
+      "Total Ionizing Dose",
+      "Multilayer Shielding",
+      "Satellite Shielding"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2023-02-08",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.7621281",
     "creators": [
       "Fetzer, Anton"
     ],
@@ -3510,43 +3444,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Analytical formulation of relationship between ionization current and extracted ion beam current in a Penning ion source",
-    "url": "https://zenodo.org/records/19042736",
-    "summary": " A study on the performance of the Penning-type internal ion source of the DECY-13 cyclotron has been conducted to evaluate the relationship between cathode current and extracted ion beam current, as well as the stability of the extracted beam. The DECY-13 cyclotron, developed at the Research Center of Accelerator Technology, BRIN, is designed to produce 13 MeV protons for radioisotope production. In the experiment, the cathode current was varied between 200&ndash;400 mA, while the magnetic field and extraction voltage at 1.25 T and 3 kV, respectively. The results indicate a clear power law dependence between cathode current (Ic) and extracted beam current (Iext), expressed as 𝐼𝑒𝑥𝑡 = 343.8 𝐼𝑐 1.42. This relationship suggests that ionization efficiency increases sharply with cathode current. Stability tests at 400 mA cathode current showed that the extracted beam current remained stable at ~70 &mu;A over 45 minutes, with only minor fluctuations. These findings demonstrate that cathode current is an effective parameter for controlling extracted beam current. The results contribute to a better understanding of ion source behavior in cyclotron systems and provide a foundation for furth",
-    "tags": [
-      "Analytical formulation",
-      "Cathode current",
-      "Cyclotron",
-      "Extracted beam current",
-      "Ion source",
-      "Performance",
-      "Stability"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2026-03-01",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.11591/ijpeds.v17.i1.pp629-639",
-    "creators": [
-      "Silakhuddin, Silakhuddin",
-      "Kudus, Idrus Abdul",
-      "Jati, Bambang Murdaka Eka",
-      "Palupi, Dwi Satya",
-      "Taufik, Taufik",
-      "Mulyani, Emy",
-      "Heranudin, Heranudin"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Data for figures in article doi 10.1109/TMI.2025.3586075",
     "url": "https://zenodo.org/records/17441325",
     "summary": "   This study was funded by the European Union - NextGenerationEU, in the framework of the iNEST - Interconnected Nord-Est Innovation Ecosystem under Grant iNEST ECS00000043&ndash;CUP    E63C22001030007. The views and opinions expressed are solely those of the authors and do not necessarily reflect those of the European Union, nor can the European Union be held responsible for them. The dataset was developed as part of the activities carried out by Spoke 2,     RT3: Devices for health Project planning: Task 3 - Technology development and clinical feasibility assessment of image-guided proton radiosurgery as a new ablation treatment for life-threatening arrhythmias.    \n  &nbsp;  ",
@@ -3590,6 +3487,38 @@
       "Vretenar, Maurizio"
     ],
     "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Fabrication of Spherical Colloidal Supraparticles via Membrane Emulsification",
+    "url": "https://zenodo.org/records/13604216",
+    "summary": " This is the raw data for the manuscript \"Fabrication of Spherical Colloidal Supraparticles via Membrane Emulsification\". \n Abstract \n Colloidal supraparticles are micron-assemblies of primary particles. These supraparticles have potential application in photonic materials, catalysis, gas adsorption and drug delivery. Thus, synthesis of colloidal supraparticles with a narrow size distribution and high yield has become essential for their application in different fields of science and technology. Here, we demonstrate membrane emulsification as a high-throughput approach for fabricating spherical supraparticles with narrow size distribution and control over particle size and crystallinity. Spherical supraparticles with well-ordered surface structures are synthesized by generating emulsion droplets of an aqueous colloidal dispersion in fluorocarbon oil using a Shirasu Porous Glass membrane, followed by the consolidation of particles through water removal within the emulsion. We systematically investigate process parameters, including the flow rate of particle dispersion, particle concentration, and average pore diameter of the membrane on the mean size and size distribution of the sup",
+    "tags": [
+      "Supraparticles",
+      "Membrane emulsification",
+      "Structural color",
+      "Self-assembly",
+      "High-throughput"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2024-09-02",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.13604216",
+    "creators": [
+      "Naveenkumar, Parinamipura M",
+      "Roemling, Lukas J",
+      "Sultan, Umair",
+      "Vogel, Nicolas"
+    ],
+    "record_type": "dataset",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 4,
@@ -3846,6 +3775,29 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Application of hadron production data to Fermilab neutrino beam simulations",
+    "url": "https://zenodo.org/records/6911740",
+    "summary": " Accelerator neutrinos, Neutrino flux, Hadron production measurements for neutrino physics ",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2022-06-28",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.6911740",
+    "creators": [
+      "Nilay Bostan"
+    ],
+    "record_type": "poster",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Comparative study on scenarios for rotating gantry mechanical structures",
     "url": "https://zenodo.org/records/13949219",
     "summary": " \n                    Background: This paper outlines a comparative study on scenarios of gantries mechanical design for ion-therapy of cancer, which is a crucial step toward the development of the next ion medical machine.  \n                    Methods: Multiple scenarios were considered based on robustness of the design, size, weight and complexity, deformation and precision performances and costs, as well as environmental impact. Four prospective scenarios were identified, each of them capable of providing beam to at least 220°around the patient. One scenario is capable of providing treatment angles of 360°. This report will describe the unified methodology performed during the study in order to achieve unbiased results in a comprehensive manner.  \n                    Results: Results show that in statically balanced scenarios, considerable improvements can be reached in terms of safety, deformation, precision performances, complexity and costs of implementation.  \n                    Conclusions: All scenarios are deemed suitable for further gantry design development. ",
@@ -3932,17 +3884,17 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Summary and outlook (Theory)",
-    "url": "https://zenodo.org/records/4036403",
+    "title": "Advances in the Coupled Channel Approaches for N* Parameter Extraction",
+    "url": "https://zenodo.org/records/4036331",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2019-11-09",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036403",
+    "doi": "10.5281/zenodo.4036331",
     "creators": [
-      "Craig Roberts"
+      "Michael Döring"
     ],
     "record_type": "presentation",
     "heuristic_particle_hits": 1,
@@ -3955,17 +3907,17 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Novel Concepts for Evaluation of the Parton Distributions from QCD",
-    "url": "https://zenodo.org/records/4036399",
+    "title": "Resonant Contributions into Inclusive Electron Scattering from the Data on gamma_vpN* Electrocouplings",
+    "url": "https://zenodo.org/records/4036347",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2019-11-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036399",
+    "doi": "10.5281/zenodo.4036347",
     "creators": [
-      "A.V. Radyushkin"
+      "Astrid N. Hiller Blin"
     ],
     "record_type": "presentation",
     "heuristic_particle_hits": 1,
@@ -3978,17 +3930,40 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "The 1D Meson and Ground Baryon Structure from the JLab Experiments",
-    "url": "https://zenodo.org/records/4036349",
+    "title": "Transversity GPDs",
+    "url": "https://zenodo.org/records/4036361",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
-    "updated_at": "2019-11-08",
+    "updated_at": "2019-11-07",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036349",
+    "doi": "10.5281/zenodo.4036361",
     "creators": [
-      "Tanja Horn"
+      "Andrey Kim"
+    ],
+    "record_type": "presentation",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "New horizons for the strong QCD theory in the 12 GeV era at JLab",
+    "url": "https://zenodo.org/records/4036395",
+    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2019-11-06",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4036395",
+    "creators": [
+      "Jianwei Qiu"
     ],
     "record_type": "presentation",
     "heuristic_particle_hits": 1,
