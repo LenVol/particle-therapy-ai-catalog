@@ -112,7 +112,51 @@ def load_yaml(path: str) -> dict[str, Any]:
         return {}
     with open(file_path, "r", encoding="utf-8") as handle:
         return yaml.safe_load(handle) or {}
+def load_manual_data_seed(
+    min_heuristic_score: int,
+) -> list[DatasetRecord]:
+    cfg = load_yaml("config/manual_data_seed.yml")
+    records: list[DatasetRecord] = []
 
+    for item in cfg.get("records", []) or []:
+        title = item.get("title", "")
+        summary = item.get("summary", "")
+        tags = item.get("tags", []) or []
+        record_type = item.get("record_type", "record")
+
+        blob = " ".join([title, summary, record_type, " ".join(tags)])
+        particle_hits, ai_hits, total, reasons, _passes = score_blob(
+            blob,
+            min_total=min_heuristic_score,
+            require_ai=False,
+        )
+
+        if item.get("always_include", False):
+            reasons.append("Manually seeded data/registry resource.")
+
+        records.append(
+            DatasetRecord(
+                kind=item.get("kind", "record"),
+                source=item.get("source", "manual"),
+                title=title,
+                url=item.get("url", ""),
+                summary=summary,
+                tags=tags,
+                license=item.get("license"),
+                updated_at=item.get("updated_at"),
+                downloads=None,
+                likes=None,
+                doi=item.get("doi"),
+                creators=item.get("creators", []) or [],
+                record_type=record_type,
+                heuristic_particle_hits=particle_hits,
+                heuristic_ai_hits=ai_hits,
+                heuristic_total_score=max(total, min_heuristic_score),
+                heuristic_reasons=reasons,
+            )
+        )
+
+    return records
 
 def _json_default(obj: Any) -> Any:
     if hasattr(obj, "isoformat"):
@@ -566,6 +610,9 @@ def run_data_scraper() -> int:
 
     dataset_candidates: list[DatasetRecord] = []
     tool_candidates: list[ToolRecord] = []
+    manual_records = load_manual_data_seed(min_heuristic_score)
+    LOGGER.info("Manual data seed records: %d", len(manual_records))
+    dataset_candidates.extend(manual_records)
 
     for query in hf_model_queries:
         LOGGER.info("Hugging Face model query: %s", query)

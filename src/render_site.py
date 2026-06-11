@@ -17,34 +17,30 @@ INDEX_HTML = """<!doctype html>
 <body>
   <div class="page-shell">
     <header class="hero">
-    <div class="hero-inner">
-  <div class="hero-brand">
-    <a href="https://ptcog.online/" target="_blank" rel="noopener noreferrer" aria-label="Visit PTCOG website">
-      <img
-        src="https://ptcog.online/wp-content/uploads/sites/4/2024/12/PTCOG_Logo_191224.svg"
-        alt="PTCOG logo"
-        class="ptcog-logo"
-      >
-    </a>
-    <div class="brand-copy">
-      <span class="brand-title">PTCOG AI Subcommittee</span>
-      <span class="brand-subtitle">Particle Therapy AI Research Atlas</span>
-    </div>
-  </div>
+      <div class="hero-inner">
+        <div class="hero-brand">
+          <a href="https://ptcog.online/" target="_blank" rel="noopener noreferrer" aria-label="Visit PTCOG website">
+            <img src="https://ptcog.online/wp-content/uploads/sites/4/2024/12/PTCOG_Logo_191224.svg" alt="PTCOG logo" class="ptcog-logo">
+          </a>
+          <div class="brand-copy">
+            <span class="brand-title">PTCOG AI Subcommittee</span>
+            <span class="brand-subtitle">Particle Therapy AI Research Atlas</span>
+          </div>
+        </div>
 
         <div class="hero-copy">
           <span class="eyebrow">AI + PARTICLE THERAPY</span>
           <h1>Research Atlas</h1>
           <p class="hero-text">
-                A curated, searchable catalog of tools, models, datasets, records, and papers related to
-                particle therapy, proton therapy, hadron therapy, and machine learning.
-                <span class="affiliation">Maintained as part of the PTCOG AI Subcommittee activities.</span>
+            A curated, searchable catalog of tools, models, datasets, records, registries, and papers related to
+            particle therapy and machine learning.
+            <span class="affiliation">Maintained as part of the PTCOG AI Subcommittee activities.</span>
           </p>
           <div class="hero-actions">
-              <a class="submit-button" href="https://github.com/LenVol/particle-therapy-ai-catalog/issues/new?template=submit-catalog-item.yml" target="_blank" rel="noopener noreferrer">
-                Submit an item
-              </a>
-            </div>
+            <a class="submit-button" href="https://github.com/lenvol/particle-therapy-ai-catalog/issues/new?template=submit-catalog-item.yml" target="_blank" rel="noopener noreferrer">
+              Submit an item
+            </a>
+          </div>
         </div>
 
         <div class="hero-panel">
@@ -78,6 +74,13 @@ INDEX_HTML = """<!doctype html>
             <span>Source</span>
             <select id="sourceFilter">
               <option value="">All sources</option>
+            </select>
+          </label>
+
+          <label class="control hidden" id="recordTypeControl">
+            <span>Record type</span>
+            <select id="recordTypeFilter">
+              <option value="">All record types</option>
             </select>
           </label>
 
@@ -153,42 +156,24 @@ function formatDate(value) {
 
 function buildStats(items, mode) {
   if (mode === "datasets") {
-    const totalDownloads = items.reduce((sum, item) => sum + (item.downloads || 0), 0);
+    const registries = items.filter(x => (x.record_type || "").toLowerCase() === "registry").length;
     return `
-      <div class="stat-pill">
-        <span class="stat-label">Shown</span>
-        <span class="stat-value">${items.length}</span>
-      </div>
-      <div class="stat-pill">
-        <span class="stat-label">Downloads shown</span>
-        <span class="stat-value">${totalDownloads}</span>
-      </div>
+      <div class="stat-pill"><span class="stat-label">Shown</span><span class="stat-value">${items.length}</span></div>
+      <div class="stat-pill"><span class="stat-label">Registries shown</span><span class="stat-value">${registries}</span></div>
     `;
   }
 
   if (mode === "papers") {
     return `
-      <div class="stat-pill">
-        <span class="stat-label">Shown</span>
-        <span class="stat-value">${items.length}</span>
-      </div>
-      <div class="stat-pill">
-        <span class="stat-label">Preprints shown</span>
-        <span class="stat-value">${items.filter(x => x.is_preprint).length}</span>
-      </div>
+      <div class="stat-pill"><span class="stat-label">Shown</span><span class="stat-value">${items.length}</span></div>
+      <div class="stat-pill"><span class="stat-label">Preprints shown</span><span class="stat-value">${items.filter(x => x.is_preprint).length}</span></div>
     `;
   }
 
   const totalStars = items.reduce((sum, item) => sum + (item.stars || 0), 0);
   return `
-    <div class="stat-pill">
-      <span class="stat-label">Shown</span>
-      <span class="stat-value">${items.length}</span>
-    </div>
-    <div class="stat-pill">
-      <span class="stat-label">Stars shown</span>
-      <span class="stat-value">${totalStars}</span>
-    </div>
+    <div class="stat-pill"><span class="stat-label">Shown</span><span class="stat-value">${items.length}</span></div>
+    <div class="stat-pill"><span class="stat-label">Stars shown</span><span class="stat-value">${totalStars}</span></div>
   `;
 }
 
@@ -254,12 +239,15 @@ function sortItems(items, sortBy, mode) {
     }
 
     if (sortBy === "name") {
-      const aName = mode === "datasets" ? (a.title || "") : mode === "papers" ? (a.title || "") : (a.full_name || "");
-      const bName = mode === "datasets" ? (b.title || "") : mode === "papers" ? (b.title || "") : (b.full_name || "");
+      const aName = mode === "tools" ? (a.full_name || "") : (a.title || "");
+      const bName = mode === "tools" ? (b.full_name || "") : (b.title || "");
       return aName.localeCompare(bName);
     }
 
     if (mode === "datasets") {
+      const aRegistry = (a.record_type || "").toLowerCase() === "registry" ? 1 : 0;
+      const bRegistry = (b.record_type || "").toLowerCase() === "registry" ? 1 : 0;
+      if (aRegistry !== bRegistry) return bRegistry - aRegistry;
       return ((b.downloads || 0) + (b.likes || 0)) - ((a.downloads || 0) + (a.likes || 0));
     }
 
@@ -282,12 +270,10 @@ function renderToolCard(item) {
 
   return `
     <a class="repo-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
-      <div class="repo-card-top">
-        <div>
-          <div class="repo-kicker">${escapeHtml(sourceLabel)} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
-          <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
-          <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
-        </div>
+      <div>
+        <div class="repo-kicker">${escapeHtml(sourceLabel)} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
+        <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
+        <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
       </div>
 
       <div class="repo-meta-row">
@@ -296,85 +282,40 @@ function renderToolCard(item) {
         <span>${escapeHtml(item.language || "Unknown")}</span>
       </div>
 
-      ${
-        categories.length
-          ? `<div class="chip-row">${categories.slice(0, 4).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
-          : `<div class="chip-row"></div>`
-      }
+      ${categories.length ? `<div class="chip-row">${categories.slice(0, 4).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>` : `<div class="chip-row"></div>`}
 
       <div class="hover-panel">
-        ${
-          topics.length
-            ? `<div class="hover-block">
-                <div class="hover-label">Topics</div>
-                <div class="chip-row">${topics.slice(0, 8).map(x => `<span class="chip chip-subtle">${escapeHtml(x)}</span>`).join("")}</div>
-              </div>`
-            : ""
-        }
-
-        ${
-          warnings.length
-            ? `<div class="hover-block">
-                <div class="hover-label">Notes</div>
-                <ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
-              </div>`
-            : ""
-        }
-
-        ${
-          item.manual_note
-            ? `<div class="hover-block">
-                <div class="hover-label">Curator note</div>
-                <p class="hover-note">${escapeHtml(item.manual_note)}</p>
-              </div>`
-            : ""
-        }
+        ${topics.length ? `<div class="hover-block"><div class="hover-label">Topics</div><div class="chip-row">${topics.slice(0, 8).map(x => `<span class="chip chip-subtle">${escapeHtml(x)}</span>`).join("")}</div></div>` : ""}
+        ${warnings.length ? `<div class="hover-block"><div class="hover-label">Notes</div><ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul></div>` : ""}
+        ${item.manual_note ? `<div class="hover-block"><div class="hover-label">Curator note</div><p class="hover-note">${escapeHtml(item.manual_note)}</p></div>` : ""}
       </div>
     </a>
   `;
 }
 
 function renderDatasetCard(item) {
+  const recordType = item.record_type || item.kind || "record";
+  const isRegistry = String(recordType).toLowerCase() === "registry";
+
   return `
-    <a class="repo-card dataset-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
-      <div class="repo-card-top">
-        <div>
-          <div class="repo-kicker">${escapeHtml(item.source || "record")} · ${escapeHtml(item.record_type || item.kind || "record")}${item.doi ? ` · DOI` : ""}</div>
-          <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
-          <p class="repo-summary">${escapeHtml(item.summary || "No description available.")}</p>
-        </div>
+    <a class="repo-card dataset-card ${isRegistry ? "registry-card" : ""}" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+      <div>
+        <div class="repo-kicker">${escapeHtml(item.source || "record")} · ${escapeHtml(recordType)}${item.doi ? ` · DOI` : ""}</div>
+        <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
+        <p class="repo-summary">${escapeHtml(item.summary || "No description available.")}</p>
       </div>
 
       <div class="repo-meta-row">
-        <span>Downloads ${item.downloads || 0}</span>
+        ${isRegistry ? "<span>Registry</span>" : `<span>Downloads ${item.downloads || 0}</span>`}
         <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
         <span>${escapeHtml(item.license || "Unknown license")}</span>
       </div>
 
-      ${
-        (item.tags || []).length
-          ? `<div class="chip-row">${(item.tags || []).slice(0, 6).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
-          : `<div class="chip-row"></div>`
-      }
+      ${(item.tags || []).length ? `<div class="chip-row">${(item.tags || []).slice(0, 6).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>` : `<div class="chip-row"></div>`}
 
       <div class="hover-panel">
-        ${
-          (item.creators || []).length
-            ? `<div class="hover-block">
-                <div class="hover-label">Creators</div>
-                <p class="hover-note">${escapeHtml((item.creators || []).slice(0, 6).join(", "))}</p>
-              </div>`
-            : ""
-        }
-
-        ${
-          item.doi
-            ? `<div class="hover-block">
-                <div class="hover-label">DOI</div>
-                <p class="hover-note">${escapeHtml(item.doi)}</p>
-              </div>`
-            : ""
-        }
+        ${(item.creators || []).length ? `<div class="hover-block"><div class="hover-label">Creators</div><p class="hover-note">${escapeHtml((item.creators || []).slice(0, 6).join(", "))}</p></div>` : ""}
+        ${item.doi ? `<div class="hover-block"><div class="hover-label">DOI</div><p class="hover-note">${escapeHtml(item.doi)}</p></div>` : ""}
       </div>
     </a>
   `;
@@ -383,12 +324,10 @@ function renderDatasetCard(item) {
 function renderPaperCard(item) {
   return `
     <a class="repo-card paper-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
-      <div class="repo-card-top">
-        <div>
-          <div class="repo-kicker">${escapeHtml(item.source || "paper")} · ${escapeHtml(item.paper_type || (item.is_preprint ? "preprint" : "article"))}${item.doi ? ` · DOI` : ""}</div>
-          <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
-          <p class="repo-summary">${escapeHtml(item.abstract || "No abstract available.")}</p>
-        </div>
+      <div>
+        <div class="repo-kicker">${escapeHtml(item.source || "paper")} · ${escapeHtml(item.paper_type || (item.is_preprint ? "preprint" : "article"))}${item.doi ? ` · DOI` : ""}</div>
+        <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
+        <p class="repo-summary">${escapeHtml(item.abstract || "No abstract available.")}</p>
       </div>
 
       <div class="repo-meta-row">
@@ -397,23 +336,8 @@ function renderPaperCard(item) {
       </div>
 
       <div class="hover-panel">
-        ${
-          (item.authors || []).length
-            ? `<div class="hover-block">
-                <div class="hover-label">Authors</div>
-                <p class="hover-note">${escapeHtml((item.authors || []).slice(0, 8).join(", "))}</p>
-              </div>`
-            : ""
-        }
-
-        ${
-          item.doi
-            ? `<div class="hover-block">
-                <div class="hover-label">DOI</div>
-                <p class="hover-note">${escapeHtml(item.doi)}</p>
-              </div>`
-            : ""
-        }
+        ${(item.authors || []).length ? `<div class="hover-block"><div class="hover-label">Authors</div><p class="hover-note">${escapeHtml((item.authors || []).slice(0, 8).join(", "))}</p></div>` : ""}
+        ${item.doi ? `<div class="hover-block"><div class="hover-label">DOI</div><p class="hover-note">${escapeHtml(item.doi)}</p></div>` : ""}
       </div>
     </a>
   `;
@@ -424,12 +348,7 @@ function renderCards(items, mode) {
   if (!results) return;
 
   if (!items.length) {
-    results.innerHTML = `
-      <div class="empty-state">
-        <h2>No items match the current filters.</h2>
-        <p>Try a broader search or reset the filters.</p>
-      </div>
-    `;
+    results.innerHTML = `<div class="empty-state"><h2>No items match the current filters.</h2><p>Try a broader search or reset the filters.</p></div>`;
     return;
   }
 
@@ -450,7 +369,7 @@ function populateSelect(selectEl, values, placeholderLabel) {
     option.textContent = value;
     selectEl.appendChild(option);
   }
-  selectEl.value = current;
+  if ([...selectEl.options].some(opt => opt.value === current)) selectEl.value = current;
 }
 
 function addSafeListener(el, eventName, handler) {
@@ -464,12 +383,11 @@ async function main() {
     loadJson("papers.json")
   ]);
 
-  const state = {
-    mode: "tools",
-    selectedDatasetChip: "",
-  };
+  const state = { mode: "tools", selectedDatasetChip: "" };
 
   const sourceFilter = document.getElementById("sourceFilter");
+  const recordTypeFilter = document.getElementById("recordTypeFilter");
+  const recordTypeControl = document.getElementById("recordTypeControl");
   const tagFilter = document.getElementById("tagFilter");
   const tagFilterControl = document.getElementById("tagFilterControl");
   const datasetChipFilterBlock = document.getElementById("datasetChipFilterBlock");
@@ -495,9 +413,7 @@ async function main() {
     if (!datasetCategoryChips) return;
     datasetCategoryChips.innerHTML = "";
 
-    const items = getCurrentItems();
-    const tags = uniqueSorted(items.flatMap(item => item.tags || []));
-
+    const tags = uniqueSorted(datasets.flatMap(item => item.tags || []));
     for (const tag of tags) {
       const button = document.createElement("button");
       button.type = "button";
@@ -505,9 +421,7 @@ async function main() {
       button.textContent = tag;
       button.title = tag;
 
-      if (state.selectedDatasetChip === tag) {
-        button.classList.add("active");
-      }
+      if (state.selectedDatasetChip === tag) button.classList.add("active");
 
       button.addEventListener("click", () => {
         state.selectedDatasetChip = state.selectedDatasetChip === tag ? "" : tag;
@@ -525,16 +439,22 @@ async function main() {
 
   function refreshFilters() {
     const items = getCurrentItems();
-    const sources = uniqueSorted(items.map(item => getItemSource(item, state.mode)));
-    populateSelect(sourceFilter, sources, "All sources");
+    populateSelect(sourceFilter, uniqueSorted(items.map(item => getItemSource(item, state.mode))), "All sources");
 
-    if (state.mode === "datasets") {
+    const isDatasetMode = state.mode === "datasets";
+    if (recordTypeControl) recordTypeControl.classList.toggle("hidden", !isDatasetMode);
+
+    if (isDatasetMode) {
+      const recordTypes = uniqueSorted(items.map(item => item.record_type || item.kind || "record"));
+      populateSelect(recordTypeFilter, recordTypes, "All record types");
+
       if (tagFilterControl) tagFilterControl.classList.add("hidden");
       if (datasetChipFilterBlock) datasetChipFilterBlock.classList.remove("hidden");
       refreshDatasetChips();
     } else {
-      const tags = uniqueSorted(items.flatMap(item => getItemTags(item, state.mode)));
-      populateSelect(tagFilter, tags, "All categories");
+      populateSelect(tagFilter, uniqueSorted(items.flatMap(item => getItemTags(item, state.mode))), "All categories");
+
+      if (recordTypeFilter) recordTypeFilter.value = "";
       if (tagFilterControl) tagFilterControl.classList.remove("hidden");
       if (datasetChipFilterBlock) datasetChipFilterBlock.classList.add("hidden");
     }
@@ -552,30 +472,32 @@ async function main() {
     if (filters.source && getItemSource(item, mode) !== filters.source) return false;
 
     if (mode === "datasets") {
+      if (filters.recordType) {
+        const recordType = item.record_type || item.kind || "record";
+        if (recordType !== filters.recordType) return false;
+      }
+
       if (state.selectedDatasetChip) {
         const tags = item.tags || [];
         if (!tags.includes(state.selectedDatasetChip)) return false;
       }
-    } else {
-      if (filters.tag) {
-        const tags = getItemTags(item, mode);
-        if (!tags.includes(filters.tag)) return false;
-      }
+    } else if (filters.tag) {
+      const tags = getItemTags(item, mode);
+      if (!tags.includes(filters.tag)) return false;
     }
 
     return true;
   }
 
   function update() {
-    const items = getCurrentItems();
-
     const filters = {
       query: search?.value || "",
       source: sourceFilter?.value || "",
+      recordType: recordTypeFilter?.value || "",
       tag: tagFilter?.value || ""
     };
 
-    const filtered = items.filter(item => matchesFilters(item, filters, state.mode));
+    const filtered = getCurrentItems().filter(item => matchesFilters(item, filters, state.mode));
     const sorted = sortItems(filtered, sortBy?.value || "popularity", state.mode);
 
     if (heroVisibleCount) heroVisibleCount.textContent = String(sorted.length);
@@ -600,6 +522,7 @@ async function main() {
 
     if (sortBy) sortBy.value = "popularity";
     if (sourceFilter) sourceFilter.value = "";
+    if (recordTypeFilter) recordTypeFilter.value = "";
     if (tagFilter) tagFilter.value = "";
 
     refreshFilters();
@@ -608,6 +531,7 @@ async function main() {
 
   addSafeListener(search, "input", update);
   addSafeListener(sourceFilter, "change", update);
+  addSafeListener(recordTypeFilter, "change", update);
   addSafeListener(tagFilter, "change", update);
   addSafeListener(sortBy, "change", update);
 
@@ -615,6 +539,7 @@ async function main() {
     state.selectedDatasetChip = "";
     if (search) search.value = "";
     if (sourceFilter) sourceFilter.value = "";
+    if (recordTypeFilter) recordTypeFilter.value = "";
     if (tagFilter) tagFilter.value = "";
     if (sortBy) sortBy.value = "popularity";
     refreshFilters();
@@ -638,28 +563,18 @@ async function main() {
 function renderFatalError(error) {
   const results = document.getElementById("results");
   if (!results) return;
-
-  results.innerHTML = `
-    <div class="empty-state">
-      <h2>Could not load catalog</h2>
-      <p>${escapeHtml(error?.message || String(error))}</p>
-    </div>
-  `;
+  results.innerHTML = `<div class="empty-state"><h2>Could not load catalog</h2><p>${escapeHtml(error?.message || String(error))}</p></div>`;
 }
 
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
-    main().catch(renderFatalError);
-  });
+  document.addEventListener("DOMContentLoaded", () => main().catch(renderFatalError));
 } else {
   main().catch(renderFatalError);
 }
 """
 
-# Reuse the same CSS as your latest working version, with paper cards supported by the generic card styles.
-STYLES_CSS = """* {
-  box-sizing: border-box;
-}
+
+STYLES_CSS = """* { box-sizing: border-box; }
 
 :root {
   --bg-0: #f3f9fd;
@@ -689,7 +604,6 @@ html, body {
 
 body { line-height: 1.5; }
 .page-shell { min-height: 100vh; }
-
 .hero { padding: 3.5rem 1.25rem 1.5rem; }
 
 .hero-inner {
@@ -700,6 +614,12 @@ body { line-height: 1.5; }
   gap: 1.2rem;
   align-items: stretch;
 }
+
+.hero-copy, .hero-panel, .controls, .stat-pill, .repo-card, .empty-state, .tabs {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
 .hero-brand {
   grid-column: 1 / -1;
   display: flex;
@@ -717,42 +637,11 @@ body { line-height: 1.5; }
   transition: opacity 180ms ease, transform 180ms ease;
 }
 
-.ptcog-logo:hover {
-  opacity: 1;
-  transform: translateY(-1px);
-}
+.ptcog-logo:hover { opacity: 1; transform: translateY(-1px); }
 
-.brand-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-}
-
-.brand-title {
-  color: var(--text);
-  font-size: 0.95rem;
-  font-weight: 850;
-  letter-spacing: -0.01em;
-}
-
-.brand-subtitle {
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 650;
-}
-
-.affiliation {
-  display: block;
-  margin-top: 0.85rem;
-  color: var(--primary);
-  font-size: 0.92rem;
-  font-weight: 750;
-}
-
-.hero-copy, .hero-panel, .controls, .stat-pill, .repo-card, .empty-state, .tabs {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
+.brand-copy { display: flex; flex-direction: column; gap: 0.1rem; }
+.brand-title { color: var(--text); font-size: 0.95rem; font-weight: 850; }
+.brand-subtitle { color: var(--muted); font-size: 0.82rem; font-weight: 650; }
 
 .hero-copy {
   background: linear-gradient(135deg, rgba(255,255,255,0.78), rgba(255,255,255,0.62));
@@ -781,11 +670,30 @@ body { line-height: 1.5; }
   letter-spacing: -0.03em;
 }
 
-.hero-text {
-  max-width: 62ch;
-  margin: 0.85rem 0 0;
-  color: var(--muted);
-  font-size: 1.02rem;
+.hero-text { max-width: 62ch; margin: 0.85rem 0 0; color: var(--muted); font-size: 1.02rem; }
+
+.affiliation {
+  display: block;
+  margin-top: 0.85rem;
+  color: var(--primary);
+  font-size: 0.92rem;
+  font-weight: 750;
+}
+
+.hero-actions { display: flex; gap: 0.75rem; margin-top: 1.3rem; flex-wrap: wrap; }
+
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.15rem;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  box-shadow: 0 12px 28px rgba(25, 118, 184, 0.22);
+  border: 1px solid rgba(255,255,255,0.22);
 }
 
 .hero-panel {
@@ -800,21 +708,11 @@ body { line-height: 1.5; }
   align-content: center;
 }
 
-.hero-stat {
-  border-radius: 18px;
-  background: rgba(255,255,255,0.10);
-  padding: 1rem 1.1rem;
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
+.hero-stat { border-radius: 18px; background: rgba(255,255,255,0.10); padding: 1rem 1.1rem; border: 1px solid rgba(255,255,255,0.12); }
 .hero-stat-label { display: block; opacity: 0.85; font-size: 0.85rem; }
 .hero-stat-value { display: block; font-size: 2rem; font-weight: 800; margin-top: 0.18rem; }
 
-.main-content {
-  max-width: 1220px;
-  margin: 0 auto;
-  padding: 0 1.25rem 3rem;
-}
+.main-content { max-width: 1220px; margin: 0 auto; padding: 0 1.25rem 3rem; }
 
 .tabs {
   display: inline-flex;
@@ -837,11 +735,7 @@ body { line-height: 1.5; }
   cursor: pointer;
 }
 
-.tab-button.active {
-  background: rgba(25, 118, 184, 0.12);
-  color: var(--primary);
-  border-color: rgba(25, 118, 184, 0.16);
-}
+.tab-button.active { background: rgba(25, 118, 184, 0.12); color: var(--primary); border-color: rgba(25, 118, 184, 0.16); }
 
 .controls {
   background: var(--surface);
@@ -851,12 +745,7 @@ body { line-height: 1.5; }
   padding: 1rem;
 }
 
-.controls-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 0.9rem;
-}
-
+.controls-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 0.9rem; }
 .control { display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
 .control span { font-size: 0.85rem; color: var(--muted); font-weight: 700; }
 
@@ -870,15 +759,11 @@ input[type="search"], select, button {
   font-size: 0.95rem;
 }
 
-.controls-actions { display: flex; justify-content: flex-end; margin-top: 0.9rem; }
+select { max-width: 100%; }
 button { cursor: pointer; font-weight: 700; color: var(--primary); }
+.controls-actions { display: flex; justify-content: flex-end; margin-top: 0.9rem; }
 
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
-  margin: 1rem 0 1.1rem;
-}
+.stats-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; margin: 1rem 0 1.1rem; }
 
 .stat-pill {
   background: var(--surface-strong);
@@ -915,11 +800,7 @@ button { cursor: pointer; font-weight: 700; color: var(--primary); }
 .filter-chip.active { background: var(--primary); color: white; border-color: var(--primary); }
 .hidden { display: none !important; }
 
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-  gap: 1rem;
-}
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1rem; }
 
 .repo-card {
   position: relative;
@@ -938,58 +819,19 @@ button { cursor: pointer; font-weight: 700; color: var(--primary); }
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
-.repo-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--card-bg);
-  z-index: 0;
-}
-
+.repo-card::before { content: ""; position: absolute; inset: 0; background: var(--card-bg); z-index: 0; }
 .repo-card > * { position: relative; z-index: 1; }
+.repo-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-strong); border-color: rgba(47, 148, 209, 0.32); }
+.registry-card::before { background: linear-gradient(135deg, rgba(25, 118, 184, 0.15), rgba(105, 190, 220, 0.16)); }
 
-.repo-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-strong);
-  border-color: rgba(47, 148, 209, 0.32);
-}
-
-.repo-kicker {
-  color: var(--primary);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.repo-title {
-  margin: 0.28rem 0 0.35rem;
-  font-size: 1.15rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-}
-
+.repo-kicker { color: var(--primary); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+.repo-title { margin: 0.28rem 0 0.35rem; font-size: 1.15rem; line-height: 1.2; letter-spacing: -0.02em; }
 .repo-summary { margin: 0; color: var(--muted); font-size: 0.93rem; }
 
-.repo-meta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  color: var(--muted);
-  font-size: 0.87rem;
-}
-
+.repo-meta-row { display: flex; flex-wrap: wrap; gap: 0.8rem; color: var(--muted); font-size: 0.87rem; }
 .chip-row { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 
-.chip {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 999px;
-  padding: 0.32rem 0.62rem;
-  font-size: 0.79rem;
-  font-weight: 700;
-}
-
+.chip { display: inline-flex; align-items: center; border-radius: 999px; padding: 0.32rem 0.62rem; font-size: 0.79rem; font-weight: 700; }
 .chip-primary { background: rgba(25, 118, 184, 0.12); color: var(--primary); }
 .chip-subtle { background: rgba(255,255,255,0.7); color: #4f6a7d; border: 1px solid rgba(80, 132, 180, 0.12); }
 
@@ -1026,37 +868,13 @@ button { cursor: pointer; font-weight: 700; color: var(--primary); }
 }
 
 @media (max-width: 640px) {
-  .hero {
-    padding-top: 1.5rem;
-  }
-
-  .hero-copy,
-  .hero-panel,
-  .controls,
-  .tabs {
-    border-radius: 20px;
-  }
-
-  .controls-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .filter-chip {
-    max-width: 220px;
-  }
-
-  /* ADD THIS */
-  .hero-brand {
-    align-items: flex-start;
-  }
-
-  .ptcog-logo {
-    height: 38px;
-  }
+  .hero { padding-top: 1.5rem; }
+  .hero-copy, .hero-panel, .controls, .tabs { border-radius: 20px; }
+  .hero-brand { align-items: flex-start; }
+  .ptcog-logo { height: 38px; }
+  .controls-grid { grid-template-columns: 1fr; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .filter-chip { max-width: 220px; }
 }
 """
 
@@ -1096,7 +914,12 @@ def write_site(entries: list[dict[str, Any]]) -> None:
     )
 
     data_dir = Path("data")
-    for name in ["datasets.json", "hf_model_tools.json", "papers.json","papers_cache.json"]:
+    for name in [
+        "datasets.json",
+        "hf_model_tools.json",
+        "papers.json",
+        "papers_cache.json",
+    ]:
         src = data_dir / name
         dst = site_dir / name
         if src.exists():

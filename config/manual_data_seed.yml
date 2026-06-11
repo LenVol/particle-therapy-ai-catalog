@@ -1,0 +1,42 @@
+records:
+  - title: CancerData.org – EPTN Data & Atlas Repository
+    url: https://www.cancerdata.org/
+    source: manual
+    kind: record
+    record_type: registry
+    summary: >
+      CancerData is a repository used by the European Particle Therapy Network
+      for sharing contouring atlases, toxicity standards, imaging resources,
+      models, and particle therapy research data.
+    tags:
+      - EPTN
+      - registry
+      - particle therapy
+      - proton therapy
+      - radiotherapy
+      - contouring atlas
+      - datasets
+      - deep learning
+    creators:
+      - European Particle Therapy Network
+      - CancerData.org
+    always_include: true
+
+  - title: Proton Collaborative Group Registry
+    url: https://pcgresearch.org/
+    source: manual
+    kind: record
+    record_type: registry
+    summary: >
+      Multi-institutional proton therapy outcomes registry supporting
+      collaborative clinical research and evidence generation.
+    tags:
+      - PCG
+      - registry
+      - proton therapy
+      - outcomes
+      - clinical data
+      - multi institutional
+    creators:
+      - Proton Collaborative Group
+    always_include: true
