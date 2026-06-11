@@ -29,42 +29,24 @@ function formatDate(value) {
 
 function buildStats(items, mode) {
   if (mode === "datasets") {
-    const totalDownloads = items.reduce((sum, item) => sum + (item.downloads || 0), 0);
+    const registries = items.filter(x => (x.record_type || "").toLowerCase() === "registry").length;
     return `
-      <div class="stat-pill">
-        <span class="stat-label">Shown</span>
-        <span class="stat-value">${items.length}</span>
-      </div>
-      <div class="stat-pill">
-        <span class="stat-label">Downloads shown</span>
-        <span class="stat-value">${totalDownloads}</span>
-      </div>
+      <div class="stat-pill"><span class="stat-label">Shown</span><span class="stat-value">${items.length}</span></div>
+      <div class="stat-pill"><span class="stat-label">Registries shown</span><span class="stat-value">${registries}</span></div>
     `;
   }
 
   if (mode === "papers") {
     return `
-      <div class="stat-pill">
-        <span class="stat-label">Shown</span>
-        <span class="stat-value">${items.length}</span>
-      </div>
-      <div class="stat-pill">
-        <span class="stat-label">Preprints shown</span>
-        <span class="stat-value">${items.filter(x => x.is_preprint).length}</span>
-      </div>
+      <div class="stat-pill"><span class="stat-label">Shown</span><span class="stat-value">${items.length}</span></div>
+      <div class="stat-pill"><span class="stat-label">Preprints shown</span><span class="stat-value">${items.filter(x => x.is_preprint).length}</span></div>
     `;
   }
 
   const totalStars = items.reduce((sum, item) => sum + (item.stars || 0), 0);
   return `
-    <div class="stat-pill">
-      <span class="stat-label">Shown</span>
-      <span class="stat-value">${items.length}</span>
-    </div>
-    <div class="stat-pill">
-      <span class="stat-label">Stars shown</span>
-      <span class="stat-value">${totalStars}</span>
-    </div>
+    <div class="stat-pill"><span class="stat-label">Shown</span><span class="stat-value">${items.length}</span></div>
+    <div class="stat-pill"><span class="stat-label">Stars shown</span><span class="stat-value">${totalStars}</span></div>
   `;
 }
 
@@ -130,12 +112,15 @@ function sortItems(items, sortBy, mode) {
     }
 
     if (sortBy === "name") {
-      const aName = mode === "datasets" ? (a.title || "") : mode === "papers" ? (a.title || "") : (a.full_name || "");
-      const bName = mode === "datasets" ? (b.title || "") : mode === "papers" ? (b.title || "") : (b.full_name || "");
+      const aName = mode === "tools" ? (a.full_name || "") : (a.title || "");
+      const bName = mode === "tools" ? (b.full_name || "") : (b.title || "");
       return aName.localeCompare(bName);
     }
 
     if (mode === "datasets") {
+      const aRegistry = (a.record_type || "").toLowerCase() === "registry" ? 1 : 0;
+      const bRegistry = (b.record_type || "").toLowerCase() === "registry" ? 1 : 0;
+      if (aRegistry !== bRegistry) return bRegistry - aRegistry;
       return ((b.downloads || 0) + (b.likes || 0)) - ((a.downloads || 0) + (a.likes || 0));
     }
 
@@ -158,12 +143,10 @@ function renderToolCard(item) {
 
   return `
     <a class="repo-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
-      <div class="repo-card-top">
-        <div>
-          <div class="repo-kicker">${escapeHtml(sourceLabel)} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
-          <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
-          <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
-        </div>
+      <div>
+        <div class="repo-kicker">${escapeHtml(sourceLabel)} · ${escapeHtml(cls.likely_tool_type || "unclear")}</div>
+        <h2 class="repo-title">${escapeHtml(item.full_name || "")}</h2>
+        <p class="repo-summary">${escapeHtml(cls.summary || item.description || "No description available.")}</p>
       </div>
 
       <div class="repo-meta-row">
@@ -172,85 +155,40 @@ function renderToolCard(item) {
         <span>${escapeHtml(item.language || "Unknown")}</span>
       </div>
 
-      ${
-        categories.length
-          ? `<div class="chip-row">${categories.slice(0, 4).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
-          : `<div class="chip-row"></div>`
-      }
+      ${categories.length ? `<div class="chip-row">${categories.slice(0, 4).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>` : `<div class="chip-row"></div>`}
 
       <div class="hover-panel">
-        ${
-          topics.length
-            ? `<div class="hover-block">
-                <div class="hover-label">Topics</div>
-                <div class="chip-row">${topics.slice(0, 8).map(x => `<span class="chip chip-subtle">${escapeHtml(x)}</span>`).join("")}</div>
-              </div>`
-            : ""
-        }
-
-        ${
-          warnings.length
-            ? `<div class="hover-block">
-                <div class="hover-label">Notes</div>
-                <ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
-              </div>`
-            : ""
-        }
-
-        ${
-          item.manual_note
-            ? `<div class="hover-block">
-                <div class="hover-label">Curator note</div>
-                <p class="hover-note">${escapeHtml(item.manual_note)}</p>
-              </div>`
-            : ""
-        }
+        ${topics.length ? `<div class="hover-block"><div class="hover-label">Topics</div><div class="chip-row">${topics.slice(0, 8).map(x => `<span class="chip chip-subtle">${escapeHtml(x)}</span>`).join("")}</div></div>` : ""}
+        ${warnings.length ? `<div class="hover-block"><div class="hover-label">Notes</div><ul class="hover-list warning-list">${warnings.slice(0, 2).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul></div>` : ""}
+        ${item.manual_note ? `<div class="hover-block"><div class="hover-label">Curator note</div><p class="hover-note">${escapeHtml(item.manual_note)}</p></div>` : ""}
       </div>
     </a>
   `;
 }
 
 function renderDatasetCard(item) {
+  const recordType = item.record_type || item.kind || "record";
+  const isRegistry = String(recordType).toLowerCase() === "registry";
+
   return `
-    <a class="repo-card dataset-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
-      <div class="repo-card-top">
-        <div>
-          <div class="repo-kicker">${escapeHtml(item.source || "record")} · ${escapeHtml(item.record_type || item.kind || "record")}${item.doi ? ` · DOI` : ""}</div>
-          <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
-          <p class="repo-summary">${escapeHtml(item.summary || "No description available.")}</p>
-        </div>
+    <a class="repo-card dataset-card ${isRegistry ? "registry-card" : ""}" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+      <div>
+        <div class="repo-kicker">${escapeHtml(item.source || "record")} · ${escapeHtml(recordType)}${item.doi ? ` · DOI` : ""}</div>
+        <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
+        <p class="repo-summary">${escapeHtml(item.summary || "No description available.")}</p>
       </div>
 
       <div class="repo-meta-row">
-        <span>Downloads ${item.downloads || 0}</span>
+        ${isRegistry ? "<span>Registry</span>" : `<span>Downloads ${item.downloads || 0}</span>`}
         <span>Updated ${escapeHtml(formatDate(item.updated_at))}</span>
         <span>${escapeHtml(item.license || "Unknown license")}</span>
       </div>
 
-      ${
-        (item.tags || []).length
-          ? `<div class="chip-row">${(item.tags || []).slice(0, 6).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>`
-          : `<div class="chip-row"></div>`
-      }
+      ${(item.tags || []).length ? `<div class="chip-row">${(item.tags || []).slice(0, 6).map(x => `<span class="chip chip-primary">${escapeHtml(x)}</span>`).join("")}</div>` : `<div class="chip-row"></div>`}
 
       <div class="hover-panel">
-        ${
-          (item.creators || []).length
-            ? `<div class="hover-block">
-                <div class="hover-label">Creators</div>
-                <p class="hover-note">${escapeHtml((item.creators || []).slice(0, 6).join(", "))}</p>
-              </div>`
-            : ""
-        }
-
-        ${
-          item.doi
-            ? `<div class="hover-block">
-                <div class="hover-label">DOI</div>
-                <p class="hover-note">${escapeHtml(item.doi)}</p>
-              </div>`
-            : ""
-        }
+        ${(item.creators || []).length ? `<div class="hover-block"><div class="hover-label">Creators</div><p class="hover-note">${escapeHtml((item.creators || []).slice(0, 6).join(", "))}</p></div>` : ""}
+        ${item.doi ? `<div class="hover-block"><div class="hover-label">DOI</div><p class="hover-note">${escapeHtml(item.doi)}</p></div>` : ""}
       </div>
     </a>
   `;
@@ -259,12 +197,10 @@ function renderDatasetCard(item) {
 function renderPaperCard(item) {
   return `
     <a class="repo-card paper-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
-      <div class="repo-card-top">
-        <div>
-          <div class="repo-kicker">${escapeHtml(item.source || "paper")} · ${escapeHtml(item.paper_type || (item.is_preprint ? "preprint" : "article"))}${item.doi ? ` · DOI` : ""}</div>
-          <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
-          <p class="repo-summary">${escapeHtml(item.abstract || "No abstract available.")}</p>
-        </div>
+      <div>
+        <div class="repo-kicker">${escapeHtml(item.source || "paper")} · ${escapeHtml(item.paper_type || (item.is_preprint ? "preprint" : "article"))}${item.doi ? ` · DOI` : ""}</div>
+        <h2 class="repo-title">${escapeHtml(item.title || "")}</h2>
+        <p class="repo-summary">${escapeHtml(item.abstract || "No abstract available.")}</p>
       </div>
 
       <div class="repo-meta-row">
@@ -273,23 +209,8 @@ function renderPaperCard(item) {
       </div>
 
       <div class="hover-panel">
-        ${
-          (item.authors || []).length
-            ? `<div class="hover-block">
-                <div class="hover-label">Authors</div>
-                <p class="hover-note">${escapeHtml((item.authors || []).slice(0, 8).join(", "))}</p>
-              </div>`
-            : ""
-        }
-
-        ${
-          item.doi
-            ? `<div class="hover-block">
-                <div class="hover-label">DOI</div>
-                <p class="hover-note">${escapeHtml(item.doi)}</p>
-              </div>`
-            : ""
-        }
+        ${(item.authors || []).length ? `<div class="hover-block"><div class="hover-label">Authors</div><p class="hover-note">${escapeHtml((item.authors || []).slice(0, 8).join(", "))}</p></div>` : ""}
+        ${item.doi ? `<div class="hover-block"><div class="hover-label">DOI</div><p class="hover-note">${escapeHtml(item.doi)}</p></div>` : ""}
       </div>
     </a>
   `;
@@ -300,12 +221,7 @@ function renderCards(items, mode) {
   if (!results) return;
 
   if (!items.length) {
-    results.innerHTML = `
-      <div class="empty-state">
-        <h2>No items match the current filters.</h2>
-        <p>Try a broader search or reset the filters.</p>
-      </div>
-    `;
+    results.innerHTML = `<div class="empty-state"><h2>No items match the current filters.</h2><p>Try a broader search or reset the filters.</p></div>`;
     return;
   }
 
@@ -326,7 +242,7 @@ function populateSelect(selectEl, values, placeholderLabel) {
     option.textContent = value;
     selectEl.appendChild(option);
   }
-  selectEl.value = current;
+  if ([...selectEl.options].some(opt => opt.value === current)) selectEl.value = current;
 }
 
 function addSafeListener(el, eventName, handler) {
@@ -340,12 +256,11 @@ async function main() {
     loadJson("papers.json")
   ]);
 
-  const state = {
-    mode: "tools",
-    selectedDatasetChip: "",
-  };
+  const state = { mode: "tools", selectedDatasetChip: "" };
 
   const sourceFilter = document.getElementById("sourceFilter");
+  const recordTypeFilter = document.getElementById("recordTypeFilter");
+  const recordTypeControl = document.getElementById("recordTypeControl");
   const tagFilter = document.getElementById("tagFilter");
   const tagFilterControl = document.getElementById("tagFilterControl");
   const datasetChipFilterBlock = document.getElementById("datasetChipFilterBlock");
@@ -371,9 +286,7 @@ async function main() {
     if (!datasetCategoryChips) return;
     datasetCategoryChips.innerHTML = "";
 
-    const items = getCurrentItems();
-    const tags = uniqueSorted(items.flatMap(item => item.tags || []));
-
+    const tags = uniqueSorted(datasets.flatMap(item => item.tags || []));
     for (const tag of tags) {
       const button = document.createElement("button");
       button.type = "button";
@@ -381,9 +294,7 @@ async function main() {
       button.textContent = tag;
       button.title = tag;
 
-      if (state.selectedDatasetChip === tag) {
-        button.classList.add("active");
-      }
+      if (state.selectedDatasetChip === tag) button.classList.add("active");
 
       button.addEventListener("click", () => {
         state.selectedDatasetChip = state.selectedDatasetChip === tag ? "" : tag;
@@ -401,16 +312,22 @@ async function main() {
 
   function refreshFilters() {
     const items = getCurrentItems();
-    const sources = uniqueSorted(items.map(item => getItemSource(item, state.mode)));
-    populateSelect(sourceFilter, sources, "All sources");
+    populateSelect(sourceFilter, uniqueSorted(items.map(item => getItemSource(item, state.mode))), "All sources");
 
-    if (state.mode === "datasets") {
+    const isDatasetMode = state.mode === "datasets";
+    if (recordTypeControl) recordTypeControl.classList.toggle("hidden", !isDatasetMode);
+
+    if (isDatasetMode) {
+      const recordTypes = uniqueSorted(items.map(item => item.record_type || item.kind || "record"));
+      populateSelect(recordTypeFilter, recordTypes, "All record types");
+
       if (tagFilterControl) tagFilterControl.classList.add("hidden");
       if (datasetChipFilterBlock) datasetChipFilterBlock.classList.remove("hidden");
       refreshDatasetChips();
     } else {
-      const tags = uniqueSorted(items.flatMap(item => getItemTags(item, state.mode)));
-      populateSelect(tagFilter, tags, "All categories");
+      populateSelect(tagFilter, uniqueSorted(items.flatMap(item => getItemTags(item, state.mode))), "All categories");
+
+      if (recordTypeFilter) recordTypeFilter.value = "";
       if (tagFilterControl) tagFilterControl.classList.remove("hidden");
       if (datasetChipFilterBlock) datasetChipFilterBlock.classList.add("hidden");
     }
@@ -428,30 +345,32 @@ async function main() {
     if (filters.source && getItemSource(item, mode) !== filters.source) return false;
 
     if (mode === "datasets") {
+      if (filters.recordType) {
+        const recordType = item.record_type || item.kind || "record";
+        if (recordType !== filters.recordType) return false;
+      }
+
       if (state.selectedDatasetChip) {
         const tags = item.tags || [];
         if (!tags.includes(state.selectedDatasetChip)) return false;
       }
-    } else {
-      if (filters.tag) {
-        const tags = getItemTags(item, mode);
-        if (!tags.includes(filters.tag)) return false;
-      }
+    } else if (filters.tag) {
+      const tags = getItemTags(item, mode);
+      if (!tags.includes(filters.tag)) return false;
     }
 
     return true;
   }
 
   function update() {
-    const items = getCurrentItems();
-
     const filters = {
       query: search?.value || "",
       source: sourceFilter?.value || "",
+      recordType: recordTypeFilter?.value || "",
       tag: tagFilter?.value || ""
     };
 
-    const filtered = items.filter(item => matchesFilters(item, filters, state.mode));
+    const filtered = getCurrentItems().filter(item => matchesFilters(item, filters, state.mode));
     const sorted = sortItems(filtered, sortBy?.value || "popularity", state.mode);
 
     if (heroVisibleCount) heroVisibleCount.textContent = String(sorted.length);
@@ -476,6 +395,7 @@ async function main() {
 
     if (sortBy) sortBy.value = "popularity";
     if (sourceFilter) sourceFilter.value = "";
+    if (recordTypeFilter) recordTypeFilter.value = "";
     if (tagFilter) tagFilter.value = "";
 
     refreshFilters();
@@ -484,6 +404,7 @@ async function main() {
 
   addSafeListener(search, "input", update);
   addSafeListener(sourceFilter, "change", update);
+  addSafeListener(recordTypeFilter, "change", update);
   addSafeListener(tagFilter, "change", update);
   addSafeListener(sortBy, "change", update);
 
@@ -491,6 +412,7 @@ async function main() {
     state.selectedDatasetChip = "";
     if (search) search.value = "";
     if (sourceFilter) sourceFilter.value = "";
+    if (recordTypeFilter) recordTypeFilter.value = "";
     if (tagFilter) tagFilter.value = "";
     if (sortBy) sortBy.value = "popularity";
     refreshFilters();
@@ -514,19 +436,11 @@ async function main() {
 function renderFatalError(error) {
   const results = document.getElementById("results");
   if (!results) return;
-
-  results.innerHTML = `
-    <div class="empty-state">
-      <h2>Could not load catalog</h2>
-      <p>${escapeHtml(error?.message || String(error))}</p>
-    </div>
-  `;
+  results.innerHTML = `<div class="empty-state"><h2>Could not load catalog</h2><p>${escapeHtml(error?.message || String(error))}</p></div>`;
 }
 
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
-    main().catch(renderFatalError);
-  });
+  document.addEventListener("DOMContentLoaded", () => main().catch(renderFatalError));
 } else {
   main().catch(renderFatalError);
 }

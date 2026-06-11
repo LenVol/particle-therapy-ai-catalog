@@ -10,34 +10,30 @@
 <body>
   <div class="page-shell">
     <header class="hero">
-    <div class="hero-inner">
-  <div class="hero-brand">
-    <a href="https://ptcog.online/" target="_blank" rel="noopener noreferrer" aria-label="Visit PTCOG website">
-      <img
-        src="https://ptcog.online/wp-content/uploads/sites/4/2024/12/PTCOG_Logo_191224.svg"
-        alt="PTCOG logo"
-        class="ptcog-logo"
-      >
-    </a>
-    <div class="brand-copy">
-      <span class="brand-title">PTCOG AI Subcommittee</span>
-      <span class="brand-subtitle">Particle Therapy AI Research Atlas</span>
-    </div>
-  </div>
+      <div class="hero-inner">
+        <div class="hero-brand">
+          <a href="https://ptcog.online/" target="_blank" rel="noopener noreferrer" aria-label="Visit PTCOG website">
+            <img src="https://ptcog.online/wp-content/uploads/sites/4/2024/12/PTCOG_Logo_191224.svg" alt="PTCOG logo" class="ptcog-logo">
+          </a>
+          <div class="brand-copy">
+            <span class="brand-title">PTCOG AI Subcommittee</span>
+            <span class="brand-subtitle">Particle Therapy AI Research Atlas</span>
+          </div>
+        </div>
 
         <div class="hero-copy">
           <span class="eyebrow">AI + PARTICLE THERAPY</span>
           <h1>Research Atlas</h1>
           <p class="hero-text">
-                A curated, searchable catalog of tools, models, datasets, records, and papers related to
-                particle therapy, proton therapy, hadron therapy, and machine learning.
-                <span class="affiliation">Maintained as part of the PTCOG AI Subcommittee activities.</span>
+            A curated, searchable catalog of tools, models, datasets, records, registries, and papers related to
+            particle therapy and machine learning.
+            <span class="affiliation">Maintained as part of the PTCOG AI Subcommittee activities.</span>
           </p>
           <div class="hero-actions">
-              <a class="submit-button" href="https://github.com/LenVol/particle-therapy-ai-catalog/issues/new?template=submit-catalog-item.yml" target="_blank" rel="noopener noreferrer">
-                Submit an item
-              </a>
-            </div>
+            <a class="submit-button" href="https://github.com/lenvol/particle-therapy-ai-catalog/issues/new?template=submit-catalog-item.yml" target="_blank" rel="noopener noreferrer">
+              Submit an item
+            </a>
+          </div>
         </div>
 
         <div class="hero-panel">
@@ -71,6 +67,13 @@
             <span>Source</span>
             <select id="sourceFilter">
               <option value="">All sources</option>
+            </select>
+          </label>
+
+          <label class="control hidden" id="recordTypeControl">
+            <span>Record type</span>
+            <select id="recordTypeFilter">
+              <option value="">All record types</option>
             </select>
           </label>
 

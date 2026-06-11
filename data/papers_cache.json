@@ -2,6 +2,38 @@
   {
     "kind": "paper",
     "source": "arxiv",
+    "title": "A Two-Stage Framework for Fast Proton Spot Map Generation in Pencil Beam Scanning Prostate SBRT Planning",
+    "url": "http://arxiv.org/abs/2606.11479v1",
+    "abstract": "Background: In pencil beam scanning (PBS) proton therapy, plans are delivered as proton spot maps (PSMs). Although deep learning can rapidly predict 3D dose, direct conversion of dose into deliverable spot patterns remains limited. Purpose: We developed GenSpot, a two stage framework that infers deliverable PSMs from CT and dose, and evaluated it in prostate SBRT by comparing Monte Carlo (MC) doses from GenSpot and clinical PSMs. Methods: GenSpot uses a physics informed projected proton spot map (PrPSM) representation, projecting spots through CT with water equivalent thickness and PDD information to align spots with the CT/dose grid while preserving linearity with spot weights. The dataset included 1,036 fields from 259 prostate SBRT plans, split 80%/10%/10% for training, validation, and testing. A 3D SwinUNETR predicted PrPSMs from CT and dose. Field specific PSMs were reconstructed using column wise nonnegative Lasso regression with precomputed PDD curves. GenSpot and clinical MC doses were compared using MAE, 3D gamma analysis, and composite plan DVH metrics. Results: On the test set, SwinUNETR achieved PrPSM MAE of 0.06 +/- 0.02 with high similarity to clinical PrPSMs. GenSpot MC doses showed low MAE of 0.07 +/- 0.03 Gy in the nonzero dose region and gamma passing rates of 0.90 at the field level and 0.97 at plan level. Composite DVH differences were within 1 Gy for targets and organs at risk, though the CTV showed a modest high dose increase. Spot complexity was similar to clinical plans, with slightly more spots. Prediction and reconstruction averaged 0.02 s and 2.1 s/field. Conclusions: GenSpot generated machine deliverable PSMs from CT and dose whose MC doses closely matched clinical PSM doses in a single institution prostate SBRT cohort. This physics informed dose to spots framework may support automated PBS planning and adaptive replanning, pending broader validation.",
+    "authors": [
+      "Xueyan Tang",
+      "Hok Wan Chan Tseung",
+      "Mark Pepin",
+      "Jiasen Ma",
+      "David M. Routman",
+      "Doug J. Moseley",
+      "Brandon Reber",
+      "Jed E. Johnson",
+      "Jing Qian"
+    ],
+    "journal": null,
+    "published_at": "2026-06-09T22:14:01Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 15,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 1 contextual particle-therapy phrase(s).",
+      "Matched 1 AI/ML phrase(s)."
+    ],
+    "cached": false
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
     "title": "A Multimodal Clinically Informed Coarse-to-Fine Framework for Longitudinal CT Registration in Proton Therapy",
     "url": "http://arxiv.org/abs/2604.13397v1",
     "abstract": "Proton therapy offers superior organ-at-risk sparing but is highly sensitive to anatomical changes, making accurate deformable image registration (DIR) across longitudinal CT scans essential. Conventional DIR methods are often too slow for emerging online adaptive workflows, while existing deep learning-based approaches are primarily designed for generic benchmarks and underutilize clinically relevant information beyond images. To address this gap, we propose a clinically scalable coarse-to-fine deformable registration framework that integrates multimodal information from the proton radiotherapy workflow to accommodate diverse clinical scenarios. The model employs dual CNN-based encoders for hierarchical feature extraction and a transformer-based decoder to progressively refine deformation fields. Beyond CT intensities, clinically critical priors, including target and organ-at-risk contours, dose distributions, and treatment planning text, are incorporated through anatomy- and risk-guided attention, text-conditioned feature modulation, and foreground-aware optimization, enabling anatomically focused and clinically informed deformation estimation. We evaluate the proposed framework on a large-scale proton therapy DIR dataset comprising 1,222 paired planning and repeat CT scans across multiple anatomical regions and disease types. Extensive experiments demonstrate consistent improvements over state-of-the-art methods, enabling fast and robust clinically meaningful registration.",

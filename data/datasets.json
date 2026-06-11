@@ -586,6 +586,41 @@
   },
   {
     "kind": "record",
+    "source": "manual",
+    "title": "CancerData.org – EPTN Data & Atlas Repository",
+    "url": "https://www.cancerdata.org/",
+    "summary": "CancerData is a repository used by the European Particle Therapy Network for sharing contouring atlases, toxicity standards, imaging resources, models, and particle therapy research data.\n",
+    "tags": [
+      "EPTN",
+      "registry",
+      "particle therapy",
+      "proton therapy",
+      "radiotherapy",
+      "contouring atlas",
+      "datasets",
+      "deep learning"
+    ],
+    "license": null,
+    "updated_at": null,
+    "downloads": null,
+    "likes": null,
+    "doi": null,
+    "creators": [
+      "European Particle Therapy Network",
+      "CancerData.org"
+    ],
+    "record_type": "registry",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 2,
+    "heuristic_total_score": 16,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s).",
+      "Matched 2 AI/ML term(s).",
+      "Manually seeded data/registry resource."
+    ]
+  },
+  {
+    "kind": "record",
     "source": "zenodo",
     "title": "A dosimetric and biological model for neutron capture therapy (NCT) experiments",
     "url": "https://zenodo.org/records/17648189",
@@ -1567,31 +1602,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Protonflux-Classification-Model",
-    "url": "https://zenodo.org/records/20157031",
-    "summary": " Protonflux-Classification-Model v1.0.1 \n Accompanying software release for the manuscript: \"Supporting Informed Shutter Operations for SMILE's SXI Using Ensemble Classifiers for Soft Proton High Flux Period Predictions\" \n Contents \n \n Logistic Regression classification models \n XGBoost classification models \n Ensemble prediction framework \n Example prediction scripts \n \n Data Sources \n The models were developed using: \n \n ESA Cluster/RAPID proton flux measurements \n NASA OMNI solar wind and geomagnetic indices \n \n Authors \n \n Simon Mischel \n Elena A. Kronberg \n \n License \n Apache License 2.0 ",
-    "tags": [],
-    "license": "apache2.0",
-    "updated_at": "2026-05-13",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.20157031",
-    "creators": [
-      "Mischel, Simon",
-      "Kronberg, Elena"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 3,
-    "heuristic_total_score": 10,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 3 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "azazpe/Articulo-RE-LET-data: Data and code for RE–LET model (paper version)",
     "url": "https://zenodo.org/records/18230764",
     "summary": " This release contains the data and analysis code used to generate the results presented in the manuscript: \n &quot;An updated relative efficiency model for radiochromic films in proton beams&quot;. \n The repository includes experimental data, literature data, Monte Carlo–based LET calculations, and MATLAB scripts used to derive and validate the proposed relative efficiency (RE) model. ",
@@ -1746,14 +1756,14 @@
     "kind": "record",
     "source": "zenodo",
     "title": "WATER EQUIVALENCE OF VARIOUS 3D PRINTED MATERIALS FOR PROTON THERAPY — MONTE CARLO SIMULATION, TREATMENT PLANNING MODELLING AND VALIDATION BY MEASUREMENTS",
-    "url": "https://zenodo.org/records/4724029",
+    "url": "https://zenodo.org/records/4726051",
     "summary": " In this article, Water Equivalent Ratio (WER) of three selected materials: Polylactic Acid (PLA), Acrylonitrilebutadiene Styrene (ABS) and Polyethylene Terephthalate Glycol (PETG) &mdash; commonly used in additive manufacturing technology &mdash; was measured on 60 MeV proton beam and compared with values predicted by Treatment Planning System (TPS) and Monte Carlo (MC) simulation. The agreement within 0.02&ndash;2.98% and 0.11&ndash;6.46% was found between results obtained from the measurement with comparison to the MC simulation and TPS, respectively. It was concluded that 3D printable materials can be safely used in proton therapy. \n\n Uploaded files: \n\n .inp files - Inputs for Fluka simulation for each tested plate&nbsp;(ABS, PETG and PLA as the material names, 0.5, 1.0 and 2.0 are the theoretical widths). \n\n .txt files - raw data for each plate&nbsp;received from measurements on on 60 MeV proton beam. \n\n 2020_Wochnik_ActaPhysPol_raw_data.xlsx&nbsp;- raw data&nbsp;collected in one sheet and analysis. ",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2020-01-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5506/APhysPolB.51.409",
+    "doi": "10.5281/zenodo.4726051",
     "creators": [
       "Wochnik Agnieszka",
       "Swakoń Jan",
@@ -1772,14 +1782,14 @@
     "kind": "record",
     "source": "zenodo",
     "title": "WATER EQUIVALENCE OF VARIOUS 3D PRINTED MATERIALS FOR PROTON THERAPY — MONTE CARLO SIMULATION, TREATMENT PLANNING MODELLING AND VALIDATION BY MEASUREMENTS",
-    "url": "https://zenodo.org/records/4726051",
+    "url": "https://zenodo.org/records/4724029",
     "summary": " In this article, Water Equivalent Ratio (WER) of three selected materials: Polylactic Acid (PLA), Acrylonitrilebutadiene Styrene (ABS) and Polyethylene Terephthalate Glycol (PETG) &mdash; commonly used in additive manufacturing technology &mdash; was measured on 60 MeV proton beam and compared with values predicted by Treatment Planning System (TPS) and Monte Carlo (MC) simulation. The agreement within 0.02&ndash;2.98% and 0.11&ndash;6.46% was found between results obtained from the measurement with comparison to the MC simulation and TPS, respectively. It was concluded that 3D printable materials can be safely used in proton therapy. \n\n Uploaded files: \n\n .inp files - Inputs for Fluka simulation for each tested plate&nbsp;(ABS, PETG and PLA as the material names, 0.5, 1.0 and 2.0 are the theoretical widths). \n\n .txt files - raw data for each plate&nbsp;received from measurements on on 60 MeV proton beam. \n\n 2020_Wochnik_ActaPhysPol_raw_data.xlsx&nbsp;- raw data&nbsp;collected in one sheet and analysis. ",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2020-01-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4726051",
+    "doi": "10.5506/APhysPolB.51.409",
     "creators": [
       "Wochnik Agnieszka",
       "Swakoń Jan",
@@ -2427,6 +2437,37 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "In vitro mutation induction: a database of x-ray and particle irradiation experiments",
+    "url": "https://zenodo.org/records/6451956",
+    "summary": " The database presents a collection of  in vitro  mutation induction data after photon and particle beam irradiation. The experiments included in the database were all performed by means of the  hprt  mutation assay. The collection was based on extensive literature search, and contains data published in the time period from 1977 to 2002. \n\n As better described in the README file, the database provides information on RBE for cell killing and mutation induction, as well as dose response curves raw data for both endpoints, as digitised&nbsp;(when available) from&nbsp;the original publication. \n\n This study is part of a manuscript that was&nbsp;submitted for publication in&nbsp;April 2022. ",
+    "tags": [
+      "radiobiology",
+      "mutation induction",
+      "secondary cancer risk",
+      "radiotherapy",
+      "charged particle therapy"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2022-04-12",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.6451956",
+    "creators": [
+      "Attili, Andrea",
+      "Scifoni, Emanuele",
+      "Tommasino, Francesco"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "MeV SIMS analysis of irradiation effects on molecular signatures",
     "url": "https://zenodo.org/records/5957880",
     "summary": " Characterizing the effect of MeV ion beam irradiation on biological tissues is important for proton beam therapy, which is routinely used as a form of cancer treatment. It is also important for optimizing protocols for multimodal elemental and molecular imaging. Elemental mapping of trace elements in tissues has been carried out for a long time using nuclear microprobe analysis. However, the effect of MeV ion beams on biological samples is largely unexplored. These effects have been explored in&nbsp;Surrey using two mass spectrometry imaging (MSI) techniques &ndash; matrix-assisted laser desorption electrospray (MALDI) and desorption electrospray ionization (DESI). The combination of these techniques with ion beam analysis (IBA) presents a few challenges, namely substrate compatibility and de-localization of elemental markers during measurements. As such, MeV-secondary ion mass spectrometry (SIMS) is being explored as an alternative technique for molecular imaging of biological tissues. MeV SIMS, unlike conventional keV SIMS, allows the detection of intact molecules, making it a prime candidate for the molecular analysis of biological samples. This presents an opportunity to bench",
@@ -2451,35 +2492,6 @@
       "Bailey, J. Melanie"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Stopping Power and Range for Proton Interaction with Lymph Tissues",
-    "url": "https://zenodo.org/records/5842881",
-    "summary": " &nbsp; \n\n In this paper, we calculated the mass stopping power (in MeV cm2/g) and the range (cm) of proton in one of the types \nof body tissues (lymph), from 1 Kev to 200 MeV energy range. They are using the Bethe and Ziegler equations, SRIM program (version \n2013) and Ziegler (Vol. 3) data by considering the tissue composed of several elements, so the atomic number (Z) and atomic weight \n(A) for the component in the tissue are meaning. The calculation results show that the Ziegler equation gives better results than using \nthe Bethe equation. However, in terms of the loss of proton energy in the tissue, the four methods used are approximately the same. \n&nbsp; ",
-    "tags": [
-      "Bethe Equation",
-      "Proton Therapy",
-      "Stopping Power",
-      "SRIM Program",
-      "Ziegler Equation"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2021-12-25",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.5842881",
-    "creators": [
-      "Hadi, Shaima M."
-    ],
-    "record_type": "publication",
     "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 8,
@@ -2932,6 +2944,37 @@
   },
   {
     "kind": "record",
+    "source": "manual",
+    "title": "Proton Collaborative Group Registry",
+    "url": "https://pcgresearch.org/",
+    "summary": "Multi-institutional proton therapy outcomes registry supporting collaborative clinical research and evidence generation.\n",
+    "tags": [
+      "PCG",
+      "registry",
+      "proton therapy",
+      "outcomes",
+      "clinical data",
+      "multi institutional"
+    ],
+    "license": null,
+    "updated_at": null,
+    "downloads": null,
+    "likes": null,
+    "doi": null,
+    "creators": [
+      "Proton Collaborative Group"
+    ],
+    "record_type": "registry",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s).",
+      "Manually seeded data/registry resource."
+    ]
+  },
+  {
+    "kind": "record",
     "source": "zenodo",
     "title": "Proton and Neutron Electrical Charges",
     "url": "https://zenodo.org/records/7623966",
@@ -3068,17 +3111,23 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "MCNP Results for Nanocomposite Shielding in High-Energy Proton Fields",
-    "url": "https://zenodo.org/records/8320135",
-    "summary": " Monte Carlo radiation transport results for various physics schemes (neutron + proton, neutron + proton + delta ray, and neutron + proton + delta ray + light recoil ions) and nanocomposite structural models (bulk homogenous material, hollow carbon cylinders suspended in polymer matrix, and carbon spheres in nanotube structure suspended in polymer matrix) of a polymer-carbon-nanotube nanocomposite shielding material in high-energy proton beams of 63 MeV and 105 MeV.&nbsp; ",
-    "tags": [],
+    "title": "LOTOS code inputs for local earthquake tomography of the Irazú-Turrialba volcanic complex, Costa Rica",
+    "url": "https://zenodo.org/records/7777962",
+    "summary": " Local earthquake seismic tomography model for Jiwani-Brown, E., Koulakov, I., Muñoz-Burbano, F., Pacheco, J., Mora, M., &amp; Lupi, M. (2023). Comparing&nbsp;local and ambient seismic tomographic methods to infer the plumbing system of the Irazú-Turrialba&nbsp;volcanic complex, Costa Rica.&nbsp; \n\n The tomography model presented in the paper are obtained using the LOTOS code by Koulakov (2009).&nbsp;Input files for running of LOTOS code adapted for Windows OS. More details on the LOTOS code can be found at www.ivan-art.com/science/LOTOS  ",
+    "tags": [
+      "LET",
+      "Tomography",
+      "Costa Rica",
+      "Volcano"
+    ],
     "license": "cc-by-4.0",
-    "updated_at": "2023-09-05",
+    "updated_at": "2023-06-30",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.8320135",
+    "doi": "10.5281/zenodo.7777962",
     "creators": [
-      "Freilich, Justina"
+      "Jiwani-Brown, Elliot",
+      "Lupi, Matteo"
     ],
     "record_type": "dataset",
     "heuristic_particle_hits": 1,
@@ -3596,6 +3645,38 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Fabrication of Spherical Colloidal Supraparticles via Membrane Emulsification",
+    "url": "https://zenodo.org/records/13604216",
+    "summary": " This is the raw data for the manuscript \"Fabrication of Spherical Colloidal Supraparticles via Membrane Emulsification\". \n Abstract \n Colloidal supraparticles are micron-assemblies of primary particles. These supraparticles have potential application in photonic materials, catalysis, gas adsorption and drug delivery. Thus, synthesis of colloidal supraparticles with a narrow size distribution and high yield has become essential for their application in different fields of science and technology. Here, we demonstrate membrane emulsification as a high-throughput approach for fabricating spherical supraparticles with narrow size distribution and control over particle size and crystallinity. Spherical supraparticles with well-ordered surface structures are synthesized by generating emulsion droplets of an aqueous colloidal dispersion in fluorocarbon oil using a Shirasu Porous Glass membrane, followed by the consolidation of particles through water removal within the emulsion. We systematically investigate process parameters, including the flow rate of particle dispersion, particle concentration, and average pore diameter of the membrane on the mean size and size distribution of the sup",
+    "tags": [
+      "Supraparticles",
+      "Membrane emulsification",
+      "Structural color",
+      "Self-assembly",
+      "High-throughput"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2024-09-02",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.13604216",
+    "creators": [
+      "Naveenkumar, Parinamipura M",
+      "Roemling, Lukas J",
+      "Sultan, Umair",
+      "Vogel, Nicolas"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Global Radiation Therapy Software Market 2024 To 2033",
     "url": "https://zenodo.org/records/15300690",
     "summary": " Radiation Therapy Software Market Size, Trends and Insights By Type of Software (Treatment Planning Software, Treatment Delivery Software, Image-Guided Radiation Therapy (IGRT) Software, Intensity-Modulated Radiation Therapy (IMRT) Software, Stereotactic Radiosurgery (SRS), Stereotactic Body Radiation Therapy (SBRT) Software, Particle Therapy Software), By Application (External Beam Radiation Therapy, Internal Radiation Therapy, Systemic Radiation Therapy), By End User (Hospitals, Specialty Clinics, Radiation Therapy Centers, Research Institutes, Ambulatory Surgical Centers), and By Region - Global Industry Overview, Statistical Data, Competitive Analysis, Share, Outlook, and Forecast 2024&ndash;2033. \n  Reports Description  \n As per the current market research conducted by the CMI Team, the global   Radiation Therapy Software Market   is expected to record a CAGR of  9.1%  from 2024 to 2033. In 2024, the market size is projected to reach a valuation of USD  635.1 Million . By 2033, the valuation is anticipated to reach USD  1,390.7 Million  .  \n The radiation therapy software market encompasses the provision of software solutions designed to enhance the planning, delivery, and ma",
@@ -3677,41 +3758,6 @@
       "Uberti, Stefano",
       "Vilcans, Janis",
       "Vretenar, Maurizio"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Triorla striola",
-    "url": "https://zenodo.org/records/10979570",
-    "summary": "   Triorla striola  (Fabricius, 1805)   (Figs 28&ndash;31)  Material examined. BRASIL [BRAZIL],  Tocantins:  Porto Nacional,  Campus  UFT [Universidade Federal do Tocantins], 10&deg;41&rsquo;18.649&rdquo;S &ndash; 48&deg;22&rsquo;58.252&rdquo;W, coleta manual [manual collection], 21.XI.2018, Silva, B. M. (&female; CEUFT).  Distribution. Panama, Colombia, Venezuela, Guyana, Suriname, French Guiana, Brazil (Par&aacute;, Tocantins *, Mato Grosso, Goi&aacute;s, Rio Grande do Norte, Minas Gerais, Esp&iacute;rito Santo, Rio de Janeiro, Paran&aacute;), Paraguay (CASTRO  et al ., 2016).  Comments.  Trioria striola  is characterized by having the yellow mystax interspersed with white and black setae (Figs 30, 31); thorax and head brown, golden tomentose (Figs 28, 29); gray scutellum with a dark spot on the margin; femora dorsally reddish brown, black tibiae, black tarsomeres; black abdomen, tergites 1-3 with white lateral bands that cover more than half of the posterior part, tergites 4 and 5 entirely black, tergite 6 with a dorsomedial black spot, tergite 7 black with white lateral bands that cover the ventral and dorsoposterior parts; terminalia conical, shiny black, tergite and sternite ",
-    "tags": [
-      "Biodiversity",
-      "Taxonomy",
-      "Animalia",
-      "Arthropoda",
-      "Insecta",
-      "Diptera",
-      "Asilidae",
-      "Triorla",
-      "Triorla striola"
-    ],
-    "license": "cc-zero",
-    "updated_at": "2023-05-15",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.10979570",
-    "creators": [
-      "Montanuci, Pietra S.",
-      "Vieira, Rodrigo",
-      "Krolow, Tiago K."
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 1,
@@ -3974,29 +4020,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Bridging a Gap Between Space-like and Time-like EM Transition Form Factors",
-    "url": "https://zenodo.org/records/4036327",
-    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2019-11-06",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4036327",
-    "creators": [
-      "Philip Cole"
-    ],
-    "record_type": "presentation",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "High-momentum pion beamline at J-PARC and Open Charm Production",
     "url": "https://zenodo.org/records/4036385",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
@@ -4206,6 +4229,39 @@
       "Kateb, Fatiha",
       "Pelupessy, Philippe",
       "Bodenhausen, Geoffrey"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Charm production in 200-GeV p+p collisions",
+    "url": "https://zenodo.org/records/4275179",
+    "summary": " This dissertation presents the measurement of electrons from heavy flavor decays in proton + proton collisions at RHIC at colli&shy;sion energy &radic;s = 200 GeV over a wide range of transverse moment (0.4 &lt; pr &lt; 5 GeV/c). Two independent analysis techniques of signal extraction were performed. This is the first measure&shy;ment of the Open Charm cross section at this collision energy and it is an important baseline measurement for comparison with nucleus + nucleus collisions. ",
+    "tags": [
+      "charm",
+      "photon",
+      "heavy flavor",
+      "electron",
+      "p+p",
+      "cross section",
+      "qcd",
+      "pythia",
+      "run02"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2005-05-11",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4275179",
+    "creators": [
+      "Butsyk, Sergey"
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 1,
