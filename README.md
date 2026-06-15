@@ -2,7 +2,7 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **46**
+Included repositories: **45**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
@@ -19,7 +19,6 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [Mayo-Clinic-RadOnc-Foundation-Models/Beam-mask-and-sliding-window-dose-prediction](https://github.com/Mayo-Clinic-RadOnc-Foundation-Models/Beam-mask-and-sliding-window-dose-prediction) | github | 3 | unclear |  | Beam mask and sliding window-facilitated deep learning-based accurate and efficient dose prediction for pencil beam scanning proton therapy |
 | [pcabrales/ppw](https://github.com/pcabrales/ppw) | github | 2 | unclear | proton therapy, deep learning, PET imaging, intratumoral heterogeneity | Code for the PROTOTWIN-PET Washout (PPW) framework for mapping biological washout and revealing intratumoral heterogeneity. |
 | [RivettiLuciano/DiffuseRT](https://github.com/RivettiLuciano/DiffuseRT) | github | 2 | unclear | anatomy prediction, diffusion model, adaptation | A probabilistic diffusion model to generate alternative anatomies of a patient |
-| [vmsatya/ProtonTherapy-TCP-Relapse-SecondCancer](https://github.com/vmsatya/ProtonTherapy-TCP-Relapse-SecondCancer) | github | 2 | unclear |  | We incorporated tumour relapse kinetics into the TCP framework and calculate the associated second cancer risks. To calculate proton therapy-induced secondary cancer induction, we used the well-known biologically motivated mathematical model, initiation–inactivation–proliferation formalism. We used the available in vitro data for the linear energy transfer (LET) dependence of cell killing and mutation induction parameters. |
 | [OpenGATE/IDEAL](https://github.com/OpenGATE/IDEAL) | github | 2 | unclear |  | Independent DosE cAlculation for Light ion beam therapy using Geant4/GATE. The name of the corresponding python module is pyidc. |
 | [Varian-MedicalAffairsAppliedSolutions/MAAS-ProtonSnoutCollision](https://github.com/Varian-MedicalAffairsAppliedSolutions/MAAS-ProtonSnoutCollision) | github | 1 | unclear |  | Medical Affairs Applied Solutions ESAPI single file plugin to visualize and detect collisions between a snout of a proton treatment machine and patient. |
 | [mikkelskaarup/Longitudinal-image-analysis-of-biological-effects](https://github.com/mikkelskaarup/Longitudinal-image-analysis-of-biological-effects) | github | 1 | unclear |  | This repository contains code to analyse biological effects of radiation and radiotherapy over time. It uses hybrid templates to register images and create a voxel-by-voxel data set to follow in-vivo changes due to radiation damage. A nested regession model is provided in R. It is the code used in the paper by M. Skaarup et al. "A framework for voxel-based assessment of biological effect after proton radiotherapy in pediatric brain cancer patients using multi-modal imaging" (2021) |
