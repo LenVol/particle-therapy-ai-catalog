@@ -4,9 +4,9 @@
     "full_name": "e0404/matRad",
     "url": "https://github.com/e0404/matRad",
     "description": "An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ",
-    "stars": 281,
+    "stars": 282,
     "language": "MATLAB",
-    "updated_at": "2026-06-04T12:29:37Z",
+    "updated_at": "2026-06-21T09:36:58Z",
     "license": "NOASSERTION",
     "topics": [
       "particle-therapy",

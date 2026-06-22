@@ -17,7 +17,7 @@
     ],
     "license": null,
     "updated_at": "2025-04-18T08:21:49+00:00",
-    "downloads": 5,
+    "downloads": 3,
     "likes": 0,
     "doi": null,
     "creators": [],
@@ -3108,30 +3108,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "MCNP Results for Nanocomposite Shielding in High-Energy Proton Fields",
-    "url": "https://zenodo.org/records/8320135",
-    "summary": " Monte Carlo radiation transport results for various physics schemes (neutron + proton, neutron + proton + delta ray, and neutron + proton + delta ray + light recoil ions) and nanocomposite structural models (bulk homogenous material, hollow carbon cylinders suspended in polymer matrix, and carbon spheres in nanotube structure suspended in polymer matrix) of a polymer-carbon-nanotube nanocomposite shielding material in high-energy proton beams of 63 MeV and 105 MeV.&nbsp; ",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-09-05",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.8320135",
-    "creators": [
-      "Freilich, Justina"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "LOTOS code inputs for local earthquake tomography of the Irazú-Turrialba volcanic complex, Costa Rica",
     "url": "https://zenodo.org/records/7777962",
     "summary": " Local earthquake seismic tomography model for Jiwani-Brown, E., Koulakov, I., Muñoz-Burbano, F., Pacheco, J., Mora, M., &amp; Lupi, M. (2023). Comparing&nbsp;local and ambient seismic tomographic methods to infer the plumbing system of the Irazú-Turrialba&nbsp;volcanic complex, Costa Rica.&nbsp; \n\n The tomography model presented in the paper are obtained using the LOTOS code by Koulakov (2009).&nbsp;Input files for running of LOTOS code adapted for Windows OS. More details on the LOTOS code can be found at www.ivan-art.com/science/LOTOS  ",
@@ -3427,6 +3403,30 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "The Modeling of Baryon and Meson DAs, and their Relevance for DVMP",
+    "url": "https://zenodo.org/records/4036379",
+    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2019-11-08",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4036379",
+    "creators": [
+      "Cédric Mezrag"
+    ],
+    "record_type": "presentation",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Dataset: A scalable method to improve gray matter segmentation at ultra high field MRI.",
     "url": "https://zenodo.org/records/1206163",
     "summary": "  Dataset description:  Accompanying data for manuscript &ldquo; A scalable method to improve gray matter segmentation at ultra high field MRI &rdquo; written by Omer Faruk Gulban, Marian Schneider, Ingo Marquardt, Roy Haast, Federico De Martino. \n\n  Published in PLOS One, June&nbsp; 6, 2018 . \n\n The dataset consist of 7 Tesla MRI anatomical images of living human brains (whole brain;&nbsp;0.7mm isotropic resolution;&nbsp;T1 weighted, T2* weighted, proton density weighted MPRAGE images; inversion 1, inversion 2, T1, uni, MP2RAGE images;&nbsp;Multi-echo 3D GRE) and hand labeled cortical gray matter images (for further details see  section 4.1 of our manuscript ). \n\n Folder structure is organized according to Brain Imaging Data Structure (BIDS). Further details can be found the README files. \n\n  Citation  \n\n Please cite the following paper together&nbsp;with this dataset doi: \n\n \n\t Gulban, O. F., Schneider, M., Marquardt, I., Haast, R. A. M., &amp; De Martino, F. (2018). A scalable method to improve gray matter segmentation at ultra high field MRI.  PLOS ONE ,  13 (6), e0198335. http://doi.org/10.1371/journal.pone.0198335 \n \n\n  \nBibtex format: \n\n ``` \n@article{Gulban2018, \nauthor = {",
@@ -3632,38 +3632,6 @@
       "Vretenar, Maurizio"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Fabrication of Spherical Colloidal Supraparticles via Membrane Emulsification",
-    "url": "https://zenodo.org/records/13604216",
-    "summary": " This is the raw data for the manuscript \"Fabrication of Spherical Colloidal Supraparticles via Membrane Emulsification\". \n Abstract \n Colloidal supraparticles are micron-assemblies of primary particles. These supraparticles have potential application in photonic materials, catalysis, gas adsorption and drug delivery. Thus, synthesis of colloidal supraparticles with a narrow size distribution and high yield has become essential for their application in different fields of science and technology. Here, we demonstrate membrane emulsification as a high-throughput approach for fabricating spherical supraparticles with narrow size distribution and control over particle size and crystallinity. Spherical supraparticles with well-ordered surface structures are synthesized by generating emulsion droplets of an aqueous colloidal dispersion in fluorocarbon oil using a Shirasu Porous Glass membrane, followed by the consolidation of particles through water removal within the emulsion. We systematically investigate process parameters, including the flow rate of particle dispersion, particle concentration, and average pore diameter of the membrane on the mean size and size distribution of the sup",
-    "tags": [
-      "Supraparticles",
-      "Membrane emulsification",
-      "Structural color",
-      "Self-assembly",
-      "High-throughput"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2024-09-02",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.13604216",
-    "creators": [
-      "Naveenkumar, Parinamipura M",
-      "Roemling, Lukas J",
-      "Sultan, Umair",
-      "Vogel, Nicolas"
-    ],
-    "record_type": "dataset",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 4,
@@ -4003,6 +3971,34 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Proton light yield of water-based liquid scintillator",
+    "url": "https://zenodo.org/records/4123022",
+    "summary": "Future neutrino detectors, whether answering questions of fundamental physics or exercising nuclear monitoring techniques, will require advanced technologies for optimal performance. One such candidate technology is water-based liquid scintillator (WbLS), a material for which Cherenkov and scintillation light may be discriminated and examined independently. We present a measurement of the relative proton light yields of WbLS and an LAB-based liquid scintillator, using a broad-spectrum neutron source at the 88-Inch Cyclotron at Lawrence Berkeley National Laboratory. A double-time-of-flight technique was employed, which allows for relatively pure selection of proton recoil events over a continuous energy range. We also present a characterization of the nonlinearity in photomultiplier tube response over the full dynamic range of the electronics system.",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2020-06-24",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4123022",
+    "creators": [
+      "Gabriel Orebi Gann",
+      "Edward Callaghan",
+      "Thibault Laplace",
+      "Juan Manfredi",
+      "Joshua Brown",
+      "Bethany Goldblum"
+    ],
+    "record_type": "poster",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Optimization of Conditions for Mass Production of Orchid Mycorrhizal Fungi (OMF) Inoculants",
     "url": "https://zenodo.org/records/3986609",
     "summary": "  The study determined the optimum conditions for mass production of OMF inoculants. Extracts from each of the five different locally-available materials (sorghum, SHE; rice bran, RBE; sawdust, SE; and fern chips, FE and combinations of RBE and SE) for isolation of pure culture from tissue and spores and subsequently production of &ldquo;mother culture&rdquo; were evaluated. Four locally available substrates (sawdust, fern chips, sorghum and rots) combined with rice bran for spawn production and interaction of temperature and substrate for fruiting bodies formation were likewise assessed.  \n Combination of extracts of rice bran and sawdust at 1:1 ratio and rice bran alone were found to be the most suitable media for multi-spore and tissue isolations and production of &ldquo;mother culture&rdquo;.&nbsp; Sawdust and fern chips each mixed with rice bran at 1:1 ratio were found to be the best substrate for spawn production. These substrates were fully colonized with OMF mycelia four weeks after incubation at room temperature. Exposure of substrate (sawdust + rice bran) fully colonized with mycelia to cold temperature favored primordial initiation for a shorter period of time. Larger an",
@@ -4029,40 +4025,17 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Transversity GPDs",
-    "url": "https://zenodo.org/records/4036361",
+    "title": "High-momentum pion beamline at J-PARC and Open Charm Production",
+    "url": "https://zenodo.org/records/4036385",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
-    "updated_at": "2019-11-07",
+    "updated_at": "2019-11-05",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036361",
+    "doi": "10.5281/zenodo.4036385",
     "creators": [
-      "Andrey Kim"
-    ],
-    "record_type": "presentation",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Welcome from Jefferson Laboratory",
-    "url": "https://zenodo.org/records/4036371",
-    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2019-11-06",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4036371",
-    "creators": [
-      "Robert Mckeown"
+      "Hiroyuki Noumi"
     ],
     "record_type": "presentation",
     "heuristic_particle_hits": 1,
@@ -4261,39 +4234,6 @@
       "Kateb, Fatiha",
       "Pelupessy, Philippe",
       "Bodenhausen, Geoffrey"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Charm production in 200-GeV p+p collisions",
-    "url": "https://zenodo.org/records/4275179",
-    "summary": " This dissertation presents the measurement of electrons from heavy flavor decays in proton + proton collisions at RHIC at colli&shy;sion energy &radic;s = 200 GeV over a wide range of transverse moment (0.4 &lt; pr &lt; 5 GeV/c). Two independent analysis techniques of signal extraction were performed. This is the first measure&shy;ment of the Open Charm cross section at this collision energy and it is an important baseline measurement for comparison with nucleus + nucleus collisions. ",
-    "tags": [
-      "charm",
-      "photon",
-      "heavy flavor",
-      "electron",
-      "p+p",
-      "cross section",
-      "qcd",
-      "pythia",
-      "run02"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2005-05-11",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4275179",
-    "creators": [
-      "Butsyk, Sergey"
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 1,
