@@ -17,7 +17,7 @@
     ],
     "license": null,
     "updated_at": "2025-04-18T08:21:49+00:00",
-    "downloads": 3,
+    "downloads": 4,
     "likes": 0,
     "doi": null,
     "creators": [],
@@ -2465,6 +2465,37 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "In vitro mutation induction: a database of x-ray and particle irradiation experiments",
+    "url": "https://zenodo.org/records/6451956",
+    "summary": " The database presents a collection of  in vitro  mutation induction data after photon and particle beam irradiation. The experiments included in the database were all performed by means of the  hprt  mutation assay. The collection was based on extensive literature search, and contains data published in the time period from 1977 to 2002. \n\n As better described in the README file, the database provides information on RBE for cell killing and mutation induction, as well as dose response curves raw data for both endpoints, as digitised&nbsp;(when available) from&nbsp;the original publication. \n\n This study is part of a manuscript that was&nbsp;submitted for publication in&nbsp;April 2022. ",
+    "tags": [
+      "radiobiology",
+      "mutation induction",
+      "secondary cancer risk",
+      "radiotherapy",
+      "charged particle therapy"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2022-04-12",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.6451956",
+    "creators": [
+      "Attili, Andrea",
+      "Scifoni, Emanuele",
+      "Tommasino, Francesco"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "MeV SIMS analysis of irradiation effects on molecular signatures",
     "url": "https://zenodo.org/records/5957880",
     "summary": " Characterizing the effect of MeV ion beam irradiation on biological tissues is important for proton beam therapy, which is routinely used as a form of cancer treatment. It is also important for optimizing protocols for multimodal elemental and molecular imaging. Elemental mapping of trace elements in tissues has been carried out for a long time using nuclear microprobe analysis. However, the effect of MeV ion beams on biological samples is largely unexplored. These effects have been explored in&nbsp;Surrey using two mass spectrometry imaging (MSI) techniques &ndash; matrix-assisted laser desorption electrospray (MALDI) and desorption electrospray ionization (DESI). The combination of these techniques with ion beam analysis (IBA) presents a few challenges, namely substrate compatibility and de-localization of elemental markers during measurements. As such, MeV-secondary ion mass spectrometry (SIMS) is being explored as an alternative technique for molecular imaging of biological tissues. MeV SIMS, unlike conventional keV SIMS, allows the detection of intact molecules, making it a prime candidate for the molecular analysis of biological samples. This presents an opportunity to bench",
@@ -2487,6 +2518,73 @@
       "Costa, Catia",
       "De Jesus, Janella",
       "Bailey, J. Melanie"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Stopping Power and Range for Proton Interaction with Lymph Tissues",
+    "url": "https://zenodo.org/records/5842881",
+    "summary": " &nbsp; \n\n In this paper, we calculated the mass stopping power (in MeV cm2/g) and the range (cm) of proton in one of the types \nof body tissues (lymph), from 1 Kev to 200 MeV energy range. They are using the Bethe and Ziegler equations, SRIM program (version \n2013) and Ziegler (Vol. 3) data by considering the tissue composed of several elements, so the atomic number (Z) and atomic weight \n(A) for the component in the tissue are meaning. The calculation results show that the Ziegler equation gives better results than using \nthe Bethe equation. However, in terms of the loss of proton energy in the tissue, the four methods used are approximately the same. \n&nbsp; ",
+    "tags": [
+      "Bethe Equation",
+      "Proton Therapy",
+      "Stopping Power",
+      "SRIM Program",
+      "Ziegler Equation"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2021-12-25",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.5842881",
+    "creators": [
+      "Hadi, Shaima M."
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "4DMRI moving lung meshes",
+    "url": "https://zenodo.org/records/5016294",
+    "summary": "  Moving lung meshes extracted from 4DMRIs  \n\n The newest version of the dataset and the documentation can be found on&nbsp; https://gitlab.psi.ch/duetschler_a/4DMRI_moving_lung_meshes . \n\n The moving lung meshes can for example be used to generate synthetic 4DCT(MRI)s. The code for generating 4DCT(MRI)s using a reference CT and the moving lung mesh data can be found on&nbsp; https://gitlab.psi.ch/duetschler_a/4DCT-MRI . \n\n Please cite the following publication when using the data: \n\n Duetschler, A., Bauman, G., Bieri, O., Cattin, P.C., Ehrbar, S., Engin-Deniz, G., Giger, A., Josipovic, M., Jud, C., Krieger, M., Nguyen, D., Persson, G.F., Salomir, R., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Synthetic 4DCT(MRI) lung phantom generation for 4D radiotherapy and image guidance investigations.  Med. Phys..  https://doi.org/10.1002/mp.15591  ",
+    "tags": [
+      "4DMRI",
+      "lung",
+      "intrafraction motion",
+      "4D imaging",
+      "4D numerical phantom",
+      "radiotherapy",
+      "proton therapy"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2021-06-23",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.5016294",
+    "creators": [
+      "Duetschler, Alisha",
+      "Krieger, Miriam",
+      "Giger, Alina",
+      "Salomir, Rares",
+      "Jud, Christoph",
+      "Cattin, Philippe C",
+      "Lomax, Antony J",
+      "Zhang, Ye"
     ],
     "record_type": "dataset",
     "heuristic_particle_hits": 2,
@@ -3403,30 +3501,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "The Modeling of Baryon and Meson DAs, and their Relevance for DVMP",
-    "url": "https://zenodo.org/records/4036379",
-    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2019-11-08",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4036379",
-    "creators": [
-      "Cédric Mezrag"
-    ],
-    "record_type": "presentation",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Dataset: A scalable method to improve gray matter segmentation at ultra high field MRI.",
     "url": "https://zenodo.org/records/1206163",
     "summary": "  Dataset description:  Accompanying data for manuscript &ldquo; A scalable method to improve gray matter segmentation at ultra high field MRI &rdquo; written by Omer Faruk Gulban, Marian Schneider, Ingo Marquardt, Roy Haast, Federico De Martino. \n\n  Published in PLOS One, June&nbsp; 6, 2018 . \n\n The dataset consist of 7 Tesla MRI anatomical images of living human brains (whole brain;&nbsp;0.7mm isotropic resolution;&nbsp;T1 weighted, T2* weighted, proton density weighted MPRAGE images; inversion 1, inversion 2, T1, uni, MP2RAGE images;&nbsp;Multi-echo 3D GRE) and hand labeled cortical gray matter images (for further details see  section 4.1 of our manuscript ). \n\n Folder structure is organized according to Brain Imaging Data Structure (BIDS). Further details can be found the README files. \n\n  Citation  \n\n Please cite the following paper together&nbsp;with this dataset doi: \n\n \n\t Gulban, O. F., Schneider, M., Marquardt, I., Haast, R. A. M., &amp; De Martino, F. (2018). A scalable method to improve gray matter segmentation at ultra high field MRI.  PLOS ONE ,  13 (6), e0198335. http://doi.org/10.1371/journal.pone.0198335 \n \n\n  \nBibtex format: \n\n ``` \n@article{Gulban2018, \nauthor = {",
@@ -3735,41 +3809,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Triorla striola",
-    "url": "https://zenodo.org/records/10979570",
-    "summary": "   Triorla striola  (Fabricius, 1805)   (Figs 28&ndash;31)  Material examined. BRASIL [BRAZIL],  Tocantins:  Porto Nacional,  Campus  UFT [Universidade Federal do Tocantins], 10&deg;41&rsquo;18.649&rdquo;S &ndash; 48&deg;22&rsquo;58.252&rdquo;W, coleta manual [manual collection], 21.XI.2018, Silva, B. M. (&female; CEUFT).  Distribution. Panama, Colombia, Venezuela, Guyana, Suriname, French Guiana, Brazil (Par&aacute;, Tocantins *, Mato Grosso, Goi&aacute;s, Rio Grande do Norte, Minas Gerais, Esp&iacute;rito Santo, Rio de Janeiro, Paran&aacute;), Paraguay (CASTRO  et al ., 2016).  Comments.  Trioria striola  is characterized by having the yellow mystax interspersed with white and black setae (Figs 30, 31); thorax and head brown, golden tomentose (Figs 28, 29); gray scutellum with a dark spot on the margin; femora dorsally reddish brown, black tibiae, black tarsomeres; black abdomen, tergites 1-3 with white lateral bands that cover more than half of the posterior part, tergites 4 and 5 entirely black, tergite 6 with a dorsomedial black spot, tergite 7 black with white lateral bands that cover the ventral and dorsoposterior parts; terminalia conical, shiny black, tergite and sternite ",
-    "tags": [
-      "Biodiversity",
-      "Taxonomy",
-      "Animalia",
-      "Arthropoda",
-      "Insecta",
-      "Diptera",
-      "Asilidae",
-      "Triorla",
-      "Triorla striola"
-    ],
-    "license": "cc-zero",
-    "updated_at": "2023-05-15",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.10979570",
-    "creators": [
-      "Montanuci, Pietra S.",
-      "Vieira, Rodrigo",
-      "Krolow, Tiago K."
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "The dual ion beam microprobe",
     "url": "https://zenodo.org/records/10377192",
     "summary": " A new experimental setup for dual ion microbeam irradiation and analysis of materials has been designed and commissioned at the Ruđer Boˇskovi&acute;c Institute (RBI). Ion beams in the MeV energy range are provided by two tandem accelerators, a 1.0 MV Tandetron and a 6.0 MV EN tandem Van de Graaff. The dual microprobe end station is primarily dedicated for the performance of experiments where one ion microbeam is used for the irradiation, while the other ion microbeam is used for the analysis or &lsquo;probing&rsquo; the in-situ changes induced during the target irradiation. Likewise, both microbeams can be also used independently, for experiments involving either ion beam characterization or ion beam irradiation techniques. The ion beam from the small tandem accelerator is focused with a magnetic quadrupole triplet, which is more suitable for the high spatial resolution work with light ions. The ion beam from the larger accelerator is focused by an electrostatic quadruplet that enables easier focusing of heavy ions. Details of the experimental setup, its capabilities in terms of ion beam irradiation and analysis techniques, as well as the first applications, are presented. ",
@@ -3971,34 +4010,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Proton light yield of water-based liquid scintillator",
-    "url": "https://zenodo.org/records/4123022",
-    "summary": "Future neutrino detectors, whether answering questions of fundamental physics or exercising nuclear monitoring techniques, will require advanced technologies for optimal performance. One such candidate technology is water-based liquid scintillator (WbLS), a material for which Cherenkov and scintillation light may be discriminated and examined independently. We present a measurement of the relative proton light yields of WbLS and an LAB-based liquid scintillator, using a broad-spectrum neutron source at the 88-Inch Cyclotron at Lawrence Berkeley National Laboratory. A double-time-of-flight technique was employed, which allows for relatively pure selection of proton recoil events over a continuous energy range. We also present a characterization of the nonlinearity in photomultiplier tube response over the full dynamic range of the electronics system.",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2020-06-24",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4123022",
-    "creators": [
-      "Gabriel Orebi Gann",
-      "Edward Callaghan",
-      "Thibault Laplace",
-      "Juan Manfredi",
-      "Joshua Brown",
-      "Bethany Goldblum"
-    ],
-    "record_type": "poster",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Optimization of Conditions for Mass Production of Orchid Mycorrhizal Fungi (OMF) Inoculants",
     "url": "https://zenodo.org/records/3986609",
     "summary": "  The study determined the optimum conditions for mass production of OMF inoculants. Extracts from each of the five different locally-available materials (sorghum, SHE; rice bran, RBE; sawdust, SE; and fern chips, FE and combinations of RBE and SE) for isolation of pure culture from tissue and spores and subsequently production of &ldquo;mother culture&rdquo; were evaluated. Four locally available substrates (sawdust, fern chips, sorghum and rots) combined with rice bran for spawn production and interaction of temperature and substrate for fruiting bodies formation were likewise assessed.  \n Combination of extracts of rice bran and sawdust at 1:1 ratio and rice bran alone were found to be the most suitable media for multi-spore and tissue isolations and production of &ldquo;mother culture&rdquo;.&nbsp; Sawdust and fern chips each mixed with rice bran at 1:1 ratio were found to be the best substrate for spawn production. These substrates were fully colonized with OMF mycelia four weeks after incubation at room temperature. Exposure of substrate (sawdust + rice bran) fully colonized with mycelia to cold temperature favored primordial initiation for a shorter period of time. Larger an",
@@ -4025,17 +4036,63 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "High-momentum pion beamline at J-PARC and Open Charm Production",
-    "url": "https://zenodo.org/records/4036385",
+    "title": "Summary and Outlook (Experiment)",
+    "url": "https://zenodo.org/records/4036383",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
-    "updated_at": "2019-11-05",
+    "updated_at": "2019-11-09",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036385",
+    "doi": "10.5281/zenodo.4036383",
     "creators": [
-      "Hiroyuki Noumi"
+      "Victor Mokeev"
+    ],
+    "record_type": "presentation",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Longitudinal Nucleon Structure from Hall A Experiments",
+    "url": "https://zenodo.org/records/4036341",
+    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2019-11-09",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4036341",
+    "creators": [
+      "Javier Gomez"
+    ],
+    "record_type": "presentation",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Parton Distributions in Meson and Baryons from Lattice QCD",
+    "url": "https://zenodo.org/records/4036367",
+    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2019-11-07",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4036367",
+    "creators": [
+      "Huey-Wen Lin"
     ],
     "record_type": "presentation",
     "heuristic_particle_hits": 1,
@@ -4343,32 +4400,6 @@
     "creators": [
       "To'xtamishov Nodirbek To'laboy o'g'li",
       "Erkin Xojiyevich Bozorov"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 1,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 negative term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Proton Pump Inhibitors Cause Kidney Injury – Or Do They?",
-    "url": "https://zenodo.org/records/16737112",
-    "summary": "   Abstract   \n  Proton pump inhibitors (PPIs) are commonly prescribed for acid-related conditions such as gastroesophageal reflux disease (GERD) and acid peptic disease. While their use has been shown to be effective, recent studies have raised concerns about their potential association with kidney injury, particularly chronic kidney disease (CKD). However, the evidence linking PPIs to kidney injury is inconclusive. This article reviews the existing literature and examines whether PPIs directly contribute to kidney injury or CKD progression. While some studies suggest a potential association, the overall evidence does not support a direct causality. Further research, particularly prospective cohort studies and randomized controlled trials, is needed to conclusively determine any nephrotoxic effects of PPIs. Additionally, strategies for patient selection, monitoring, and the exploration of non-PPI alternatives are crucial for mitigating risks, especially in high-risk populations.  ",
-    "tags": [
-      "Proton Pump Inhibitors, Kidney Injury, Chronic Kidney Disease, Acute Interstitial Nephritis, Renal Function."
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2025-05-30",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.16737112",
-    "creators": [
-      "International Journal of Medical Science and Advanced Clinical Research (IJMACR)"
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 1,
