@@ -2,7 +2,7 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **45**
+Included repositories: **44**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
@@ -13,7 +13,6 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [opaserr/dota](https://github.com/opaserr/dota) | github | 43 | unclear |  | Data-driven particle transport algorithm for fast dose calculations. |
 | [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 31 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
 | [openmcsquare/opentps](https://gitlab.com/openmcsquare/opentps) | gitlab | 18 | unclear |  | Open source TPS for proton and photon therapy  |
-| [CFEL-CMI/pymepix](https://github.com/CFEL-CMI/pymepix) | github | 16 | unclear |  | PymePix is a Python library that provides control and acquisition for the Timepix3-SPIDR hardware. The rich set of data-structures and intuitive routines reduces time and coding effort to quickly configure, acquire, and visualize data from Timepix3. The highly extensible high-performance data-pipeline allows for alteration of the Timepix3 datastream into a form that is convinient for the user. This library is intended to be easily inserted into a standard scientific software stack as well as to allow for more direct interaction of Timepix3 with interactive flavors of Python. Included with the library are two example programs using PymePix: PymePix-acq is a command line control and acquisition program that can capture UDP packets and decode them into pixels and triggers. The second is pymepixviewer, an online control and data-acquisition program for general use, but with features geared toward mass-spectroscopy and ion imaging. |
 | [pcabrales/prototwin-pet](https://github.com/pcabrales/prototwin-pet) | github | 12 | unclear | proton therapy, deep learning, PET imaging, dose verification | For fast, 3D delivered dose estimation from a PET image. Also published at https://ieeexplore.ieee.org/document/10847605/ |
 | [BeppeMagro/pymkm](https://github.com/BeppeMagro/pymkm) | github | 5 | unclear | RBE modeling, software tool | Microdosimetric Kinetic Model utilities for radiobiology research and hadrontherapy |
 | [Mayo-Clinic-RadOnc-Foundation-Models/Beam-mask-and-sliding-window-dose-prediction](https://github.com/Mayo-Clinic-RadOnc-Foundation-Models/Beam-mask-and-sliding-window-dose-prediction) | github | 3 | unclear |  | Beam mask and sliding window-facilitated deep learning-based accurate and efficient dose prediction for pencil beam scanning proton therapy |
