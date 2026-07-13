@@ -2,14 +2,14 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **44**
+Included repositories: **45**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
 | Repository | Platform | Stars | Type | Categories | Summary |
 |---|---:|---:|---|---|---|
-| [e0404/matRad](https://github.com/e0404/matRad) | github | 284 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
-| [OpenTOPAS/OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS) | github | 74 | unclear | monte carlo, software tool | Monte Carlo tool for particle simulation |
+| [e0404/matRad](https://github.com/e0404/matRad) | github | 285 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
+| [OpenTOPAS/OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS) | github | 75 | unclear | monte carlo, software tool | Monte Carlo tool for particle simulation |
 | [opaserr/dota](https://github.com/opaserr/dota) | github | 43 | unclear |  | Data-driven particle transport algorithm for fast dose calculations. |
 | [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 31 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
 | [openmcsquare/opentps](https://gitlab.com/openmcsquare/opentps) | gitlab | 18 | unclear |  | Open source TPS for proton and photon therapy  |
@@ -30,6 +30,7 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [yoganathansa/Virtual-Patient-Specific-QA-for-Proton-Therapy](https://github.com/yoganathansa/Virtual-Patient-Specific-QA-for-Proton-Therapy) | github | 0 | unclear |  | This project presents a virtual quality assurance (QA) framework for proton therapy that predicts measurement fluence from Treatment Planning System (TPS) data. The goal is to reduce reliance on time-consuming physical QA measurements by leveraging computational modeling to verify treatment delivery accuracy. |
 | [Hoco807/Range-Verification-in-Carbon-Ion-Therapy](https://github.com/Hoco807/Range-Verification-in-Carbon-Ion-Therapy) | github | 0 | unclear |  | This section documents experimental data on a single CeBr3 crystal at the carbon ion therapy terminal. |
 | [schillingalex/proton-rv-dtc](https://github.com/schillingalex/proton-rv-dtc) | github | 0 | unclear |  | Proton therapy range verification and spot rejection rate implementation with a digital tracking calorimeter |
+| [dilipkumar801770/Medical-Particle-Accelerators-Engineering-Healthcare-Applications-and-Emerging-Technologies](https://github.com/dilipkumar801770/Medical-Particle-Accelerators-Engineering-Healthcare-Applications-and-Emerging-Technologies) | github | 0 | unclear |  | This article reviews the biomedical applications of particle accelerators in medical imaging, radioisotope production, proton and heavy-ion therapy, radiation biology, and AI-enabled healthcare. It highlights engineering advances, clinical benefits, and future innovations in precision medicine and cancer treatment. |
 | [Nnamdi-Ike/Proton-therapy-patient-QA-optimizer](https://github.com/Nnamdi-Ike/Proton-therapy-patient-QA-optimizer) | github | 0 | unclear |  | Re-organizes proton therapy patient QA for shortest time... |
 | [Frenda1005/HIT_pancreas](https://github.com/Frenda1005/HIT_pancreas) | github | 0 | unclear |  | Heavy Ion Therapy ML analysis for pancreatic CA |
 | [Zeinab-Haroon/AIMS-Project-Uveal-Melanoma-Python](https://github.com/Zeinab-Haroon/AIMS-Project-Uveal-Melanoma-Python) | github | 0 | unclear |  | Final Thesis: investigated the optic nerve shape changes under different gaze angles to improve the proton therapy planning for uveal melanoma patients using MeVislab Software. |
