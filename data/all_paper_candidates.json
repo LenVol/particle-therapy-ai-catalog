@@ -96,33 +96,6 @@
   {
     "kind": "paper",
     "source": "arxiv",
-    "title": "Real-Time-Capable Betatron Tune Measurement from Schottky Spectra Using Deep Learning and Uncertainty-Aware Kalman Filtering",
-    "url": "http://arxiv.org/abs/2512.09302v1",
-    "abstract": "Betatron tune measurement is essential for beam control in compact proton-therapy synchrotrons, yet conventional peak-detection techniques are not robust under the low signal-to-noise ratio (SNR) conditions typical of these machines. This work presents a lightweight convolutional neural network that performs real-time tune extraction from Schottky spectra with sub-millisecond inference latency and calibrated uncertainty estimates. The model uses attention-based pooling for reliable peak localization and a dual-branch architecture that jointly predicts the tune and its associated uncertainty. Trained with a Laplace negative log-likelihood loss, it produces uncertainty estimates whose magnitude tracks the instantaneous prediction error, which enables uncertainty-aware Kalman filtering for temporal smoothing. Experiments on a large synthetic dataset spanning SNR levels from 0 to $-20$\\,dB demonstrate substantial performance gains over traditional peak-detection baselines, while the Kalman filter further suppresses transient outliers in time-series operation. Preliminary validation on operational beam data confirms stable tune tracking without retraining. With only about $2.0\\times 10^{4}$ trainable parameters and real-time inference on commodity GPU hardware, the proposed diagnostic offers a practical solution for rapid and accurate betatron tune monitoring in compact medical synchrotrons and similar accelerators.",
-    "authors": [
-      "Peihan Sun",
-      "Manzhou Zhang",
-      "Renxian Yuan",
-      "Deming Li",
-      "Jian Dong",
-      "Ying Shi"
-    ],
-    "journal": null,
-    "published_at": "2025-12-10T04:03:22Z",
-    "doi": null,
-    "is_preprint": true,
-    "paper_type": "preprint",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 3,
-    "heuristic_total_score": 23,
-    "heuristic_reasons": [
-      "Matched 1 strong particle-therapy phrase(s).",
-      "Matched 3 AI/ML phrase(s)."
-    ]
-  },
-  {
-    "kind": "paper",
-    "source": "arxiv",
     "title": "Deep-learning Segmentation of Small Volumes in CT images for Radiotherapy Treatment Planning",
     "url": "http://arxiv.org/abs/2404.04202v1",
     "abstract": "Our understanding of organs at risk is progressing to include physical small tissues such as coronary arteries and the radiosensitivities of many small organs and tissues are high. Therefore, the accurate segmentation of small volumes in external radiotherapy is crucial to protect them from over-irradiation. Moreover, with the development of the particle therapy and on-board imaging, the treatment becomes more accurate and precise. The purpose of this work is to optimize organ segmentation algorithms for small organs. We used 50 three-dimensional (3-D) computed tomography (CT) head and neck images from StructSeg2019 challenge to develop a general-purpose V-Net model to segment 20 organs in the head and neck region. We applied specific strategies to improve the segmentation accuracy of the small volumes in this anatomical region, i.e., the lens of the eye. Then, we used 17 additional head images from OSF healthcare to validate the robustness of the V Net model optimized for small-volume segmentation. With the study of the StructSeg2019 images, we found that the optimization of the image normalization range and classification threshold yielded a segmentation improvement of the lens of the eye of approximately 50%, compared to the use of the V-Net not optimized for small volumes. We used the optimized model to segment 17 images acquired using heterogeneous protocols. We obtained comparable Dice coefficient values for the clinical and StructSeg2019 images (0.61 plus/minus 0.07 and 0.58 plus/minus 0.10 for the left and right lens of the eye, respectively)",
