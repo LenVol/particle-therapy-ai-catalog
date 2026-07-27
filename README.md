@@ -2,13 +2,13 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **44**
+Included repositories: **43**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
 | Repository | Platform | Stars | Type | Categories | Summary |
 |---|---:|---:|---|---|---|
-| [e0404/matRad](https://github.com/e0404/matRad) | github | 285 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
+| [e0404/matRad](https://github.com/e0404/matRad) | github | 286 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
 | [OpenTOPAS/OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS) | github | 75 | unclear | monte carlo, software tool | Monte Carlo tool for particle simulation |
 | [opaserr/dota](https://github.com/opaserr/dota) | github | 43 | unclear |  | Data-driven particle transport algorithm for fast dose calculations. |
 | [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 31 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
@@ -31,7 +31,6 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [Hoco807/Range-Verification-in-Carbon-Ion-Therapy](https://github.com/Hoco807/Range-Verification-in-Carbon-Ion-Therapy) | github | 0 | unclear |  | This section documents experimental data on a single CeBr3 crystal at the carbon ion therapy terminal. |
 | [schillingalex/proton-rv-dtc](https://github.com/schillingalex/proton-rv-dtc) | github | 0 | unclear |  | Proton therapy range verification and spot rejection rate implementation with a digital tracking calorimeter |
 | [Nnamdi-Ike/Proton-therapy-patient-QA-optimizer](https://github.com/Nnamdi-Ike/Proton-therapy-patient-QA-optimizer) | github | 0 | unclear |  | Re-organizes proton therapy patient QA for shortest time... |
-| [Frenda1005/HIT_pancreas](https://github.com/Frenda1005/HIT_pancreas) | github | 0 | unclear |  | Heavy Ion Therapy ML analysis for pancreatic CA |
 | [Zeinab-Haroon/AIMS-Project-Uveal-Melanoma-Python](https://github.com/Zeinab-Haroon/AIMS-Project-Uveal-Melanoma-Python) | github | 0 | unclear |  | Final Thesis: investigated the optic nerve shape changes under different gaze angles to improve the proton therapy planning for uveal melanoma patients using MeVislab Software. |
 | [steremma/proton](https://github.com/steremma/proton) | github | 0 | unclear |  | Optimizing proton fraction distribution between patients -  A linear programming project |
 | [mialar/autoscript_lung](https://github.com/mialar/autoscript_lung) | github | 0 | unclear |  | Automatic proton treatment planning script for LA-NSCLC patients |
