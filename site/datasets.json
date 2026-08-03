@@ -17,7 +17,7 @@
     ],
     "license": null,
     "updated_at": "2025-04-18T08:21:49+00:00",
-    "downloads": 10,
+    "downloads": 11,
     "likes": 0,
     "doi": null,
     "creators": [],
@@ -27,6 +27,41 @@
     "heuristic_total_score": 8,
     "heuristic_reasons": [
       "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "CLIVAL CHORDOMA MANAGEMENT: LATEST UPDATES AND BEST PRACTICES",
+    "url": "https://zenodo.org/records/21687024",
+    "summary": "    Clival chordomas are rare, locally aggressive tumors originating from the skull base. Although they are histologically benign, they are locally infiltrative, located adjacent to important neurovascular structures, and have high rates of recurrence that hinder management. To conduct a review on the surgical, radiotherapeutic, and systemic treatments for clival chordomas with practical synthetic algorithms since the last review in 2020 and future directions. A systematic search was conducted using PubMed/Embase/Scopus (2019-2025). There was a strong emphasis on articles utilizing surgical management, particle therapy, stereotactic radiosurgery (SRS), re-irradiation, and systemic or novel therapies during the age range for articles. Expanded endoscopic endonasal surgery, proton and carbon-ion therapy, and systemic targeted agents including EGFR inhibitors, VEGFR blockade, and immune checkpoint inhibitors provided opportunities to improve both disease control and functional status. Many systemic targeted agents are still investigational therapies. Maximal safe surgical resection and reconstruction to offer timely particle therapy remains the standard of care; particle therapy offer",
+    "tags": [
+      "Clival Chordoma Management, Best Practices."
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2026-06-02",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.21687024",
+    "creators": [
+      "Hany Ibrahim Mohamed Zahy",
+      "Mostafa Mahmoud Aboelkhir",
+      "Ahmed Ibrahim Rewehy",
+      "Ahmed Adel Ayad",
+      "Abdullah Hamdan Alsayed Abdelrahman",
+      "Ezz eldin Elsayed Mohammed",
+      "Ahmed M. Mohammed Qushisha",
+      "Alazzazi Rabei",
+      "Mahmoud Kamel Elawady",
+      "Mohammed El Shazly Ghaneim"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 6,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 21,
+    "heuristic_reasons": [
+      "Matched 6 particle-therapy term(s).",
+      "Matched 1 negative term(s)."
     ]
   },
   {
@@ -1650,6 +1685,76 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "bioimage.io upload: rebellious-mouse",
+    "url": "https://zenodo.org/records/15691357",
+    "summary": "  View on bioimage.io  # 2D Squeeze-and-Excitation U-Net for mitochondria segmentation in EM  \n 2D Squeeze-and-Excitation U-Net for mitochondria segmentation in EM \n Mitochondria segmentation for electron microscopy. \n Training \n Complete information on how to train this model can be found in BiaPy documentation, specifically under  semantic segmentation workflow  description. \n Training Data \n \n Imaging modality: electron microscopy \n Dimensionality: 2D \n Source: Lucchi++ ; DOI:10.48550/arXiv.1812.06024 \n \n Validation (recommended) \n In the case of semantic segmentation the following metrics are calculated:\n- Intersection over Union (IoU), also referred as the  Jaccard index , is essentially a method to quantify the percent of overlap between the target mask and the prediction output. \n More info in  BiaPy documentation . \n Training Schedule (BiaPy variables) \n Training setup \n TRAIN:\n  BATCH_SIZE: 6\n  ENABLE: True\n  EPOCHS: 1500\n  LR: 0.0001\n  LR_SCHEDULER: {'MIN_LR': 1e-05, 'NAME': 'warmupcosine', 'WARMUP_COSINE_DECAY_EPOCHS': 50}\n  OPTIMIZER: ADAMW\n  PATIENCE: 250 \n Data augmentation \n AUGMENTOR:\n  AFFINE_MODE: reflect\n  BRIGHTNESS: True\n  BRIGHTNESS_FACTOR: (-0.2, 0.2)\n  CONTR",
+    "tags": [
+      "backup.bioimage.io",
+      "bioimage.io",
+      "bioimage.io:model",
+      "electron-microscopy",
+      "mitochondria",
+      "2d",
+      "pytorch",
+      "biapy",
+      "semantic-segmentation",
+      "seunet"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2025-06-18",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.15691357",
+    "creators": [
+      "Daniel Franco-Barranco"
+    ],
+    "record_type": "software",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 3,
+    "heuristic_total_score": 10,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 3 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "bioimage.io upload: poisonous-spider",
+    "url": "https://zenodo.org/records/15691361",
+    "summary": "  View on bioimage.io  # 2D Attention U-Net for mitochondria segmentation in EM  \n 2D Attention U-Net for mitochondria segmentation in EM \n Mitochondria segmentation for electron microscopy. \n Training \n Complete information on how to train this model can be found in BiaPy documentation, specifically under  semantic segmentation workflow  description. \n Training Data \n \n Imaging modality: electron microscopy \n Dimensionality: 2D \n Source: Lucchi++ ; DOI:10.48550/arXiv.1812.06024 \n \n Validation (recommended) \n In the case of semantic segmentation the following metrics are calculated:\n- Intersection over Union (IoU), also referred as the  Jaccard index , is essentially a method to quantify the percent of overlap between the target mask and the prediction output. \n More info in  BiaPy documentation . \n Training Schedule (BiaPy variables) \n Training setup \n TRAIN:\n  BATCH_SIZE: 6\n  ENABLE: True\n  EPOCHS: 1500\n  LR: 0.0001\n  LR_SCHEDULER: {'MIN_LR': 1e-05, 'NAME': 'warmupcosine', 'WARMUP_COSINE_DECAY_EPOCHS': 50}\n  OPTIMIZER: ADAMW\n  PATIENCE: 250 \n Data augmentation \n AUGMENTOR:\n  AFFINE_MODE: reflect\n  BRIGHTNESS: True\n  BRIGHTNESS_FACTOR: (-0.2, 0.2)\n  CONTRAST: True\n  CONTRAST_FACTO",
+    "tags": [
+      "backup.bioimage.io",
+      "bioimage.io",
+      "bioimage.io:model",
+      "electron-microscopy",
+      "mitochondria",
+      "2d",
+      "pytorch",
+      "biapy",
+      "semantic-segmentation",
+      "attention-unet"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2025-06-18",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.15691361",
+    "creators": [
+      "Daniel Franco-Barranco"
+    ],
+    "record_type": "software",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 3,
+    "heuristic_total_score": 10,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 3 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Measuring Changes in Myocardial Perfusion in Left-Sided Breast Cancer Patients",
     "url": "https://zenodo.org/records/14643830",
     "summary": " Abstract \n Left-sided Breast Cancer patients often undergo radiation therapy, including Proton or Photon Therapy, which can affect nearby cardiac structures, causing chronic vascular damage and fibrosing inflammation. This leads to microvascular changes in the heart, manifesting as reduced perfusion and cardiac motion. Advances in 3-dimensional imaging have detailed the actual radiation doses received by critical cardiac structures, revealing the significance of low-dose radiation injury in breast cancer patients. Our study aims to delve deeper into the relationship between changes in myocardial perfusion and heart function (EF), comparing post-treatment images of X-ray (photon therapy) and proton therapy patients. This research highlights the complexity of the relationship between myocardial perfusion and heart function. Understanding these compensatory mechanisms and their impact on perfusion and overall cardiac function is crucial. Our findings emphasize the need for further study to refine our models and improve clinical interventions, ultimately aiming to reduce radiation-induced cardiac injury and improve the survival and quality of life for breast cancer patients undergoing",
@@ -1966,6 +2071,42 @@
     "heuristic_total_score": 8,
     "heuristic_reasons": [
       "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "bioimage.io upload: thoughtful-chipmunk",
+    "url": "https://zenodo.org/records/15691568",
+    "summary": "  View on bioimage.io  # OC1 Project 6 Cellpose  \n OC1 Project 6 Fine-tuned CellPose \n Analysis of the fiber profile of skeletal muscle \n Data \n Light microscopy slices along muscle fibers - each slice is representative of the same muscle, assuming that each staining stains the same cell. Morphology of the cells does not change much from section to section. Sections are 8-10 micrometers wide. There are 6 channels for each sample. Images are stitches with track2em.   \n Data can be accessed through Bioimage Archive page:  link  \n Validation \n It is recommended to validate the instance segmentation obtained from this model using intersection-over-union. For more information and vailable metrics, please visit  Cellpose metric documentation . \n Parameters \n This  cellpose  model is created by following parameters:\n-  flow_threshold :  0.7 \n-  cellprob_threshold :  0.0 \n-  channels :  [0, 0] \n-  model_type :  cyto3 \n-  estimate_diam :  False \n-  do_3D :  False  \n Outputs \n This model provides four outputs:\n- masks: an array of shape  b,y,x \n- flows: an array of shape  b,6,y,x \n    - For each input image flows are stacked together.\n- styles: an array of shape  b,256 \n- diams: the estimate",
+    "tags": [
+      "backup.bioimage.io",
+      "bioimage.io",
+      "bioimage.io:model",
+      "Cellpose",
+      "Cell Segmentation",
+      "Skeletal Muscle",
+      "Myosin Heavy Chain",
+      "Bright Field",
+      "2D"
+    ],
+    "license": "bsd-3-clause",
+    "updated_at": "2025-06-18",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.15691568",
+    "creators": [
+      "Vera Galinova",
+      "Mehdi Seifi",
+      "Emiliana Giacomello"
+    ],
+    "record_type": "software",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 2,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 2 AI/ML term(s)."
     ]
   },
   {
@@ -2489,6 +2630,37 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "In vitro mutation induction: a database of x-ray and particle irradiation experiments",
+    "url": "https://zenodo.org/records/6451956",
+    "summary": " The database presents a collection of  in vitro  mutation induction data after photon and particle beam irradiation. The experiments included in the database were all performed by means of the  hprt  mutation assay. The collection was based on extensive literature search, and contains data published in the time period from 1977 to 2002. \n\n As better described in the README file, the database provides information on RBE for cell killing and mutation induction, as well as dose response curves raw data for both endpoints, as digitised&nbsp;(when available) from&nbsp;the original publication. \n\n This study is part of a manuscript that was&nbsp;submitted for publication in&nbsp;April 2022. ",
+    "tags": [
+      "radiobiology",
+      "mutation induction",
+      "secondary cancer risk",
+      "radiotherapy",
+      "charged particle therapy"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2022-04-12",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.6451956",
+    "creators": [
+      "Attili, Andrea",
+      "Scifoni, Emanuele",
+      "Tommasino, Francesco"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "MeV SIMS analysis of irradiation effects on molecular signatures",
     "url": "https://zenodo.org/records/5957880",
     "summary": " Characterizing the effect of MeV ion beam irradiation on biological tissues is important for proton beam therapy, which is routinely used as a form of cancer treatment. It is also important for optimizing protocols for multimodal elemental and molecular imaging. Elemental mapping of trace elements in tissues has been carried out for a long time using nuclear microprobe analysis. However, the effect of MeV ion beams on biological samples is largely unexplored. These effects have been explored in&nbsp;Surrey using two mass spectrometry imaging (MSI) techniques &ndash; matrix-assisted laser desorption electrospray (MALDI) and desorption electrospray ionization (DESI). The combination of these techniques with ion beam analysis (IBA) presents a few challenges, namely substrate compatibility and de-localization of elemental markers during measurements. As such, MeV-secondary ion mass spectrometry (SIMS) is being explored as an alternative technique for molecular imaging of biological tissues. MeV SIMS, unlike conventional keV SIMS, allows the detection of intact molecules, making it a prime candidate for the molecular analysis of biological samples. This presents an opportunity to bench",
@@ -2513,6 +2685,35 @@
       "Bailey, J. Melanie"
     ],
     "record_type": "dataset",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Stopping Power and Range for Proton Interaction with Lymph Tissues",
+    "url": "https://zenodo.org/records/5842881",
+    "summary": " &nbsp; \n\n In this paper, we calculated the mass stopping power (in MeV cm2/g) and the range (cm) of proton in one of the types \nof body tissues (lymph), from 1 Kev to 200 MeV energy range. They are using the Bethe and Ziegler equations, SRIM program (version \n2013) and Ziegler (Vol. 3) data by considering the tissue composed of several elements, so the atomic number (Z) and atomic weight \n(A) for the component in the tissue are meaning. The calculation results show that the Ziegler equation gives better results than using \nthe Bethe equation. However, in terms of the loss of proton energy in the tissue, the four methods used are approximately the same. \n&nbsp; ",
+    "tags": [
+      "Bethe Equation",
+      "Proton Therapy",
+      "Stopping Power",
+      "SRIM Program",
+      "Ziegler Equation"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2021-12-25",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.5842881",
+    "creators": [
+      "Hadi, Shaima M."
+    ],
+    "record_type": "publication",
     "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 8,
@@ -3935,6 +4136,29 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Advances in the Coupled Channel Approaches for N* Parameter Extraction",
+    "url": "https://zenodo.org/records/4036331",
+    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2019-11-09",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4036331",
+    "creators": [
+      "Michael Döring"
+    ],
+    "record_type": "presentation",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Transversity GPDs",
     "url": "https://zenodo.org/records/4036361",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
@@ -3958,17 +4182,17 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Advances and Challenges in the Experimental Studies of Nucleon Transversity",
-    "url": "https://zenodo.org/records/4036339",
+    "title": "Exploring Strong QCD in the JLab Experiments of the 12 GeV era",
+    "url": "https://zenodo.org/records/4036325",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
-    "updated_at": "2019-11-07",
+    "updated_at": "2019-11-06",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036339",
+    "doi": "10.5281/zenodo.4036325",
     "creators": [
-      "Haiyan Gao"
+      "Volker Burkert"
     ],
     "record_type": "presentation",
     "heuristic_particle_hits": 1,

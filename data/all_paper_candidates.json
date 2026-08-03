@@ -1,1 +1,370 @@
-[]
+[
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "A Two-Stage Framework for Fast Proton Spot Map Generation in Pencil Beam Scanning Prostate SBRT Planning",
+    "url": "http://arxiv.org/abs/2606.11479v1",
+    "abstract": "Background: In pencil beam scanning (PBS) proton therapy, plans are delivered as proton spot maps (PSMs). Although deep learning can rapidly predict 3D dose, direct conversion of dose into deliverable spot patterns remains limited. Purpose: We developed GenSpot, a two stage framework that infers deliverable PSMs from CT and dose, and evaluated it in prostate SBRT by comparing Monte Carlo (MC) doses from GenSpot and clinical PSMs. Methods: GenSpot uses a physics informed projected proton spot map (PrPSM) representation, projecting spots through CT with water equivalent thickness and PDD information to align spots with the CT/dose grid while preserving linearity with spot weights. The dataset included 1,036 fields from 259 prostate SBRT plans, split 80%/10%/10% for training, validation, and testing. A 3D SwinUNETR predicted PrPSMs from CT and dose. Field specific PSMs were reconstructed using column wise nonnegative Lasso regression with precomputed PDD curves. GenSpot and clinical MC doses were compared using MAE, 3D gamma analysis, and composite plan DVH metrics. Results: On the test set, SwinUNETR achieved PrPSM MAE of 0.06 +/- 0.02 with high similarity to clinical PrPSMs. GenSpot MC doses showed low MAE of 0.07 +/- 0.03 Gy in the nonzero dose region and gamma passing rates of 0.90 at the field level and 0.97 at plan level. Composite DVH differences were within 1 Gy for targets and organs at risk, though the CTV showed a modest high dose increase. Spot complexity was similar to clinical plans, with slightly more spots. Prediction and reconstruction averaged 0.02 s and 2.1 s/field. Conclusions: GenSpot generated machine deliverable PSMs from CT and dose whose MC doses closely matched clinical PSM doses in a single institution prostate SBRT cohort. This physics informed dose to spots framework may support automated PBS planning and adaptive replanning, pending broader validation.",
+    "authors": [
+      "Xueyan Tang",
+      "Hok Wan Chan Tseung",
+      "Mark Pepin",
+      "Jiasen Ma",
+      "David M. Routman",
+      "Doug J. Moseley",
+      "Brandon Reber",
+      "Jed E. Johnson",
+      "Jing Qian"
+    ],
+    "journal": null,
+    "published_at": "2026-06-09T22:14:01Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 15,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 1 contextual particle-therapy phrase(s).",
+      "Matched 1 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "A Multimodal Clinically Informed Coarse-to-Fine Framework for Longitudinal CT Registration in Proton Therapy",
+    "url": "http://arxiv.org/abs/2604.13397v1",
+    "abstract": "Proton therapy offers superior organ-at-risk sparing but is highly sensitive to anatomical changes, making accurate deformable image registration (DIR) across longitudinal CT scans essential. Conventional DIR methods are often too slow for emerging online adaptive workflows, while existing deep learning-based approaches are primarily designed for generic benchmarks and underutilize clinically relevant information beyond images. To address this gap, we propose a clinically scalable coarse-to-fine deformable registration framework that integrates multimodal information from the proton radiotherapy workflow to accommodate diverse clinical scenarios. The model employs dual CNN-based encoders for hierarchical feature extraction and a transformer-based decoder to progressively refine deformation fields. Beyond CT intensities, clinically critical priors, including target and organ-at-risk contours, dose distributions, and treatment planning text, are incorporated through anatomy- and risk-guided attention, text-conditioned feature modulation, and foreground-aware optimization, enabling anatomically focused and clinically informed deformation estimation. We evaluate the proposed framework on a large-scale proton therapy DIR dataset comprising 1,222 paired planning and repeat CT scans across multiple anatomical regions and disease types. Extensive experiments demonstrate consistent improvements over state-of-the-art methods, enabling fast and robust clinically meaningful registration.",
+    "authors": [
+      "Caiwen Jiang",
+      "Yuzhen Ding",
+      "Mi Jia",
+      "Samir H. Patel",
+      "Terence T. Sio",
+      "Jonathan B. Ashman",
+      "Lisa A. McGee",
+      "Jean-Claude M. Rwigema",
+      "William G. Rule",
+      "Sameer R. Keole",
+      "Sujay A. Vora",
+      "William W. Wong",
+      "Nathan Y. Yu",
+      "Michele Y. Halyard",
+      "Steven E. Schild",
+      "Dinggang Shen",
+      "Wei Liu"
+    ],
+    "journal": null,
+    "published_at": "2026-04-15T01:54:14Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 3,
+    "heuristic_total_score": 31,
+    "heuristic_reasons": [
+      "Matched 2 strong particle-therapy phrase(s).",
+      "Matched 3 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Angle dependent dose transformer algorithm for fast proton therapy dose calculations",
+    "url": "http://arxiv.org/abs/2602.04375v2",
+    "abstract": "Accurate 3D dose calculation for Pencil Beam Scanning Proton Therapy (PBSPT) is typically performed with Monte Carlo (MC) engines, but their runtimes limit adaptive workflows and repeated evaluations. Current deep-learning proton dose engines often require orthogonality between proton rays and the CT grid, forcing computationally expensive beamlet-wise 3D reinterpolation. We propose the Angle-dependent Dose Transformer Algorithm (ADoTA), which eliminates grid rotation by augmenting the model input with a fast analytical beamlet-shape projection that explicitly encodes beam direction. The model was trained on CT data from 108 patients to predict beamlet dose distributions for initial energies of $70$--$270\\,\\mathrm{MeV}$ over an $80\\times110\\,\\mathrm{mm}^2$ field, and tested on an independent cohort of 50 patients. On the test set, gamma pass rates $(1\\%,3\\,\\mathrm{mm})$ were $99.40\\pm0.86\\%$ (thorax) and $99.87\\pm0.23\\%$ (abdomen/pelvis). Single-beamlet inference took $1.72\\pm0.8\\,\\mathrm{ms}$. By avoiding reinterpolation, end-to-end 3D dose computation was reduced by $\\approx86\\%$ relative to the fastest published reinterpolation-based methods. For full treatment plans, gamma pass rates $Γ(2\\%,2\\,\\mathrm{mm})$ with a 10\\% dose cut-off reached $98.4\\%$ (lung) and $98.9\\%$ (prostate). ADoTA provides an angle-aware deep-learning proton dose engine that preserves MC-level accuracy across heterogeneous anatomies while substantially reducing computational overhead.",
+    "authors": [
+      "Mikołaj Stryja",
+      "Danny Lathouwers",
+      "Zoltán Perkó"
+    ],
+    "journal": null,
+    "published_at": "2026-02-04T09:52:00Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 2,
+    "heuristic_total_score": 20,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 1 contextual particle-therapy phrase(s).",
+      "Matched 2 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Deep-learning Segmentation of Small Volumes in CT images for Radiotherapy Treatment Planning",
+    "url": "http://arxiv.org/abs/2404.04202v1",
+    "abstract": "Our understanding of organs at risk is progressing to include physical small tissues such as coronary arteries and the radiosensitivities of many small organs and tissues are high. Therefore, the accurate segmentation of small volumes in external radiotherapy is crucial to protect them from over-irradiation. Moreover, with the development of the particle therapy and on-board imaging, the treatment becomes more accurate and precise. The purpose of this work is to optimize organ segmentation algorithms for small organs. We used 50 three-dimensional (3-D) computed tomography (CT) head and neck images from StructSeg2019 challenge to develop a general-purpose V-Net model to segment 20 organs in the head and neck region. We applied specific strategies to improve the segmentation accuracy of the small volumes in this anatomical region, i.e., the lens of the eye. Then, we used 17 additional head images from OSF healthcare to validate the robustness of the V Net model optimized for small-volume segmentation. With the study of the StructSeg2019 images, we found that the optimization of the image normalization range and classification threshold yielded a segmentation improvement of the lens of the eye of approximately 50%, compared to the use of the V-Net not optimized for small volumes. We used the optimized model to segment 17 images acquired using heterogeneous protocols. We obtained comparable Dice coefficient values for the clinical and StructSeg2019 images (0.61 plus/minus 0.07 and 0.58 plus/minus 0.10 for the left and right lens of the eye, respectively)",
+    "authors": [
+      "Jianxin Zhou",
+      "Kadishe Fejza",
+      "Massimiliano Salvatori",
+      "Daniele Della Latta",
+      "Gregory M. Hermann",
+      "Angela Di Fulvio"
+    ],
+    "journal": null,
+    "published_at": "2024-04-05T16:25:39Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 13,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 1 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Data Processing Engine (DPE): Data Analysis Tool for Particle Tracking and Mixed Radiation Field Characterization with Pixel Detectors Timepix",
+    "url": "http://arxiv.org/abs/2310.15723v1",
+    "abstract": "Hybrid semiconductor pixelated detectors from the Timepix family are advanced detectors for online particle tracking, offering energy measurement and precise time stamping capabilities for particles of various types and energies. This inherent capability makes them highly suitable for various applications, including imaging, medical fields such as radiotherapy and particle therapy, space-based applications aboard satellites and the International Space Station, and industrial applications. The data generated by these detectors is complex, necessitating the development and deployment of various analytical techniques to extract essential information. For this purpose, and to aid the Timepix user community, it was designed and developed the \"Data Processing Engine\" (DPE) as an advanced tool for data processing designed explicitly for Timepix detectors. The functionality of the DPE is structured into three distinct processing levels: i) Pre-processing: This phase involves clusterization and the application of necessary calibrations and corrections. ii) Processing: This stage includes particle classification, employing machine learning algorithms, and the recognition of radiation fields. iii) Post-processing: Involves various analyses, such as directional analysis, coincidence analysis, frame analysis, Compton directional analysis, and the generation of physics products, are performed. The core of the DPE is supported by an extensive experimental database containing calibrations and referential radiation fields of typical environments, including protons, ions, electrons, gamma rays and X-rays, as well as thermal and fast neutrons. To enhance accessibility, the DPE is implemented into various user interface platforms such as a command-line tool, an application programming interface, and as a graphical user interface in the form of a web portal.",
+    "authors": [
+      "Marek Lukas",
+      "Granja Carlos",
+      "Jakubek Jan",
+      "Ingerle Jan",
+      "Turecek Daniel",
+      "Vuolo Marco",
+      "Oancea Cristina"
+    ],
+    "journal": null,
+    "published_at": "2023-10-24T10:59:43Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 13,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 1 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Recent Advancements of Artificial Intelligence in Particle Therapy",
+    "url": "http://arxiv.org/abs/2211.09038v2",
+    "abstract": "We are in a golden age of progress in artificial intelligence (AI). Radiotherapy, due to its technology-intensive nature as well as direct human-machine interactions, is perfectly suited for benefitting from AI to enhance accuracy and efficiency. Over the past few years, a vast majority of AI research have already been published in the field of photon therapy, while the applications of AI specifically targeted for particle therapy remain scarcely investigated. There are two distinct differences between photon therapy and particle therapy: beam interaction physics (photons vs. charged particles) and beam delivery mode (e.g. IMRT/VMAT vs. pencil beam scanning). As a result, different strategies of AI deployment are required between these two radiotherapy modalities. In this article, we aim to present a comprehensive survey of recent literatures exclusively focusing on AI-powered particle therapy. Six major aspects are included: treatment planning, dose calculation, range and dose verification, image guidance, quality assurance and adaptive replanning. A number of perspectives as well as potential challenges and common pitfalls, are also discussed.",
+    "authors": [
+      "Hao Peng",
+      "Chao Wu",
+      "Dan Nguyen",
+      "Jan Schuemann",
+      "Andrea Mairani",
+      "Yuehu Pu",
+      "Steve Jiang"
+    ],
+    "journal": null,
+    "published_at": "2022-11-16T16:51:54Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 15,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 1 contextual particle-therapy phrase(s).",
+      "Matched 1 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Direct mapping from PET coincidence data to proton-dose and positron activity using a deep learning approach",
+    "url": "http://arxiv.org/abs/2204.13905v2",
+    "abstract": "$Objective$. Obtaining the intrinsic dose distributions in particle therapy is a challenging problem that needs to be addressed by imaging algorithms to take advantage of secondary particle detectors. In this work, we investigate the utility of deep learning methods for achieving direct mapping from detector data to the intrinsic dose distribution.\n  $Approach$. We performed Monte Carlo simulations using GATE/Geant4 10.4 simulation toolkits to generate a dataset using human CT phantom irradiated with high-energy protons and imaged with compact in-beam PET for realistic beam delivery in a single-fraction ($\\sim$2Gy). We developed a neural network model based on conditional generative adversarial networks to generate dose maps conditioned on coincidence distributions in the detector. The model performance is evaluated by the mean relative error, absolute dose fraction difference, and shift in Bragg peak position.\n  $Main$ $results$. The relative deviation in the dose and range of the distributions predicted by the model from the true values for mono-energetic irradiation between 50 MeV and 122 MeV lie within 1% and 2%, respectively. This was achieved using $\\mathrm{10^5}$ coincidences acquired five minutes after irradiation. The relative deviation in the dose and range for spread-out Bragg peak distributions were within 1% and 2.6% uncertainties, respectively. $Significance$. An important aspect of this study is the demonstration of a method for direct mapping from detector counts to dose domain using the low count data of compact detectors suited for practical implementation in particle therapy. Including additional prior information in the future can further expand the scope of our model and also extend its application to other areas of medical imaging.",
+    "authors": [
+      "Atiq. Ur. Rahman",
+      "Mythra Varun. Nemallapudi",
+      "Cheng-Ying. Chou",
+      "Shih-Chang Lee",
+      "Chih-Hsun. Lin"
+    ],
+    "journal": null,
+    "published_at": "2022-04-29T06:47:31Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 2,
+    "heuristic_total_score": 18,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 2 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Enhancing nuclear cross-section predictions with deep learning: the DINo algorithm",
+    "url": "http://arxiv.org/abs/2502.14599v2",
+    "abstract": "Accurate modeling of nuclear reaction cross-sections is crucial for applications such as hadron therapy, radiation protection, and nuclear reactor design. Despite continuous advancements in nuclear physics, significant discrepancies persist between experimental data and theoretical models such as TENDL, and ENDF/B. These deviations introduce uncertainties in Monte Carlo simulations widely used in nuclear physics and medical applications. In this work, DINo (Deep learning Intelligence for Nuclear reactiOns) is introduced as a deep learning-based algorithm designed to improve cross-section predictions by learning correlations between charge-changing and total cross-sections. Trained on the TENDL-2021 dataset and validated against experimental data from the EXFOR database, DINo demonstrates a significant improvement in predictive accuracy over conventional nuclear models. The results show that DINo systematically achieves lower chi2 values compared to TENDL-2021 across multiple isotopes, particularly for proton-induced reactions on a 12C target. Specifically, for 11C production, DINo reduces the discrepancy with experimental data by \\sim 28\\% compared to TENDL-2021. Additionally, DINo provides improved predictions for other relevant isotopes produced, such as 4He, 6Li, 9Be, and 10B, which play a crucial role in modeling nuclear fragmentation processes. By leveraging neural networks, DINo offers fast cross-section predictions, making it a promising complementary tool for nuclear reaction modeling. However, the algorithm's performance evaluation is sensitive to the availability of experimental data, with increased uncertainty in sparsely measured energy ranges. Future work will focus on refining the model through data augmentation, expanding its applicability to other reaction channels, and integrating it into Monte Carlo transport codes for real-time nuclear data processing.",
+    "authors": [
+      "Levana Gesson",
+      "Greg Henning",
+      "Jonathan Collin",
+      "Marie Vanstalle"
+    ],
+    "journal": null,
+    "published_at": "2025-02-20T14:33:33Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 13,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 1 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Towards machine learning aided real-time range imaging in proton therapy",
+    "url": "http://arxiv.org/abs/2201.13269v1",
+    "abstract": "In this work, we report on the advantageous aspects of the i-TED Compton imager for proton-range monitoring, based on the results of the first Monte Carlo study of its applicability to this field. i-TED is an array of Compton cameras, that have been designed for neutron-capture nuclear physics experiments, which are characterized by $γ$-ray energies spanning up to 5-6 MeV, rather low $γ$-ray emission yields and intense neutron induced $γ$-ray backgrounds. Our developments to cope with these three aspects are concomitant with those required in the field of hadron therapy, especially in terms of high efficiency for real-time monitoring, low sensitivity to neutron backgrounds and reliable performance at the high $γ$-ray energies. We find that signal-to-background ratios can be appreciably improved with i-TED thanks to its light-weight design and the low neutron-capture cross sections of its LaCl$_{3}$ crystals, when compared to other similar systems based on LYSO, CdZnTe or LaBr$_{3}$. Its high time-resolution (CRT$\\sim$500 ps) represents an additional advantage for background suppression when operated in pulsed HT mode. Each i-TED module features two detection planes of very large LaCl$_{3}$ monolithic crystals, thereby achieving a high efficiency in coincidence of 0.2% for a point-like 1MeV $γ$-ray source at 5 cm distance. This leads to sufficient statistics for reliable image reconstruction with an array of four i-TED detectors assuming clinical intensities of 10$^{8}$ protons per treatment point. The use of a two-plane design instead of three-planes has been preferred owing to the higher attainable efficiency for double time-coincidences than for threefold events. The loss of full-energy events for high energy $γ$-rays is compensated by means of Machine-Learning algorithms, which allow one to enhance the signal-to-total ratio up to a factor of 2.",
+    "authors": [
+      "Jorge Lerendegui-Marco",
+      "Javier Balibrea-Correa",
+      "Víctor Babiano-Súarez",
+      "Ion Ladarescu",
+      "César Domingo-Pardo"
+    ],
+    "journal": null,
+    "published_at": "2022-01-31T14:24:13Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 21,
+    "heuristic_reasons": [
+      "Matched 2 strong particle-therapy phrase(s).",
+      "Matched 1 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Large-scale automatic carbon ion treatment planning for head and neck cancers via parallel multi-agent reinforcement learning",
+    "url": "http://arxiv.org/abs/2511.02314v1",
+    "abstract": "Head-and-neck cancer (HNC) planning is difficult because multiple critical organs-at-risk (OARs) are close to complex targets. Intensity-modulated carbon-ion therapy (IMCT) offers superior dose conformity and OAR sparing but remains slow due to relative biological effectiveness (RBE) modeling, leading to laborious, experience-based, and often suboptimal tuning of many treatment-planning parameters (TPPs). Recent deep learning (DL) methods are limited by data bias and plan feasibility, while reinforcement learning (RL) struggles to efficiently explore the exponentially large TPP search space. We propose a scalable multi-agent RL (MARL) framework for parallel tuning of 45 TPPs in IMCT. It uses a centralized-training decentralized-execution (CTDE) QMIX backbone with Double DQN, Dueling DQN, and recurrent encoding (DRQN) for stable learning in a high-dimensional, non-stationary environment. To enhance efficiency, we (1) use compact historical DVH vectors as state inputs, (2) apply a linear action-to-value transform mapping small discrete actions to uniform parameter adjustments, and (3) design an absolute, clinically informed piecewise reward aligned with plan scores. A synchronous multi-process worker system interfaces with the PHOENIX TPS for parallel optimization and accelerated data collection. On a head-and-neck dataset (10 training, 10 testing), the method tuned 45 parameters simultaneously and produced plans comparable to or better than expert manual ones (relative plan score: RL $85.93\\pm7.85%$ vs Manual $85.02\\pm6.92%$), with significant (p-value $<$ 0.05) improvements for five OARs. The framework efficiently explores high-dimensional TPP spaces and generates clinically competitive IMCT plans through direct TPS interaction, notably improving OAR sparing.",
+    "authors": [
+      "Jueye Zhang",
+      "Chao Yang",
+      "Youfang Lai",
+      "Kai-Wen Li",
+      "Wenting Yan",
+      "Yunzhou Xia",
+      "Haimei Zhang",
+      "Jingjing Zhou",
+      "Gen Yang",
+      "Chen Lin",
+      "Tian Li",
+      "Yibao Zhang"
+    ],
+    "journal": null,
+    "published_at": "2025-11-04T06:57:31Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 23,
+    "heuristic_reasons": [
+      "Matched 2 strong particle-therapy phrase(s).",
+      "Matched 1 contextual particle-therapy phrase(s).",
+      "Matched 1 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Cluster Dose Prediction in Carbon Ion Therapy: Using Transfer Learning from a Pretrained Dose Prediction U-Net",
+    "url": "http://arxiv.org/abs/2510.24703v1",
+    "abstract": "The cluster dose concept offers an alternative to the radiobiological effectiveness (RBE)-based model for describing radiation-induced biological effects. This study examines the application of a neural network to predict cluster dose distributions, with the goal of replacing the computationally intensive simulations currently required. Cluster dose distributions are predicted using a U-Net that was initially pretrained on conventional dose distributions. Using transfer learning techniques, the decoder path is adapted for cluster dose estimation. Both the training and pretraining datasets include head and neck regions from multiple patients and carbon ion beams of varying energies and positions. Monte Carlo (MC) simulations were used to generate the ground truth cluster dose distributions. The U-Net enables cluster dose estimation for a single pencil beam within milliseconds using a graphics processing unit (GPU). The predicted cluster dose distributions deviate from the ground truth by less than 0.35%. This proof-of-principle study demonstrates the feasibility of accurately estimating cluster doses within clinically acceptable computation times using machine learning (ML). By leveraging a pretrained neural network and applying transfer learning techniques, the approach significantly reduces the need for large-scale, computationally expensive training data.",
+    "authors": [
+      "Miriam Schwarze",
+      "Hui Khee Looe",
+      "Björn Poppe",
+      "Leo Thomas",
+      "Hans Rabus"
+    ],
+    "journal": null,
+    "published_at": "2025-10-28T17:54:04Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 3,
+    "heuristic_total_score": 31,
+    "heuristic_reasons": [
+      "Matched 2 strong particle-therapy phrase(s).",
+      "Matched 3 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Exploring Machine Learning Models for Physical Dose Calculation in Carbon Ion Therapy Using Heterogeneous Imaging Data -- A Proof of Concept Study",
+    "url": "http://arxiv.org/abs/2509.17433v1",
+    "abstract": "Background: Accurate and fast dose calculation is essential for optimizing carbon ion therapy. Existing machine learning (ML) models have been developed for other radiotherapy modalities. They use patient data with uniform CT imaging properties. Purpose: This study investigates the application of several ML models for physical dose calculation in carbon ion therapy and compares their ability to generalize to CT data with varying resolutions. Among the models examined is a Diffusion Model, which is tested for the first time for the calculation of physical dose distributions. Methods: A dataset was generated using publicly available CT images of the head and neck region. Monoenergetic carbon ion beams were simulated at various initial energies using Geant4 simulation software. A U-Net architecture was developed for dose prediction based on distributions of material density in patients and of absorbed dose in water. It was trained as a Generative Adversarial Network (GAN) generator, a Diffusion Model noise estimator, and as a standalone network. Their performances were compared with two models from literature. Results: All models produced dose distributions deviating by less than 2% from that obtained by a full Monte Carlo simulation, even for a patient not seen during training. Dose calculation time on a GPU was in the range of 3 ms to 15 s. The resource-efficient U-Net appears to perform comparably to the more computationally intensive GAN and Diffusion Model. Conclusion: This study demonstrates that ML models can effectively balance accuracy and speed for physical dose calculation in carbon ion therapy. Using the computationally efficient U-Net can help conserve resources. The generalizability of the models to different CT image resolutions enables the use for different patients without extensive retraining.",
+    "authors": [
+      "Miriam Schwarze",
+      "Hui Khee Looe",
+      "Björn Poppe",
+      "Pichaya Tappayuthpijarn",
+      "Leo Thomas",
+      "Hans Rabus"
+    ],
+    "journal": null,
+    "published_at": "2025-09-22T07:25:07Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 2,
+    "heuristic_total_score": 26,
+    "heuristic_reasons": [
+      "Matched 2 strong particle-therapy phrase(s).",
+      "Matched 2 AI/ML phrase(s)."
+    ]
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
+    "title": "Can input reconstruction be used to directly estimate uncertainty of a regression U-Net model? -- Application to proton therapy dose prediction for head and neck cancer patients",
+    "url": "http://arxiv.org/abs/2310.19686v1",
+    "abstract": "Estimating the uncertainty of deep learning models in a reliable and efficient way has remained an open problem, where many different solutions have been proposed in the literature. Most common methods are based on Bayesian approximations, like Monte Carlo dropout (MCDO) or Deep ensembling (DE), but they have a high inference time (i.e. require multiple inference passes) and might not work for out-of-distribution detection (OOD) data (i.e. similar uncertainty for in-distribution (ID) and OOD). In safety critical environments, like medical applications, accurate and fast uncertainty estimation methods, able to detect OOD data, are crucial, since wrong predictions can jeopardize patients safety. In this study, we present an alternative direct uncertainty estimation method and apply it for a regression U-Net architecture. The method consists in the addition of a branch from the bottleneck which reconstructs the input. The input reconstruction error can be used as a surrogate of the model uncertainty. For the proof-of-concept, our method is applied to proton therapy dose prediction in head and neck cancer patients. Accuracy, time-gain, and OOD detection are analyzed for our method in this particular application and compared with the popular MCDO and DE. The input reconstruction method showed a higher Pearson correlation coefficient with the prediction error (0.620) than DE and MCDO (between 0.447 and 0.612). Moreover, our method allows an easier identification of OOD (Z-score of 34.05). It estimates the uncertainty simultaneously to the regression task, therefore requires less time or computational resources.",
+    "authors": [
+      "Margerie Huet-Dastarac",
+      "Dan Nguyen",
+      "Steve Jiang",
+      "John Lee",
+      "Ana Barragan Montero"
+    ],
+    "journal": null,
+    "published_at": "2023-10-30T16:04:34Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 2,
+    "heuristic_total_score": 18,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 2 AI/ML phrase(s)."
+    ]
+  }
+]
