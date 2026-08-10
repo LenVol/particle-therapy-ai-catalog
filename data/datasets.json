@@ -17,7 +17,7 @@
     ],
     "license": null,
     "updated_at": "2025-04-18T08:21:49+00:00",
-    "downloads": 11,
+    "downloads": 12,
     "likes": 0,
     "doi": null,
     "creators": [],
@@ -1685,76 +1685,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "bioimage.io upload: rebellious-mouse",
-    "url": "https://zenodo.org/records/15691357",
-    "summary": "  View on bioimage.io  # 2D Squeeze-and-Excitation U-Net for mitochondria segmentation in EM  \n 2D Squeeze-and-Excitation U-Net for mitochondria segmentation in EM \n Mitochondria segmentation for electron microscopy. \n Training \n Complete information on how to train this model can be found in BiaPy documentation, specifically under  semantic segmentation workflow  description. \n Training Data \n \n Imaging modality: electron microscopy \n Dimensionality: 2D \n Source: Lucchi++ ; DOI:10.48550/arXiv.1812.06024 \n \n Validation (recommended) \n In the case of semantic segmentation the following metrics are calculated:\n- Intersection over Union (IoU), also referred as the  Jaccard index , is essentially a method to quantify the percent of overlap between the target mask and the prediction output. \n More info in  BiaPy documentation . \n Training Schedule (BiaPy variables) \n Training setup \n TRAIN:\n  BATCH_SIZE: 6\n  ENABLE: True\n  EPOCHS: 1500\n  LR: 0.0001\n  LR_SCHEDULER: {'MIN_LR': 1e-05, 'NAME': 'warmupcosine', 'WARMUP_COSINE_DECAY_EPOCHS': 50}\n  OPTIMIZER: ADAMW\n  PATIENCE: 250 \n Data augmentation \n AUGMENTOR:\n  AFFINE_MODE: reflect\n  BRIGHTNESS: True\n  BRIGHTNESS_FACTOR: (-0.2, 0.2)\n  CONTR",
-    "tags": [
-      "backup.bioimage.io",
-      "bioimage.io",
-      "bioimage.io:model",
-      "electron-microscopy",
-      "mitochondria",
-      "2d",
-      "pytorch",
-      "biapy",
-      "semantic-segmentation",
-      "seunet"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2025-06-18",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.15691357",
-    "creators": [
-      "Daniel Franco-Barranco"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 3,
-    "heuristic_total_score": 10,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 3 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "bioimage.io upload: poisonous-spider",
-    "url": "https://zenodo.org/records/15691361",
-    "summary": "  View on bioimage.io  # 2D Attention U-Net for mitochondria segmentation in EM  \n 2D Attention U-Net for mitochondria segmentation in EM \n Mitochondria segmentation for electron microscopy. \n Training \n Complete information on how to train this model can be found in BiaPy documentation, specifically under  semantic segmentation workflow  description. \n Training Data \n \n Imaging modality: electron microscopy \n Dimensionality: 2D \n Source: Lucchi++ ; DOI:10.48550/arXiv.1812.06024 \n \n Validation (recommended) \n In the case of semantic segmentation the following metrics are calculated:\n- Intersection over Union (IoU), also referred as the  Jaccard index , is essentially a method to quantify the percent of overlap between the target mask and the prediction output. \n More info in  BiaPy documentation . \n Training Schedule (BiaPy variables) \n Training setup \n TRAIN:\n  BATCH_SIZE: 6\n  ENABLE: True\n  EPOCHS: 1500\n  LR: 0.0001\n  LR_SCHEDULER: {'MIN_LR': 1e-05, 'NAME': 'warmupcosine', 'WARMUP_COSINE_DECAY_EPOCHS': 50}\n  OPTIMIZER: ADAMW\n  PATIENCE: 250 \n Data augmentation \n AUGMENTOR:\n  AFFINE_MODE: reflect\n  BRIGHTNESS: True\n  BRIGHTNESS_FACTOR: (-0.2, 0.2)\n  CONTRAST: True\n  CONTRAST_FACTO",
-    "tags": [
-      "backup.bioimage.io",
-      "bioimage.io",
-      "bioimage.io:model",
-      "electron-microscopy",
-      "mitochondria",
-      "2d",
-      "pytorch",
-      "biapy",
-      "semantic-segmentation",
-      "attention-unet"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2025-06-18",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.15691361",
-    "creators": [
-      "Daniel Franco-Barranco"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 3,
-    "heuristic_total_score": 10,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 3 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Measuring Changes in Myocardial Perfusion in Left-Sided Breast Cancer Patients",
     "url": "https://zenodo.org/records/14643830",
     "summary": " Abstract \n Left-sided Breast Cancer patients often undergo radiation therapy, including Proton or Photon Therapy, which can affect nearby cardiac structures, causing chronic vascular damage and fibrosing inflammation. This leads to microvascular changes in the heart, manifesting as reduced perfusion and cardiac motion. Advances in 3-dimensional imaging have detailed the actual radiation doses received by critical cardiac structures, revealing the significance of low-dose radiation injury in breast cancer patients. Our study aims to delve deeper into the relationship between changes in myocardial perfusion and heart function (EF), comparing post-treatment images of X-ray (photon therapy) and proton therapy patients. This research highlights the complexity of the relationship between myocardial perfusion and heart function. Understanding these compensatory mechanisms and their impact on perfusion and overall cardiac function is crucial. Our findings emphasize the need for further study to refine our models and improve clinical interventions, ultimately aiming to reduce radiation-induced cardiac injury and improve the survival and quality of life for breast cancer patients undergoing",
@@ -1885,14 +1815,14 @@
     "kind": "record",
     "source": "zenodo",
     "title": "WATER EQUIVALENCE OF VARIOUS 3D PRINTED MATERIALS FOR PROTON THERAPY — MONTE CARLO SIMULATION, TREATMENT PLANNING MODELLING AND VALIDATION BY MEASUREMENTS",
-    "url": "https://zenodo.org/records/4726051",
+    "url": "https://zenodo.org/records/4724029",
     "summary": " In this article, Water Equivalent Ratio (WER) of three selected materials: Polylactic Acid (PLA), Acrylonitrilebutadiene Styrene (ABS) and Polyethylene Terephthalate Glycol (PETG) &mdash; commonly used in additive manufacturing technology &mdash; was measured on 60 MeV proton beam and compared with values predicted by Treatment Planning System (TPS) and Monte Carlo (MC) simulation. The agreement within 0.02&ndash;2.98% and 0.11&ndash;6.46% was found between results obtained from the measurement with comparison to the MC simulation and TPS, respectively. It was concluded that 3D printable materials can be safely used in proton therapy. \n\n Uploaded files: \n\n .inp files - Inputs for Fluka simulation for each tested plate&nbsp;(ABS, PETG and PLA as the material names, 0.5, 1.0 and 2.0 are the theoretical widths). \n\n .txt files - raw data for each plate&nbsp;received from measurements on on 60 MeV proton beam. \n\n 2020_Wochnik_ActaPhysPol_raw_data.xlsx&nbsp;- raw data&nbsp;collected in one sheet and analysis. ",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2020-01-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4726051",
+    "doi": "10.5506/APhysPolB.51.409",
     "creators": [
       "Wochnik Agnieszka",
       "Swakoń Jan",
@@ -1911,14 +1841,14 @@
     "kind": "record",
     "source": "zenodo",
     "title": "WATER EQUIVALENCE OF VARIOUS 3D PRINTED MATERIALS FOR PROTON THERAPY — MONTE CARLO SIMULATION, TREATMENT PLANNING MODELLING AND VALIDATION BY MEASUREMENTS",
-    "url": "https://zenodo.org/records/4724029",
+    "url": "https://zenodo.org/records/4726051",
     "summary": " In this article, Water Equivalent Ratio (WER) of three selected materials: Polylactic Acid (PLA), Acrylonitrilebutadiene Styrene (ABS) and Polyethylene Terephthalate Glycol (PETG) &mdash; commonly used in additive manufacturing technology &mdash; was measured on 60 MeV proton beam and compared with values predicted by Treatment Planning System (TPS) and Monte Carlo (MC) simulation. The agreement within 0.02&ndash;2.98% and 0.11&ndash;6.46% was found between results obtained from the measurement with comparison to the MC simulation and TPS, respectively. It was concluded that 3D printable materials can be safely used in proton therapy. \n\n Uploaded files: \n\n .inp files - Inputs for Fluka simulation for each tested plate&nbsp;(ABS, PETG and PLA as the material names, 0.5, 1.0 and 2.0 are the theoretical widths). \n\n .txt files - raw data for each plate&nbsp;received from measurements on on 60 MeV proton beam. \n\n 2020_Wochnik_ActaPhysPol_raw_data.xlsx&nbsp;- raw data&nbsp;collected in one sheet and analysis. ",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2020-01-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5506/APhysPolB.51.409",
+    "doi": "10.5281/zenodo.4726051",
     "creators": [
       "Wochnik Agnieszka",
       "Swakoń Jan",
@@ -1996,29 +1926,6 @@
     "heuristic_reasons": [
       "Matched 3 particle-therapy term(s).",
       "Matched 1 negative term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "sylvathle/FLARE: Proton Flux-to-Dose response function for ICRP145 in aluminium shell",
-    "url": "https://zenodo.org/records/17896392",
-    "summary": " Code implemented to compute the absorbed dose and dose equivalent in each organ of the ICRP145 female human phantom placed inside an aluminium shell of controlable thickness.\nProton flux-to-dose coefficients are calculated at different energy bin (from 10 MeV to 100 GeV) within logaritmic binning.\nResults are exported in csv file. ",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2025-12-11",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.17896392",
-    "creators": [
-      "Sylvain Blunier"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -2630,37 +2537,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "In vitro mutation induction: a database of x-ray and particle irradiation experiments",
-    "url": "https://zenodo.org/records/6451956",
-    "summary": " The database presents a collection of  in vitro  mutation induction data after photon and particle beam irradiation. The experiments included in the database were all performed by means of the  hprt  mutation assay. The collection was based on extensive literature search, and contains data published in the time period from 1977 to 2002. \n\n As better described in the README file, the database provides information on RBE for cell killing and mutation induction, as well as dose response curves raw data for both endpoints, as digitised&nbsp;(when available) from&nbsp;the original publication. \n\n This study is part of a manuscript that was&nbsp;submitted for publication in&nbsp;April 2022. ",
-    "tags": [
-      "radiobiology",
-      "mutation induction",
-      "secondary cancer risk",
-      "radiotherapy",
-      "charged particle therapy"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2022-04-12",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.6451956",
-    "creators": [
-      "Attili, Andrea",
-      "Scifoni, Emanuele",
-      "Tommasino, Francesco"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "MeV SIMS analysis of irradiation effects on molecular signatures",
     "url": "https://zenodo.org/records/5957880",
     "summary": " Characterizing the effect of MeV ion beam irradiation on biological tissues is important for proton beam therapy, which is routinely used as a form of cancer treatment. It is also important for optimizing protocols for multimodal elemental and molecular imaging. Elemental mapping of trace elements in tissues has been carried out for a long time using nuclear microprobe analysis. However, the effect of MeV ion beams on biological samples is largely unexplored. These effects have been explored in&nbsp;Surrey using two mass spectrometry imaging (MSI) techniques &ndash; matrix-assisted laser desorption electrospray (MALDI) and desorption electrospray ionization (DESI). The combination of these techniques with ion beam analysis (IBA) presents a few challenges, namely substrate compatibility and de-localization of elemental markers during measurements. As such, MeV-secondary ion mass spectrometry (SIMS) is being explored as an alternative technique for molecular imaging of biological tissues. MeV SIMS, unlike conventional keV SIMS, allows the detection of intact molecules, making it a prime candidate for the molecular analysis of biological samples. This presents an opportunity to bench",
@@ -2685,35 +2561,6 @@
       "Bailey, J. Melanie"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Stopping Power and Range for Proton Interaction with Lymph Tissues",
-    "url": "https://zenodo.org/records/5842881",
-    "summary": " &nbsp; \n\n In this paper, we calculated the mass stopping power (in MeV cm2/g) and the range (cm) of proton in one of the types \nof body tissues (lymph), from 1 Kev to 200 MeV energy range. They are using the Bethe and Ziegler equations, SRIM program (version \n2013) and Ziegler (Vol. 3) data by considering the tissue composed of several elements, so the atomic number (Z) and atomic weight \n(A) for the component in the tissue are meaning. The calculation results show that the Ziegler equation gives better results than using \nthe Bethe equation. However, in terms of the loss of proton energy in the tissue, the four methods used are approximately the same. \n&nbsp; ",
-    "tags": [
-      "Bethe Equation",
-      "Proton Therapy",
-      "Stopping Power",
-      "SRIM Program",
-      "Ziegler Equation"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2021-12-25",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.5842881",
-    "creators": [
-      "Hadi, Shaima M."
-    ],
-    "record_type": "publication",
     "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 8,
@@ -3191,6 +3038,30 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Reclassification of the Proton Phase-Correlation Scale and the Fundamental Scales of Habitatons and Voidons",
+    "url": "https://zenodo.org/records/21862590",
+    "summary": "  This supplementary manuscript revises the length-scale hierarchy used for the proton, habitatons, voidons, and neutrino signals in Habitat Information Physics. The reduced proton Compton wavelength is approximately 2.1031 &times; 10⁻&sup1;⁶ m, about one quarter of the proton root-mean-square charge-response scale. The numerical ratio may be retained as a relation between a collective proton phase scale and an electromagnetic boundary-response scale. It does not establish the geometric radius of a single habitaton and cannot be recursively divided to obtain a voidon radius.   [1, 2]  \n  The reduced proton Compton scale is therefore reclassified as the candidate collective phase-correlation length of the proton. The manuscript distinguishes five non-equivalent quantities: a fundamental constituent scale, local response spacing, collective correlation length, boundary-response scale, and propagation wavelength. Neutrinos have no experimentally established rigid geometric radius comparable with the proton charge radius. Their mass-related Compton scale is extremely large because their mass is small, whereas their propagation wavelength decreases with energy. A neutrino near 0.938 GeV",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2026-08-09",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.21862590",
+    "creators": [
+      "Zheng, Zhou"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "ThreeBodyDecays.jl",
     "url": "https://zenodo.org/records/20689323",
     "summary": "ThreeBodyDecays.jl is a Julia package for building three-body decay models using a cascade reaction. It is designed for researchers and scientists in the field of particle physics. Decays with three particles is the main application of the approach, however, it is also found useful in multibody decays where transitions can be factorized to a product of sequential decays with products. Particles can have arbitrary spin. The implementation is based on a research paper, \"Dalitz-plot decomposition for three-body decays\" by JPAC Collaboration (M. Mikhasenko at al.), PRD 101 (2020) 3, 034033, inSpireID: 1758460",
@@ -3580,6 +3451,30 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "GPD Modeling with Continuum QCD",
+    "url": "https://zenodo.org/records/4036405",
+    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2019-11-08",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4036405",
+    "creators": [
+      "Jose Rodriguez-Quintero"
+    ],
+    "record_type": "presentation",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 1,
     "heuristic_total_score": 6,
@@ -4136,96 +4031,19 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Advances in the Coupled Channel Approaches for N* Parameter Extraction",
-    "url": "https://zenodo.org/records/4036331",
-    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2019-11-09",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4036331",
-    "creators": [
-      "Michael Döring"
-    ],
-    "record_type": "presentation",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Transversity GPDs",
-    "url": "https://zenodo.org/records/4036361",
-    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2019-11-07",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4036361",
-    "creators": [
-      "Andrey Kim"
-    ],
-    "record_type": "presentation",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Exploring Strong QCD in the JLab Experiments of the 12 GeV era",
-    "url": "https://zenodo.org/records/4036325",
+    "title": "Bridging a Gap Between Space-like and Time-like EM Transition Form Factors",
+    "url": "https://zenodo.org/records/4036327",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2019-11-06",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036325",
+    "doi": "10.5281/zenodo.4036327",
     "creators": [
-      "Volker Burkert"
+      "Philip Cole"
     ],
     "record_type": "presentation",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Risks of gastrotoxicity and rationality of presribing of proton pump inhibitors in seniors in acute care in the EUROAGEISM H2020 project (diploma thesis in Czech)",
-    "url": "https://zenodo.org/records/4282554",
-    "summary": " The process of demographic aging has a significant impact on all areas of the society. With increasing age, the presence of illness, as well as the amount of used drugs increases. The most commonly prescribed drugs in seniros are also proton pump inhibitors, which play an irreplaceable role in the treatment of many gastrointestinal disorders. The trend of the overuse of proton pump inhibitors as main antisecretory drugs mainly relates to their long-term administration in the prophylaxis of the risk of polypharmacy and concurrent use of more gastrotoxic agents. The aim of this work was to evaluate the rationality of use of proton pump inhibitors in Czech seniors participating in the EUROAGEISM H2020 project (including evaluation of indications, administered dosages and duration of the treatment) and to consider aspects of ageism regarding overuse of polypharmacy and overuse of such medications.&nbsp; ",
-    "tags": [
-      "drug-related gastrotoxicity",
-      "proton pump inhibitors",
-      "drug risks",
-      "adverse drug events",
-      "aged",
-      "ageism",
-      "inappropriate prescribing"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2019-09-24",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4282554",
-    "creators": [
-      "Masaryková, Petra"
-    ],
-    "record_type": "publication",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 4,
@@ -4352,6 +4170,41 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Effects of exposure to high-energy protons on rat's behavior and underlying neurochemical mechanisms",
+    "url": "https://zenodo.org/records/20043192",
+    "summary": " This short communication points towards a potential improvement (at the trend level) in a high-level cognitive task (differential learning in the Y-maze) in rats following proton (165 MeV) irradiation at a dose of 1.5 Gy, but not 3 Gy. ",
+    "tags": [
+      "deep space missions",
+      "cognition",
+      "monoamines",
+      "rats"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2013-12",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.20043192",
+    "creators": [
+      "Shtemberg, Andrey",
+      "Bazyan, Ara",
+      "Lebedeva-Georgievskaya, Ksenia",
+      "Marina, Matveeva",
+      "Vladimir, Kudrin",
+      "Narkevich, Viktor",
+      "Klodt, Petr",
+      "Kokhan, Viktor"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Figure 5 in The anatomy of the basal ornithischian dinosaur Eocursor parvus from the lower Elliot Formation (Late Triassic) of South Africa",
     "url": "https://zenodo.org/records/5755414",
     "summary": "Figure 5. Eocursor parvus, holotype (SAM-PK-K8025). Right hemimandible in lateral (A) and medial (B) views, and an isolated cheek tooth (C). Abbreviations: add, adductor fossa; ang, angular; cnd, coronoid process of dentary; emf, external mandibular fenestra; mc, mandibular canal; rap, retroarticular process; rbe, ridge demarcating lateral extent of buccal emargination; ref, replacement foramina; sa, surangular; spl, surface for splenial; sr, weak ridge on lateral surface of surangular; sym, inturned dentary symphysis. Scale bars = 10 mm (A, B) and 2 mm (C).",
@@ -4391,6 +4244,39 @@
       "Kateb, Fatiha",
       "Pelupessy, Philippe",
       "Bodenhausen, Geoffrey"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Charm production in 200-GeV p+p collisions",
+    "url": "https://zenodo.org/records/4275179",
+    "summary": " This dissertation presents the measurement of electrons from heavy flavor decays in proton + proton collisions at RHIC at colli&shy;sion energy &radic;s = 200 GeV over a wide range of transverse moment (0.4 &lt; pr &lt; 5 GeV/c). Two independent analysis techniques of signal extraction were performed. This is the first measure&shy;ment of the Open Charm cross section at this collision energy and it is an important baseline measurement for comparison with nucleus + nucleus collisions. ",
+    "tags": [
+      "charm",
+      "photon",
+      "heavy flavor",
+      "electron",
+      "p+p",
+      "cross section",
+      "qcd",
+      "pythia",
+      "run02"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2005-05-11",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4275179",
+    "creators": [
+      "Butsyk, Sergey"
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 1,
