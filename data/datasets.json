@@ -17,7 +17,7 @@
     ],
     "license": null,
     "updated_at": "2025-04-18T08:21:49+00:00",
-    "downloads": 12,
+    "downloads": 18,
     "likes": 0,
     "doi": null,
     "creators": [],
@@ -2537,6 +2537,37 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "In vitro mutation induction: a database of x-ray and particle irradiation experiments",
+    "url": "https://zenodo.org/records/6451956",
+    "summary": " The database presents a collection of  in vitro  mutation induction data after photon and particle beam irradiation. The experiments included in the database were all performed by means of the  hprt  mutation assay. The collection was based on extensive literature search, and contains data published in the time period from 1977 to 2002. \n\n As better described in the README file, the database provides information on RBE for cell killing and mutation induction, as well as dose response curves raw data for both endpoints, as digitised&nbsp;(when available) from&nbsp;the original publication. \n\n This study is part of a manuscript that was&nbsp;submitted for publication in&nbsp;April 2022. ",
+    "tags": [
+      "radiobiology",
+      "mutation induction",
+      "secondary cancer risk",
+      "radiotherapy",
+      "charged particle therapy"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2022-04-12",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.6451956",
+    "creators": [
+      "Attili, Andrea",
+      "Scifoni, Emanuele",
+      "Tommasino, Francesco"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "MeV SIMS analysis of irradiation effects on molecular signatures",
     "url": "https://zenodo.org/records/5957880",
     "summary": " Characterizing the effect of MeV ion beam irradiation on biological tissues is important for proton beam therapy, which is routinely used as a form of cancer treatment. It is also important for optimizing protocols for multimodal elemental and molecular imaging. Elemental mapping of trace elements in tissues has been carried out for a long time using nuclear microprobe analysis. However, the effect of MeV ion beams on biological samples is largely unexplored. These effects have been explored in&nbsp;Surrey using two mass spectrometry imaging (MSI) techniques &ndash; matrix-assisted laser desorption electrospray (MALDI) and desorption electrospray ionization (DESI). The combination of these techniques with ion beam analysis (IBA) presents a few challenges, namely substrate compatibility and de-localization of elemental markers during measurements. As such, MeV-secondary ion mass spectrometry (SIMS) is being explored as an alternative technique for molecular imaging of biological tissues. MeV SIMS, unlike conventional keV SIMS, allows the detection of intact molecules, making it a prime candidate for the molecular analysis of biological samples. This presents an opportunity to bench",
@@ -3038,30 +3069,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Reclassification of the Proton Phase-Correlation Scale and the Fundamental Scales of Habitatons and Voidons",
-    "url": "https://zenodo.org/records/21862590",
-    "summary": "  This supplementary manuscript revises the length-scale hierarchy used for the proton, habitatons, voidons, and neutrino signals in Habitat Information Physics. The reduced proton Compton wavelength is approximately 2.1031 &times; 10⁻&sup1;⁶ m, about one quarter of the proton root-mean-square charge-response scale. The numerical ratio may be retained as a relation between a collective proton phase scale and an electromagnetic boundary-response scale. It does not establish the geometric radius of a single habitaton and cannot be recursively divided to obtain a voidon radius.   [1, 2]  \n  The reduced proton Compton scale is therefore reclassified as the candidate collective phase-correlation length of the proton. The manuscript distinguishes five non-equivalent quantities: a fundamental constituent scale, local response spacing, collective correlation length, boundary-response scale, and propagation wavelength. Neutrinos have no experimentally established rigid geometric radius comparable with the proton charge radius. Their mass-related Compton scale is extremely large because their mass is small, whereas their propagation wavelength decreases with energy. A neutrino near 0.938 GeV",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2026-08-09",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.21862590",
-    "creators": [
-      "Zheng, Zhou"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "ThreeBodyDecays.jl",
     "url": "https://zenodo.org/records/20689323",
     "summary": "ThreeBodyDecays.jl is a Julia package for building three-body decay models using a cascade reaction. It is designed for researchers and scientists in the field of particle physics. Decays with three particles is the main application of the approach, however, it is also found useful in multibody decays where transitions can be factorized to a product of sequential decays with products. Particles can have arbitrary spin. The implementation is based on a research paper, \"Dalitz-plot decomposition for three-body decays\" by JPAC Collaboration (M. Mikhasenko at al.), PRD 101 (2020) 3, 034033, inSpireID: 1758460",
@@ -3167,36 +3174,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "LOTOS code inputs for local earthquake tomography of the Irazú-Turrialba volcanic complex, Costa Rica",
-    "url": "https://zenodo.org/records/7777962",
-    "summary": " Local earthquake seismic tomography model for Jiwani-Brown, E., Koulakov, I., Muñoz-Burbano, F., Pacheco, J., Mora, M., &amp; Lupi, M. (2023). Comparing&nbsp;local and ambient seismic tomographic methods to infer the plumbing system of the Irazú-Turrialba&nbsp;volcanic complex, Costa Rica.&nbsp; \n\n The tomography model presented in the paper are obtained using the LOTOS code by Koulakov (2009).&nbsp;Input files for running of LOTOS code adapted for Windows OS. More details on the LOTOS code can be found at www.ivan-art.com/science/LOTOS  ",
-    "tags": [
-      "LET",
-      "Tomography",
-      "Costa Rica",
-      "Volcano"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-06-30",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.7777962",
-    "creators": [
-      "Jiwani-Brown, Elliot",
-      "Lupi, Matteo"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Simulated shielding performance of 2500 two-layer permutations of the first 50 chemical elements against trapped particles on GTO",
     "url": "https://zenodo.org/records/7828929",
     "summary": " The 2Layer.csv file contains ionizing dose results of simulating the shielding performance of all 2500 two-layer permutations of the first 50 chemical elements against trapped particles in Geostationary Transfer Orbit (GTO). The material properties are sourced from the Geant4 material database, with materials referenced by their Geant4 material database names. For elements that are gases under normal conditions, the liquified version from the Geant4 database is used if available, denoted by an &quot;l&quot; prefix (e.g., &quot;G4_lH2&quot;). The particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. The simulated geometry is provided in the file 2Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. The simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 2.1e+11 electrons and 8.4e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the two layers being 0.75 g/cm2 in depth. The ionizing dose is recorded in 0.5mm thick silicon plates behind the shieldi",
@@ -3232,37 +3209,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Simulated shielding performance of 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO",
-    "url": "https://zenodo.org/records/7622159",
-    "summary": " The 5Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), tungsten (G4_W) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 5Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 1.4e+11 electrons and 3.1e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the five layers being 0.3 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: Name of the second layer material. \nColumn D: Name of the third lay",
-    "tags": [
-      "Radiation Shielding",
-      "Geant4",
-      "GRAS",
-      "Total Ionizing Dose",
-      "Multilayer Shielding",
-      "Satellite Shielding"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-02-08",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.7622159",
-    "creators": [
-      "Fetzer, Anton"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Simulated shielding performance of 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO",
     "url": "https://zenodo.org/records/7621281",
     "summary": " The 4Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), kevlar (G4_KEVLAR), tungsten (G4_W), stainless steel (G4_STAINLESS_STEEL) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 4Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 6.6e+10 electrons and 3.8e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the four layers being 0.375 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: N",
@@ -3279,6 +3225,37 @@
     "downloads": null,
     "likes": null,
     "doi": "10.5281/zenodo.7621281",
+    "creators": [
+      "Fetzer, Anton"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Simulated shielding performance of 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO",
+    "url": "https://zenodo.org/records/7622159",
+    "summary": " The 5Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), tungsten (G4_W) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 5Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 1.4e+11 electrons and 3.1e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the five layers being 0.3 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: Name of the second layer material. \nColumn D: Name of the third lay",
+    "tags": [
+      "Radiation Shielding",
+      "Geant4",
+      "GRAS",
+      "Total Ionizing Dose",
+      "Multilayer Shielding",
+      "Satellite Shielding"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2023-02-08",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.7622159",
     "creators": [
       "Fetzer, Anton"
     ],
@@ -3462,17 +3439,17 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "GPD Modeling with Continuum QCD",
-    "url": "https://zenodo.org/records/4036405",
+    "title": "The Modeling of Baryon and Meson DAs, and their Relevance for DVMP",
+    "url": "https://zenodo.org/records/4036379",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2019-11-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036405",
+    "doi": "10.5281/zenodo.4036379",
     "creators": [
-      "Jose Rodriguez-Quintero"
+      "Cédric Mezrag"
     ],
     "record_type": "presentation",
     "heuristic_particle_hits": 1,
@@ -3794,41 +3771,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Triorla striola",
-    "url": "https://zenodo.org/records/10979570",
-    "summary": "   Triorla striola  (Fabricius, 1805)   (Figs 28&ndash;31)  Material examined. BRASIL [BRAZIL],  Tocantins:  Porto Nacional,  Campus  UFT [Universidade Federal do Tocantins], 10&deg;41&rsquo;18.649&rdquo;S &ndash; 48&deg;22&rsquo;58.252&rdquo;W, coleta manual [manual collection], 21.XI.2018, Silva, B. M. (&female; CEUFT).  Distribution. Panama, Colombia, Venezuela, Guyana, Suriname, French Guiana, Brazil (Par&aacute;, Tocantins *, Mato Grosso, Goi&aacute;s, Rio Grande do Norte, Minas Gerais, Esp&iacute;rito Santo, Rio de Janeiro, Paran&aacute;), Paraguay (CASTRO  et al ., 2016).  Comments.  Trioria striola  is characterized by having the yellow mystax interspersed with white and black setae (Figs 30, 31); thorax and head brown, golden tomentose (Figs 28, 29); gray scutellum with a dark spot on the margin; femora dorsally reddish brown, black tibiae, black tarsomeres; black abdomen, tergites 1-3 with white lateral bands that cover more than half of the posterior part, tergites 4 and 5 entirely black, tergite 6 with a dorsomedial black spot, tergite 7 black with white lateral bands that cover the ventral and dorsoposterior parts; terminalia conical, shiny black, tergite and sternite ",
-    "tags": [
-      "Biodiversity",
-      "Taxonomy",
-      "Animalia",
-      "Arthropoda",
-      "Insecta",
-      "Diptera",
-      "Asilidae",
-      "Triorla",
-      "Triorla striola"
-    ],
-    "license": "cc-zero",
-    "updated_at": "2023-05-15",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.10979570",
-    "creators": [
-      "Montanuci, Pietra S.",
-      "Vieira, Rodrigo",
-      "Krolow, Tiago K."
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "The dual ion beam microprobe",
     "url": "https://zenodo.org/records/10377192",
     "summary": " A new experimental setup for dual ion microbeam irradiation and analysis of materials has been designed and commissioned at the Ruđer Boˇskovi&acute;c Institute (RBI). Ion beams in the MeV energy range are provided by two tandem accelerators, a 1.0 MV Tandetron and a 6.0 MV EN tandem Van de Graaff. The dual microprobe end station is primarily dedicated for the performance of experiments where one ion microbeam is used for the irradiation, while the other ion microbeam is used for the analysis or &lsquo;probing&rsquo; the in-situ changes induced during the target irradiation. Likewise, both microbeams can be also used independently, for experiments involving either ion beam characterization or ion beam irradiation techniques. The ion beam from the small tandem accelerator is focused with a magnetic quadrupole triplet, which is more suitable for the high spatial resolution work with light ions. The ion beam from the larger accelerator is focused by an electrostatic quadruplet that enables easier focusing of heavy ions. Details of the experimental setup, its capabilities in terms of ion beam irradiation and analysis techniques, as well as the first applications, are presented. ",
@@ -4031,19 +3973,50 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Bridging a Gap Between Space-like and Time-like EM Transition Form Factors",
-    "url": "https://zenodo.org/records/4036327",
+    "title": "Exploring Strong QCD in the JLab Experiments of the 12 GeV era",
+    "url": "https://zenodo.org/records/4036325",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2019-11-06",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036327",
+    "doi": "10.5281/zenodo.4036325",
     "creators": [
-      "Philip Cole"
+      "Volker Burkert"
     ],
     "record_type": "presentation",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Risks of gastrotoxicity and rationality of presribing of proton pump inhibitors in seniors in acute care in the EUROAGEISM H2020 project (diploma thesis in Czech)",
+    "url": "https://zenodo.org/records/4282554",
+    "summary": " The process of demographic aging has a significant impact on all areas of the society. With increasing age, the presence of illness, as well as the amount of used drugs increases. The most commonly prescribed drugs in seniros are also proton pump inhibitors, which play an irreplaceable role in the treatment of many gastrointestinal disorders. The trend of the overuse of proton pump inhibitors as main antisecretory drugs mainly relates to their long-term administration in the prophylaxis of the risk of polypharmacy and concurrent use of more gastrotoxic agents. The aim of this work was to evaluate the rationality of use of proton pump inhibitors in Czech seniors participating in the EUROAGEISM H2020 project (including evaluation of indications, administered dosages and duration of the treatment) and to consider aspects of ageism regarding overuse of polypharmacy and overuse of such medications.&nbsp; ",
+    "tags": [
+      "drug-related gastrotoxicity",
+      "proton pump inhibitors",
+      "drug risks",
+      "adverse drug events",
+      "aged",
+      "ageism",
+      "inappropriate prescribing"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2019-09-24",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4282554",
+    "creators": [
+      "Masaryková, Petra"
+    ],
+    "record_type": "publication",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 4,
@@ -4170,41 +4143,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Effects of exposure to high-energy protons on rat's behavior and underlying neurochemical mechanisms",
-    "url": "https://zenodo.org/records/20043192",
-    "summary": " This short communication points towards a potential improvement (at the trend level) in a high-level cognitive task (differential learning in the Y-maze) in rats following proton (165 MeV) irradiation at a dose of 1.5 Gy, but not 3 Gy. ",
-    "tags": [
-      "deep space missions",
-      "cognition",
-      "monoamines",
-      "rats"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2013-12",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.20043192",
-    "creators": [
-      "Shtemberg, Andrey",
-      "Bazyan, Ara",
-      "Lebedeva-Georgievskaya, Ksenia",
-      "Marina, Matveeva",
-      "Vladimir, Kudrin",
-      "Narkevich, Viktor",
-      "Klodt, Petr",
-      "Kokhan, Viktor"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Figure 5 in The anatomy of the basal ornithischian dinosaur Eocursor parvus from the lower Elliot Formation (Late Triassic) of South Africa",
     "url": "https://zenodo.org/records/5755414",
     "summary": "Figure 5. Eocursor parvus, holotype (SAM-PK-K8025). Right hemimandible in lateral (A) and medial (B) views, and an isolated cheek tooth (C). Abbreviations: add, adductor fossa; ang, angular; cnd, coronoid process of dentary; emf, external mandibular fenestra; mc, mandibular canal; rap, retroarticular process; rbe, ridge demarcating lateral extent of buccal emargination; ref, replacement foramina; sa, surangular; spl, surface for splenial; sr, weak ridge on lateral surface of surangular; sym, inturned dentary symphysis. Scale bars = 10 mm (A, B) and 2 mm (C).",
@@ -4244,39 +4182,6 @@
       "Kateb, Fatiha",
       "Pelupessy, Philippe",
       "Bodenhausen, Geoffrey"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Charm production in 200-GeV p+p collisions",
-    "url": "https://zenodo.org/records/4275179",
-    "summary": " This dissertation presents the measurement of electrons from heavy flavor decays in proton + proton collisions at RHIC at colli&shy;sion energy &radic;s = 200 GeV over a wide range of transverse moment (0.4 &lt; pr &lt; 5 GeV/c). Two independent analysis techniques of signal extraction were performed. This is the first measure&shy;ment of the Open Charm cross section at this collision energy and it is an important baseline measurement for comparison with nucleus + nucleus collisions. ",
-    "tags": [
-      "charm",
-      "photon",
-      "heavy flavor",
-      "electron",
-      "p+p",
-      "cross section",
-      "qcd",
-      "pythia",
-      "run02"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2005-05-11",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4275179",
-    "creators": [
-      "Butsyk, Sergey"
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 1,

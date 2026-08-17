@@ -83,7 +83,7 @@
     ],
     "license": null,
     "updated_at": "2025-04-18T08:21:49+00:00",
-    "downloads": 12,
+    "downloads": 18,
     "likes": 0,
     "doi": null,
     "creators": [],
@@ -917,6 +917,41 @@
     "kind": "record",
     "source": "zenodo",
     "title": "Comparative study on scenarios for rotating gantry mechanical structures",
+    "url": "https://zenodo.org/records/13949223",
+    "summary": " \n                    Background: This paper outlines a comparative study on scenarios of gantries mechanical design for ion-therapy of cancer, which is a crucial step toward the development of the next ion medical machine.  \n                    Methods: Multiple scenarios were considered based on robustness of the design, size, weight and complexity, deformation and precision performances and costs, as well as environmental impact. Four prospective scenarios were identified, each of them capable of providing beam to at least 220°around the patient. One scenario is capable of providing treatment angles of 360°. This report will describe the unified methodology performed during the study in order to achieve unbiased results in a comprehensive manner.  \n                    Results: Results show that in statically balanced scenarios, considerable improvements can be reached in terms of safety, deformation, precision performances, complexity and costs of implementation.  \n                    Conclusions: All scenarios are deemed suitable for further gantry design development. ",
+    "tags": [
+      "Particle Therapy",
+      "Ion Therapy",
+      "Gantry",
+      "Mechanical Design"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2023-06-27",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.12688/openreseurope.14683.3",
+    "creators": [
+      "Piacentini, Luca",
+      "Dassa, Luca",
+      "Perini, Diego",
+      "Ratkus, Andris",
+      "Torims, Toms",
+      "Uberti, Stefano",
+      "Vilcans, Janis",
+      "Vretenar, Maurizio"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Comparative study on scenarios for rotating gantry mechanical structures",
     "url": "https://zenodo.org/records/13949219",
     "summary": " \n                    Background: This paper outlines a comparative study on scenarios of gantries mechanical design for ion-therapy of cancer, which is a crucial step toward the development of the next ion medical machine.  \n                    Methods: Multiple scenarios were considered based on robustness of the design, size, weight and complexity, deformation and precision performances and costs, as well as environmental impact. Four prospective scenarios were identified, each of them capable of providing beam to at least 220°around the patient. One scenario is capable of providing treatment angles of 360°. This report will describe the unified methodology performed during the study in order to achieve unbiased results in a comprehensive manner.  \n                    Results: Results show that in statically balanced scenarios, considerable improvements can be reached in terms of safety, deformation, precision performances, complexity and costs of implementation.  \n                    Conclusions: All scenarios are deemed suitable for further gantry design development. ",
     "tags": [
@@ -1014,41 +1049,6 @@
     "heuristic_reasons": [
       "Matched 1 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Comparative study on scenarios for rotating gantry mechanical structures",
-    "url": "https://zenodo.org/records/13949223",
-    "summary": " \n                    Background: This paper outlines a comparative study on scenarios of gantries mechanical design for ion-therapy of cancer, which is a crucial step toward the development of the next ion medical machine.  \n                    Methods: Multiple scenarios were considered based on robustness of the design, size, weight and complexity, deformation and precision performances and costs, as well as environmental impact. Four prospective scenarios were identified, each of them capable of providing beam to at least 220°around the patient. One scenario is capable of providing treatment angles of 360°. This report will describe the unified methodology performed during the study in order to achieve unbiased results in a comprehensive manner.  \n                    Results: Results show that in statically balanced scenarios, considerable improvements can be reached in terms of safety, deformation, precision performances, complexity and costs of implementation.  \n                    Conclusions: All scenarios are deemed suitable for further gantry design development. ",
-    "tags": [
-      "Particle Therapy",
-      "Ion Therapy",
-      "Gantry",
-      "Mechanical Design"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-06-27",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.12688/openreseurope.14683.3",
-    "creators": [
-      "Piacentini, Luca",
-      "Dassa, Luca",
-      "Perini, Diego",
-      "Ratkus, Andris",
-      "Torims, Toms",
-      "Uberti, Stefano",
-      "Vilcans, Janis",
-      "Vretenar, Maurizio"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
     ]
   },
   {
@@ -1349,6 +1349,35 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Beam optics studies for a novel gantry for hadron therapy",
+    "url": "https://zenodo.org/records/7233590",
+    "summary": " The design of smaller and less costly gantries for carbonion particle therapy represents a major challenge to the diffusion of this treatment. Here we present the work done on the linear beam optics of possible gantry layouts, differing for geometry, momentum acceptance, and magnet technology, which share the use of combined function superconducting magnets with a bending field of 4 T. We performed parallel&ndash; to&ndash;point and point&ndash;to&ndash;point optics matching at different magnification factors to provide two different beam sizes at the isocenter. Moreover, we considered the orbit distor-tion generated by magnet errors and we introduced beam position monitors and correctors. The study, together with considerations on the criteria for comparison, is the basis for the design of a novel and compact gantry for hadrontherapy. ",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2022-06-30",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.18429/JACoW-IPAC2022-THPOMS011",
+    "creators": [
+      "Felcini, E.",
+      "Frisella, G.",
+      "Mereghetti, A",
+      "Pullia, M.G.",
+      "Savazzi, S.",
+      "Pivi, M.T.F:",
+      "Benedetto, E."
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 12,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "A European collaboration to investigate Supercon-ducting Magnets for Next Generation Heavy Ion Therapy",
     "url": "https://zenodo.org/records/7019744",
     "summary": " Next generation ion therapy magnets both for gantry and for accelerator (synchrotron) are under investigation in a re-cently launched European collaboration that, in the frame of the Eu-ropean H2020 HITRIplus and I.FAST programmes, has obtained some funding for work packages on superconducting magnets. De-sign and technology of superconducting magnets will be developed for ion therapy synchrotron and -especially- gantry, taking as refer-ence beams of 430 MeV/nucleon ions (C-ions) with 1010 ions/pulse. The magnets are about 60-90 mm diameter, 4 to 5 T peak field with a field change of about 0.3 T/s and good field quality. The paper will illustrate the organization of the collaboration and the technical pro-gram. Various superconductor options (LTS, MgB2 or HTS) and different magnet shapes, like classical CosTheta or innovative Canted CosTheta (CCT), with curved multifunction (dipole and quadrupole), are under evaluation, CCT being the baseline. These studies should provide design inputs for a new superconducting gan-try design for existing facilities and, on a longer time scale, for a brand-new hadron therapy centre to be placed in the South East Eu-rope (SEEIIST project). ",
@@ -1382,35 +1411,6 @@
     "heuristic_total_score": 16,
     "heuristic_reasons": [
       "Matched 4 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Beam optics studies for a novel gantry for hadron therapy",
-    "url": "https://zenodo.org/records/7233590",
-    "summary": " The design of smaller and less costly gantries for carbonion particle therapy represents a major challenge to the diffusion of this treatment. Here we present the work done on the linear beam optics of possible gantry layouts, differing for geometry, momentum acceptance, and magnet technology, which share the use of combined function superconducting magnets with a bending field of 4 T. We performed parallel&ndash; to&ndash;point and point&ndash;to&ndash;point optics matching at different magnification factors to provide two different beam sizes at the isocenter. Moreover, we considered the orbit distor-tion generated by magnet errors and we introduced beam position monitors and correctors. The study, together with considerations on the criteria for comparison, is the basis for the design of a novel and compact gantry for hadrontherapy. ",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2022-06-30",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.18429/JACoW-IPAC2022-THPOMS011",
-    "creators": [
-      "Felcini, E.",
-      "Frisella, G.",
-      "Mereghetti, A",
-      "Pullia, M.G.",
-      "Savazzi, S.",
-      "Pivi, M.T.F:",
-      "Benedetto, E."
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 3,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 12,
-    "heuristic_reasons": [
-      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -1647,32 +1647,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Finite-volume spectrum of the isosinglet strange channel calculated in lattice QCD",
-    "url": "https://zenodo.org/records/10425662",
-    "summary": " Finite-volume spectrum of the isosinglet strange channel. The attached hdf5 file contains the bootstrap samples for the finite volume spectrum levels used for the L&uuml;scher quantization condition fit. The bootstrap samples are organized in the following group structure, \n  /PSQ{d^2}/{irrep}/free_levels/  \n  /PSQ{d^2}/{irrep}/e{frame}_{level}/  \n  /PSQ{d^2}/{irrep}/e{frame}_{level}_ref/  \n  /single_hadrons/{hadron}({d^2})/  \n  /single_hadrons/{hadron}({d^2})_ref/  \n  /single_hadrons/ref/  \n where {d^2} is related to the total momentum squared by P^2=(2&pi;/L)^2 * d^2 where L is the spacial lattice extent, {irrep} indicates the irreducible representation of the relevant little group, {frame} indicates the frame of the energy determination and can be \"cm\" for center of mass frame or \"lab\" for lab frame, {level} indicates the energy level of the spectrum, {hadron} indicates a single hadron particle energy and can be \"N\", \"L\", \"S\", \"X\", \"pi\", or \"k\". Further details about each group and single hadron name meanings are explained below. All datasets contain the mean followed by 800 samples in an array.  Single hadron names are defined as: \n \n \n \n  name used in data file  \n  full singl",
-    "tags": [
-      "Particle Physics",
-      "Lattice QCD"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-12-24",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.48550/arXiv.2307.13471",
-    "creators": [
-      "Skinner, Sarah"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Proton and Antiproton Production in High Energy Heavy Ion Collisions at RHIC",
     "url": "https://zenodo.org/records/4285750",
     "summary": " One of the remarkable findings at RHIC is particle-type dependences of hadron yields and emission patterns, especially its difference between baryons and mesons, at intermediate p T (2-5GeV/c). The purpose of this thesis is to study hadron production mechanisms at intermediate p T  and final-state interactions between the hadrons produced in relativistic heavy ion collisions. We have performed a systematic study of proton and antiproton spectra in Au+Au, Cu+Cu, p+p collisions at &radic;sNN = 200 and 62.4GeV. We present identified charged hadron p T  spectra, particle ratios, nuclear modication factors, chemical/kinetic freeze-out properties and their scaling properties between the different collision systems. ",
@@ -1710,26 +1684,27 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Hadron Production Measurements for Long-Baseline Neutrino Beams",
-    "url": "https://zenodo.org/records/1286772",
-    "summary": " Long-baseline accelerator neutrino experiments rely on the neutrinos from the decays of hadrons produced in hadron-nucleus interactions. Uncertainties in the hadron production yields from these interactions dominate the neutrino flux uncertainties in these beams. This talk will review the currently available hadron production data that is relevant for accelerator beams. It will highlight recent results from CERN&#39;s NA61/SHINE experiment, which has produced measurements that strongly constrain the neutrino and anti-neutrino fluxes in the T2K experiment and is currently producing measurements to improve modeling of the fluxes for the Fermilab long-baseline neutrino program. The talk will also present the prospects for future hadron production measurements in NA61/SHINE and other projects. ",
-    "tags": [],
+    "title": "Finite-volume spectrum of the isosinglet strange channel calculated in lattice QCD",
+    "url": "https://zenodo.org/records/10425662",
+    "summary": " Finite-volume spectrum of the isosinglet strange channel. The attached hdf5 file contains the bootstrap samples for the finite volume spectrum levels used for the L&uuml;scher quantization condition fit. The bootstrap samples are organized in the following group structure, \n  /PSQ{d^2}/{irrep}/free_levels/  \n  /PSQ{d^2}/{irrep}/e{frame}_{level}/  \n  /PSQ{d^2}/{irrep}/e{frame}_{level}_ref/  \n  /single_hadrons/{hadron}({d^2})/  \n  /single_hadrons/{hadron}({d^2})_ref/  \n  /single_hadrons/ref/  \n where {d^2} is related to the total momentum squared by P^2=(2&pi;/L)^2 * d^2 where L is the spacial lattice extent, {irrep} indicates the irreducible representation of the relevant little group, {frame} indicates the frame of the energy determination and can be \"cm\" for center of mass frame or \"lab\" for lab frame, {level} indicates the energy level of the spectrum, {hadron} indicates a single hadron particle energy and can be \"N\", \"L\", \"S\", \"X\", \"pi\", or \"k\". Further details about each group and single hadron name meanings are explained below. All datasets contain the mean followed by 800 samples in an array.  Single hadron names are defined as: \n \n \n \n  name used in data file  \n  full singl",
+    "tags": [
+      "Particle Physics",
+      "Lattice QCD"
+    ],
     "license": "cc-by-4.0",
-    "updated_at": "2018-06-04",
+    "updated_at": "2023-12-24",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.1286772",
+    "doi": "10.48550/arXiv.2307.13471",
     "creators": [
-      "Marino, Alysia"
+      "Skinner, Sarah"
     ],
-    "record_type": "presentation",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 3,
+    "record_type": "dataset",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s).",
-      "Matched 1 negative term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -1759,34 +1734,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "ThreeBodyDecays.jl",
-    "url": "https://zenodo.org/records/20689323",
-    "summary": "ThreeBodyDecays.jl is a Julia package for building three-body decay models using a cascade reaction. It is designed for researchers and scientists in the field of particle physics. Decays with three particles is the main application of the approach, however, it is also found useful in multibody decays where transitions can be factorized to a product of sequential decays with products. Particles can have arbitrary spin. The implementation is based on a research paper, \"Dalitz-plot decomposition for three-body decays\" by JPAC Collaboration (M. Mikhasenko at al.), PRD 101 (2020) 3, 034033, inSpireID: 1758460",
-    "tags": [
-      "hadron physics",
-      "hadron spectroscopy",
-      "helicity formalism"
-    ],
-    "license": "mit-license",
-    "updated_at": "2026-06-14",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.20689323",
-    "creators": [
-      "Mikhasenko, Mikhail"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Properties of Fragmentation Photons in p+p Collisions at 200 GeV Center-of-Mass Energies",
     "url": "https://zenodo.org/records/4398484",
     "summary": " This thesis reports results on the production of fragmentation photons within high energy proton-proton collisions. The hadron- fragmentation photon pair cross-section has been measured over a range of hadron and photon p T  using the method of two-particle correlation. The fraction of inclusive hadron-photon pairs produced directly from the parton fragmentation was also determined from the cross-section measurement. ",
@@ -1811,6 +1758,31 @@
     "heuristic_total_score": 8,
     "heuristic_reasons": [
       "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Hadron Production Measurements for Long-Baseline Neutrino Beams",
+    "url": "https://zenodo.org/records/1286772",
+    "summary": " Long-baseline accelerator neutrino experiments rely on the neutrinos from the decays of hadrons produced in hadron-nucleus interactions. Uncertainties in the hadron production yields from these interactions dominate the neutrino flux uncertainties in these beams. This talk will review the currently available hadron production data that is relevant for accelerator beams. It will highlight recent results from CERN&#39;s NA61/SHINE experiment, which has produced measurements that strongly constrain the neutrino and anti-neutrino fluxes in the T2K experiment and is currently producing measurements to improve modeling of the fluxes for the Fermilab long-baseline neutrino program. The talk will also present the prospects for future hadron production measurements in NA61/SHINE and other projects. ",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2018-06-04",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.1286772",
+    "creators": [
+      "Marino, Alysia"
+    ],
+    "record_type": "presentation",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 3,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s).",
+      "Matched 1 negative term(s)."
     ]
   },
   {
@@ -2116,6 +2088,31 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Sorptive removal of short‑chain perfluoroalkyl substances (PFAS) during drinking water treatment using activated carbon and anion exchanger",
+    "url": "https://zenodo.org/records/8380002",
+    "summary": " Laboratory tests and column tests were carried out in a waterwoks to investigate the removal of short- and longchain \nPFAS using activated carbon filtration and ion exchange treatment. For all adsorbents, the sorption affinity of \nshort-chain per- and polyfluoroalkyl carboxylic acids (PFCA) was significantly lower than that of long-chain PFAS or \nshort-chain per- and polyfluoroalkyl sulfonic acids (PFSA). In the PFAS-polluted groundwater matrix, the short-chain \nPFCA PFBA and PFPeA could only be sufficiently removed with activated carbon over short run times of 6000 and \n11,000 bed volumes (BV), respectively. Longer PFCA with a chain length of C6 or more were removed over longer run \ntimes. \nThe removal of short-chain PFCA using ion exchange media could also only be achieved over relatively short run \ntimes of 5000 BV for PFBA, 10,000BV for PFPeA and 18,000 BV for PFHxA. These are sometimes significantly longer than \nthose of activated carbon. Due to the higher material costs for ion exchange media, there are nevertheless no lower \noperating costs when the ion exchangers are used in single-use mode. However, ion exchangers can be regenerated \nand then reused which can result in ec",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2023-02-15",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1186/s12302-023-00716-5",
+    "creators": [
+      "Riegel, Marcel",
+      "Haist‑Gulde, Brigitte",
+      "Sacher, Frank"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Explorative Studies of an Innovative Superconducting Gantry",
     "url": "https://zenodo.org/records/6951721",
     "summary": " The Heavy Ion Therapy Research Integration plus (HITRI plus ) is an European project that aims to integrate and propel research and technologies related to cancer treatment with heavy ion beams. Among the ambitious goals of the project, a specific work package includes the design of a gantry for carbon ions, based on superconducting magnets. The first milestone to achieve is the choice of the fundamental gantry parameters, namely the beam optics layout, the superconducting magnet technology, and the main user requirements. Starting from a reference 3T design, the collaboration widely explored dozens of possible gantry configurations at 4T, aiming to find the best compromise in terms of footprint, capital cost, and required R&amp;D. We present here a summary of these configurations, underlying the initial correlation between the beam optics, the mechanics and the main superconducting dipoles design: the bending field (up to 4T), combined function features (integrated quadrupoles), magnet aperture (up to 90mm), and angular length (30&deg; &ndash; 45&deg;). The resulting main parameters are then listed, compared, and used to drive the choice of the best gantry layout to be developed ",
@@ -2146,31 +2143,6 @@
     "heuristic_total_score": 12,
     "heuristic_reasons": [
       "Matched 3 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Sorptive removal of short‑chain perfluoroalkyl substances (PFAS) during drinking water treatment using activated carbon and anion exchanger",
-    "url": "https://zenodo.org/records/8380002",
-    "summary": " Laboratory tests and column tests were carried out in a waterwoks to investigate the removal of short- and longchain \nPFAS using activated carbon filtration and ion exchange treatment. For all adsorbents, the sorption affinity of \nshort-chain per- and polyfluoroalkyl carboxylic acids (PFCA) was significantly lower than that of long-chain PFAS or \nshort-chain per- and polyfluoroalkyl sulfonic acids (PFSA). In the PFAS-polluted groundwater matrix, the short-chain \nPFCA PFBA and PFPeA could only be sufficiently removed with activated carbon over short run times of 6000 and \n11,000 bed volumes (BV), respectively. Longer PFCA with a chain length of C6 or more were removed over longer run \ntimes. \nThe removal of short-chain PFCA using ion exchange media could also only be achieved over relatively short run \ntimes of 5000 BV for PFBA, 10,000BV for PFPeA and 18,000 BV for PFHxA. These are sometimes significantly longer than \nthose of activated carbon. Due to the higher material costs for ion exchange media, there are nevertheless no lower \noperating costs when the ion exchangers are used in single-use mode. However, ion exchangers can be regenerated \nand then reused which can result in ec",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-02-15",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.1186/s12302-023-00716-5",
-    "creators": [
-      "Riegel, Marcel",
-      "Haist‑Gulde, Brigitte",
-      "Sacher, Frank"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
     ]
   },
   {
@@ -2639,6 +2611,34 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Single pencil beam benchmark of a module for Monte Carlo simulation of proton transport in the PENELOPE code",
+    "url": "https://zenodo.org/records/4804021",
+    "summary": " Background and purpose: PENH is a recently coded module for simulation of proton transport in conjunction with the Monte Carlo code PENELOPE. PENELOPE applies class II simulation to all type of interactions, in particular, to elastic collisions. PENH uses calculated differential cross sections for proton elastic collisions that include electron screening effects as well as nuclear structure effects. Proton-induced nuclear reactions are simulated from information in the ENDF-6 database or from alternative nuclear databases in ENDF format. The purpose of this work is to benchmark this module by simulating absorbed dose distributions from a single finite spot size proton pencil beam in water. \n\n  \nMaterials and methods: Monte Carlo simulations with PENH are compared with simulation results from TOPAS Monte Carlo (v3.1p2) and RayStation Monte Carlo (v6). Different beam models are examined in terms of mean energy and energy spread to match the measured profiles. The phase-space file is derived from experimental measurements. Simulated absorbed dose distributions are compared to experimental data obtained with the ionization chamber array MatriXX 2D detector (IBA Dosimetry) in a water t",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2020-12-10",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1002/mp.14598",
+    "creators": [
+      "Verbeek, Nico",
+      "Wulff, Jörg",
+      "Bäumer, Christian",
+      "Timmermann, Beate",
+      "Brualla, Lorenzo"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 14,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Dataset related to article \"  Cardiac Exposure Related to Adjuvant Radiotherapy in Patients Affected by Thymoma: A Dosimetric Comparison of Photon or Proton Intensity-Modulated Therapy.\"",
     "url": "https://zenodo.org/records/20039662",
     "summary": " This record contains raw data related to article \n Cardiac Exposure Related to Adjuvant Radiotherapy in Patients Affected by Thymoma: A Dosimetric Comparison of Photon or Proton Intensity-Modulated Therapy \n Abstract \n \n  Background:&nbsp; Radiotherapy for thymoma is delivered post-operatively in selected cases. Given the particular location of the thymic bed and the excellent prognosis, late cardiac toxicities may be an issue. The purpose of this retrospective dosimetric study is to investigate whether intensity-modulated proton beam therapy (IMPT) compared to photon therapy could better spare cardiac substructures, given prespecified dose constraints. \n  Methods:&nbsp; We retrospectively selected patients treated with adjuvant radiotherapy for thymoma in our institution. We manually contoured fourteen cardiac substructures (CSs), with the supervision of a team of cardioradiologists. The photon-based plans were re-optimized in adherence to the volumetric modulated arc therapy (VMAT) technique with specific dose constraints for the new contoured structures. The proton-based plans were optimized in adherence to intensity-modulated proton therapy (IMPT) using the beam spot scanning ",
@@ -2688,34 +2688,6 @@
     "heuristic_total_score": 12,
     "heuristic_reasons": [
       "Matched 3 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Single pencil beam benchmark of a module for Monte Carlo simulation of proton transport in the PENELOPE code",
-    "url": "https://zenodo.org/records/4804021",
-    "summary": " Background and purpose: PENH is a recently coded module for simulation of proton transport in conjunction with the Monte Carlo code PENELOPE. PENELOPE applies class II simulation to all type of interactions, in particular, to elastic collisions. PENH uses calculated differential cross sections for proton elastic collisions that include electron screening effects as well as nuclear structure effects. Proton-induced nuclear reactions are simulated from information in the ENDF-6 database or from alternative nuclear databases in ENDF format. The purpose of this work is to benchmark this module by simulating absorbed dose distributions from a single finite spot size proton pencil beam in water. \n\n  \nMaterials and methods: Monte Carlo simulations with PENH are compared with simulation results from TOPAS Monte Carlo (v3.1p2) and RayStation Monte Carlo (v6). Different beam models are examined in terms of mean energy and energy spread to match the measured profiles. The phase-space file is derived from experimental measurements. Simulated absorbed dose distributions are compared to experimental data obtained with the ionization chamber array MatriXX 2D detector (IBA Dosimetry) in a water t",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2020-12-10",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.1002/mp.14598",
-    "creators": [
-      "Verbeek, Nico",
-      "Wulff, Jörg",
-      "Bäumer, Christian",
-      "Timmermann, Beate",
-      "Brualla, Lorenzo"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 3,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 14,
-    "heuristic_reasons": [
-      "Matched 3 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -2834,6 +2806,43 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Experiments and Monte Carlo simulations on multiple Coulomb scattering of protons",
+    "url": "https://zenodo.org/records/4925636",
+    "summary": " Background and purpose: Monte Carlo simulations as well as analytical computations of proton transport in material media require accurate values of multiple Coulomb scattering (MCS) angles. High-quality experimental data on MCS angles in the energy range for proton therapy are, however, sparse. In this work, MCS modeling in proton transport was evaluated employing an experimental method to measure these angles on a medical proton beamline in clinically relevant materials. Results are compared to Monte Carlo simulations and analytical models. \n\n Materials and methods: Aluminum, brass, and lucite (PMMA) scatterers of clinically relevant thicknesses were irradiated with protons at 100, 160, and 220 MeV. Resulting spatial distributions of individual pencil beams were measured with a scintillating screen. The MCS angles were determined by deconvolution and a virtual point source approach. Results were compared to those obtained with the Monte Carlo codes PENH, TOPAS, and RayStation Monte Carlo, as well as the analytical models RayStation Pencil Beam Algorithm and the Moli&egrave;re/Fano/Hanson variant of the Moli&egrave;re theory.&nbsp; \n\n Results: Experimental data obtained with the p",
+    "tags": [
+      "Geant4",
+      "Monte Carlo",
+      "multiple scattering",
+      "PENELOPE",
+      "PENH",
+      "proton",
+      "TOPAS"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2021-03-18",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1002/mp.14860",
+    "creators": [
+      "Verbeek, Nico",
+      "Wulff, Jörg",
+      "Janson, Martin",
+      "Bäumer, Christian",
+      "Timmermann, Beate",
+      "Brualla, Lorenzo"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 14,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Role of external radiotherapy in the treatment of Naso-sinus sarcomas",
     "url": "https://zenodo.org/records/17192210",
     "summary": " Naso-sinus sarcomas are uncommon and aggressive tumors with limited treatment options due to their proximity to vital structures. This retrospective study examines the effectiveness of external beam radiotherapy (EBRT), particularly intensity-modulated radiotherapy (IMRT), in managing these malignancies. Sixteen patients treated between 2013 and 2023 were analyzed, receiving radiation doses between 50 and 70 Gy. Additionally, 62.5% of patients with high-risk histologies underwent chemotherapy. Surgical resection was performed in 12.5% of cases. \n Most patients tolerated treatment well, experiencing only mild to moderate toxicities. Complete response was observed in 37.5% of cases, while 31.25% achieved partial response, and 18.75% had stable disease. Disease progression occurred in 12.5% of patients. Median disease-free survival was longer for those receiving chemotherapy (20 months) compared to those who did not (15 months). The overall median survival reached 24 months. \n These results underscore the importance of EBRT, particularly IMRT, in the multidisciplinary management of naso-sinus sarcomas. IMRT demonstrated improved local control with reduced toxicity. However, treatment",
@@ -2867,43 +2876,6 @@
     "heuristic_total_score": 12,
     "heuristic_reasons": [
       "Matched 3 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Experiments and Monte Carlo simulations on multiple Coulomb scattering of protons",
-    "url": "https://zenodo.org/records/4925636",
-    "summary": " Background and purpose: Monte Carlo simulations as well as analytical computations of proton transport in material media require accurate values of multiple Coulomb scattering (MCS) angles. High-quality experimental data on MCS angles in the energy range for proton therapy are, however, sparse. In this work, MCS modeling in proton transport was evaluated employing an experimental method to measure these angles on a medical proton beamline in clinically relevant materials. Results are compared to Monte Carlo simulations and analytical models. \n\n Materials and methods: Aluminum, brass, and lucite (PMMA) scatterers of clinically relevant thicknesses were irradiated with protons at 100, 160, and 220 MeV. Resulting spatial distributions of individual pencil beams were measured with a scintillating screen. The MCS angles were determined by deconvolution and a virtual point source approach. Results were compared to those obtained with the Monte Carlo codes PENH, TOPAS, and RayStation Monte Carlo, as well as the analytical models RayStation Pencil Beam Algorithm and the Moli&egrave;re/Fano/Hanson variant of the Moli&egrave;re theory.&nbsp; \n\n Results: Experimental data obtained with the p",
-    "tags": [
-      "Geant4",
-      "Monte Carlo",
-      "multiple scattering",
-      "PENELOPE",
-      "PENH",
-      "proton",
-      "TOPAS"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2021-03-18",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.1002/mp.14860",
-    "creators": [
-      "Verbeek, Nico",
-      "Wulff, Jörg",
-      "Janson, Martin",
-      "Bäumer, Christian",
-      "Timmermann, Beate",
-      "Brualla, Lorenzo"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 3,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 14,
-    "heuristic_reasons": [
-      "Matched 3 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -3007,6 +2979,42 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Monitoring of breathing motion in image-guided PBS proton therapy: comparative analysis of optical and electromagnetic technologies",
+    "url": "https://zenodo.org/records/439771",
+    "summary": "  Background:  Motion monitoring is essential when treating non-static tumours with pencil beam scanned protons. 4D medical imaging typically relies on the detected body surface displacement, considered as a surrogate of the patient's anatomical changes, a concept similarly applied by most motion mitigation techniques. In this study, we investigate benefits and pitfalls of optical and electromagnetic tracking, key technologies for non-invasive surface motion monitoring, in the specific environment of image-guided, gantry-based proton therapy.   Methods:  Polaris SPECTRA optical tracking system and the Aurora V3 electromagnetic tracking system from Northern Digital Inc. (NDI, Waterloo, CA) have been compared both technically, by measuring tracking errors and system latencies under laboratory conditions, and clinically, by assessing their practicalities and sensitivities when used with imaging devices and PBS treatment gantries. Additionally, we investigated the impact of using different surrogate signals, from different systems, on the reconstructed 4D CT images.   Results:  Even though in controlled laboratory conditions both technologies allow for the localization of static fiduci",
+    "tags": [
+      "Respiratory motion",
+      "Optical tracking",
+      "Electromagnetic tracking",
+      "Proton therapy",
+      "Gantry",
+      "CT imaging"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2017-03-31",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1186/s13014-017-0797-9",
+    "creators": [
+      "Fattori, Giovanni",
+      "Safai, Sairos",
+      "Carmona, Pablo Fernández",
+      "Peroni, Marta",
+      "Perrin, Rosalind",
+      "Weber, Damien Charles",
+      "Lomax, Antony John"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 12,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Monte Carlo simulated absorbed dose distributions inside BluePhantom2 water phantom with PMMA walls for 220 MeV pencil proton beam",
     "url": "https://zenodo.org/records/7585287",
     "summary": " This dataset consists of Monte Carlo simulated dose distributions inside 65x62x55 cm 3  BluePhantom 2  water phantom with PMMA walls for 220 MeV pencil proton beam. Contribution to the absorbed dose is provided separately for protons, photons+electron, and neutrons. Neutron and the total equivalent dose is also provided. \n\n Monte Carlo simulations used the&nbsp;MCNP6.2 code. Libraries used: HLIB=70h NLIB=00c PLIB=14p ELIB=03e PNLIB=70u. Particle cut-off energies used:&nbsp;CUT:P 4 keV, CUT:H 300 keV, CUT:E 2 keV, CUT:T,A,D,S,|,# j 1 MeV.&nbsp;Primary beam: monoenergetic 220 MeV proton pencil beam, beam profile full-width at half maximum = 1.5 cm. \n\n This is the result of the EMPIR 18HLT04 UHDpulse project. \n&nbsp; ",
@@ -3062,32 +3070,29 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Monitoring of breathing motion in image-guided PBS proton therapy: comparative analysis of optical and electromagnetic technologies",
-    "url": "https://zenodo.org/records/439771",
-    "summary": "  Background:  Motion monitoring is essential when treating non-static tumours with pencil beam scanned protons. 4D medical imaging typically relies on the detected body surface displacement, considered as a surrogate of the patient's anatomical changes, a concept similarly applied by most motion mitigation techniques. In this study, we investigate benefits and pitfalls of optical and electromagnetic tracking, key technologies for non-invasive surface motion monitoring, in the specific environment of image-guided, gantry-based proton therapy.   Methods:  Polaris SPECTRA optical tracking system and the Aurora V3 electromagnetic tracking system from Northern Digital Inc. (NDI, Waterloo, CA) have been compared both technically, by measuring tracking errors and system latencies under laboratory conditions, and clinically, by assessing their practicalities and sensitivities when used with imaging devices and PBS treatment gantries. Additionally, we investigated the impact of using different surrogate signals, from different systems, on the reconstructed 4D CT images.   Results:  Even though in controlled laboratory conditions both technologies allow for the localization of static fiduci",
+    "title": "Code for paper \"Clinical utility of automatic treatment planning for proton therapy of head-and-neck cancer patients using JulianA\"",
+    "url": "https://zenodo.org/records/11410491",
+    "summary": " Code for reproducing the results of the paper \"Clinical utility of automatic treatment planning for proton1 therapy of head-and-neck cancer patients using JulianA\". \n The medical data required for the reproduction is available upon request and may be subject to legal regulations. \n The binary of the FIonA treatment planning system is available up request. \n Please contact the authors regarding questions about the manuscript or the source code. ",
     "tags": [
-      "Respiratory motion",
-      "Optical tracking",
-      "Electromagnetic tracking",
-      "Proton therapy",
-      "Gantry",
-      "CT imaging"
+      "radiotherapy",
+      "proton therapy",
+      "automatic treatment planning",
+      "intensity-modulated proton therapy",
+      "IMPT",
+      "optimisation"
     ],
-    "license": "cc-by-4.0",
-    "updated_at": "2017-03-31",
+    "license": "bsd-3-clause",
+    "updated_at": "2024-06-01",
     "downloads": null,
     "likes": null,
-    "doi": "10.1186/s13014-017-0797-9",
+    "doi": "10.5281/zenodo.11410491",
     "creators": [
-      "Fattori, Giovanni",
-      "Safai, Sairos",
-      "Carmona, Pablo Fernández",
-      "Peroni, Marta",
-      "Perrin, Rosalind",
-      "Weber, Damien Charles",
-      "Lomax, Antony John"
+      "Bellotti, Renato",
+      "Lomax, Tony",
+      "Adelmann, Andreas",
+      "Hrbacek, Jan"
     ],
-    "record_type": "publication",
+    "record_type": "software",
     "heuristic_particle_hits": 3,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 12,
@@ -3141,39 +3146,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Code for paper \"Clinical utility of automatic treatment planning for proton therapy of head-and-neck cancer patients using JulianA\"",
-    "url": "https://zenodo.org/records/11410491",
-    "summary": " Code for reproducing the results of the paper \"Clinical utility of automatic treatment planning for proton1 therapy of head-and-neck cancer patients using JulianA\". \n The medical data required for the reproduction is available upon request and may be subject to legal regulations. \n The binary of the FIonA treatment planning system is available up request. \n Please contact the authors regarding questions about the manuscript or the source code. ",
-    "tags": [
-      "radiotherapy",
-      "proton therapy",
-      "automatic treatment planning",
-      "intensity-modulated proton therapy",
-      "IMPT",
-      "optimisation"
-    ],
-    "license": "bsd-3-clause",
-    "updated_at": "2024-06-01",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.11410491",
-    "creators": [
-      "Bellotti, Renato",
-      "Lomax, Tony",
-      "Adelmann, Andreas",
-      "Hrbacek, Jan"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 3,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 12,
-    "heuristic_reasons": [
-      "Matched 3 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Monte Carlo Computation of Dose-Volume Histograms in Structures at Risk of an Eye Irradiated with Heterogeneous Ruthenium-106 Plaques",
     "url": "https://zenodo.org/records/4120943",
     "summary": "  Background/Aims  \nThe aim of this work is the comparison of Monte Carlo simulated absorbed dose&nbsp;distributions obtained from  106 Ru eye plaques, whose heterogeneous emitter&nbsp;distribution is known, with the common homogeneous approximation. The effect&nbsp;of these heterogeneities on segmented structures at risk is analyzed using an&nbsp;anthropomorphic phantom. \n\n  Methods  \nThe generic CCA and CCB, with a homogeneous emitter map, and the specific&nbsp;CCA1364 and CCB1256  106 Ru eye plaques are modeled with the Monte Carlo&nbsp;code PENELOPE. To compare the effect of the heterogeneities in the&nbsp;segmented volumes, cumulative dose-volume histograms are calculated for&nbsp;different rotations of the aforementioned plaques. \n\n  Results  \nFor the cornea, the CCA with the equatorial placement yields the lowest&nbsp;absorbed dose rate while for the CCA1364 in the same placement the absorbed&nbsp;dose rate is 33% higher. The CCB1256 with the hot spot oriented towards the&nbsp;cornea yields the maximum dose rate per unit of activity while for the CCB is&nbsp;44% lower. \n\n  Conclusions  \nDose calculations based on a homogeneous distribution of the emitter&nbsp;substance yield",
@@ -3212,38 +3184,41 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Integration of ultrasound-guided motion management into proton therapy treatment plans for ventricular tachycardia non-invasive radio ablation",
-    "url": "https://zenodo.org/records/17143024",
-    "summary": " Abstract \n \n\n\n Background \n Stereotactic arrhythmia radioablation (STAR) is an emerging, non-invasive treatment for refractory ventricular arrhythmias. The technology requires target motion management. \n\n\n\n Purpose \n We studied the integration of a novel ultrasound probe and holder for heart motion management into proton-beam STAR treatment plans. \n\n\n\n Methods \n Data were collected in eight of the 23 patients enrolled to-date, in an ongoing prospective, multicenter, observational in silico study comparing treatment planning with photons versus proton radiotherapy in patients affected by Ventricular Tachycardia with indication for catheter ablation procedure. In such subgroup of patients hands-free transthoracic echocardiography was performed in apical and parasternal positions, followed by planning Computed Tomography with ultrasound probe positions marked on the chest. A total of eleven targets were contoured and, for the proton therapy part, pencil beam scanning intensity-modulated proton therapy plans were optimized, assuming cardio-respiratory (dual) gated delivery. \n\n\n\n Results \n In all eleven cases, it was possible to avoid beams intercepting the probe and the dosimetric con",
+    "title": "Validation of a Monte Carlo Framework for Out-of-Field Dose Calculations in Proton Therapy",
+    "url": "https://zenodo.org/records/6692198",
+    "summary": " Proton therapy enables to deliver highly conformed dose distributions owing to the \ncharacteristic Bragg peak and the finite range of protons. However, during proton therapy, \nsecondary neutrons are created, which can travel long distances and deposit dose in outof-field volumes. This out-of-field absorbed dose needs to be considered for radiationinduced secondary cancers, which are particularly relevant in the case of pediatric \ntreatments. Unfortunately, no method exists in clinics for the computation of the out-offield dose distributions in proton therapy. To help overcome this limitation, a \ncomputational tool has been developed based on the Monte Carlo code TOPAS. The \npurpose of this work is to evaluate the accuracy of this tool in comparison to experimental \ndata obtained from an anthropomorphic phantom irradiation. An anthropomorphic \nphantom of a 5-year-old child (ATOM, CIRS) was irradiated for a brain tumor treatment \nin an IBA Proteus Plus facility using a pencil beam dedicated nozzle. The treatment \nconsisted of three pencil beam scanning fields employing a lucite range shifter. Proton \nenergies ranged from 100 to 165 MeV. A median dose of 50.4 Gy(RBE) with 1.8 Gy(RBE)",
     "tags": [
-      "cardiac radiation",
       "proton therapy",
-      "treatment planning",
-      "ultrasound guidance"
+      "anthropomorphic pediatric phantom",
+      "Monte Carlo simulation",
+      "out-of-field dosimetry",
+      "TLD",
+      "bubble detector"
     ],
     "license": "cc-by-4.0",
-    "updated_at": "2025-08-16",
+    "updated_at": "2022-06-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.1002/acm2.70213",
+    "doi": "10.3389/fonc.2022.882489",
     "creators": [
-      "Rossi, Eleonora",
-      "Mirandola, Alfredo",
-      "Basla, Nicoletta",
-      "Bonzano, Elisabetta",
-      "Ciocca, Mario",
-      "Cisarri, Andrea",
-      "Colombo Gomez, Luca Maria",
-      "Di Liberto, Riccardo",
-      "Garonna, Adriano",
-      "Mantovani, Laura"
+      "De Saint-Hubert, Marijke",
+      "Verbeek, Nico",
+      "Bäumer, Christian",
+      "Esser, Johannes",
+      "Wulff, Jörg",
+      "Nabha, Racell",
+      "Van Hoey, Olivier",
+      "Dabin, Jérémie",
+      "Stuckmann, Florian",
+      "Vasi, Fabiano"
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 4,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 16,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 18,
     "heuristic_reasons": [
-      "Matched 4 particle-therapy term(s)."
+      "Matched 4 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -4194,6 +4169,34 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Single pencil beam benchmark of a module for Monte Carlo simulation of proton transport in the PENELOPE code",
+    "url": "https://zenodo.org/records/4804021",
+    "summary": " Background and purpose: PENH is a recently coded module for simulation of proton transport in conjunction with the Monte Carlo code PENELOPE. PENELOPE applies class II simulation to all type of interactions, in particular, to elastic collisions. PENH uses calculated differential cross sections for proton elastic collisions that include electron screening effects as well as nuclear structure effects. Proton-induced nuclear reactions are simulated from information in the ENDF-6 database or from alternative nuclear databases in ENDF format. The purpose of this work is to benchmark this module by simulating absorbed dose distributions from a single finite spot size proton pencil beam in water. \n\n  \nMaterials and methods: Monte Carlo simulations with PENH are compared with simulation results from TOPAS Monte Carlo (v3.1p2) and RayStation Monte Carlo (v6). Different beam models are examined in terms of mean energy and energy spread to match the measured profiles. The phase-space file is derived from experimental measurements. Simulated absorbed dose distributions are compared to experimental data obtained with the ionization chamber array MatriXX 2D detector (IBA Dosimetry) in a water t",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2020-12-10",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1002/mp.14598",
+    "creators": [
+      "Verbeek, Nico",
+      "Wulff, Jörg",
+      "Bäumer, Christian",
+      "Timmermann, Beate",
+      "Brualla, Lorenzo"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 14,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Dataset: Out-of-field measurements and simulations of a proton pencil beam in a wide range of dose rates using a Timepix3 detector: Dose rate, flux and LET",
     "url": "https://zenodo.org/records/7675145",
     "summary": " Open data set&nbsp;for&nbsp;Out-of-field measurements and simulations of a proton pencil beam in a wide range of dose rates using a Timepix3 detector: Dose rate, flux and LET ",
@@ -4219,34 +4222,6 @@
     "heuristic_total_score": 12,
     "heuristic_reasons": [
       "Matched 3 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Single pencil beam benchmark of a module for Monte Carlo simulation of proton transport in the PENELOPE code",
-    "url": "https://zenodo.org/records/4804021",
-    "summary": " Background and purpose: PENH is a recently coded module for simulation of proton transport in conjunction with the Monte Carlo code PENELOPE. PENELOPE applies class II simulation to all type of interactions, in particular, to elastic collisions. PENH uses calculated differential cross sections for proton elastic collisions that include electron screening effects as well as nuclear structure effects. Proton-induced nuclear reactions are simulated from information in the ENDF-6 database or from alternative nuclear databases in ENDF format. The purpose of this work is to benchmark this module by simulating absorbed dose distributions from a single finite spot size proton pencil beam in water. \n\n  \nMaterials and methods: Monte Carlo simulations with PENH are compared with simulation results from TOPAS Monte Carlo (v3.1p2) and RayStation Monte Carlo (v6). Different beam models are examined in terms of mean energy and energy spread to match the measured profiles. The phase-space file is derived from experimental measurements. Simulated absorbed dose distributions are compared to experimental data obtained with the ionization chamber array MatriXX 2D detector (IBA Dosimetry) in a water t",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2020-12-10",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.1002/mp.14598",
-    "creators": [
-      "Verbeek, Nico",
-      "Wulff, Jörg",
-      "Bäumer, Christian",
-      "Timmermann, Beate",
-      "Brualla, Lorenzo"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 3,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 14,
-    "heuristic_reasons": [
-      "Matched 3 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -4374,37 +4349,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Simulated shielding performance of 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO",
-    "url": "https://zenodo.org/records/7622159",
-    "summary": " The 5Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), tungsten (G4_W) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 5Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 1.4e+11 electrons and 3.1e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the five layers being 0.3 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: Name of the second layer material. \nColumn D: Name of the third lay",
-    "tags": [
-      "Radiation Shielding",
-      "Geant4",
-      "GRAS",
-      "Total Ionizing Dose",
-      "Multilayer Shielding",
-      "Satellite Shielding"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-02-08",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.7622159",
-    "creators": [
-      "Fetzer, Anton"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Simulated shielding performance of 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO",
     "url": "https://zenodo.org/records/7621281",
     "summary": " The 4Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), kevlar (G4_KEVLAR), tungsten (G4_W), stainless steel (G4_STAINLESS_STEEL) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 4Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 6.6e+10 electrons and 3.8e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the four layers being 0.375 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: N",
@@ -4421,6 +4365,37 @@
     "downloads": null,
     "likes": null,
     "doi": "10.5281/zenodo.7621281",
+    "creators": [
+      "Fetzer, Anton"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Simulated shielding performance of 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO",
+    "url": "https://zenodo.org/records/7622159",
+    "summary": " The 5Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), tungsten (G4_W) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 5Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 1.4e+11 electrons and 3.1e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the five layers being 0.3 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: Name of the second layer material. \nColumn D: Name of the third lay",
+    "tags": [
+      "Radiation Shielding",
+      "Geant4",
+      "GRAS",
+      "Total Ionizing Dose",
+      "Multilayer Shielding",
+      "Satellite Shielding"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2023-02-08",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.7622159",
     "creators": [
       "Fetzer, Anton"
     ],
@@ -4627,29 +4602,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Dataset related to article \"  Cardiac Exposure Related to Adjuvant Radiotherapy in Patients Affected by Thymoma: A Dosimetric Comparison of Photon or Proton Intensity-Modulated Therapy.\"",
-    "url": "https://zenodo.org/records/20039662",
-    "summary": " This record contains raw data related to article \n Cardiac Exposure Related to Adjuvant Radiotherapy in Patients Affected by Thymoma: A Dosimetric Comparison of Photon or Proton Intensity-Modulated Therapy \n Abstract \n \n  Background:&nbsp; Radiotherapy for thymoma is delivered post-operatively in selected cases. Given the particular location of the thymic bed and the excellent prognosis, late cardiac toxicities may be an issue. The purpose of this retrospective dosimetric study is to investigate whether intensity-modulated proton beam therapy (IMPT) compared to photon therapy could better spare cardiac substructures, given prespecified dose constraints. \n  Methods:&nbsp; We retrospectively selected patients treated with adjuvant radiotherapy for thymoma in our institution. We manually contoured fourteen cardiac substructures (CSs), with the supervision of a team of cardioradiologists. The photon-based plans were re-optimized in adherence to the volumetric modulated arc therapy (VMAT) technique with specific dose constraints for the new contoured structures. The proton-based plans were optimized in adherence to intensity-modulated proton therapy (IMPT) using the beam spot scanning ",
-    "tags": [],
-    "license": null,
-    "updated_at": "2026-05-05",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.20039662",
-    "creators": [
-      "Davide Franceschini"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 4,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 16,
-    "heuristic_reasons": [
-      "Matched 4 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Experiments and Monte Carlo simulations on multiple Coulomb scattering of protons",
     "url": "https://zenodo.org/records/4925636",
     "summary": " Background and purpose: Monte Carlo simulations as well as analytical computations of proton transport in material media require accurate values of multiple Coulomb scattering (MCS) angles. High-quality experimental data on MCS angles in the energy range for proton therapy are, however, sparse. In this work, MCS modeling in proton transport was evaluated employing an experimental method to measure these angles on a medical proton beamline in clinically relevant materials. Results are compared to Monte Carlo simulations and analytical models. \n\n Materials and methods: Aluminum, brass, and lucite (PMMA) scatterers of clinically relevant thicknesses were irradiated with protons at 100, 160, and 220 MeV. Resulting spatial distributions of individual pencil beams were measured with a scintillating screen. The MCS angles were determined by deconvolution and a virtual point source approach. Results were compared to those obtained with the Monte Carlo codes PENH, TOPAS, and RayStation Monte Carlo, as well as the analytical models RayStation Pencil Beam Algorithm and the Moli&egrave;re/Fano/Hanson variant of the Moli&egrave;re theory.&nbsp; \n\n Results: Experimental data obtained with the p",
@@ -4687,68 +4639,60 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Effects of exposure to high-energy protons on rat's behavior and underlying neurochemical mechanisms",
-    "url": "https://zenodo.org/records/20043192",
-    "summary": " This short communication points towards a potential improvement (at the trend level) in a high-level cognitive task (differential learning in the Y-maze) in rats following proton (165 MeV) irradiation at a dose of 1.5 Gy, but not 3 Gy. ",
-    "tags": [
-      "deep space missions",
-      "cognition",
-      "monoamines",
-      "rats"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2013-12",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.20043192",
-    "creators": [
-      "Shtemberg, Andrey",
-      "Bazyan, Ara",
-      "Lebedeva-Georgievskaya, Ksenia",
-      "Marina, Matveeva",
-      "Vladimir, Kudrin",
-      "Narkevich, Viktor",
-      "Klodt, Petr",
-      "Kokhan, Viktor"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Complete patient exposure during paediatric brain cancer treatment for photon and proton therapy techniques including imaging procedures",
-    "url": "https://zenodo.org/records/13738190",
-    "summary": " Background: In radiotherapy, especially when treating children, minimising exposure of healthy tissue can prevent the development of adverse outcomes, including second cancers. In this study we propose a validated Monte Carlo framework to evaluate the complete patient exposure during paediatric brain cancer treatment. Materials and methods: Organ doses were calculated for treatment of a diffuse midline glioma (50.4 Gy with 1.8 Gy per fraction) on a 5-year-old anthropomorphic phantom with 3D-conformal radiotherapy, intensity modulated radiotherapy (IMRT), volumetric modulated arc therapy (VMAT) and intensity modulated pencil beam scanning (PBS) proton therapy. Doses from computed tomography (CT) for planning and on-board imaging for positioning (kV-cone beam CT and X-ray imaging) accounted for the estimate of the exposure of the patient including imaging therapeutic dose. For dose calculations we used validated Monte Carlo-based tools (PRIMO, TOPAS, PENELOPE), while lifetime attributable risk (LAR) was estimated from doseresponse relationships for cancer induction, proposed by Schneider et al. \n Results: Out-of-field organ dose equivalent data of proton therapy are lower, with dose",
+    "title": "Dataset related to article \"  Cardiac Exposure Related to Adjuvant Radiotherapy in Patients Affected by Thymoma: A Dosimetric Comparison of Photon or Proton Intensity-Modulated Therapy.\"",
+    "url": "https://zenodo.org/records/20039662",
+    "summary": " This record contains raw data related to article \n Cardiac Exposure Related to Adjuvant Radiotherapy in Patients Affected by Thymoma: A Dosimetric Comparison of Photon or Proton Intensity-Modulated Therapy \n Abstract \n \n  Background:&nbsp; Radiotherapy for thymoma is delivered post-operatively in selected cases. Given the particular location of the thymic bed and the excellent prognosis, late cardiac toxicities may be an issue. The purpose of this retrospective dosimetric study is to investigate whether intensity-modulated proton beam therapy (IMPT) compared to photon therapy could better spare cardiac substructures, given prespecified dose constraints. \n  Methods:&nbsp; We retrospectively selected patients treated with adjuvant radiotherapy for thymoma in our institution. We manually contoured fourteen cardiac substructures (CSs), with the supervision of a team of cardioradiologists. The photon-based plans were re-optimized in adherence to the volumetric modulated arc therapy (VMAT) technique with specific dose constraints for the new contoured structures. The proton-based plans were optimized in adherence to intensity-modulated proton therapy (IMPT) using the beam spot scanning ",
     "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-09-19",
+    "license": null,
+    "updated_at": "2026-05-05",
     "downloads": null,
     "likes": null,
-    "doi": "10.3389/fonc.2023.1222800",
+    "doi": "10.5281/zenodo.20039662",
     "creators": [
-      "De Saint-Hubert, Marijke",
-      "Boissonnat, Gillaume",
-      "Schneider, Uwe",
-      "Bäumer, Christian",
-      "Verbeek, Nico",
-      "Esser, Johannes",
-      "Wulff, Jörg",
-      "Stuckmann, Florian",
-      "Suesselbeck, Finja",
-      "Nabha, Racell"
+      "Davide Franceschini"
     ],
-    "record_type": "publication",
+    "record_type": "dataset",
     "heuristic_particle_hits": 4,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 16,
     "heuristic_reasons": [
       "Matched 4 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Monitoring of breathing motion in image-guided PBS proton therapy: comparative analysis of optical and electromagnetic technologies",
+    "url": "https://zenodo.org/records/439771",
+    "summary": "  Background:  Motion monitoring is essential when treating non-static tumours with pencil beam scanned protons. 4D medical imaging typically relies on the detected body surface displacement, considered as a surrogate of the patient's anatomical changes, a concept similarly applied by most motion mitigation techniques. In this study, we investigate benefits and pitfalls of optical and electromagnetic tracking, key technologies for non-invasive surface motion monitoring, in the specific environment of image-guided, gantry-based proton therapy.   Methods:  Polaris SPECTRA optical tracking system and the Aurora V3 electromagnetic tracking system from Northern Digital Inc. (NDI, Waterloo, CA) have been compared both technically, by measuring tracking errors and system latencies under laboratory conditions, and clinically, by assessing their practicalities and sensitivities when used with imaging devices and PBS treatment gantries. Additionally, we investigated the impact of using different surrogate signals, from different systems, on the reconstructed 4D CT images.   Results:  Even though in controlled laboratory conditions both technologies allow for the localization of static fiduci",
+    "tags": [
+      "Respiratory motion",
+      "Optical tracking",
+      "Electromagnetic tracking",
+      "Proton therapy",
+      "Gantry",
+      "CT imaging"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2017-03-31",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1186/s13014-017-0797-9",
+    "creators": [
+      "Fattori, Giovanni",
+      "Safai, Sairos",
+      "Carmona, Pablo Fernández",
+      "Peroni, Marta",
+      "Perrin, Rosalind",
+      "Weber, Damien Charles",
+      "Lomax, Antony John"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 12,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -5026,6 +4970,39 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Updated 4DCT(MRI)",
+    "url": "https://zenodo.org/records/7052585",
+    "summary": "  Code for generating a synthetic 4DCT(MRI) from&nbsp;a reference CT and a 4DMRI or moving mesh data.  \n\n This is the updated version of the code for 4DCT(MRI) generation including ribcage motion and density scaling [1]. The previous version [2] can still be found at  10.5281/zenodo.5010964 . \n\n The newest version of the code and instructions on how to use it can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DCT-MRI . \n\n 4DMRI moving lung mesh data for the generation of 4DCT(MRI)s can be found here  https://gitlab.psi.ch/4DCT-MRI_updated/4DMRI_moving_meshes . \n\n Please cite the following publications when using the code: \n\n [1] Jenny, T., Duetschler, A., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Technical Note: Towards more realistic 4DCT(MRI) numerical lung phantoms . Manuscript submitted for publication. \n\n [2] Duetschler, A., Bauman, G., Bieri, O., Cattin, P.C., Ehrbar, S., Engin-Deniz, G., Giger, A., Josipovic, M., Jud, C., Krieger, M., Nguyen, D., Persson, G.F., Salomir, R., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Synthetic 4DCT(MRI) lung phantom generation for 4D radiotherapy and image guidance investigations.  Med. Phys..  https://doi.org/10.1002/mp.1559",
+    "tags": [
+      "4D numerical phantom",
+      "4DMRI",
+      "intrafraction motion",
+      "4D imaging",
+      "proton therapy",
+      "radiotherapy"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2021-06-22",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.7052585",
+    "creators": [
+      "Duetschler, Alisha",
+      "Jenny, Timothy",
+      "Lomax, Antony J",
+      "Zhang, Ye"
+    ],
+    "record_type": "software",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Polymer Electrolyte Membrane Water Electrolyzer Oxygen Bubble Evolution Optical Video Recording For Deep Learning-Enhanced Characterization of Bubble Dynamics in Proton Exchange Membrane Water Electrolyzer by André Colliard-Granero, Keusra A. Gompou, Christian Rodenbücher, Kourosh Malek, Michael H. Eikerling, and Mohammad J. Eslamibidgoli",
     "url": "https://zenodo.org/records/10184579",
     "summary": " Dataset used for the training of the segmentation model employed in the work \"Deep Learning-Enhanced Characterization of Bubble Dynamics in Proton Exchange Membrane Water Electrolyzer\" by André Colliard-Granero, Keusra A. Gompou, Christian Rodenbücher, Kourosh Malek, Michael H. Eikerling, and Mohammad J. Eslamibidgoli. This dataset consists in 35 images and the corresponding manual annotated masks of diverse bubbly scenarios extracted from the optical video recording of a PEMWE with a transparent flow field. ",
@@ -5060,39 +5037,6 @@
     "heuristic_reasons": [
       "Matched 1 particle-therapy term(s).",
       "Matched 4 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Updated 4DCT(MRI)",
-    "url": "https://zenodo.org/records/7052585",
-    "summary": "  Code for generating a synthetic 4DCT(MRI) from&nbsp;a reference CT and a 4DMRI or moving mesh data.  \n\n This is the updated version of the code for 4DCT(MRI) generation including ribcage motion and density scaling [1]. The previous version [2] can still be found at  10.5281/zenodo.5010964 . \n\n The newest version of the code and instructions on how to use it can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DCT-MRI . \n\n 4DMRI moving lung mesh data for the generation of 4DCT(MRI)s can be found here  https://gitlab.psi.ch/4DCT-MRI_updated/4DMRI_moving_meshes . \n\n Please cite the following publications when using the code: \n\n [1] Jenny, T., Duetschler, A., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Technical Note: Towards more realistic 4DCT(MRI) numerical lung phantoms . Manuscript submitted for publication. \n\n [2] Duetschler, A., Bauman, G., Bieri, O., Cattin, P.C., Ehrbar, S., Engin-Deniz, G., Giger, A., Josipovic, M., Jud, C., Krieger, M., Nguyen, D., Persson, G.F., Salomir, R., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Synthetic 4DCT(MRI) lung phantom generation for 4D radiotherapy and image guidance investigations.  Med. Phys..  https://doi.org/10.1002/mp.1559",
-    "tags": [
-      "4D numerical phantom",
-      "4DMRI",
-      "intrafraction motion",
-      "4D imaging",
-      "proton therapy",
-      "radiotherapy"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2021-06-22",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.7052585",
-    "creators": [
-      "Duetschler, Alisha",
-      "Jenny, Timothy",
-      "Lomax, Antony J",
-      "Zhang, Ye"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -5264,30 +5208,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Reclassification of the Proton Phase-Correlation Scale and the Fundamental Scales of Habitatons and Voidons",
-    "url": "https://zenodo.org/records/21862590",
-    "summary": "  This supplementary manuscript revises the length-scale hierarchy used for the proton, habitatons, voidons, and neutrino signals in Habitat Information Physics. The reduced proton Compton wavelength is approximately 2.1031 &times; 10⁻&sup1;⁶ m, about one quarter of the proton root-mean-square charge-response scale. The numerical ratio may be retained as a relation between a collective proton phase scale and an electromagnetic boundary-response scale. It does not establish the geometric radius of a single habitaton and cannot be recursively divided to obtain a voidon radius.   [1, 2]  \n  The reduced proton Compton scale is therefore reclassified as the candidate collective phase-correlation length of the proton. The manuscript distinguishes five non-equivalent quantities: a fundamental constituent scale, local response spacing, collective correlation length, boundary-response scale, and propagation wavelength. Neutrinos have no experimentally established rigid geometric radius comparable with the proton charge radius. Their mass-related Compton scale is extremely large because their mass is small, whereas their propagation wavelength decreases with energy. A neutrino near 0.938 GeV",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2026-08-09",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.21862590",
-    "creators": [
-      "Zheng, Zhou"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Evaluating the technical feasibility of biology-guided dose painting in proton therapy",
     "url": "https://zenodo.org/records/17019830",
     "summary": "  Abstract  \n  Biology-guided voxel-level inverse prescription mapping for dose painting (DP) using diffusion-weighted magnetic resonance imaging was evaluated for technical feasibility in proton therapy for 10 skull-base chordoma patients. Patient-specific DP prescriptions were generated from tumour cellularity and implemented in a clinical treatment planning system. Compared with uniform plans, DP achieved lower conformity (although &gt;97%), improved target dose metrics, reduced doses to most organs at risk, and increased tumour control probability without exceeding clinical constraints. DP proton therapy is technically feasible and may enhance treatment effectiveness.  ",
@@ -5438,6 +5358,34 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Single pencil beam benchmark of a module for Monte Carlo simulation of proton transport in the PENELOPE code",
+    "url": "https://zenodo.org/records/4804021",
+    "summary": " Background and purpose: PENH is a recently coded module for simulation of proton transport in conjunction with the Monte Carlo code PENELOPE. PENELOPE applies class II simulation to all type of interactions, in particular, to elastic collisions. PENH uses calculated differential cross sections for proton elastic collisions that include electron screening effects as well as nuclear structure effects. Proton-induced nuclear reactions are simulated from information in the ENDF-6 database or from alternative nuclear databases in ENDF format. The purpose of this work is to benchmark this module by simulating absorbed dose distributions from a single finite spot size proton pencil beam in water. \n\n  \nMaterials and methods: Monte Carlo simulations with PENH are compared with simulation results from TOPAS Monte Carlo (v3.1p2) and RayStation Monte Carlo (v6). Different beam models are examined in terms of mean energy and energy spread to match the measured profiles. The phase-space file is derived from experimental measurements. Simulated absorbed dose distributions are compared to experimental data obtained with the ionization chamber array MatriXX 2D detector (IBA Dosimetry) in a water t",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2020-12-10",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1002/mp.14598",
+    "creators": [
+      "Verbeek, Nico",
+      "Wulff, Jörg",
+      "Bäumer, Christian",
+      "Timmermann, Beate",
+      "Brualla, Lorenzo"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 14,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Code for paper \"Clinical utility of automatic treatment planning for proton therapy of head-and-neck cancer patients using JulianA\"",
     "url": "https://zenodo.org/records/11410491",
     "summary": " Code for reproducing the results of the paper \"Clinical utility of automatic treatment planning for proton1 therapy of head-and-neck cancer patients using JulianA\". \n The medical data required for the reproduction is available upon request and may be subject to legal regulations. \n The binary of the FIonA treatment planning system is available up request. \n Please contact the authors regarding questions about the manuscript or the source code. ",
@@ -5466,34 +5414,6 @@
     "heuristic_total_score": 12,
     "heuristic_reasons": [
       "Matched 3 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Single pencil beam benchmark of a module for Monte Carlo simulation of proton transport in the PENELOPE code",
-    "url": "https://zenodo.org/records/4804021",
-    "summary": " Background and purpose: PENH is a recently coded module for simulation of proton transport in conjunction with the Monte Carlo code PENELOPE. PENELOPE applies class II simulation to all type of interactions, in particular, to elastic collisions. PENH uses calculated differential cross sections for proton elastic collisions that include electron screening effects as well as nuclear structure effects. Proton-induced nuclear reactions are simulated from information in the ENDF-6 database or from alternative nuclear databases in ENDF format. The purpose of this work is to benchmark this module by simulating absorbed dose distributions from a single finite spot size proton pencil beam in water. \n\n  \nMaterials and methods: Monte Carlo simulations with PENH are compared with simulation results from TOPAS Monte Carlo (v3.1p2) and RayStation Monte Carlo (v6). Different beam models are examined in terms of mean energy and energy spread to match the measured profiles. The phase-space file is derived from experimental measurements. Simulated absorbed dose distributions are compared to experimental data obtained with the ionization chamber array MatriXX 2D detector (IBA Dosimetry) in a water t",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2020-12-10",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.1002/mp.14598",
-    "creators": [
-      "Verbeek, Nico",
-      "Wulff, Jörg",
-      "Bäumer, Christian",
-      "Timmermann, Beate",
-      "Brualla, Lorenzo"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 3,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 14,
-    "heuristic_reasons": [
-      "Matched 3 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -5576,33 +5496,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "FLUKA Pre-Optimizer for a Monte Carlo Treatment Planning System",
-    "url": "https://zenodo.org/records/34465",
-    "summary": " Abstract \n\n The EN-STI-EET group is currently working on implementing a Monte Carlo Treatment Planning System (MCTPS) for proton therapy based on FLUKA. Since physics simulations are extremely CPU intensive, a full Monte Carlo based TPS will be almost unaffordable if no any sophisticated optimization is employed. \n\n In this project the Intel Xeon Phi coprocessor will be tested as a tool to speed up the pre-optimization of a Treatment Plan. Firstly, a tool to evaluate the fitness score of a solution will be built and, in the second part of the project, a genetic algorithm and a steepest descent algorithm will be implemented to optimize the treatment. ",
-    "tags": [
-      "CERN openlab Summer Student"
-    ],
-    "license": "cc-by-sa-4.0",
-    "updated_at": "2015-09-01",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.34465",
-    "creators": [
-      "Antoniucci, Guido Arnau",
-      "Vlachoudis, Vasilis",
-      "Kozlowska, Wioletta"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Experiments and Monte Carlo simulations on multiple Coulomb scattering of protons",
     "url": "https://zenodo.org/records/4925636",
     "summary": " Background and purpose: Monte Carlo simulations as well as analytical computations of proton transport in material media require accurate values of multiple Coulomb scattering (MCS) angles. High-quality experimental data on MCS angles in the energy range for proton therapy are, however, sparse. In this work, MCS modeling in proton transport was evaluated employing an experimental method to measure these angles on a medical proton beamline in clinically relevant materials. Results are compared to Monte Carlo simulations and analytical models. \n\n Materials and methods: Aluminum, brass, and lucite (PMMA) scatterers of clinically relevant thicknesses were irradiated with protons at 100, 160, and 220 MeV. Resulting spatial distributions of individual pencil beams were measured with a scintillating screen. The MCS angles were determined by deconvolution and a virtual point source approach. Results were compared to those obtained with the Monte Carlo codes PENH, TOPAS, and RayStation Monte Carlo, as well as the analytical models RayStation Pencil Beam Algorithm and the Moli&egrave;re/Fano/Hanson variant of the Moli&egrave;re theory.&nbsp; \n\n Results: Experimental data obtained with the p",
@@ -5640,6 +5533,33 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "FLUKA Pre-Optimizer for a Monte Carlo Treatment Planning System",
+    "url": "https://zenodo.org/records/34465",
+    "summary": " Abstract \n\n The EN-STI-EET group is currently working on implementing a Monte Carlo Treatment Planning System (MCTPS) for proton therapy based on FLUKA. Since physics simulations are extremely CPU intensive, a full Monte Carlo based TPS will be almost unaffordable if no any sophisticated optimization is employed. \n\n In this project the Intel Xeon Phi coprocessor will be tested as a tool to speed up the pre-optimization of a Treatment Plan. Firstly, a tool to evaluate the fitness score of a solution will be built and, in the second part of the project, a genetic algorithm and a steepest descent algorithm will be implemented to optimize the treatment. ",
+    "tags": [
+      "CERN openlab Summer Student"
+    ],
+    "license": "cc-by-sa-4.0",
+    "updated_at": "2015-09-01",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.34465",
+    "creators": [
+      "Antoniucci, Guido Arnau",
+      "Vlachoudis, Vasilis",
+      "Kozlowska, Wioletta"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Data for figures in article doi 10.1109/TMI.2025.3586075",
     "url": "https://zenodo.org/records/17441325",
     "summary": "   This study was funded by the European Union - NextGenerationEU, in the framework of the iNEST - Interconnected Nord-Est Innovation Ecosystem under Grant iNEST ECS00000043&ndash;CUP    E63C22001030007. The views and opinions expressed are solely those of the authors and do not necessarily reflect those of the European Union, nor can the European Union be held responsible for them. The dataset was developed as part of the activities carried out by Spoke 2,     RT3: Devices for health Project planning: Task 3 - Technology development and clinical feasibility assessment of image-guided proton radiosurgery as a new ablation treatment for life-threatening arrhythmias.    \n  &nbsp;  ",
@@ -5661,6 +5581,42 @@
     "heuristic_total_score": 4,
     "heuristic_reasons": [
       "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Monitoring of breathing motion in image-guided PBS proton therapy: comparative analysis of optical and electromagnetic technologies",
+    "url": "https://zenodo.org/records/439771",
+    "summary": "  Background:  Motion monitoring is essential when treating non-static tumours with pencil beam scanned protons. 4D medical imaging typically relies on the detected body surface displacement, considered as a surrogate of the patient's anatomical changes, a concept similarly applied by most motion mitigation techniques. In this study, we investigate benefits and pitfalls of optical and electromagnetic tracking, key technologies for non-invasive surface motion monitoring, in the specific environment of image-guided, gantry-based proton therapy.   Methods:  Polaris SPECTRA optical tracking system and the Aurora V3 electromagnetic tracking system from Northern Digital Inc. (NDI, Waterloo, CA) have been compared both technically, by measuring tracking errors and system latencies under laboratory conditions, and clinically, by assessing their practicalities and sensitivities when used with imaging devices and PBS treatment gantries. Additionally, we investigated the impact of using different surrogate signals, from different systems, on the reconstructed 4D CT images.   Results:  Even though in controlled laboratory conditions both technologies allow for the localization of static fiduci",
+    "tags": [
+      "Respiratory motion",
+      "Optical tracking",
+      "Electromagnetic tracking",
+      "Proton therapy",
+      "Gantry",
+      "CT imaging"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2017-03-31",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1186/s13014-017-0797-9",
+    "creators": [
+      "Fattori, Giovanni",
+      "Safai, Sairos",
+      "Carmona, Pablo Fernández",
+      "Peroni, Marta",
+      "Perrin, Rosalind",
+      "Weber, Damien Charles",
+      "Lomax, Antony John"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 12,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -5701,42 +5657,6 @@
     "heuristic_reasons": [
       "Matched 3 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Monitoring of breathing motion in image-guided PBS proton therapy: comparative analysis of optical and electromagnetic technologies",
-    "url": "https://zenodo.org/records/439771",
-    "summary": "  Background:  Motion monitoring is essential when treating non-static tumours with pencil beam scanned protons. 4D medical imaging typically relies on the detected body surface displacement, considered as a surrogate of the patient's anatomical changes, a concept similarly applied by most motion mitigation techniques. In this study, we investigate benefits and pitfalls of optical and electromagnetic tracking, key technologies for non-invasive surface motion monitoring, in the specific environment of image-guided, gantry-based proton therapy.   Methods:  Polaris SPECTRA optical tracking system and the Aurora V3 electromagnetic tracking system from Northern Digital Inc. (NDI, Waterloo, CA) have been compared both technically, by measuring tracking errors and system latencies under laboratory conditions, and clinically, by assessing their practicalities and sensitivities when used with imaging devices and PBS treatment gantries. Additionally, we investigated the impact of using different surrogate signals, from different systems, on the reconstructed 4D CT images.   Results:  Even though in controlled laboratory conditions both technologies allow for the localization of static fiduci",
-    "tags": [
-      "Respiratory motion",
-      "Optical tracking",
-      "Electromagnetic tracking",
-      "Proton therapy",
-      "Gantry",
-      "CT imaging"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2017-03-31",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.1186/s13014-017-0797-9",
-    "creators": [
-      "Fattori, Giovanni",
-      "Safai, Sairos",
-      "Carmona, Pablo Fernández",
-      "Peroni, Marta",
-      "Perrin, Rosalind",
-      "Weber, Damien Charles",
-      "Lomax, Antony John"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 3,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 12,
-    "heuristic_reasons": [
-      "Matched 3 particle-therapy term(s)."
     ]
   },
   {
@@ -5799,29 +5719,6 @@
     "heuristic_total_score": 16,
     "heuristic_reasons": [
       "Matched 4 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "DOSIMETRY OF SECONDARY PARTICLES IN PROTON THERAPY USING MONTE CARLO SIMULATIONS AND GEANT4 TOOLKIT",
-    "url": "https://zenodo.org/records/14625709",
-    "summary": "  Proton therapy is a rapidly advancing form of radiation treatment that provides superior dose conformity compared to conventional photon therapies, reducing collateral damage to healthy tissues. The precise control of proton beams allows for the delivery of high doses to the tumor while minimizing exposure to surrounding healthy tissues. However, the production of secondary particles such as neutrons and photons during proton interactions with tissues presents a significant dosimetric challenge that must be addressed to ensure patient safety. These secondary particles are generated primarily through nuclear interactions between the proton beam and atomic nuclei in the patient's body, leading to additional radiation dose contributions that are not directly part of the intended treatment plan.  ",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2025-01-10",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.14625709",
-    "creators": [
-      "Rakhmetullava Gulziyra1, Abdusattarova Sevara1,  Mamayusupova Muqaddas1 1National University of Uzbekistan named after Mirzo Ulugbek, 100174, Tashkent, Uzbekistan"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -5905,6 +5802,29 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "DOSIMETRY OF SECONDARY PARTICLES IN PROTON THERAPY USING MONTE CARLO SIMULATIONS AND GEANT4 TOOLKIT",
+    "url": "https://zenodo.org/records/14625709",
+    "summary": "  Proton therapy is a rapidly advancing form of radiation treatment that provides superior dose conformity compared to conventional photon therapies, reducing collateral damage to healthy tissues. The precise control of proton beams allows for the delivery of high doses to the tumor while minimizing exposure to surrounding healthy tissues. However, the production of secondary particles such as neutrons and photons during proton interactions with tissues presents a significant dosimetric challenge that must be addressed to ensure patient safety. These secondary particles are generated primarily through nuclear interactions between the proton beam and atomic nuclei in the patient's body, leading to additional radiation dose contributions that are not directly part of the intended treatment plan.  ",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2025-01-10",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.14625709",
+    "creators": [
+      "Rakhmetullava Gulziyra1, Abdusattarova Sevara1,  Mamayusupova Muqaddas1 1National University of Uzbekistan named after Mirzo Ulugbek, 100174, Tashkent, Uzbekistan"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Proton Beam Therapy",
     "url": "https://zenodo.org/records/5838088",
     "summary": " Proton beam therapy (PBT) is an advanced type of radiotherapy that shows a dosimetric advantage over photon beam therapy and provides superior dose distribution. PBT may improve patient survival by improving the local disease control while reducing toxicity to normal organs, which may result in fewer treatment-related complications. During the last decade, technological progress has opened up new possibilities in the planning and conducting of PBT, so indications have gradually expanded to different cancers. However, many biological aspects of PBT are still unclear, and its role in clinical settings is controversial. Proton therapy is considered to be safe and effective for different types of pediatric cancers, and suitable in treatment of ocular melanomas, chordomas, and chondrosarcomas. Future research and more prospective clinical studies with long-term follow-up are required in order to clearly determine the benefits and proper indications for PBT. ",
@@ -5931,6 +5851,48 @@
     "heuristic_total_score": 12,
     "heuristic_reasons": [
       "Matched 3 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Experimental Validation of an Analytical Program and a Monte Carlo Simulation for the Computation of the Far Out-of-Field Dose in External Beam Photon Therapy Applied to Pediatric Patients",
+    "url": "https://zenodo.org/records/6818191",
+    "summary": " Background: The out-of-the-field absorbed dose affects the probability of primary second radiation-induced cancers. This is particularly relevant in the case of pediatric treatments. There are currently no methods employed in the clinical routine for the computation of dose distributions from stray radiation in radiotherapy. To overcome this limitation in the framework of conventional teletherapy with photon beams, two computational tools have been developed&mdash;one based on an analytical approach and another depending on a fast Monte Carlo algorithm. The purpose of this work is to evaluate the accuracy of these approaches by comparison with experimental data obtained from anthropomorphic phantom irradiations. Materials and Methods: An anthropomorphic phantom representing a 5-year-old child (ATOM, CIRS) was irradiated considering a brain tumor using a Varian TrueBeam linac. Two treatments for the same planned target volume (PTV) were considered, namely, intensity-modulated radiotherapy (IMRT) and volumetric modulated arc therapy (VMAT). In all cases, the irradiation was conducted with a 6-MV energy beam using the flattening filter for a prescribed dose of 3.6 Gy to the PTV. The ",
+    "tags": [
+      "teletherapy",
+      "photon",
+      "anthropomorphic",
+      "pediatric",
+      "Monte Carlo",
+      "PRIMO",
+      "TLD",
+      "analytical model"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2022-07-07",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.3389/fonc.2022.882506",
+    "creators": [
+      "De Saint-Hubert, Marijke",
+      "Suesselbeck, Finja",
+      "Vasi, Fabiano",
+      "Stuckmann, Florian",
+      "Rodriguez, Miguel",
+      "Dabin, Jérémie",
+      "Timmermann, Beate",
+      "Thierry-Chef, Isabelle",
+      "Schneider, Uwe",
+      "Brualla, Lorenzo"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 10,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -6043,43 +6005,32 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Experimental Validation of an Analytical Program and a Monte Carlo Simulation for the Computation of the Far Out-of-Field Dose in External Beam Photon Therapy Applied to Pediatric Patients",
-    "url": "https://zenodo.org/records/6818191",
-    "summary": " Background: The out-of-the-field absorbed dose affects the probability of primary second radiation-induced cancers. This is particularly relevant in the case of pediatric treatments. There are currently no methods employed in the clinical routine for the computation of dose distributions from stray radiation in radiotherapy. To overcome this limitation in the framework of conventional teletherapy with photon beams, two computational tools have been developed&mdash;one based on an analytical approach and another depending on a fast Monte Carlo algorithm. The purpose of this work is to evaluate the accuracy of these approaches by comparison with experimental data obtained from anthropomorphic phantom irradiations. Materials and Methods: An anthropomorphic phantom representing a 5-year-old child (ATOM, CIRS) was irradiated considering a brain tumor using a Varian TrueBeam linac. Two treatments for the same planned target volume (PTV) were considered, namely, intensity-modulated radiotherapy (IMRT) and volumetric modulated arc therapy (VMAT). In all cases, the irradiation was conducted with a 6-MV energy beam using the flattening filter for a prescribed dose of 3.6 Gy to the PTV. The ",
+    "title": "Risks of gastrotoxicity and rationality of presribing of proton pump inhibitors in seniors in acute care in the EUROAGEISM H2020 project (diploma thesis in Czech)",
+    "url": "https://zenodo.org/records/4282554",
+    "summary": " The process of demographic aging has a significant impact on all areas of the society. With increasing age, the presence of illness, as well as the amount of used drugs increases. The most commonly prescribed drugs in seniros are also proton pump inhibitors, which play an irreplaceable role in the treatment of many gastrointestinal disorders. The trend of the overuse of proton pump inhibitors as main antisecretory drugs mainly relates to their long-term administration in the prophylaxis of the risk of polypharmacy and concurrent use of more gastrotoxic agents. The aim of this work was to evaluate the rationality of use of proton pump inhibitors in Czech seniors participating in the EUROAGEISM H2020 project (including evaluation of indications, administered dosages and duration of the treatment) and to consider aspects of ageism regarding overuse of polypharmacy and overuse of such medications.&nbsp; ",
     "tags": [
-      "teletherapy",
-      "photon",
-      "anthropomorphic",
-      "pediatric",
-      "Monte Carlo",
-      "PRIMO",
-      "TLD",
-      "analytical model"
+      "drug-related gastrotoxicity",
+      "proton pump inhibitors",
+      "drug risks",
+      "adverse drug events",
+      "aged",
+      "ageism",
+      "inappropriate prescribing"
     ],
     "license": "cc-by-4.0",
-    "updated_at": "2022-07-07",
+    "updated_at": "2019-09-24",
     "downloads": null,
     "likes": null,
-    "doi": "10.3389/fonc.2022.882506",
+    "doi": "10.5281/zenodo.4282554",
     "creators": [
-      "De Saint-Hubert, Marijke",
-      "Suesselbeck, Finja",
-      "Vasi, Fabiano",
-      "Stuckmann, Florian",
-      "Rodriguez, Miguel",
-      "Dabin, Jérémie",
-      "Timmermann, Beate",
-      "Thierry-Chef, Isabelle",
-      "Schneider, Uwe",
-      "Brualla, Lorenzo"
+      "Masaryková, Petra"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
+      "Matched 1 particle-therapy term(s)."
     ]
   },
   {
@@ -6505,32 +6456,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Finite-volume spectrum of the isosinglet strange channel calculated in lattice QCD",
-    "url": "https://zenodo.org/records/10425662",
-    "summary": " Finite-volume spectrum of the isosinglet strange channel. The attached hdf5 file contains the bootstrap samples for the finite volume spectrum levels used for the L&uuml;scher quantization condition fit. The bootstrap samples are organized in the following group structure, \n  /PSQ{d^2}/{irrep}/free_levels/  \n  /PSQ{d^2}/{irrep}/e{frame}_{level}/  \n  /PSQ{d^2}/{irrep}/e{frame}_{level}_ref/  \n  /single_hadrons/{hadron}({d^2})/  \n  /single_hadrons/{hadron}({d^2})_ref/  \n  /single_hadrons/ref/  \n where {d^2} is related to the total momentum squared by P^2=(2&pi;/L)^2 * d^2 where L is the spacial lattice extent, {irrep} indicates the irreducible representation of the relevant little group, {frame} indicates the frame of the energy determination and can be \"cm\" for center of mass frame or \"lab\" for lab frame, {level} indicates the energy level of the spectrum, {hadron} indicates a single hadron particle energy and can be \"N\", \"L\", \"S\", \"X\", \"pi\", or \"k\". Further details about each group and single hadron name meanings are explained below. All datasets contain the mean followed by 800 samples in an array.  Single hadron names are defined as: \n \n \n \n  name used in data file  \n  full singl",
-    "tags": [
-      "Particle Physics",
-      "Lattice QCD"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-12-24",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.48550/arXiv.2307.13471",
-    "creators": [
-      "Skinner, Sarah"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Proton and Antiproton Production in High Energy Heavy Ion Collisions at RHIC",
     "url": "https://zenodo.org/records/4285750",
     "summary": " One of the remarkable findings at RHIC is particle-type dependences of hadron yields and emission patterns, especially its difference between baryons and mesons, at intermediate p T (2-5GeV/c). The purpose of this thesis is to study hadron production mechanisms at intermediate p T  and final-state interactions between the hadrons produced in relativistic heavy ion collisions. We have performed a systematic study of proton and antiproton spectra in Au+Au, Cu+Cu, p+p collisions at &radic;sNN = 200 and 62.4GeV. We present identified charged hadron p T  spectra, particle ratios, nuclear modication factors, chemical/kinetic freeze-out properties and their scaling properties between the different collision systems. ",
@@ -6568,26 +6493,27 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Hadron Production Measurements for Long-Baseline Neutrino Beams",
-    "url": "https://zenodo.org/records/1286772",
-    "summary": " Long-baseline accelerator neutrino experiments rely on the neutrinos from the decays of hadrons produced in hadron-nucleus interactions. Uncertainties in the hadron production yields from these interactions dominate the neutrino flux uncertainties in these beams. This talk will review the currently available hadron production data that is relevant for accelerator beams. It will highlight recent results from CERN&#39;s NA61/SHINE experiment, which has produced measurements that strongly constrain the neutrino and anti-neutrino fluxes in the T2K experiment and is currently producing measurements to improve modeling of the fluxes for the Fermilab long-baseline neutrino program. The talk will also present the prospects for future hadron production measurements in NA61/SHINE and other projects. ",
-    "tags": [],
+    "title": "Finite-volume spectrum of the isosinglet strange channel calculated in lattice QCD",
+    "url": "https://zenodo.org/records/10425662",
+    "summary": " Finite-volume spectrum of the isosinglet strange channel. The attached hdf5 file contains the bootstrap samples for the finite volume spectrum levels used for the L&uuml;scher quantization condition fit. The bootstrap samples are organized in the following group structure, \n  /PSQ{d^2}/{irrep}/free_levels/  \n  /PSQ{d^2}/{irrep}/e{frame}_{level}/  \n  /PSQ{d^2}/{irrep}/e{frame}_{level}_ref/  \n  /single_hadrons/{hadron}({d^2})/  \n  /single_hadrons/{hadron}({d^2})_ref/  \n  /single_hadrons/ref/  \n where {d^2} is related to the total momentum squared by P^2=(2&pi;/L)^2 * d^2 where L is the spacial lattice extent, {irrep} indicates the irreducible representation of the relevant little group, {frame} indicates the frame of the energy determination and can be \"cm\" for center of mass frame or \"lab\" for lab frame, {level} indicates the energy level of the spectrum, {hadron} indicates a single hadron particle energy and can be \"N\", \"L\", \"S\", \"X\", \"pi\", or \"k\". Further details about each group and single hadron name meanings are explained below. All datasets contain the mean followed by 800 samples in an array.  Single hadron names are defined as: \n \n \n \n  name used in data file  \n  full singl",
+    "tags": [
+      "Particle Physics",
+      "Lattice QCD"
+    ],
     "license": "cc-by-4.0",
-    "updated_at": "2018-06-04",
+    "updated_at": "2023-12-24",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.1286772",
+    "doi": "10.48550/arXiv.2307.13471",
     "creators": [
-      "Marino, Alysia"
+      "Skinner, Sarah"
     ],
-    "record_type": "presentation",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 3,
+    "record_type": "dataset",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s).",
-      "Matched 1 negative term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -6617,34 +6543,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "ThreeBodyDecays.jl",
-    "url": "https://zenodo.org/records/20689323",
-    "summary": "ThreeBodyDecays.jl is a Julia package for building three-body decay models using a cascade reaction. It is designed for researchers and scientists in the field of particle physics. Decays with three particles is the main application of the approach, however, it is also found useful in multibody decays where transitions can be factorized to a product of sequential decays with products. Particles can have arbitrary spin. The implementation is based on a research paper, \"Dalitz-plot decomposition for three-body decays\" by JPAC Collaboration (M. Mikhasenko at al.), PRD 101 (2020) 3, 034033, inSpireID: 1758460",
-    "tags": [
-      "hadron physics",
-      "hadron spectroscopy",
-      "helicity formalism"
-    ],
-    "license": "mit-license",
-    "updated_at": "2026-06-14",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.20689323",
-    "creators": [
-      "Mikhasenko, Mikhail"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Properties of Fragmentation Photons in p+p Collisions at 200 GeV Center-of-Mass Energies",
     "url": "https://zenodo.org/records/4398484",
     "summary": " This thesis reports results on the production of fragmentation photons within high energy proton-proton collisions. The hadron- fragmentation photon pair cross-section has been measured over a range of hadron and photon p T  using the method of two-particle correlation. The fraction of inclusive hadron-photon pairs produced directly from the parton fragmentation was also determined from the cross-section measurement. ",
@@ -6669,6 +6567,59 @@
     "heuristic_total_score": 8,
     "heuristic_reasons": [
       "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Hadron Production Measurements for Long-Baseline Neutrino Beams",
+    "url": "https://zenodo.org/records/1286772",
+    "summary": " Long-baseline accelerator neutrino experiments rely on the neutrinos from the decays of hadrons produced in hadron-nucleus interactions. Uncertainties in the hadron production yields from these interactions dominate the neutrino flux uncertainties in these beams. This talk will review the currently available hadron production data that is relevant for accelerator beams. It will highlight recent results from CERN&#39;s NA61/SHINE experiment, which has produced measurements that strongly constrain the neutrino and anti-neutrino fluxes in the T2K experiment and is currently producing measurements to improve modeling of the fluxes for the Fermilab long-baseline neutrino program. The talk will also present the prospects for future hadron production measurements in NA61/SHINE and other projects. ",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2018-06-04",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.1286772",
+    "creators": [
+      "Marino, Alysia"
+    ],
+    "record_type": "presentation",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 3,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s).",
+      "Matched 1 negative term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "ThreeBodyDecays.jl",
+    "url": "https://zenodo.org/records/20689323",
+    "summary": "ThreeBodyDecays.jl is a Julia package for building three-body decay models using a cascade reaction. It is designed for researchers and scientists in the field of particle physics. Decays with three particles is the main application of the approach, however, it is also found useful in multibody decays where transitions can be factorized to a product of sequential decays with products. Particles can have arbitrary spin. The implementation is based on a research paper, \"Dalitz-plot decomposition for three-body decays\" by JPAC Collaboration (M. Mikhasenko at al.), PRD 101 (2020) 3, 034033, inSpireID: 1758460",
+    "tags": [
+      "hadron physics",
+      "hadron spectroscopy",
+      "helicity formalism"
+    ],
+    "license": "mit-license",
+    "updated_at": "2026-06-14",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.20689323",
+    "creators": [
+      "Mikhasenko, Mikhail"
+    ],
+    "record_type": "software",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -6705,6 +6656,34 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Artistic representation of a proton-deuteron interaction with proton-proton event in the back",
+    "url": "https://zenodo.org/records/13732468",
+    "summary": " This image represents the proton-deuteron hadronic interaction shown with a high-energy proton-proton event in the back.&nbsp; ",
+    "tags": [
+      "Large Hadron Collider",
+      "ALICE",
+      "Femtoscopy",
+      "Hadron interactions"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2024-09-08",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.13732468",
+    "creators": [
+      "Dobrigkeit Chinellato, David"
+    ],
+    "record_type": "image",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "High-pT Charged-Hadron Suppression in Au + Au Collisions at √sNN = 200 GeV.",
     "url": "https://zenodo.org/records/4124697",
     "summary": " The PHENIX experiment at RHIC has measured charged hadron yields at mid-rapidity over a wide range of transverse momentum&nbsp;&nbsp;&nbsp; (0.5 &lt; pT &lt; 10 GeV/c) in Au + Au collisions at &radic;sNN = 200 GeV. For both charged hadrons and neutral pions, the yields per nucleon-nucleon collision are significantly suppressed in central collisions compared to both peripheral and nucleon-nucleon collisions. The suppression sets in gradually and increases with increasing centrality of the collisions.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \n\n The measured centrality dependence of suppression of hadron yield, suppression of back-to-back correlation and azimuthal anisotropy all imply a strong dependence on the underlying collision geometry.We present a simple model of jet absorption in d",
@@ -6736,34 +6715,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Artistic representation of a proton-deuteron interaction with proton-proton event in the back",
-    "url": "https://zenodo.org/records/13732468",
-    "summary": " This image represents the proton-deuteron hadronic interaction shown with a high-energy proton-proton event in the back.&nbsp; ",
-    "tags": [
-      "Large Hadron Collider",
-      "ALICE",
-      "Femtoscopy",
-      "Hadron interactions"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2024-09-08",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.13732468",
-    "creators": [
-      "Dobrigkeit Chinellato, David"
-    ],
-    "record_type": "image",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Application of hadron production data to Fermilab neutrino beam simulations",
     "url": "https://zenodo.org/records/6911740",
     "summary": " Accelerator neutrinos, Neutrino flux, Hadron production measurements for neutrino physics ",
@@ -6787,17 +6738,40 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "GPD Modeling with Continuum QCD",
-    "url": "https://zenodo.org/records/4036405",
+    "title": "Exploring Strong QCD in the JLab Experiments of the 12 GeV era",
+    "url": "https://zenodo.org/records/4036325",
+    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2019-11-06",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4036325",
+    "creators": [
+      "Volker Burkert"
+    ],
+    "record_type": "presentation",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "The Modeling of Baryon and Meson DAs, and their Relevance for DVMP",
+    "url": "https://zenodo.org/records/4036379",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2019-11-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036405",
+    "doi": "10.5281/zenodo.4036379",
     "creators": [
-      "Jose Rodriguez-Quintero"
+      "Cédric Mezrag"
     ],
     "record_type": "presentation",
     "heuristic_particle_hits": 1,
@@ -6806,29 +6780,6 @@
     "heuristic_reasons": [
       "Matched 1 particle-therapy term(s).",
       "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Bridging a Gap Between Space-like and Time-like EM Transition Form Factors",
-    "url": "https://zenodo.org/records/4036327",
-    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2019-11-06",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4036327",
-    "creators": [
-      "Philip Cole"
-    ],
-    "record_type": "presentation",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
     ]
   },
   {
@@ -7223,33 +7174,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Hydrogen-Bonded Complexes of some Ethers with Isomeric Methyl Carbazoles",
-    "url": "https://zenodo.org/records/6457886",
-    "summary": " The effect of hydrogen bonding on tho near U.V. absorption spectra. of some Methyl Carbazoles as proton donors with diethyl-other and tetra.hydrofuran as proton acceptors has been studied. Tho  \\(\\pi\\)   \\(\\to\\)  \\(\\pi\\) * bands of the proton donors shift towards longer wave lengths as a result of such interaction. Using this change in the absorption spectrum, the equilibrium constant in this interaction between the proton donor and the acceptor has been evaluated. It is concluded, from the result, that proton donating power of the Methyl Carbazoles increases in the order 2- Methyl Carbazole &gt; 4- Methyl Carbazole &gt; 3- Methyl Carbazole&gt; 1- Methyl Carbazole, i.e., their base character decreases in the reverse order. The free energy change lies in the range 0&middot;62-1&middot;20 K.Cal/mole. ",
-    "tags": [
-      "oxidation",
-      "solution",
-      "chloride"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "1970-02-28",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.6457886",
-    "creators": [
-      "Bimal K. Das"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Updated 4DCT(MRI)",
     "url": "https://zenodo.org/records/7052585",
     "summary": "  Code for generating a synthetic 4DCT(MRI) from&nbsp;a reference CT and a 4DMRI or moving mesh data.  \n\n This is the updated version of the code for 4DCT(MRI) generation including ribcage motion and density scaling [1]. The previous version [2] can still be found at  10.5281/zenodo.5010964 . \n\n The newest version of the code and instructions on how to use it can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DCT-MRI . \n\n 4DMRI moving lung mesh data for the generation of 4DCT(MRI)s can be found here  https://gitlab.psi.ch/4DCT-MRI_updated/4DMRI_moving_meshes . \n\n Please cite the following publications when using the code: \n\n [1] Jenny, T., Duetschler, A., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Technical Note: Towards more realistic 4DCT(MRI) numerical lung phantoms . Manuscript submitted for publication. \n\n [2] Duetschler, A., Bauman, G., Bieri, O., Cattin, P.C., Ehrbar, S., Engin-Deniz, G., Giger, A., Josipovic, M., Jud, C., Krieger, M., Nguyen, D., Persson, G.F., Salomir, R., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Synthetic 4DCT(MRI) lung phantom generation for 4D radiotherapy and image guidance investigations.  Med. Phys..  https://doi.org/10.1002/mp.1559",
@@ -7278,6 +7202,33 @@
     "heuristic_total_score": 8,
     "heuristic_reasons": [
       "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Hydrogen-Bonded Complexes of some Ethers with Isomeric Methyl Carbazoles",
+    "url": "https://zenodo.org/records/6457886",
+    "summary": " The effect of hydrogen bonding on tho near U.V. absorption spectra. of some Methyl Carbazoles as proton donors with diethyl-other and tetra.hydrofuran as proton acceptors has been studied. Tho  \\(\\pi\\)   \\(\\to\\)  \\(\\pi\\) * bands of the proton donors shift towards longer wave lengths as a result of such interaction. Using this change in the absorption spectrum, the equilibrium constant in this interaction between the proton donor and the acceptor has been evaluated. It is concluded, from the result, that proton donating power of the Methyl Carbazoles increases in the order 2- Methyl Carbazole &gt; 4- Methyl Carbazole &gt; 3- Methyl Carbazole&gt; 1- Methyl Carbazole, i.e., their base character decreases in the reverse order. The free energy change lies in the range 0&middot;62-1&middot;20 K.Cal/mole. ",
+    "tags": [
+      "oxidation",
+      "solution",
+      "chloride"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "1970-02-28",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.6457886",
+    "creators": [
+      "Bimal K. Das"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
     ]
   },
   {
@@ -7365,34 +7316,35 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Charm production in 200-GeV p+p collisions",
-    "url": "https://zenodo.org/records/4275179",
-    "summary": " This dissertation presents the measurement of electrons from heavy flavor decays in proton + proton collisions at RHIC at colli&shy;sion energy &radic;s = 200 GeV over a wide range of transverse moment (0.4 &lt; pr &lt; 5 GeV/c). Two independent analysis techniques of signal extraction were performed. This is the first measure&shy;ment of the Open Charm cross section at this collision energy and it is an important baseline measurement for comparison with nucleus + nucleus collisions. ",
+    "title": "4DMRI moving meshes",
+    "url": "https://zenodo.org/records/7052607",
+    "summary": "  Moving lung and ribcage meshes extracted from 4DMRIs  \n\n The newest version of the dataset and the documentation can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DMRI_moving_meshes . \n\n The moving lung and ribcage meshes can for example be used to generate synthetic 4DCT(MRI)s. The code for generating 4DCT(MRI)s using a reference CT and the moving mesh data can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DCT-MRI . \n\n Please cite the following publications when using the data: \n\n Jenny, T., Duetschler, A., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Technical Note: Towards more realistic 4DCT(MRI) numerical lung phantoms . Manuscript submitted for publication. \n\n Duetschler, A., Bauman, G., Bieri, O., Cattin, P.C., Ehrbar, S., Engin-Deniz, G., Giger, A., Josipovic, M., Jud, C., Krieger, M., Nguyen, D., Persson, G.F., Salomir, R., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Synthetic 4DCT(MRI) lung phantom generation for 4D radiotherapy and image guidance investigations.  Med. Phys..  https://doi.org/10.1002/mp.15591  ",
     "tags": [
-      "charm",
-      "photon",
-      "heavy flavor",
-      "electron",
-      "p+p",
-      "cross section",
-      "qcd",
-      "pythia",
-      "run02"
+      "4DMRI",
+      "lung",
+      "intrafraction motion",
+      "4D imaging",
+      "4D numerical phantom",
+      "radiotherapy",
+      "proton therapy"
     ],
     "license": "cc-by-4.0",
-    "updated_at": "2005-05-11",
+    "updated_at": "2022-09-06",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4275179",
+    "doi": "10.5281/zenodo.7052607",
     "creators": [
-      "Butsyk, Sergey"
+      "Duetschler, Alisha",
+      "Jenny, Timothy",
+      "Lomax, Antony J",
+      "Zhang, Ye"
     ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "record_type": "dataset",
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -7458,32 +7410,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Role of Luminescence Dosimetry in Proton Therapy",
-    "url": "https://zenodo.org/records/19785741",
-    "summary": "  Nowadays the proton ion therapy has recognized as one of the best progressive modalities in the field of radiation oncology, due to delivering the superior and accurate dose conformity as compare to the conventional photon-based radiotherapy. The main advantage of the proton therapy consists of, deposition of accurate and precise dose deposition within the Bragg peak region. LiF based thermoluminescent materials, Al2O3:C based optically stimulated luminescence, Ag doped glasses act as radio-photoluminescent materials offers versatile solutions for proton therapy. In luminescence dosimetry, specially Thermoluminescence Dosimeters (TLD&rsquo;s) and Optically Stimulated Luminescence Dosimeters (OSLD&rsquo;s) are plays vital role in the proton therapy for the accurate dosimetric verifications such as dose gradients and sensitivity to range uncertainties. This chapter includes the main interactions of proton ions with the luminescent phosphor materials, directing on the Linear Energy Transform (LET) dependent responses variations and improvement tactics. In addition to that, developments in phosphors and LET dependent materials which are highlighting how revolutions in material scienc",
-    "tags": [
-      "Thermoluminescence, optically stimulated luminescence, Dosimetry, Proton Therapy."
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2026-03-29",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.19785741",
-    "creators": [
-      "Kishor Gavhane",
-      "Vipul S. Ghemud"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 3,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 12,
-    "heuristic_reasons": [
-      "Matched 3 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Experiments and Monte Carlo simulations on multiple Coulomb scattering of protons",
     "url": "https://zenodo.org/records/4925636",
     "summary": " Background and purpose: Monte Carlo simulations as well as analytical computations of proton transport in material media require accurate values of multiple Coulomb scattering (MCS) angles. High-quality experimental data on MCS angles in the energy range for proton therapy are, however, sparse. In this work, MCS modeling in proton transport was evaluated employing an experimental method to measure these angles on a medical proton beamline in clinically relevant materials. Results are compared to Monte Carlo simulations and analytical models. \n\n Materials and methods: Aluminum, brass, and lucite (PMMA) scatterers of clinically relevant thicknesses were irradiated with protons at 100, 160, and 220 MeV. Resulting spatial distributions of individual pencil beams were measured with a scintillating screen. The MCS angles were determined by deconvolution and a virtual point source approach. Results were compared to those obtained with the Monte Carlo codes PENH, TOPAS, and RayStation Monte Carlo, as well as the analytical models RayStation Pencil Beam Algorithm and the Moli&egrave;re/Fano/Hanson variant of the Moli&egrave;re theory.&nbsp; \n\n Results: Experimental data obtained with the p",
@@ -7521,6 +7447,32 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Role of Luminescence Dosimetry in Proton Therapy",
+    "url": "https://zenodo.org/records/19785741",
+    "summary": "  Nowadays the proton ion therapy has recognized as one of the best progressive modalities in the field of radiation oncology, due to delivering the superior and accurate dose conformity as compare to the conventional photon-based radiotherapy. The main advantage of the proton therapy consists of, deposition of accurate and precise dose deposition within the Bragg peak region. LiF based thermoluminescent materials, Al2O3:C based optically stimulated luminescence, Ag doped glasses act as radio-photoluminescent materials offers versatile solutions for proton therapy. In luminescence dosimetry, specially Thermoluminescence Dosimeters (TLD&rsquo;s) and Optically Stimulated Luminescence Dosimeters (OSLD&rsquo;s) are plays vital role in the proton therapy for the accurate dosimetric verifications such as dose gradients and sensitivity to range uncertainties. This chapter includes the main interactions of proton ions with the luminescent phosphor materials, directing on the Linear Energy Transform (LET) dependent responses variations and improvement tactics. In addition to that, developments in phosphors and LET dependent materials which are highlighting how revolutions in material scienc",
+    "tags": [
+      "Thermoluminescence, optically stimulated luminescence, Dosimetry, Proton Therapy."
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2026-03-29",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.19785741",
+    "creators": [
+      "Kishor Gavhane",
+      "Vipul S. Ghemud"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 12,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Monitoring of breathing motion in image-guided PBS proton therapy: comparative analysis of optical and electromagnetic technologies",
     "url": "https://zenodo.org/records/439771",
     "summary": "  Background:  Motion monitoring is essential when treating non-static tumours with pencil beam scanned protons. 4D medical imaging typically relies on the detected body surface displacement, considered as a surrogate of the patient's anatomical changes, a concept similarly applied by most motion mitigation techniques. In this study, we investigate benefits and pitfalls of optical and electromagnetic tracking, key technologies for non-invasive surface motion monitoring, in the specific environment of image-guided, gantry-based proton therapy.   Methods:  Polaris SPECTRA optical tracking system and the Aurora V3 electromagnetic tracking system from Northern Digital Inc. (NDI, Waterloo, CA) have been compared both technically, by measuring tracking errors and system latencies under laboratory conditions, and clinically, by assessing their practicalities and sensitivities when used with imaging devices and PBS treatment gantries. Additionally, we investigated the impact of using different surrogate signals, from different systems, on the reconstructed 4D CT images.   Results:  Even though in controlled laboratory conditions both technologies allow for the localization of static fiduci",
@@ -7552,33 +7504,6 @@
     "heuristic_total_score": 12,
     "heuristic_reasons": [
       "Matched 3 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Studies on Cell Inactivation Efficiency of Gamma and Proton Radiation Using MTT Assay",
-    "url": "https://zenodo.org/records/3611417",
-    "summary": " The radiation damage of proton beam on tissues and cells has attracted attention and the unique radiobiological effects make proton radiation a useful tool for the investigation of radiation damage mechanisms.&nbsp; Potential use of protons and other charged particles for cancer treatment offer several advantages over low LET radiation cancer therapy.&nbsp; In the present study the effect of different doses of gamma and proton beams from the Folded Tandem Ion Accelerator (FOTIA) on human tumor adeno carcinoma (HT 29) cells has been analysed using MTT (Thiazolyl Blue Tetrazolium Bromide) assay.&nbsp;&nbsp; The cell proliferation of HT 29 cells after irradiation has been anlysed using MTT assay after a post irradiation incubation of 72 hrs.&nbsp; The results of these investigations are presented and discussed in the paper. ",
-    "tags": [
-      "Proton Beam, Gamma Radiation, Accelerator, Cell Survival, MTT Assay"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2015-08-15",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.3611417",
-    "creators": [
-      "Praveen Joseph",
-      "Bhat N N",
-      "Narayana Y"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
     ]
   },
   {
@@ -7662,6 +7587,33 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Studies on Cell Inactivation Efficiency of Gamma and Proton Radiation Using MTT Assay",
+    "url": "https://zenodo.org/records/3611417",
+    "summary": " The radiation damage of proton beam on tissues and cells has attracted attention and the unique radiobiological effects make proton radiation a useful tool for the investigation of radiation damage mechanisms.&nbsp; Potential use of protons and other charged particles for cancer treatment offer several advantages over low LET radiation cancer therapy.&nbsp; In the present study the effect of different doses of gamma and proton beams from the Folded Tandem Ion Accelerator (FOTIA) on human tumor adeno carcinoma (HT 29) cells has been analysed using MTT (Thiazolyl Blue Tetrazolium Bromide) assay.&nbsp;&nbsp; The cell proliferation of HT 29 cells after irradiation has been anlysed using MTT assay after a post irradiation incubation of 72 hrs.&nbsp; The results of these investigations are presented and discussed in the paper. ",
+    "tags": [
+      "Proton Beam, Gamma Radiation, Accelerator, Cell Survival, MTT Assay"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2015-08-15",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.3611417",
+    "creators": [
+      "Praveen Joseph",
+      "Bhat N N",
+      "Narayana Y"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "METADATA for results of irradiation-induced complex DNA damage measurements using plasmid pBR322 along a typical Proton Treatment Plan at the MedAustron proton and carbon beam therapy facility (energy 137–198 MeV and Linear Energy Transfer (LET) range 1–9 keV/μm), by means of Agarose Gel Electrophoresis and DNA fragmentation using Atomic Force Microscopy (AFM)",
     "url": "https://zenodo.org/records/12583211",
     "summary": "  Contact person : Alexandros Georgakilas, National Technical University of Athens (NTUA), Athens, gREECE  \n  EMAIL: alexg@mail.ntua.gr&nbsp;  \n  Project: 21GRD02 BIOSPHERE  The project (21GRD02 BIOSPHERE) has received funding from the European Partnership on Metrology, co-financed by the European Union's Horizon Europe Research and Innovation Programme and by the Participating States. Funded by the European Union.  \n &nbsp; \n &nbsp; \n METADATA for results of irradiation-induced complex DNA damage measurements using plasmid pBR322 along a typical Proton Treatment Plan at the MedAustron proton and carbon beam therapy facility (energy 137&ndash;198 MeV and Linear Energy Transfer (LET) range 1&ndash;9 keV/&mu;m), by means of Agarose Gel Electrophoresis and DNA fragmentation using Atomic Force Microscopy (AFM).&nbsp; ",
@@ -7681,30 +7633,6 @@
     "heuristic_total_score": 8,
     "heuristic_reasons": [
       "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "azazpe/Articulo-RE-LET-data: Data and code for RE–LET model (paper version)",
-    "url": "https://zenodo.org/records/18230764",
-    "summary": " This release contains the data and analysis code used to generate the results presented in the manuscript: \n &quot;An updated relative efficiency model for radiochromic films in proton beams&quot;. \n The repository includes experimental data, literature data, Monte Carlo–based LET calculations, and MATLAB scripts used to derive and validate the proposed relative efficiency (RE) model. ",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2026-01-13",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.18230764",
-    "creators": [
-      "Adrián Zazpe Apezteguía"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -7741,6 +7669,30 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 10,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "azazpe/Articulo-RE-LET-data: Data and code for RE–LET model (paper version)",
+    "url": "https://zenodo.org/records/18230764",
+    "summary": " This release contains the data and analysis code used to generate the results presented in the manuscript: \n &quot;An updated relative efficiency model for radiochromic films in proton beams&quot;. \n The repository includes experimental data, literature data, Monte Carlo–based LET calculations, and MATLAB scripts used to derive and validate the proposed relative efficiency (RE) model. ",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2026-01-13",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.18230764",
+    "creators": [
+      "Adrián Zazpe Apezteguía"
+    ],
+    "record_type": "software",
     "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 1,
     "heuristic_total_score": 10,
@@ -7817,36 +7769,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Proton and Neutron Electrical Charges",
-    "url": "https://zenodo.org/records/7623966",
-    "summary": " &laquo;  The pressure for compliance is enormous. I have experienced this in the rejection by editors of articles submitted, based on venomous criticism from anonymous referees. The replacement of impartial reviewing by censorship will be the death of science  &raquo;.Julian Schwinger, Nobel prize in physics (1965). \n\n The electric charges of the proton and the neutron, constituents of atoms nuclei, are explained in quantum mechanics in the so called &ldquo;standard model&rdquo; and this explanation is rather strange, with a combination of &ldquo;quarks&rdquo; having charges which are not an integer, and can change from one to another during radioactive transformation. \n \n\n It is a fact that quarks are deduced from experimental data, like scattering of a proton by high energy electrons, but they can&rsquo;t be observed as a free object: &quot;Basically, you can&#39;t see an isolated quark because the color force does not let them go, and the energy required to separate them produces quark-antiquark pairs long before they are far enough apart to observe separately&rdquo;!\n \n\n In this paper, we will construct a model for the electric charges of proton and neutron with the presence o",
-    "tags": [
-      "Quarks",
-      "Radioactivity",
-      "Standard Model",
-      "Electron-Positron Pair"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-02-09",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.7623966",
-    "creators": [
-      "Viel Didier François"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 7,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s).",
-      "Matched 1 negative term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "4DMRI moving meshes",
     "url": "https://zenodo.org/records/7052607",
     "summary": "  Moving lung and ribcage meshes extracted from 4DMRIs  \n\n The newest version of the dataset and the documentation can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DMRI_moving_meshes . \n\n The moving lung and ribcage meshes can for example be used to generate synthetic 4DCT(MRI)s. The code for generating 4DCT(MRI)s using a reference CT and the moving mesh data can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DCT-MRI . \n\n Please cite the following publications when using the data: \n\n Jenny, T., Duetschler, A., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Technical Note: Towards more realistic 4DCT(MRI) numerical lung phantoms . Manuscript submitted for publication. \n\n Duetschler, A., Bauman, G., Bieri, O., Cattin, P.C., Ehrbar, S., Engin-Deniz, G., Giger, A., Josipovic, M., Jud, C., Krieger, M., Nguyen, D., Persson, G.F., Salomir, R., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Synthetic 4DCT(MRI) lung phantom generation for 4D radiotherapy and image guidance investigations.  Med. Phys..  https://doi.org/10.1002/mp.15591  ",
@@ -7876,6 +7798,36 @@
     "heuristic_total_score": 8,
     "heuristic_reasons": [
       "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Proton and Neutron Electrical Charges",
+    "url": "https://zenodo.org/records/7623966",
+    "summary": " &laquo;  The pressure for compliance is enormous. I have experienced this in the rejection by editors of articles submitted, based on venomous criticism from anonymous referees. The replacement of impartial reviewing by censorship will be the death of science  &raquo;.Julian Schwinger, Nobel prize in physics (1965). \n\n The electric charges of the proton and the neutron, constituents of atoms nuclei, are explained in quantum mechanics in the so called &ldquo;standard model&rdquo; and this explanation is rather strange, with a combination of &ldquo;quarks&rdquo; having charges which are not an integer, and can change from one to another during radioactive transformation. \n \n\n It is a fact that quarks are deduced from experimental data, like scattering of a proton by high energy electrons, but they can&rsquo;t be observed as a free object: &quot;Basically, you can&#39;t see an isolated quark because the color force does not let them go, and the energy required to separate them produces quark-antiquark pairs long before they are far enough apart to observe separately&rdquo;!\n \n\n In this paper, we will construct a model for the electric charges of proton and neutron with the presence o",
+    "tags": [
+      "Quarks",
+      "Radioactivity",
+      "Standard Model",
+      "Electron-Positron Pair"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2023-02-09",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.7623966",
+    "creators": [
+      "Viel Didier François"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 7,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s).",
+      "Matched 1 negative term(s)."
     ]
   },
   {
@@ -7940,36 +7892,6 @@
     "heuristic_total_score": 8,
     "heuristic_reasons": [
       "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "LOTOS code inputs for local earthquake tomography of the Irazú-Turrialba volcanic complex, Costa Rica",
-    "url": "https://zenodo.org/records/7777962",
-    "summary": " Local earthquake seismic tomography model for Jiwani-Brown, E., Koulakov, I., Muñoz-Burbano, F., Pacheco, J., Mora, M., &amp; Lupi, M. (2023). Comparing&nbsp;local and ambient seismic tomographic methods to infer the plumbing system of the Irazú-Turrialba&nbsp;volcanic complex, Costa Rica.&nbsp; \n\n The tomography model presented in the paper are obtained using the LOTOS code by Koulakov (2009).&nbsp;Input files for running of LOTOS code adapted for Windows OS. More details on the LOTOS code can be found at www.ivan-art.com/science/LOTOS  ",
-    "tags": [
-      "LET",
-      "Tomography",
-      "Costa Rica",
-      "Volcano"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-06-30",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.7777962",
-    "creators": [
-      "Jiwani-Brown, Elliot",
-      "Lupi, Matteo"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -8467,30 +8389,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "A dosimetric and biological model for neutron capture therapy (NCT) experiments",
-    "url": "https://zenodo.org/records/17648189",
-    "summary": " \n A hybrid Monte Carlo approach using MCNP in combination with the cell-level code Monte Carlo Damage Simulation (MCDS) is presented to support the design and analysis of experiments for the evaluation of gadolinium (Gd) based agents in neutron capture therapy (NCT). Monoenergetic neutrons (0.025 eV-15 MeV) and polyenergetic neutron beams from NEUTRA, ICON (PSI, Switzerland), and HK1 (LVR-15, Czech Republic) were used to estimate the relative biological effectiveness (RBE) of NCT for the biologically critical endpoint of DNA double strand break (DSB) production relative to&nbsp; 60 Co &gamma;-rays. Moreover, microdosimetric spectra of protons, electrons, alpha particles and heavy recoils were determined for the aforementioned neutron beams, to enhance the interpretation of energy deposition in subcellular structrures. The proposed, hybrid model and methodology builds on well-validated dosimetry and biophysical models at different spatial scales to create a versatile and generalized framework to estimate dosimetric parameters and RBE. This approach facilitates comparisons between NCT and low linear energy transfer (LET) radiation alternatives. \n \n  Keywords:&nbsp; High LET; MCDS; M",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2025-11-19",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.1016/j.apradiso.2025.112233",
-    "creators": [
-      "Theodossiou, Theodossis"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 3,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 14,
-    "heuristic_reasons": [
-      "Matched 3 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "4DMRI moving meshes",
     "url": "https://zenodo.org/records/7052607",
     "summary": "  Moving lung and ribcage meshes extracted from 4DMRIs  \n\n The newest version of the dataset and the documentation can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DMRI_moving_meshes . \n\n The moving lung and ribcage meshes can for example be used to generate synthetic 4DCT(MRI)s. The code for generating 4DCT(MRI)s using a reference CT and the moving mesh data can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DCT-MRI . \n\n Please cite the following publications when using the data: \n\n Jenny, T., Duetschler, A., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Technical Note: Towards more realistic 4DCT(MRI) numerical lung phantoms . Manuscript submitted for publication. \n\n Duetschler, A., Bauman, G., Bieri, O., Cattin, P.C., Ehrbar, S., Engin-Deniz, G., Giger, A., Josipovic, M., Jud, C., Krieger, M., Nguyen, D., Persson, G.F., Salomir, R., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Synthetic 4DCT(MRI) lung phantom generation for 4D radiotherapy and image guidance investigations.  Med. Phys..  https://doi.org/10.1002/mp.15591  ",
@@ -8520,6 +8418,30 @@
     "heuristic_total_score": 8,
     "heuristic_reasons": [
       "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "A dosimetric and biological model for neutron capture therapy (NCT) experiments",
+    "url": "https://zenodo.org/records/17648189",
+    "summary": " \n A hybrid Monte Carlo approach using MCNP in combination with the cell-level code Monte Carlo Damage Simulation (MCDS) is presented to support the design and analysis of experiments for the evaluation of gadolinium (Gd) based agents in neutron capture therapy (NCT). Monoenergetic neutrons (0.025 eV-15 MeV) and polyenergetic neutron beams from NEUTRA, ICON (PSI, Switzerland), and HK1 (LVR-15, Czech Republic) were used to estimate the relative biological effectiveness (RBE) of NCT for the biologically critical endpoint of DNA double strand break (DSB) production relative to&nbsp; 60 Co &gamma;-rays. Moreover, microdosimetric spectra of protons, electrons, alpha particles and heavy recoils were determined for the aforementioned neutron beams, to enhance the interpretation of energy deposition in subcellular structrures. The proposed, hybrid model and methodology builds on well-validated dosimetry and biophysical models at different spatial scales to create a versatile and generalized framework to estimate dosimetric parameters and RBE. This approach facilitates comparisons between NCT and low linear energy transfer (LET) radiation alternatives. \n \n  Keywords:&nbsp; High LET; MCDS; M",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2025-11-19",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1016/j.apradiso.2025.112233",
+    "creators": [
+      "Theodossiou, Theodossis"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 14,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -8606,36 +8528,32 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Triorla striola",
-    "url": "https://zenodo.org/records/10979570",
-    "summary": "   Triorla striola  (Fabricius, 1805)   (Figs 28&ndash;31)  Material examined. BRASIL [BRAZIL],  Tocantins:  Porto Nacional,  Campus  UFT [Universidade Federal do Tocantins], 10&deg;41&rsquo;18.649&rdquo;S &ndash; 48&deg;22&rsquo;58.252&rdquo;W, coleta manual [manual collection], 21.XI.2018, Silva, B. M. (&female; CEUFT).  Distribution. Panama, Colombia, Venezuela, Guyana, Suriname, French Guiana, Brazil (Par&aacute;, Tocantins *, Mato Grosso, Goi&aacute;s, Rio Grande do Norte, Minas Gerais, Esp&iacute;rito Santo, Rio de Janeiro, Paran&aacute;), Paraguay (CASTRO  et al ., 2016).  Comments.  Trioria striola  is characterized by having the yellow mystax interspersed with white and black setae (Figs 30, 31); thorax and head brown, golden tomentose (Figs 28, 29); gray scutellum with a dark spot on the margin; femora dorsally reddish brown, black tibiae, black tarsomeres; black abdomen, tergites 1-3 with white lateral bands that cover more than half of the posterior part, tergites 4 and 5 entirely black, tergite 6 with a dorsomedial black spot, tergite 7 black with white lateral bands that cover the ventral and dorsoposterior parts; terminalia conical, shiny black, tergite and sternite ",
+    "title": "In vitro mutation induction: a database of x-ray and particle irradiation experiments",
+    "url": "https://zenodo.org/records/6451956",
+    "summary": " The database presents a collection of  in vitro  mutation induction data after photon and particle beam irradiation. The experiments included in the database were all performed by means of the  hprt  mutation assay. The collection was based on extensive literature search, and contains data published in the time period from 1977 to 2002. \n\n As better described in the README file, the database provides information on RBE for cell killing and mutation induction, as well as dose response curves raw data for both endpoints, as digitised&nbsp;(when available) from&nbsp;the original publication. \n\n This study is part of a manuscript that was&nbsp;submitted for publication in&nbsp;April 2022. ",
     "tags": [
-      "Biodiversity",
-      "Taxonomy",
-      "Animalia",
-      "Arthropoda",
-      "Insecta",
-      "Diptera",
-      "Asilidae",
-      "Triorla",
-      "Triorla striola"
+      "radiobiology",
+      "mutation induction",
+      "secondary cancer risk",
+      "radiotherapy",
+      "charged particle therapy"
     ],
-    "license": "cc-zero",
-    "updated_at": "2023-05-15",
+    "license": "cc-by-4.0",
+    "updated_at": "2022-04-12",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.10979570",
+    "doi": "10.5281/zenodo.6451956",
     "creators": [
-      "Montanuci, Pietra S.",
-      "Vieira, Rodrigo",
-      "Krolow, Tiago K."
+      "Attili, Andrea",
+      "Scifoni, Emanuele",
+      "Tommasino, Francesco"
     ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
+    "record_type": "dataset",
+    "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
+    "heuristic_total_score": 8,
     "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
+      "Matched 2 particle-therapy term(s)."
     ]
   }
 ]

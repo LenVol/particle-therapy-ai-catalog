@@ -2,6 +2,33 @@
   {
     "kind": "paper",
     "source": "arxiv",
+    "title": "DoseBridge: Denoising Diffusion Bridge Model for Dose Prediction in Lung Intensity-Modulated Proton Therapy",
+    "url": "http://arxiv.org/abs/2608.10173v1",
+    "abstract": "Most radiotherapy dose-prediction models use only CT images and anatomical structures, although intensity-modulated proton therapy (IMPT) dose also depends strongly on beam geometry and available clinical datasets are often small. We present DoseBridge, a denoising diffusion bridge model that uses the patient CT as a structured bridge endpoint and encodes plan-specific beam geometry in a spatially aligned beam mask. Multiscale fusion combines CT, target, organ-at-risk, and beam-mask representations with 1.95% additional parameters. DoseBridge was retrospectively evaluated on single-institution CT images and treatment plans from 52 patients with advanced-stage lung cancer treated with 60 Gy in 30 fractions; 42 cases were used for training and 10 for testing. Performance was assessed using image-similarity, dose-volume, and Lyman-Kutcher-Burman normal-tissue complication probability (NTCP) metrics and compared with two deep-learning models. On the test cohort, DoseBridge achieved a mean absolute error of 4.170 Gy, peak signal-to-noise ratio of 23.06 dB, and structural similarity index of 0.798, outperforming both comparison models on these metrics. Clinical target volume D95 differed from the reference dose by 0.62 +/- 1.6 Gy; signed organ-at-risk mean-dose differences ranged from -0.32 to 0.24 Gy, and NTCP differences were -0.40 +/- 2.2 and 0.52 +/- 3.4 percentage points for acute esophagitis and radiation pneumonitis, respectively. Changing only the beam mask redirected predicted low-dose entrance regions while preserving the high-dose target region. To our knowledge, DoseBridge is the first denoising diffusion bridge model for radiotherapy dose prediction. These results support its feasibility as a beam-aware planning prior for lung IMPT, pending evaluation in larger external cohorts.",
+    "authors": [
+      "Zerun Zhang",
+      "Xiaoda Cong",
+      "Xiangkun Xu",
+      "Peter Y. Chen",
+      "Xuanfeng Ding"
+    ],
+    "journal": null,
+    "published_at": "2026-08-10T19:43:10Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 2,
+    "heuristic_total_score": 34,
+    "heuristic_reasons": [
+      "Matched 3 strong particle-therapy phrase(s).",
+      "Matched 2 AI/ML phrase(s)."
+    ],
+    "cached": false
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
     "title": "A Two-Stage Framework for Fast Proton Spot Map Generation in Pencil Beam Scanning Prostate SBRT Planning",
     "url": "http://arxiv.org/abs/2606.11479v1",
     "abstract": "Background: In pencil beam scanning (PBS) proton therapy, plans are delivered as proton spot maps (PSMs). Although deep learning can rapidly predict 3D dose, direct conversion of dose into deliverable spot patterns remains limited. Purpose: We developed GenSpot, a two stage framework that infers deliverable PSMs from CT and dose, and evaluated it in prostate SBRT by comparing Monte Carlo (MC) doses from GenSpot and clinical PSMs. Methods: GenSpot uses a physics informed projected proton spot map (PrPSM) representation, projecting spots through CT with water equivalent thickness and PDD information to align spots with the CT/dose grid while preserving linearity with spot weights. The dataset included 1,036 fields from 259 prostate SBRT plans, split 80%/10%/10% for training, validation, and testing. A 3D SwinUNETR predicted PrPSMs from CT and dose. Field specific PSMs were reconstructed using column wise nonnegative Lasso regression with precomputed PDD curves. GenSpot and clinical MC doses were compared using MAE, 3D gamma analysis, and composite plan DVH metrics. Results: On the test set, SwinUNETR achieved PrPSM MAE of 0.06 +/- 0.02 with high similarity to clinical PrPSMs. GenSpot MC doses showed low MAE of 0.07 +/- 0.03 Gy in the nonzero dose region and gamma passing rates of 0.90 at the field level and 0.97 at plan level. Composite DVH differences were within 1 Gy for targets and organs at risk, though the CTV showed a modest high dose increase. Spot complexity was similar to clinical plans, with slightly more spots. Prediction and reconstruction averaged 0.02 s and 2.1 s/field. Conclusions: GenSpot generated machine deliverable PSMs from CT and dose whose MC doses closely matched clinical PSM doses in a single institution prostate SBRT cohort. This physics informed dose to spots framework may support automated PBS planning and adaptive replanning, pending broader validation.",
