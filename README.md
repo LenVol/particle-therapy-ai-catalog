@@ -2,7 +2,7 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **43**
+Included repositories: **45**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
@@ -14,7 +14,7 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 31 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
 | [openmcsquare/opentps](https://gitlab.com/openmcsquare/opentps) | gitlab | 18 | unclear |  | Open source TPS for proton and photon therapy  |
 | [pcabrales/prototwin-pet](https://github.com/pcabrales/prototwin-pet) | github | 12 | unclear | proton therapy, deep learning, PET imaging, dose verification | For fast, 3D delivered dose estimation from a PET image. Also published at https://ieeexplore.ieee.org/document/10847605/ |
-| [BeppeMagro/pymkm](https://github.com/BeppeMagro/pymkm) | github | 5 | unclear | RBE modeling, software tool | Microdosimetric Kinetic Model utilities for radiobiology research and hadrontherapy |
+| [BeppeMagro/pymkm](https://github.com/BeppeMagro/pymkm) | github | 6 | unclear | RBE modeling, software tool | Microdosimetric Kinetic Model utilities for radiobiology research and hadrontherapy |
 | [Mayo-Clinic-RadOnc-Foundation-Models/Beam-mask-and-sliding-window-dose-prediction](https://github.com/Mayo-Clinic-RadOnc-Foundation-Models/Beam-mask-and-sliding-window-dose-prediction) | github | 3 | unclear |  | Beam mask and sliding window-facilitated deep learning-based accurate and efficient dose prediction for pencil beam scanning proton therapy |
 | [pcabrales/ppw](https://github.com/pcabrales/ppw) | github | 2 | unclear | proton therapy, deep learning, PET imaging, intratumoral heterogeneity | Code for the PROTOTWIN-PET Washout (PPW) framework for mapping biological washout and revealing intratumoral heterogeneity. |
 | [RivettiLuciano/DiffuseRT](https://github.com/RivettiLuciano/DiffuseRT) | github | 2 | unclear | anatomy prediction, diffusion model, adaptation | A probabilistic diffusion model to generate alternative anatomies of a patient |
@@ -29,6 +29,8 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [Madankhatri/Complete-heart-disease-prediction](https://gitlab.com/Madankhatri/Complete-heart-disease-prediction) | gitlab | 0 | unclear |  | Early cardiovascular disease detection using RealMLP neural networks  |
 | [yoganathansa/Virtual-Patient-Specific-QA-for-Proton-Therapy](https://github.com/yoganathansa/Virtual-Patient-Specific-QA-for-Proton-Therapy) | github | 0 | unclear |  | This project presents a virtual quality assurance (QA) framework for proton therapy that predicts measurement fluence from Treatment Planning System (TPS) data. The goal is to reduce reliance on time-consuming physical QA measurements by leveraging computational modeling to verify treatment delivery accuracy. |
 | [Hoco807/Range-Verification-in-Carbon-Ion-Therapy](https://github.com/Hoco807/Range-Verification-in-Carbon-Ion-Therapy) | github | 0 | unclear |  | This section documents experimental data on a single CeBr3 crystal at the carbon ion therapy terminal. |
+| [uhlerlab/prt-pbmc](https://github.com/uhlerlab/prt-pbmc) | github | 0 | unclear |  | Deep learning-based analysis reveals patient-level proton radiation therapy trajectories using single-cell PBMC chromatin images |
+| [amitkumarcodes/MSc-Thesis-FRED-vs-MCsquare](https://github.com/amitkumarcodes/MSc-Thesis-FRED-vs-MCsquare) | github | 0 | unclear |  | MSc thesis: Comparison of fast Monte Carlo dose calculation algorithms for proton therapy: FRED versus MCsquare. |
 | [schillingalex/proton-rv-dtc](https://github.com/schillingalex/proton-rv-dtc) | github | 0 | unclear |  | Proton therapy range verification and spot rejection rate implementation with a digital tracking calorimeter |
 | [Nnamdi-Ike/Proton-therapy-patient-QA-optimizer](https://github.com/Nnamdi-Ike/Proton-therapy-patient-QA-optimizer) | github | 0 | unclear |  | Re-organizes proton therapy patient QA for shortest time... |
 | [Zeinab-Haroon/AIMS-Project-Uveal-Melanoma-Python](https://github.com/Zeinab-Haroon/AIMS-Project-Uveal-Melanoma-Python) | github | 0 | unclear |  | Final Thesis: investigated the optic nerve shape changes under different gaze angles to improve the proton therapy planning for uveal melanoma patients using MeVislab Software. |

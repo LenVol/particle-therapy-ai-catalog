@@ -17,7 +17,7 @@
     ],
     "license": null,
     "updated_at": "2025-04-18T08:21:49+00:00",
-    "downloads": 18,
+    "downloads": 15,
     "likes": 0,
     "doi": null,
     "creators": [],
@@ -1685,6 +1685,41 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "bioimage.io upload: rebellious-mouse",
+    "url": "https://zenodo.org/records/15691357",
+    "summary": "  View on bioimage.io  # 2D Squeeze-and-Excitation U-Net for mitochondria segmentation in EM  \n 2D Squeeze-and-Excitation U-Net for mitochondria segmentation in EM \n Mitochondria segmentation for electron microscopy. \n Training \n Complete information on how to train this model can be found in BiaPy documentation, specifically under  semantic segmentation workflow  description. \n Training Data \n \n Imaging modality: electron microscopy \n Dimensionality: 2D \n Source: Lucchi++ ; DOI:10.48550/arXiv.1812.06024 \n \n Validation (recommended) \n In the case of semantic segmentation the following metrics are calculated:\n- Intersection over Union (IoU), also referred as the  Jaccard index , is essentially a method to quantify the percent of overlap between the target mask and the prediction output. \n More info in  BiaPy documentation . \n Training Schedule (BiaPy variables) \n Training setup \n TRAIN:\n  BATCH_SIZE: 6\n  ENABLE: True\n  EPOCHS: 1500\n  LR: 0.0001\n  LR_SCHEDULER: {'MIN_LR': 1e-05, 'NAME': 'warmupcosine', 'WARMUP_COSINE_DECAY_EPOCHS': 50}\n  OPTIMIZER: ADAMW\n  PATIENCE: 250 \n Data augmentation \n AUGMENTOR:\n  AFFINE_MODE: reflect\n  BRIGHTNESS: True\n  BRIGHTNESS_FACTOR: (-0.2, 0.2)\n  CONTR",
+    "tags": [
+      "backup.bioimage.io",
+      "bioimage.io",
+      "bioimage.io:model",
+      "electron-microscopy",
+      "mitochondria",
+      "2d",
+      "pytorch",
+      "biapy",
+      "semantic-segmentation",
+      "seunet"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2025-06-18",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.15691357",
+    "creators": [
+      "Daniel Franco-Barranco"
+    ],
+    "record_type": "software",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 3,
+    "heuristic_total_score": 10,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 3 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Measuring Changes in Myocardial Perfusion in Left-Sided Breast Cancer Patients",
     "url": "https://zenodo.org/records/14643830",
     "summary": " Abstract \n Left-sided Breast Cancer patients often undergo radiation therapy, including Proton or Photon Therapy, which can affect nearby cardiac structures, causing chronic vascular damage and fibrosing inflammation. This leads to microvascular changes in the heart, manifesting as reduced perfusion and cardiac motion. Advances in 3-dimensional imaging have detailed the actual radiation doses received by critical cardiac structures, revealing the significance of low-dose radiation injury in breast cancer patients. Our study aims to delve deeper into the relationship between changes in myocardial perfusion and heart function (EF), comparing post-treatment images of X-ray (photon therapy) and proton therapy patients. This research highlights the complexity of the relationship between myocardial perfusion and heart function. Understanding these compensatory mechanisms and their impact on perfusion and overall cardiac function is crucial. Our findings emphasize the need for further study to refine our models and improve clinical interventions, ultimately aiming to reduce radiation-induced cardiac injury and improve the survival and quality of life for breast cancer patients undergoing",
@@ -3174,6 +3209,36 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "LOTOS code inputs for local earthquake tomography of the Irazú-Turrialba volcanic complex, Costa Rica",
+    "url": "https://zenodo.org/records/7777962",
+    "summary": " Local earthquake seismic tomography model for Jiwani-Brown, E., Koulakov, I., Muñoz-Burbano, F., Pacheco, J., Mora, M., &amp; Lupi, M. (2023). Comparing&nbsp;local and ambient seismic tomographic methods to infer the plumbing system of the Irazú-Turrialba&nbsp;volcanic complex, Costa Rica.&nbsp; \n\n The tomography model presented in the paper are obtained using the LOTOS code by Koulakov (2009).&nbsp;Input files for running of LOTOS code adapted for Windows OS. More details on the LOTOS code can be found at www.ivan-art.com/science/LOTOS  ",
+    "tags": [
+      "LET",
+      "Tomography",
+      "Costa Rica",
+      "Volcano"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2023-06-30",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.7777962",
+    "creators": [
+      "Jiwani-Brown, Elliot",
+      "Lupi, Matteo"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Simulated shielding performance of 2500 two-layer permutations of the first 50 chemical elements against trapped particles on GTO",
     "url": "https://zenodo.org/records/7828929",
     "summary": " The 2Layer.csv file contains ionizing dose results of simulating the shielding performance of all 2500 two-layer permutations of the first 50 chemical elements against trapped particles in Geostationary Transfer Orbit (GTO). The material properties are sourced from the Geant4 material database, with materials referenced by their Geant4 material database names. For elements that are gases under normal conditions, the liquified version from the Geant4 database is used if available, denoted by an &quot;l&quot; prefix (e.g., &quot;G4_lH2&quot;). The particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. The simulated geometry is provided in the file 2Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. The simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 2.1e+11 electrons and 8.4e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the two layers being 0.75 g/cm2 in depth. The ionizing dose is recorded in 0.5mm thick silicon plates behind the shieldi",
@@ -3428,30 +3493,6 @@
       "Brualla, Lorenzo"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "The Modeling of Baryon and Meson DAs, and their Relevance for DVMP",
-    "url": "https://zenodo.org/records/4036379",
-    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2019-11-08",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4036379",
-    "creators": [
-      "Cédric Mezrag"
-    ],
-    "record_type": "presentation",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 1,
     "heuristic_total_score": 6,
@@ -3973,17 +4014,17 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Exploring Strong QCD in the JLab Experiments of the 12 GeV era",
-    "url": "https://zenodo.org/records/4036325",
+    "title": "Welcome from Jefferson Laboratory",
+    "url": "https://zenodo.org/records/4036371",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2019-11-06",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036325",
+    "doi": "10.5281/zenodo.4036371",
     "creators": [
-      "Volker Burkert"
+      "Robert Mckeown"
     ],
     "record_type": "presentation",
     "heuristic_particle_hits": 1,
