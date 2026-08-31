@@ -2,18 +2,18 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **45**
+Included repositories: **48**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
 | Repository | Platform | Stars | Type | Categories | Summary |
 |---|---:|---:|---|---|---|
-| [e0404/matRad](https://github.com/e0404/matRad) | github | 288 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
+| [e0404/matRad](https://github.com/e0404/matRad) | github | 289 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
 | [OpenTOPAS/OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS) | github | 76 | unclear | monte carlo, software tool | Monte Carlo tool for particle simulation |
 | [opaserr/dota](https://github.com/opaserr/dota) | github | 43 | unclear |  | Data-driven particle transport algorithm for fast dose calculations. |
 | [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 31 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
 | [openmcsquare/opentps](https://gitlab.com/openmcsquare/opentps) | gitlab | 18 | unclear |  | Open source TPS for proton and photon therapy  |
-| [pcabrales/prototwin-pet](https://github.com/pcabrales/prototwin-pet) | github | 12 | unclear | proton therapy, deep learning, PET imaging, dose verification | For fast, 3D delivered dose estimation from a PET image. Also published at https://ieeexplore.ieee.org/document/10847605/ |
+| [pcabrales/prototwin-pet](https://github.com/pcabrales/prototwin-pet) | github | 13 | unclear | proton therapy, deep learning, PET imaging, dose verification | For fast, 3D delivered dose estimation from a PET image. Also published at https://ieeexplore.ieee.org/document/10847605/ |
 | [BeppeMagro/pymkm](https://github.com/BeppeMagro/pymkm) | github | 6 | unclear | RBE modeling, software tool | Microdosimetric Kinetic Model utilities for radiobiology research and hadrontherapy |
 | [Mayo-Clinic-RadOnc-Foundation-Models/Beam-mask-and-sliding-window-dose-prediction](https://github.com/Mayo-Clinic-RadOnc-Foundation-Models/Beam-mask-and-sliding-window-dose-prediction) | github | 3 | unclear |  | Beam mask and sliding window-facilitated deep learning-based accurate and efficient dose prediction for pencil beam scanning proton therapy |
 | [pcabrales/ppw](https://github.com/pcabrales/ppw) | github | 2 | unclear | proton therapy, deep learning, PET imaging, intratumoral heterogeneity | Code for the PROTOTWIN-PET Washout (PPW) framework for mapping biological washout and revealing intratumoral heterogeneity. |
@@ -31,8 +31,11 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [Hoco807/Range-Verification-in-Carbon-Ion-Therapy](https://github.com/Hoco807/Range-Verification-in-Carbon-Ion-Therapy) | github | 0 | unclear |  | This section documents experimental data on a single CeBr3 crystal at the carbon ion therapy terminal. |
 | [uhlerlab/prt-pbmc](https://github.com/uhlerlab/prt-pbmc) | github | 0 | unclear |  | Deep learning-based analysis reveals patient-level proton radiation therapy trajectories using single-cell PBMC chromatin images |
 | [amitkumarcodes/MSc-Thesis-FRED-vs-MCsquare](https://github.com/amitkumarcodes/MSc-Thesis-FRED-vs-MCsquare) | github | 0 | unclear |  | MSc thesis: Comparison of fast Monte Carlo dose calculation algorithms for proton therapy: FRED versus MCsquare. |
+| [thaingocdiep0405-cmd/doserad2026](https://github.com/thaingocdiep0405-cmd/doserad2026) | github | 0 | unclear |  | DoseRAD2026 Task 3 & Task 4 — proton dose prediction from CT and MRI. Full source released before 01.10.2026 |
 | [schillingalex/proton-rv-dtc](https://github.com/schillingalex/proton-rv-dtc) | github | 0 | unclear |  | Proton therapy range verification and spot rejection rate implementation with a digital tracking calorimeter |
 | [Nnamdi-Ike/Proton-therapy-patient-QA-optimizer](https://github.com/Nnamdi-Ike/Proton-therapy-patient-QA-optimizer) | github | 0 | unclear |  | Re-organizes proton therapy patient QA for shortest time... |
+| [DilendraSajini/Proton-Therapy-QA](https://github.com/DilendraSajini/Proton-Therapy-QA) | github | 0 | unclear |  | The project aims to deliver a modern SQL-based database with a web interface for Proton Beam Therapy (PBT) QA data management at UCLH, replacing an unsupported Microsoft Access system. The objective is to enable efficient data input, analysis, and long-term tracking to support clinical workflows and patient safety.  |
+| [17AlbinoZebras/outreach-heatmap](https://github.com/17AlbinoZebras/outreach-heatmap) | github | 0 | unclear |  | A frontend-only web application for visualizing the geographic distribution of proton therapy referral activity across Florida, centered on a generated target hospital. The map displays where referring doctors and referred patients are located, with choropleth shading by region and a range of display and filtering options. |
 | [Zeinab-Haroon/AIMS-Project-Uveal-Melanoma-Python](https://github.com/Zeinab-Haroon/AIMS-Project-Uveal-Melanoma-Python) | github | 0 | unclear |  | Final Thesis: investigated the optic nerve shape changes under different gaze angles to improve the proton therapy planning for uveal melanoma patients using MeVislab Software. |
 | [steremma/proton](https://github.com/steremma/proton) | github | 0 | unclear |  | Optimizing proton fraction distribution between patients -  A linear programming project |
 | [mialar/autoscript_lung](https://github.com/mialar/autoscript_lung) | github | 0 | unclear |  | Automatic proton treatment planning script for LA-NSCLC patients |
