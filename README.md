@@ -2,7 +2,7 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **48**
+Included repositories: **50**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
@@ -25,13 +25,13 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [AndreasSmolders/DIRUncertainty](https://github.com/AndreasSmolders/DIRUncertainty) | github | 1 | unclear | deformable image registration, uncertainty, deep learning, unsupervised learning | Codebase to predict the uncertainty of a given deformable vector field |
 | [GregoryButi1/opentps](https://gitlab.com/GregoryButi1/opentps) | gitlab | 1 | unclear |  | Open source TPS for proton therapy  |
 | [Lakshmibharathy11/xLSTM-CBCT-Dose-Prediction-Model---Proton-Therapy-Research](https://github.com/Lakshmibharathy11/xLSTM-CBCT-Dose-Prediction-Model---Proton-Therapy-Research) | github | 0 | unclear |  | Using GAN /Deep neural network for medical image optimization |
+| [wangkaiwan/PhyPriorNet](https://github.com/wangkaiwan/PhyPriorNet) | github | 0 | unclear |  | A unified differentiable physics-prior residual 3D U-Net for beam-level dose prediction across photon/proton x CT/MRI (DoseRAD2026, all four tasks) |
 | [ankitkumarbyte/Machine-Learning-for-Real-Time-Dose-Verification-Proton-Therapy-](https://github.com/ankitkumarbyte/Machine-Learning-for-Real-Time-Dose-Verification-Proton-Therapy-) | github | 0 | unclear |  | Proton therapy treats cancer by delivering a tightly focused beam of protons that deposits most of its energy at a precise depth — the Bragg peak — then stops.  |
 | [Madankhatri/Complete-heart-disease-prediction](https://gitlab.com/Madankhatri/Complete-heart-disease-prediction) | gitlab | 0 | unclear |  | Early cardiovascular disease detection using RealMLP neural networks  |
 | [yoganathansa/Virtual-Patient-Specific-QA-for-Proton-Therapy](https://github.com/yoganathansa/Virtual-Patient-Specific-QA-for-Proton-Therapy) | github | 0 | unclear |  | This project presents a virtual quality assurance (QA) framework for proton therapy that predicts measurement fluence from Treatment Planning System (TPS) data. The goal is to reduce reliance on time-consuming physical QA measurements by leveraging computational modeling to verify treatment delivery accuracy. |
 | [Hoco807/Range-Verification-in-Carbon-Ion-Therapy](https://github.com/Hoco807/Range-Verification-in-Carbon-Ion-Therapy) | github | 0 | unclear |  | This section documents experimental data on a single CeBr3 crystal at the carbon ion therapy terminal. |
 | [uhlerlab/prt-pbmc](https://github.com/uhlerlab/prt-pbmc) | github | 0 | unclear |  | Deep learning-based analysis reveals patient-level proton radiation therapy trajectories using single-cell PBMC chromatin images |
 | [amitkumarcodes/MSc-Thesis-FRED-vs-MCsquare](https://github.com/amitkumarcodes/MSc-Thesis-FRED-vs-MCsquare) | github | 0 | unclear |  | MSc thesis: Comparison of fast Monte Carlo dose calculation algorithms for proton therapy: FRED versus MCsquare. |
-| [thaingocdiep0405-cmd/doserad2026](https://github.com/thaingocdiep0405-cmd/doserad2026) | github | 0 | unclear |  | DoseRAD2026 Task 3 & Task 4 — proton dose prediction from CT and MRI. Full source released before 01.10.2026 |
 | [schillingalex/proton-rv-dtc](https://github.com/schillingalex/proton-rv-dtc) | github | 0 | unclear |  | Proton therapy range verification and spot rejection rate implementation with a digital tracking calorimeter |
 | [Nnamdi-Ike/Proton-therapy-patient-QA-optimizer](https://github.com/Nnamdi-Ike/Proton-therapy-patient-QA-optimizer) | github | 0 | unclear |  | Re-organizes proton therapy patient QA for shortest time... |
 | [DilendraSajini/Proton-Therapy-QA](https://github.com/DilendraSajini/Proton-Therapy-QA) | github | 0 | unclear |  | The project aims to deliver a modern SQL-based database with a web interface for Proton Beam Therapy (PBT) QA data management at UCLH, replacing an unsupported Microsoft Access system. The objective is to enable efficient data input, analysis, and long-term tracking to support clinical workflows and patient safety.  |
@@ -42,7 +42,9 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [Cellur-574/opentps](https://gitlab.com/Cellur-574/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton and photon therapy  |
 | [sjswerdloff/opentps](https://gitlab.com/sjswerdloff/opentps) | gitlab | 0 | unclear |  | Social Fork of Open source TPS for proton therapy  |
 | [ayf-9797/Cross-cohort-augmented-prediction-of-acute-radiation-dermatitis](https://github.com/ayf-9797/Cross-cohort-augmented-prediction-of-acute-radiation-dermatitis) | github | 0 | unclear |  | The code of "Predicting acute radiation dermatitis to inform personalized supportive care in breast cancer proton therapy: a cross-cohort machine learning study with temporal validation" |
+| [ss6970396-oss/MedLens-AI-Powered-Clinical-Information-Intelligence](https://github.com/ss6970396-oss/MedLens-AI-Powered-Clinical-Information-Intelligence) | github | 0 | unclear |  | MedLens uses AI to transform fragmented medical reports and patient information into structured, traceable patient records with reference-range awareness, source provenance, human verification, and safe patient-friendly summaries. |
 | [KAVAN-DESAI/Probability-and-stochastic-process](https://github.com/KAVAN-DESAI/Probability-and-stochastic-process) | github | 0 | unclear |  | Detailed Analysis of Probability and stochastic process with reference "Multiscale approach predictions for biological outcomes in ion-beam cancer therapy" |
+| [saisudha-02/MedLens](https://github.com/saisudha-02/MedLens) | github | 0 | unclear |  | MedLens — AI-powered clinical information intelligence platform that transforms fragmented patient information and medical reports into structured, traceable, and reviewable records with responsible AI, source provenance, reference-range awareness, human verification, conflict detection, and patient-friendly summaries. |
 | [stefvcb/opentps](https://gitlab.com/stefvcb/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton and photon therapy  |
 | [ahmadnish/opentps](https://gitlab.com/ahmadnish/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton therapy |
 | [Guo-P/opentps](https://gitlab.com/Guo-P/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton therapy  |
