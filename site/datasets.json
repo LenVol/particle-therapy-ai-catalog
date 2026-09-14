@@ -17,7 +17,7 @@
     ],
     "license": null,
     "updated_at": "2025-04-18T08:21:49+00:00",
-    "downloads": 10,
+    "downloads": 7,
     "likes": 0,
     "doi": null,
     "creators": [],
@@ -2816,52 +2816,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Data from: Probabilistic interfractional motion carbon ion radiation therapy dose distribution for prostate cancer shows rectum sparing with moderate target coverage degradation",
-    "url": "https://zenodo.org/records/5004558",
-    "summary": "Purpose: This observational study investigates the influence of interfractional motion on clinical target volume (CTV) coverage, planning target volume (PTV) margins, and rectum tissue sparing in carbon ion radiation therapy (CIRT). It reports dose coverage to target structures and organs at risk in the presence of interfractional motion, investigates rectal tissue sparing, and provides recommendations for further lowering the rate of toxicity. We also propose probabilistic DVH for consideration in treatment planning to represent probable dose to the clinic's patient population.\n\nMethods: At Gunma University Hospital intensity-modulated x-ray therapy (IMXT, aka IMRT) prostate cancer patients are positioned on a table which is shifted twice based on cone-beam computed tomography (CBCT) to align bones and then align prostate tissue to isocenter. These shifts thereby contain interfractional motion. 1306 such tableshifts from 85 patients were collected. Normal probability distributions were fit to the difference between bone-matching and prostate-matching CBCT-to-planning CT tableshifts (i.e. interfractional motion). Between 2011 and 2016 CIRT prostate patients were treated with PTV1 a",
-    "tags": [
-      "margins",
-      "internal",
-      "VMAT",
-      "IMXT",
-      "IMRT",
-      "error",
-      "danger",
-      "oncology",
-      "carbon ion",
-      "in-room",
-      "adaptive",
-      "interfractional",
-      "hazard",
-      "computed tomography",
-      "Motion",
-      "Therapy",
-      "medicine",
-      "photon",
-      "replanning",
-      "image guidance"
-    ],
-    "license": "cc-zero",
-    "updated_at": "2018-09-05",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5061/dryad.mg783s0",
-    "creators": [
-      "Bridges, Daniel",
-      "Kawamura, Hidemasa",
-      "Kanai, Tatsuaki"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "GEANT4 on Large Intel Xeon Phi Clusters: Service Implementation and Performance",
     "url": "https://zenodo.org/records/832096",
     "summary": " The fast and precise simulation of particle interactions with matter is an important task for several scientific areas, ranging from fundamental science (high-energy physics experiments, astrophysics and astroparticle physics, nuclear investigations) through applied science (radiation protection, space science), to biology and medicine (DNA investigations, hadron therapy, medical physics and medical imaging) and education. The basic software in all these fields is Geant4 (GEometry ANd Tracking) – a platform for simulation of the passage of particles through matter [1]. Along the way towards enabling the execution of Geant4 based simulations on HPC architectures with large clusters of Intel Xeon Phi co-processors as a general service, we study the performance of this software suit on the supercomputer system Avitohol@BAS, commenting on the pitfalls in the installation and compilation process. Some practical scripts are collected in the supplementary material shown in the appendix. ",
@@ -2875,6 +2829,43 @@
     "doi": "10.5281/zenodo.832096",
     "creators": [
       "Borislav Pavlov"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "An online, energy-resolving beam profile detector for laser-driven proton beams",
+    "url": "https://zenodo.org/records/840089",
+    "summary": " In this paper, a scintillator-based online beam profile detector for the characterization of laser-driven proton beams is presented. Using a pixelated matrix with varying absorber thicknesses, the proton beam is spatially resolved in two dimensions and simultaneously energy-resolved. A thin plastic scintillator placed behind the absorber and read out by a CCD camera is used as the active detector material. The spatial detector resolution reaches down to ∼4 mm and the detector can resolve proton beam profiles for up to 9 proton threshold energies. With these detector design parameters, the spatial characteristics of the proton distribution and its cut-off energy can be analyzed online and on-shot under vacuum conditions. The paper discusses the detector design, its characterization and calibration at a conventional proton source, as well as the first detector application at a laser-driven proton source. ",
+    "tags": [
+      "Protons",
+      "Scintillation detectors",
+      "Cameras",
+      "Laser sensors",
+      "Particle beam detectors"
+    ],
+    "license": "cc-by-nc-nd-4.0",
+    "updated_at": "2016-08-01",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.1063/1.4961576",
+    "creators": [
+      "Metzkes, J.",
+      "Zeil, K.",
+      "Kraft, S. D.",
+      "Karsch, L.",
+      "Sobiella, M.",
+      "Rehwald, M.",
+      "Obst, L.",
+      "Schlenvoigt, H.-P.",
+      "Schramm, U."
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 2,
@@ -3776,6 +3767,41 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Triorla striola",
+    "url": "https://zenodo.org/records/10979570",
+    "summary": "   Triorla striola  (Fabricius, 1805)   (Figs 28&ndash;31)  Material examined. BRASIL [BRAZIL],  Tocantins:  Porto Nacional,  Campus  UFT [Universidade Federal do Tocantins], 10&deg;41&rsquo;18.649&rdquo;S &ndash; 48&deg;22&rsquo;58.252&rdquo;W, coleta manual [manual collection], 21.XI.2018, Silva, B. M. (&female; CEUFT).  Distribution. Panama, Colombia, Venezuela, Guyana, Suriname, French Guiana, Brazil (Par&aacute;, Tocantins *, Mato Grosso, Goi&aacute;s, Rio Grande do Norte, Minas Gerais, Esp&iacute;rito Santo, Rio de Janeiro, Paran&aacute;), Paraguay (CASTRO  et al ., 2016).  Comments.  Trioria striola  is characterized by having the yellow mystax interspersed with white and black setae (Figs 30, 31); thorax and head brown, golden tomentose (Figs 28, 29); gray scutellum with a dark spot on the margin; femora dorsally reddish brown, black tibiae, black tarsomeres; black abdomen, tergites 1-3 with white lateral bands that cover more than half of the posterior part, tergites 4 and 5 entirely black, tergite 6 with a dorsomedial black spot, tergite 7 black with white lateral bands that cover the ventral and dorsoposterior parts; terminalia conical, shiny black, tergite and sternite ",
+    "tags": [
+      "Biodiversity",
+      "Taxonomy",
+      "Animalia",
+      "Arthropoda",
+      "Insecta",
+      "Diptera",
+      "Asilidae",
+      "Triorla",
+      "Triorla striola"
+    ],
+    "license": "cc-zero",
+    "updated_at": "2023-05-15",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.10979570",
+    "creators": [
+      "Montanuci, Pietra S.",
+      "Vieira, Rodrigo",
+      "Krolow, Tiago K."
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "The dual ion beam microprobe",
     "url": "https://zenodo.org/records/10377192",
     "summary": " A new experimental setup for dual ion microbeam irradiation and analysis of materials has been designed and commissioned at the Ruđer Boˇskovi&acute;c Institute (RBI). Ion beams in the MeV energy range are provided by two tandem accelerators, a 1.0 MV Tandetron and a 6.0 MV EN tandem Van de Graaff. The dual microprobe end station is primarily dedicated for the performance of experiments where one ion microbeam is used for the irradiation, while the other ion microbeam is used for the analysis or &lsquo;probing&rsquo; the in-situ changes induced during the target irradiation. Likewise, both microbeams can be also used independently, for experiments involving either ion beam characterization or ion beam irradiation techniques. The ion beam from the small tandem accelerator is focused with a magnetic quadrupole triplet, which is more suitable for the high spatial resolution work with light ions. The ion beam from the larger accelerator is focused by an electrostatic quadruplet that enables easier focusing of heavy ions. Details of the experimental setup, its capabilities in terms of ion beam irradiation and analysis techniques, as well as the first applications, are presented. ",
@@ -3952,34 +3978,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Proton light yield of water-based liquid scintillator",
-    "url": "https://zenodo.org/records/4123022",
-    "summary": "Future neutrino detectors, whether answering questions of fundamental physics or exercising nuclear monitoring techniques, will require advanced technologies for optimal performance. One such candidate technology is water-based liquid scintillator (WbLS), a material for which Cherenkov and scintillation light may be discriminated and examined independently. We present a measurement of the relative proton light yields of WbLS and an LAB-based liquid scintillator, using a broad-spectrum neutron source at the 88-Inch Cyclotron at Lawrence Berkeley National Laboratory. A double-time-of-flight technique was employed, which allows for relatively pure selection of proton recoil events over a continuous energy range. We also present a characterization of the nonlinearity in photomultiplier tube response over the full dynamic range of the electronics system.",
-    "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2020-06-24",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4123022",
-    "creators": [
-      "Gabriel Orebi Gann",
-      "Edward Callaghan",
-      "Thibault Laplace",
-      "Juan Manfredi",
-      "Joshua Brown",
-      "Bethany Goldblum"
-    ],
-    "record_type": "poster",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Optimization of Conditions for Mass Production of Orchid Mycorrhizal Fungi (OMF) Inoculants",
     "url": "https://zenodo.org/records/3986609",
     "summary": "  The study determined the optimum conditions for mass production of OMF inoculants. Extracts from each of the five different locally-available materials (sorghum, SHE; rice bran, RBE; sawdust, SE; and fern chips, FE and combinations of RBE and SE) for isolation of pure culture from tissue and spores and subsequently production of &ldquo;mother culture&rdquo; were evaluated. Four locally available substrates (sawdust, fern chips, sorghum and rots) combined with rice bran for spawn production and interaction of temperature and substrate for fruiting bodies formation were likewise assessed.  \n Combination of extracts of rice bran and sawdust at 1:1 ratio and rice bran alone were found to be the most suitable media for multi-spore and tissue isolations and production of &ldquo;mother culture&rdquo;.&nbsp; Sawdust and fern chips each mixed with rice bran at 1:1 ratio were found to be the best substrate for spawn production. These substrates were fully colonized with OMF mycelia four weeks after incubation at room temperature. Exposure of substrate (sawdust + rice bran) fully colonized with mycelia to cold temperature favored primordial initiation for a shorter period of time. Larger an",
@@ -4006,50 +4004,19 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Towards a Finer Understanding of the Nucleon with Volker in charge",
-    "url": "https://zenodo.org/records/4036345",
+    "title": "Welcome from Jefferson Laboratory",
+    "url": "https://zenodo.org/records/4036371",
     "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
     "tags": [],
     "license": "cc-by-4.0",
-    "updated_at": "2019-11-07",
+    "updated_at": "2019-11-06",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036345",
+    "doi": "10.5281/zenodo.4036371",
     "creators": [
-      "Keith Griffioen"
+      "Robert Mckeown"
     ],
     "record_type": "presentation",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Risks of gastrotoxicity and rationality of presribing of proton pump inhibitors in seniors in acute care in the EUROAGEISM H2020 project (diploma thesis in Czech)",
-    "url": "https://zenodo.org/records/4282554",
-    "summary": " The process of demographic aging has a significant impact on all areas of the society. With increasing age, the presence of illness, as well as the amount of used drugs increases. The most commonly prescribed drugs in seniros are also proton pump inhibitors, which play an irreplaceable role in the treatment of many gastrointestinal disorders. The trend of the overuse of proton pump inhibitors as main antisecretory drugs mainly relates to their long-term administration in the prophylaxis of the risk of polypharmacy and concurrent use of more gastrotoxic agents. The aim of this work was to evaluate the rationality of use of proton pump inhibitors in Czech seniors participating in the EUROAGEISM H2020 project (including evaluation of indications, administered dosages and duration of the treatment) and to consider aspects of ageism regarding overuse of polypharmacy and overuse of such medications.&nbsp; ",
-    "tags": [
-      "drug-related gastrotoxicity",
-      "proton pump inhibitors",
-      "drug risks",
-      "adverse drug events",
-      "aged",
-      "ageism",
-      "inappropriate prescribing"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2019-09-24",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4282554",
-    "creators": [
-      "Masaryková, Petra"
-    ],
-    "record_type": "publication",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 4,
