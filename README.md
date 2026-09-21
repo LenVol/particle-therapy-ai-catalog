@@ -2,13 +2,13 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **48**
+Included repositories: **50**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
 | Repository | Platform | Stars | Type | Categories | Summary |
 |---|---:|---:|---|---|---|
-| [e0404/matRad](https://github.com/e0404/matRad) | github | 290 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
+| [e0404/matRad](https://github.com/e0404/matRad) | github | 292 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
 | [OpenTOPAS/OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS) | github | 76 | unclear | monte carlo, software tool | Monte Carlo tool for particle simulation |
 | [opaserr/dota](https://github.com/opaserr/dota) | github | 43 | unclear |  | Data-driven particle transport algorithm for fast dose calculations. |
 | [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 31 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
@@ -29,6 +29,7 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [ankitkumarbyte/Machine-Learning-for-Real-Time-Dose-Verification-Proton-Therapy-](https://github.com/ankitkumarbyte/Machine-Learning-for-Real-Time-Dose-Verification-Proton-Therapy-) | github | 0 | unclear |  | Proton therapy treats cancer by delivering a tightly focused beam of protons that deposits most of its energy at a precise depth — the Bragg peak — then stops.  |
 | [Madankhatri/Complete-heart-disease-prediction](https://gitlab.com/Madankhatri/Complete-heart-disease-prediction) | gitlab | 0 | unclear |  | Early cardiovascular disease detection using RealMLP neural networks  |
 | [yoganathansa/Virtual-Patient-Specific-QA-for-Proton-Therapy](https://github.com/yoganathansa/Virtual-Patient-Specific-QA-for-Proton-Therapy) | github | 0 | unclear |  | This project presents a virtual quality assurance (QA) framework for proton therapy that predicts measurement fluence from Treatment Planning System (TPS) data. The goal is to reduce reliance on time-consuming physical QA measurements by leveraging computational modeling to verify treatment delivery accuracy. |
+| [udacity-nanodegrees/deep-learning-deletion_scheduled-142027623/diabetes-risk-prediction-deletion_scheduled-86353907](https://gitlab.com/udacity-nanodegrees/deep-learning-deletion_scheduled-142027623/diabetes-risk-prediction-deletion_scheduled-86353907) | gitlab | 0 | unclear |  | Included by heuristic/manual filtering. |
 | [Hoco807/Range-Verification-in-Carbon-Ion-Therapy](https://github.com/Hoco807/Range-Verification-in-Carbon-Ion-Therapy) | github | 0 | unclear |  | This section documents experimental data on a single CeBr3 crystal at the carbon ion therapy terminal. |
 | [uhlerlab/prt-pbmc](https://github.com/uhlerlab/prt-pbmc) | github | 0 | unclear |  | Deep learning-based analysis reveals patient-level proton radiation therapy trajectories using single-cell PBMC chromatin images |
 | [amitkumarcodes/MSc-Thesis-FRED-vs-MCsquare](https://github.com/amitkumarcodes/MSc-Thesis-FRED-vs-MCsquare) | github | 0 | unclear |  | MSc thesis: Comparison of fast Monte Carlo dose calculation algorithms for proton therapy: FRED versus MCsquare. |
@@ -40,9 +41,10 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [steremma/proton](https://github.com/steremma/proton) | github | 0 | unclear |  | Optimizing proton fraction distribution between patients -  A linear programming project |
 | [mialar/autoscript_lung](https://github.com/mialar/autoscript_lung) | github | 0 | unclear |  | Automatic proton treatment planning script for LA-NSCLC patients |
 | [Cellur-574/opentps](https://gitlab.com/Cellur-574/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton and photon therapy  |
-| [sjswerdloff/opentps](https://gitlab.com/sjswerdloff/opentps) | gitlab | 0 | unclear |  | Social Fork of Open source TPS for proton therapy  |
 | [ayf-9797/Cross-cohort-augmented-prediction-of-acute-radiation-dermatitis](https://github.com/ayf-9797/Cross-cohort-augmented-prediction-of-acute-radiation-dermatitis) | github | 0 | unclear |  | The code of "Predicting acute radiation dermatitis to inform personalized supportive care in breast cancer proton therapy: a cross-cohort machine learning study with temporal validation" |
+| [vvuvv31/MAIGO](https://github.com/vvuvv31/MAIGO) | github | 0 | unclear |  | Monte Carlo for particle therapY on GPU for radiotherapy dOse calculation (MYGO) |
 | [KAVAN-DESAI/Probability-and-stochastic-process](https://github.com/KAVAN-DESAI/Probability-and-stochastic-process) | github | 0 | unclear |  | Detailed Analysis of Probability and stochastic process with reference "Multiscale approach predictions for biological outcomes in ion-beam cancer therapy" |
+| [saisudha-02/MedLens](https://github.com/saisudha-02/MedLens) | github | 0 | unclear |  | MedLens — AI-powered clinical information intelligence platform that transforms fragmented patient information and medical reports into structured, traceable, and reviewable records with responsible AI, source provenance, reference-range awareness, human verification, conflict detection, and patient-friendly summaries. |
 | [stefvcb/opentps](https://gitlab.com/stefvcb/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton and photon therapy  |
 | [ahmadnish/opentps](https://gitlab.com/ahmadnish/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton therapy |
 | [Guo-P/opentps](https://gitlab.com/Guo-P/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton therapy  |

@@ -1015,6 +1015,39 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Proton Beam Therapy in Prostate Cancer: Clinical Evidence, Controversies and Future Directions",
+    "url": "https://zenodo.org/records/22792575",
+    "summary": "Proton beam therapy (PBT) offers a unique dosimetric advantage over photon-based external beam radiotherapy by concentrating dose at a certain depth (the Bragg peak) and markedly reducing the exit dose to surrounding normal tissues. This narrative review summarises and evaluates the clinical, dosimetric and radiobiological evidence for PBT in localised and locally advanced prostate cancer (PCa), focusing on treatment-related toxicity, oncological outcomes and emerging research directions. Comparative dosimetric studies consistently demonstrate reductions in low-intermediate dose exposure to the bladder and rectum with protons, whereas prospective and large retrospective cohorts report low rates of severe (&gt;= G3) genitourinary (GU) and gastrointestinal (GI) toxicity, alongside preserved long-term patient-reported quality of life. Meta-analyses reported modest reductions in acute GI events, whilst reporting similar 5-year biochemical control in pooled, heterogeneous series; however, observational and claims-based analyses often fail to demonstrate clear clinical advantages compared with modern intensity-modulated radiation therapy/volumetric modulated arc therapy (IMRT/VMAT). Key ",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2026-05-01",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.56434/j.arch.esp.urol.20267904.63",
+    "creators": [
+      "Gomis-Sellés, E",
+      "de Dueñas, MG",
+      "Meca, G",
+      "Garcia-Marqueta, M",
+      "Moreno-López, S",
+      "Roch, JA",
+      "Botella, MIG",
+      "Caballero, B",
+      "Rivas, JG",
+      "Shelan, M"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 4,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 13,
+    "heuristic_reasons": [
+      "Matched 4 particle-therapy term(s).",
+      "Matched 1 negative term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Role of Luminescence Dosimetry in Proton Therapy",
     "url": "https://zenodo.org/records/19785741",
     "summary": "  Nowadays the proton ion therapy has recognized as one of the best progressive modalities in the field of radiation oncology, due to delivering the superior and accurate dose conformity as compare to the conventional photon-based radiotherapy. The main advantage of the proton therapy consists of, deposition of accurate and precise dose deposition within the Bragg peak region. LiF based thermoluminescent materials, Al2O3:C based optically stimulated luminescence, Ag doped glasses act as radio-photoluminescent materials offers versatile solutions for proton therapy. In luminescence dosimetry, specially Thermoluminescence Dosimeters (TLD&rsquo;s) and Optically Stimulated Luminescence Dosimeters (OSLD&rsquo;s) are plays vital role in the proton therapy for the accurate dosimetric verifications such as dose gradients and sensitivity to range uncertainties. This chapter includes the main interactions of proton ions with the luminescent phosphor materials, directing on the Linear Energy Transform (LET) dependent responses variations and improvement tactics. In addition to that, developments in phosphors and LET dependent materials which are highlighting how revolutions in material scienc",
@@ -1697,25 +1730,26 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Establishment of the first biological experiment using proton particles at the Bern Medical Cyclotron and it's Beam Transfer Line",
-    "url": "https://zenodo.org/records/21376885",
-    "summary": " In collaboration with the Laboratory of High Energy Physics (LHEP), the Institute of Anatomy at the University of Bern aims to investigate the effects of proton radiation in an in vivo melanoma model and extend proton therapy to the field of spatially fractionated radiation therapy (SFRT). However, before these methods can be implemented, the newly developed Beam Transfer Line (BTL) at the medical cyclotron in Bern must be validated through in vitro experiments. The aim of this thesis is to validate the BTL for biological research by conducting the first in vitro experiments, enabling the transition for future in-vivo studies and the implementation of SFRT with protons. ",
+    "title": "Protonflux-Classification-Model",
+    "url": "https://zenodo.org/records/20157031",
+    "summary": " Protonflux-Classification-Model v1.0.1 \n Accompanying software release for the manuscript: \"Supporting Informed Shutter Operations for SMILE's SXI Using Ensemble Classifiers for Soft Proton High Flux Period Predictions\" \n Contents \n \n Logistic Regression classification models \n XGBoost classification models \n Ensemble prediction framework \n Example prediction scripts \n \n Data Sources \n The models were developed using: \n \n ESA Cluster/RAPID proton flux measurements \n NASA OMNI solar wind and geomagnetic indices \n \n Authors \n \n Simon Mischel \n Elena A. Kronberg \n \n License \n Apache License 2.0 ",
     "tags": [],
-    "license": "cc-by-4.0",
-    "updated_at": "2026-07-15",
+    "license": "apache2.0",
+    "updated_at": "2026-05-13",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.21376885",
+    "doi": "10.5281/zenodo.20157031",
     "creators": [
-      "Gruber, Jan"
+      "Mischel, Simon",
+      "Kronberg, Elena"
     ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 1,
+    "record_type": "software",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 3,
     "heuristic_total_score": 10,
     "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
+      "Matched 1 particle-therapy term(s).",
+      "Matched 3 AI/ML term(s)."
     ]
   },
   {
@@ -1875,14 +1909,14 @@
     "kind": "record",
     "source": "zenodo",
     "title": "WATER EQUIVALENCE OF VARIOUS 3D PRINTED MATERIALS FOR PROTON THERAPY — MONTE CARLO SIMULATION, TREATMENT PLANNING MODELLING AND VALIDATION BY MEASUREMENTS",
-    "url": "https://zenodo.org/records/4726051",
+    "url": "https://zenodo.org/records/4724029",
     "summary": " In this article, Water Equivalent Ratio (WER) of three selected materials: Polylactic Acid (PLA), Acrylonitrilebutadiene Styrene (ABS) and Polyethylene Terephthalate Glycol (PETG) &mdash; commonly used in additive manufacturing technology &mdash; was measured on 60 MeV proton beam and compared with values predicted by Treatment Planning System (TPS) and Monte Carlo (MC) simulation. The agreement within 0.02&ndash;2.98% and 0.11&ndash;6.46% was found between results obtained from the measurement with comparison to the MC simulation and TPS, respectively. It was concluded that 3D printable materials can be safely used in proton therapy. \n\n Uploaded files: \n\n .inp files - Inputs for Fluka simulation for each tested plate&nbsp;(ABS, PETG and PLA as the material names, 0.5, 1.0 and 2.0 are the theoretical widths). \n\n .txt files - raw data for each plate&nbsp;received from measurements on on 60 MeV proton beam. \n\n 2020_Wochnik_ActaPhysPol_raw_data.xlsx&nbsp;- raw data&nbsp;collected in one sheet and analysis. ",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2020-01-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4726051",
+    "doi": "10.5506/APhysPolB.51.409",
     "creators": [
       "Wochnik Agnieszka",
       "Swakoń Jan",
@@ -1901,14 +1935,14 @@
     "kind": "record",
     "source": "zenodo",
     "title": "WATER EQUIVALENCE OF VARIOUS 3D PRINTED MATERIALS FOR PROTON THERAPY — MONTE CARLO SIMULATION, TREATMENT PLANNING MODELLING AND VALIDATION BY MEASUREMENTS",
-    "url": "https://zenodo.org/records/4724029",
+    "url": "https://zenodo.org/records/4726051",
     "summary": " In this article, Water Equivalent Ratio (WER) of three selected materials: Polylactic Acid (PLA), Acrylonitrilebutadiene Styrene (ABS) and Polyethylene Terephthalate Glycol (PETG) &mdash; commonly used in additive manufacturing technology &mdash; was measured on 60 MeV proton beam and compared with values predicted by Treatment Planning System (TPS) and Monte Carlo (MC) simulation. The agreement within 0.02&ndash;2.98% and 0.11&ndash;6.46% was found between results obtained from the measurement with comparison to the MC simulation and TPS, respectively. It was concluded that 3D printable materials can be safely used in proton therapy. \n\n Uploaded files: \n\n .inp files - Inputs for Fluka simulation for each tested plate&nbsp;(ABS, PETG and PLA as the material names, 0.5, 1.0 and 2.0 are the theoretical widths). \n\n .txt files - raw data for each plate&nbsp;received from measurements on on 60 MeV proton beam. \n\n 2020_Wochnik_ActaPhysPol_raw_data.xlsx&nbsp;- raw data&nbsp;collected in one sheet and analysis. ",
     "tags": [],
     "license": "cc-by-4.0",
     "updated_at": "2020-01-08",
     "downloads": null,
     "likes": null,
-    "doi": "10.5506/APhysPolB.51.409",
+    "doi": "10.5281/zenodo.4726051",
     "creators": [
       "Wochnik Agnieszka",
       "Swakoń Jan",
@@ -2631,6 +2665,35 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Stopping Power and Range for Proton Interaction with Lymph Tissues",
+    "url": "https://zenodo.org/records/5842881",
+    "summary": " &nbsp; \n\n In this paper, we calculated the mass stopping power (in MeV cm2/g) and the range (cm) of proton in one of the types \nof body tissues (lymph), from 1 Kev to 200 MeV energy range. They are using the Bethe and Ziegler equations, SRIM program (version \n2013) and Ziegler (Vol. 3) data by considering the tissue composed of several elements, so the atomic number (Z) and atomic weight \n(A) for the component in the tissue are meaning. The calculation results show that the Ziegler equation gives better results than using \nthe Bethe equation. However, in terms of the loss of proton energy in the tissue, the four methods used are approximately the same. \n&nbsp; ",
+    "tags": [
+      "Bethe Equation",
+      "Proton Therapy",
+      "Stopping Power",
+      "SRIM Program",
+      "Ziegler Equation"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2021-12-25",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.5842881",
+    "creators": [
+      "Hadi, Shaima M."
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Updated 4DCT(MRI)",
     "url": "https://zenodo.org/records/7052585",
     "summary": "  Code for generating a synthetic 4DCT(MRI) from&nbsp;a reference CT and a 4DMRI or moving mesh data.  \n\n This is the updated version of the code for 4DCT(MRI) generation including ribcage motion and density scaling [1]. The previous version [2] can still be found at  10.5281/zenodo.5010964 . \n\n The newest version of the code and instructions on how to use it can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DCT-MRI . \n\n 4DMRI moving lung mesh data for the generation of 4DCT(MRI)s can be found here  https://gitlab.psi.ch/4DCT-MRI_updated/4DMRI_moving_meshes . \n\n Please cite the following publications when using the code: \n\n [1] Jenny, T., Duetschler, A., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Technical Note: Towards more realistic 4DCT(MRI) numerical lung phantoms . Manuscript submitted for publication. \n\n [2] Duetschler, A., Bauman, G., Bieri, O., Cattin, P.C., Ehrbar, S., Engin-Deniz, G., Giger, A., Josipovic, M., Jud, C., Krieger, M., Nguyen, D., Persson, G.F., Salomir, R., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Synthetic 4DCT(MRI) lung phantom generation for 4D radiotherapy and image guidance investigations.  Med. Phys..  https://doi.org/10.1002/mp.1559",
@@ -2816,6 +2879,52 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Data from: Probabilistic interfractional motion carbon ion radiation therapy dose distribution for prostate cancer shows rectum sparing with moderate target coverage degradation",
+    "url": "https://zenodo.org/records/5004558",
+    "summary": "Purpose: This observational study investigates the influence of interfractional motion on clinical target volume (CTV) coverage, planning target volume (PTV) margins, and rectum tissue sparing in carbon ion radiation therapy (CIRT). It reports dose coverage to target structures and organs at risk in the presence of interfractional motion, investigates rectal tissue sparing, and provides recommendations for further lowering the rate of toxicity. We also propose probabilistic DVH for consideration in treatment planning to represent probable dose to the clinic's patient population.\n\nMethods: At Gunma University Hospital intensity-modulated x-ray therapy (IMXT, aka IMRT) prostate cancer patients are positioned on a table which is shifted twice based on cone-beam computed tomography (CBCT) to align bones and then align prostate tissue to isocenter. These shifts thereby contain interfractional motion. 1306 such tableshifts from 85 patients were collected. Normal probability distributions were fit to the difference between bone-matching and prostate-matching CBCT-to-planning CT tableshifts (i.e. interfractional motion). Between 2011 and 2016 CIRT prostate patients were treated with PTV1 a",
+    "tags": [
+      "margins",
+      "internal",
+      "VMAT",
+      "IMXT",
+      "IMRT",
+      "error",
+      "danger",
+      "oncology",
+      "carbon ion",
+      "in-room",
+      "adaptive",
+      "interfractional",
+      "hazard",
+      "computed tomography",
+      "Motion",
+      "Therapy",
+      "medicine",
+      "photon",
+      "replanning",
+      "image guidance"
+    ],
+    "license": "cc-zero",
+    "updated_at": "2018-09-05",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5061/dryad.mg783s0",
+    "creators": [
+      "Bridges, Daniel",
+      "Kawamura, Hidemasa",
+      "Kanai, Tatsuaki"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "GEANT4 on Large Intel Xeon Phi Clusters: Service Implementation and Performance",
     "url": "https://zenodo.org/records/832096",
     "summary": " The fast and precise simulation of particle interactions with matter is an important task for several scientific areas, ranging from fundamental science (high-energy physics experiments, astrophysics and astroparticle physics, nuclear investigations) through applied science (radiation protection, space science), to biology and medicine (DNA investigations, hadron therapy, medical physics and medical imaging) and education. The basic software in all these fields is Geant4 (GEometry ANd Tracking) – a platform for simulation of the passage of particles through matter [1]. Along the way towards enabling the execution of Geant4 based simulations on HPC architectures with large clusters of Intel Xeon Phi co-processors as a general service, we study the performance of this software suit on the supercomputer system Avitohol@BAS, commenting on the pitfalls in the installation and compilation process. Some practical scripts are collected in the supplementary material shown in the appendix. ",
@@ -2829,43 +2938,6 @@
     "doi": "10.5281/zenodo.832096",
     "creators": [
       "Borislav Pavlov"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "An online, energy-resolving beam profile detector for laser-driven proton beams",
-    "url": "https://zenodo.org/records/840089",
-    "summary": " In this paper, a scintillator-based online beam profile detector for the characterization of laser-driven proton beams is presented. Using a pixelated matrix with varying absorber thicknesses, the proton beam is spatially resolved in two dimensions and simultaneously energy-resolved. A thin plastic scintillator placed behind the absorber and read out by a CCD camera is used as the active detector material. The spatial detector resolution reaches down to ∼4 mm and the detector can resolve proton beam profiles for up to 9 proton threshold energies. With these detector design parameters, the spatial characteristics of the proton distribution and its cut-off energy can be analyzed online and on-shot under vacuum conditions. The paper discusses the detector design, its characterization and calibration at a conventional proton source, as well as the first detector application at a laser-driven proton source. ",
-    "tags": [
-      "Protons",
-      "Scintillation detectors",
-      "Cameras",
-      "Laser sensors",
-      "Particle beam detectors"
-    ],
-    "license": "cc-by-nc-nd-4.0",
-    "updated_at": "2016-08-01",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.1063/1.4961576",
-    "creators": [
-      "Metzkes, J.",
-      "Zeil, K.",
-      "Kraft, S. D.",
-      "Karsch, L.",
-      "Sobiella, M.",
-      "Rehwald, M.",
-      "Obst, L.",
-      "Schlenvoigt, H.-P.",
-      "Schramm, U."
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 2,
@@ -3084,6 +3156,30 @@
       "Matched 2 particle-therapy term(s).",
       "Matched 1 AI/ML term(s).",
       "Matched 1 negative term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Reclassification of the Proton Phase-Correlation Scale and the Fundamental Scales of Habitatons and Voidons",
+    "url": "https://zenodo.org/records/21862590",
+    "summary": "  This supplementary manuscript revises the length-scale hierarchy used for the proton, habitatons, voidons, and neutrino signals in Habitat Information Physics. The reduced proton Compton wavelength is approximately 2.1031 &times; 10⁻&sup1;⁶ m, about one quarter of the proton root-mean-square charge-response scale. The numerical ratio may be retained as a relation between a collective proton phase scale and an electromagnetic boundary-response scale. It does not establish the geometric radius of a single habitaton and cannot be recursively divided to obtain a voidon radius.   [1, 2]  \n  The reduced proton Compton scale is therefore reclassified as the candidate collective phase-correlation length of the proton. The manuscript distinguishes five non-equivalent quantities: a fundamental constituent scale, local response spacing, collective correlation length, boundary-response scale, and propagation wavelength. Neutrinos have no experimentally established rigid geometric radius comparable with the proton charge radius. Their mass-related Compton scale is extremely large because their mass is small, whereas their propagation wavelength decreases with energy. A neutrino near 0.938 GeV",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2026-08-09",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.21862590",
+    "creators": [
+      "Zheng, Zhou"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
     ]
   },
   {
@@ -3523,6 +3619,36 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Gastroprotection in combined antithrombotic therapy: A systematic review",
+    "url": "https://zenodo.org/records/22789748",
+    "summary": " Combined anticoagulant and antiplatelet therapy substantially increase the risk of gastrointestinal (GI) bleeding, particularly in high-risk populations requiring dual or triple antithrombotic regimens. Appropriate gastroprotective strategies remain essential to balance thrombotic and bleeding risks. The objective of this study is to systematically evaluate the effectiveness, indications, and safety of gastroprotective strategies in patients receiving combined anticoagulant and antiplatelet therapy, with and without established gastrointestinal bleeding.           Evidence review: A systematic literature search of PubMed/MEDLINE, Embase, and Cochrane Library databases was conducted for studies published between January 2005 and December 2025. Randomized clinical trials, meta-analyses, cohort studies, and major guideline recommendations assessing gastroprotection in patients receiving anticoagulant and antiplatelet therapy were included. Studies evaluating proton pump inhibitors (PPIs), histamine-2 receptor antagonists, and risk-modifying strategies were prioritized. Risk of bias was assessed using Cochrane and Newcastle–Ottawa tools. Evidence synthesis followed PRISMA guidelines. ",
+    "tags": [
+      "Anticoagulant",
+      "antiplatelet",
+      "gastrointestinal bleeding",
+      "gastroprotective therapy"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2026-09-14",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.3897/bsms.8.195662",
+    "creators": [
+      "Danov, Kamen V.",
+      "Todorova, Dariya L."
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 5,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s).",
+      "Matched 1 negative term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "NA61/SHINE experiment for neutrino physics",
     "url": "https://zenodo.org/records/17628926",
     "summary": " Parallel talk presented at the XXI International Workshop on Neutrino Telescopes - Padova 29 September - 3 October 2025 \n (https://agenda.infn.it/event/44606/) \n On behalf of the NA61/SHINE Collaboration. \n &nbsp; \n Abstract: \n For atmospheric and long-baseline neutrino oscillation experiments, as well as astro-neutrino-like supernova neutrinos, understanding hadron reactions is essential for neutrino generation. Neutrinos are produced by striking a nucleus such as carbon, nitrogen or oxygen with a primary proton, and then the emitted hadrons, such as pions and kaons, decay in flight providing neutrinos. The hadron interaction is a primary source of the atmospheric and beam neutrino flux prediction uncertainty. Therefore, accurate hadron production and hadron-nucleus interaction measurements are critical. This is one of the objectives of the NA61/SHINE experiment at the Super Proton Synchrotron at CERN. In this presentation, the results of the neutrino program are reviewed. Next, the recent measurements for T2K and Fermilab long-baseline neutrino experiments are presented. Finally, we discuss the prospects for future hadron production measurements including a low-energy beamline t",
@@ -3664,6 +3790,38 @@
       "Vretenar, Maurizio"
     ],
     "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Fabrication of Spherical Colloidal Supraparticles via Membrane Emulsification",
+    "url": "https://zenodo.org/records/13604216",
+    "summary": " This is the raw data for the manuscript \"Fabrication of Spherical Colloidal Supraparticles via Membrane Emulsification\". \n Abstract \n Colloidal supraparticles are micron-assemblies of primary particles. These supraparticles have potential application in photonic materials, catalysis, gas adsorption and drug delivery. Thus, synthesis of colloidal supraparticles with a narrow size distribution and high yield has become essential for their application in different fields of science and technology. Here, we demonstrate membrane emulsification as a high-throughput approach for fabricating spherical supraparticles with narrow size distribution and control over particle size and crystallinity. Spherical supraparticles with well-ordered surface structures are synthesized by generating emulsion droplets of an aqueous colloidal dispersion in fluorocarbon oil using a Shirasu Porous Glass membrane, followed by the consolidation of particles through water removal within the emulsion. We systematically investigate process parameters, including the flow rate of particle dispersion, particle concentration, and average pore diameter of the membrane on the mean size and size distribution of the sup",
+    "tags": [
+      "Supraparticles",
+      "Membrane emulsification",
+      "Structural color",
+      "Self-assembly",
+      "High-throughput"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2024-09-02",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.13604216",
+    "creators": [
+      "Naveenkumar, Parinamipura M",
+      "Roemling, Lukas J",
+      "Sultan, Umair",
+      "Vogel, Nicolas"
+    ],
+    "record_type": "dataset",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 4,
@@ -3978,6 +4136,34 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Proton light yield of water-based liquid scintillator",
+    "url": "https://zenodo.org/records/4123022",
+    "summary": "Future neutrino detectors, whether answering questions of fundamental physics or exercising nuclear monitoring techniques, will require advanced technologies for optimal performance. One such candidate technology is water-based liquid scintillator (WbLS), a material for which Cherenkov and scintillation light may be discriminated and examined independently. We present a measurement of the relative proton light yields of WbLS and an LAB-based liquid scintillator, using a broad-spectrum neutron source at the 88-Inch Cyclotron at Lawrence Berkeley National Laboratory. A double-time-of-flight technique was employed, which allows for relatively pure selection of proton recoil events over a continuous energy range. We also present a characterization of the nonlinearity in photomultiplier tube response over the full dynamic range of the electronics system.",
+    "tags": [],
+    "license": "cc-by-4.0",
+    "updated_at": "2020-06-24",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4123022",
+    "creators": [
+      "Gabriel Orebi Gann",
+      "Edward Callaghan",
+      "Thibault Laplace",
+      "Juan Manfredi",
+      "Joshua Brown",
+      "Bethany Goldblum"
+    ],
+    "record_type": "poster",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Optimization of Conditions for Mass Production of Orchid Mycorrhizal Fungi (OMF) Inoculants",
     "url": "https://zenodo.org/records/3986609",
     "summary": "  The study determined the optimum conditions for mass production of OMF inoculants. Extracts from each of the five different locally-available materials (sorghum, SHE; rice bran, RBE; sawdust, SE; and fern chips, FE and combinations of RBE and SE) for isolation of pure culture from tissue and spores and subsequently production of &ldquo;mother culture&rdquo; were evaluated. Four locally available substrates (sawdust, fern chips, sorghum and rots) combined with rice bran for spawn production and interaction of temperature and substrate for fruiting bodies formation were likewise assessed.  \n Combination of extracts of rice bran and sawdust at 1:1 ratio and rice bran alone were found to be the most suitable media for multi-spore and tissue isolations and production of &ldquo;mother culture&rdquo;.&nbsp; Sawdust and fern chips each mixed with rice bran at 1:1 ratio were found to be the best substrate for spawn production. These substrates were fully colonized with OMF mycelia four weeks after incubation at room temperature. Exposure of substrate (sawdust + rice bran) fully colonized with mycelia to cold temperature favored primordial initiation for a shorter period of time. Larger an",
@@ -4004,19 +4190,27 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Welcome from Jefferson Laboratory",
-    "url": "https://zenodo.org/records/4036371",
-    "summary": "Talk from the Strong QCD from Hadron Structure Experiments Workshop 2019",
-    "tags": [],
+    "title": "Risks of gastrotoxicity and rationality of presribing of proton pump inhibitors in seniors in acute care in the EUROAGEISM H2020 project (diploma thesis in Czech)",
+    "url": "https://zenodo.org/records/4282554",
+    "summary": " The process of demographic aging has a significant impact on all areas of the society. With increasing age, the presence of illness, as well as the amount of used drugs increases. The most commonly prescribed drugs in seniros are also proton pump inhibitors, which play an irreplaceable role in the treatment of many gastrointestinal disorders. The trend of the overuse of proton pump inhibitors as main antisecretory drugs mainly relates to their long-term administration in the prophylaxis of the risk of polypharmacy and concurrent use of more gastrotoxic agents. The aim of this work was to evaluate the rationality of use of proton pump inhibitors in Czech seniors participating in the EUROAGEISM H2020 project (including evaluation of indications, administered dosages and duration of the treatment) and to consider aspects of ageism regarding overuse of polypharmacy and overuse of such medications.&nbsp; ",
+    "tags": [
+      "drug-related gastrotoxicity",
+      "proton pump inhibitors",
+      "drug risks",
+      "adverse drug events",
+      "aged",
+      "ageism",
+      "inappropriate prescribing"
+    ],
     "license": "cc-by-4.0",
-    "updated_at": "2019-11-06",
+    "updated_at": "2019-09-24",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.4036371",
+    "doi": "10.5281/zenodo.4282554",
     "creators": [
-      "Robert Mckeown"
+      "Masaryková, Petra"
     ],
-    "record_type": "presentation",
+    "record_type": "publication",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 4,
@@ -4143,41 +4337,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Effects of exposure to high-energy protons on rat's behavior and underlying neurochemical mechanisms",
-    "url": "https://zenodo.org/records/20043192",
-    "summary": " This short communication points towards a potential improvement (at the trend level) in a high-level cognitive task (differential learning in the Y-maze) in rats following proton (165 MeV) irradiation at a dose of 1.5 Gy, but not 3 Gy. ",
-    "tags": [
-      "deep space missions",
-      "cognition",
-      "monoamines",
-      "rats"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2013-12",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.20043192",
-    "creators": [
-      "Shtemberg, Andrey",
-      "Bazyan, Ara",
-      "Lebedeva-Georgievskaya, Ksenia",
-      "Marina, Matveeva",
-      "Vladimir, Kudrin",
-      "Narkevich, Viktor",
-      "Klodt, Petr",
-      "Kokhan, Viktor"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Figure 5 in The anatomy of the basal ornithischian dinosaur Eocursor parvus from the lower Elliot Formation (Late Triassic) of South Africa",
     "url": "https://zenodo.org/records/5755414",
     "summary": "Figure 5. Eocursor parvus, holotype (SAM-PK-K8025). Right hemimandible in lateral (A) and medial (B) views, and an isolated cheek tooth (C). Abbreviations: add, adductor fossa; ang, angular; cnd, coronoid process of dentary; emf, external mandibular fenestra; mc, mandibular canal; rap, retroarticular process; rbe, ridge demarcating lateral extent of buccal emargination; ref, replacement foramina; sa, surangular; spl, surface for splenial; sr, weak ridge on lateral surface of surangular; sym, inturned dentary symphysis. Scale bars = 10 mm (A, B) and 2 mm (C).",
@@ -4204,6 +4363,34 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "PHENIX focus: Hadron Blind Detector",
+    "url": "https://zenodo.org/records/4006504",
+    "summary": " Introduction to the Hadron Blind Detector of the PHENIX experiment ",
+    "tags": [
+      "rhic",
+      "phenix",
+      "hbd",
+      "hadron blind detector"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2007-01-23",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4006504",
+    "creators": [
+      "Kamin, Jason"
+    ],
+    "record_type": "presentation",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Measuring fast hydrogen exchange rates by NMR spectroscopy",
     "url": "https://zenodo.org/records/45727",
     "summary": "We introduce a method to measure hydrogen exchange rates based on the observation of the coherence of a neighboring spin S such as 15N that has a scalar coupling JIS to the exchanging proton I. The decay of Sx coherence under a Carr–Purcell–Meiboom–Gill (CPMG) multiple echo train is recorded in the presence and absence of proton decoupling. This method allows one to extract proton exchange rates up to 105 s−1. We could extend the pH range for the study of the indole proton in tryptophan, allowing the determination of the exchange constants of the cationic, zwitterionic, and anionic forms of tryptophan.",
@@ -4217,6 +4404,39 @@
       "Kateb, Fatiha",
       "Pelupessy, Philippe",
       "Bodenhausen, Geoffrey"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Charm production in 200-GeV p+p collisions",
+    "url": "https://zenodo.org/records/4275179",
+    "summary": " This dissertation presents the measurement of electrons from heavy flavor decays in proton + proton collisions at RHIC at colli&shy;sion energy &radic;s = 200 GeV over a wide range of transverse moment (0.4 &lt; pr &lt; 5 GeV/c). Two independent analysis techniques of signal extraction were performed. This is the first measure&shy;ment of the Open Charm cross section at this collision energy and it is an important baseline measurement for comparison with nucleus + nucleus collisions. ",
+    "tags": [
+      "charm",
+      "photon",
+      "heavy flavor",
+      "electron",
+      "p+p",
+      "cross section",
+      "qcd",
+      "pythia",
+      "run02"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2005-05-11",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.4275179",
+    "creators": [
+      "Butsyk, Sergey"
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 1,
@@ -4326,6 +4546,32 @@
     "creators": [
       "To'xtamishov Nodirbek To'laboy o'g'li",
       "Erkin Xojiyevich Bozorov"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 1,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 negative term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Proton Pump Inhibitors Cause Kidney Injury – Or Do They?",
+    "url": "https://zenodo.org/records/16737112",
+    "summary": "   Abstract   \n  Proton pump inhibitors (PPIs) are commonly prescribed for acid-related conditions such as gastroesophageal reflux disease (GERD) and acid peptic disease. While their use has been shown to be effective, recent studies have raised concerns about their potential association with kidney injury, particularly chronic kidney disease (CKD). However, the evidence linking PPIs to kidney injury is inconclusive. This article reviews the existing literature and examines whether PPIs directly contribute to kidney injury or CKD progression. While some studies suggest a potential association, the overall evidence does not support a direct causality. Further research, particularly prospective cohort studies and randomized controlled trials, is needed to conclusively determine any nephrotoxic effects of PPIs. Additionally, strategies for patient selection, monitoring, and the exploration of non-PPI alternatives are crucial for mitigating risks, especially in high-risk populations.  ",
+    "tags": [
+      "Proton Pump Inhibitors, Kidney Injury, Chronic Kidney Disease, Acute Interstitial Nephritis, Renal Function."
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2025-05-30",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.16737112",
+    "creators": [
+      "International Journal of Medical Science and Advanced Clinical Research (IJMACR)"
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 1,
