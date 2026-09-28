@@ -657,6 +657,43 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Geant4-DNA simulations, analysis scripts and derived data for \"Testing a strand-break-density saturation of proton lethality with Geant4-DNA damage simulations and track-segment survival data\"",
+    "url": "https://zenodo.org/records/22944467",
+    "summary": " \n Version 2 of this deposit. It holds the complete simulation output, macros with random seeds, run logs, analysis scripts and derived data of a study that tests, with Geant4-DNA track-structure simulations (the molecularDNA example, Geant4 11.3.1), whether a saturation of proton lethality with the number of strand breaks in micrometre-sized domains is required by, or can be identified from, published track-segment cell-survival data. \n \n Contents: a reference library of fifteen proton energies from 0.12 to 5 MeV (2000 primaries each, parameters of the distributed cylinders.mac macro); three replicate runs at 4 MeV; a sensitivity library of the same fifteen energies and seeds with the damage and chemistry parameters of the example's human-cell macro; per-domain damage arrays (complex double-strand breaks and strand breaks per cubic domain of 0.3, 0.5 and 1.0 &micro;m); track-averaged LET and absorbed dose of every run; per-domain statistics with bootstrap errors; fits of the saturation model and of its linear limit to the survival data with profile limits on the saturation scale; the statistical power analysis; the generated tables and figures of the article. The survival data com",
+    "tags": [
+      "Geant4-DNA",
+      "molecularDNA",
+      "proton",
+      "linear energy transfer",
+      "DNA damage",
+      "double-strand break",
+      "cell survival",
+      "relative biological effectiveness",
+      "track structure"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2026-09-24",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.22944467",
+    "creators": [
+      "Huynh, Thi Yen Hong",
+      "Truong, Huu Ngan Thy",
+      "Vo, Hong Hai",
+      "Trinh, Hoa Lang"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 3,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 14,
+    "heuristic_reasons": [
+      "Matched 3 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "A dosimetric and biological model for neutron capture therapy (NCT) experiments",
     "url": "https://zenodo.org/records/17648189",
     "summary": " \n A hybrid Monte Carlo approach using MCNP in combination with the cell-level code Monte Carlo Damage Simulation (MCDS) is presented to support the design and analysis of experiments for the evaluation of gadolinium (Gd) based agents in neutron capture therapy (NCT). Monoenergetic neutrons (0.025 eV-15 MeV) and polyenergetic neutron beams from NEUTRA, ICON (PSI, Switzerland), and HK1 (LVR-15, Czech Republic) were used to estimate the relative biological effectiveness (RBE) of NCT for the biologically critical endpoint of DNA double strand break (DSB) production relative to&nbsp; 60 Co &gamma;-rays. Moreover, microdosimetric spectra of protons, electrons, alpha particles and heavy recoils were determined for the aforementioned neutron beams, to enhance the interpretation of energy deposition in subcellular structrures. The proposed, hybrid model and methodology builds on well-validated dosimetry and biophysical models at different spatial scales to create a versatile and generalized framework to estimate dosimetric parameters and RBE. This approach facilitates comparisons between NCT and low linear energy transfer (LET) radiation alternatives. \n \n  Keywords:&nbsp; High LET; MCDS; M",
@@ -1700,61 +1737,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Geant4-DNA simulation package and analysis scripts for \"Two-scale track-structure modelling of proton relative biological effectiveness\"",
-    "url": "https://zenodo.org/records/22222921",
-    "summary": " Geant4-DNA (moleculardna) simulation runs (8 proton energies, 0.12&ndash;4 MeV), per-domain damage data, model-fitting and figure scripts for the manuscript submitted to Radiation and Environmental Biophysics. The PIDE 3.4 survival database is not redistributed; a script regenerates the sixteen-point subset from a user-obtained copy. See README.txt. ",
-    "tags": [
-      "proton RBE",
-      "Geant4-DNA",
-      "moleculardna",
-      "nanodosimetry",
-      "track structure"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2026-09-01",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.22222921",
-    "creators": [
-      "Huynh, Thi Yen Hong"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Protonflux-Classification-Model",
-    "url": "https://zenodo.org/records/20157031",
-    "summary": " Protonflux-Classification-Model v1.0.1 \n Accompanying software release for the manuscript: \"Supporting Informed Shutter Operations for SMILE's SXI Using Ensemble Classifiers for Soft Proton High Flux Period Predictions\" \n Contents \n \n Logistic Regression classification models \n XGBoost classification models \n Ensemble prediction framework \n Example prediction scripts \n \n Data Sources \n The models were developed using: \n \n ESA Cluster/RAPID proton flux measurements \n NASA OMNI solar wind and geomagnetic indices \n \n Authors \n \n Simon Mischel \n Elena A. Kronberg \n \n License \n Apache License 2.0 ",
-    "tags": [],
-    "license": "apache2.0",
-    "updated_at": "2026-05-13",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.20157031",
-    "creators": [
-      "Mischel, Simon",
-      "Kronberg, Elena"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 3,
-    "heuristic_total_score": 10,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 3 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "azazpe/Articulo-RE-LET-data: Data and code for RE–LET model (paper version)",
     "url": "https://zenodo.org/records/18230764",
     "summary": " This release contains the data and analysis code used to generate the results presented in the manuscript: \n &quot;An updated relative efficiency model for radiochromic films in proton beams&quot;. \n The repository includes experimental data, literature data, Monte Carlo–based LET calculations, and MATLAB scripts used to derive and validate the proposed relative efficiency (RE) model. ",
@@ -2072,42 +2054,6 @@
     "heuristic_total_score": 8,
     "heuristic_reasons": [
       "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "bioimage.io upload: thoughtful-chipmunk",
-    "url": "https://zenodo.org/records/15691568",
-    "summary": "  View on bioimage.io  # OC1 Project 6 Cellpose  \n OC1 Project 6 Fine-tuned CellPose \n Analysis of the fiber profile of skeletal muscle \n Data \n Light microscopy slices along muscle fibers - each slice is representative of the same muscle, assuming that each staining stains the same cell. Morphology of the cells does not change much from section to section. Sections are 8-10 micrometers wide. There are 6 channels for each sample. Images are stitches with track2em.   \n Data can be accessed through Bioimage Archive page:  link  \n Validation \n It is recommended to validate the instance segmentation obtained from this model using intersection-over-union. For more information and vailable metrics, please visit  Cellpose metric documentation . \n Parameters \n This  cellpose  model is created by following parameters:\n-  flow_threshold :  0.7 \n-  cellprob_threshold :  0.0 \n-  channels :  [0, 0] \n-  model_type :  cyto3 \n-  estimate_diam :  False \n-  do_3D :  False  \n Outputs \n This model provides four outputs:\n- masks: an array of shape  b,y,x \n- flows: an array of shape  b,6,y,x \n    - For each input image flows are stacked together.\n- styles: an array of shape  b,256 \n- diams: the estimate",
-    "tags": [
-      "backup.bioimage.io",
-      "bioimage.io",
-      "bioimage.io:model",
-      "Cellpose",
-      "Cell Segmentation",
-      "Skeletal Muscle",
-      "Myosin Heavy Chain",
-      "Bright Field",
-      "2D"
-    ],
-    "license": "bsd-3-clause",
-    "updated_at": "2025-06-18",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.15691568",
-    "creators": [
-      "Vera Galinova",
-      "Mehdi Seifi",
-      "Emiliana Giacomello"
-    ],
-    "record_type": "software",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 2,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 2 AI/ML term(s)."
     ]
   },
   {
@@ -2655,35 +2601,6 @@
       "Bailey, J. Melanie"
     ],
     "record_type": "dataset",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 8,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Stopping Power and Range for Proton Interaction with Lymph Tissues",
-    "url": "https://zenodo.org/records/5842881",
-    "summary": " &nbsp; \n\n In this paper, we calculated the mass stopping power (in MeV cm2/g) and the range (cm) of proton in one of the types \nof body tissues (lymph), from 1 Kev to 200 MeV energy range. They are using the Bethe and Ziegler equations, SRIM program (version \n2013) and Ziegler (Vol. 3) data by considering the tissue composed of several elements, so the atomic number (Z) and atomic weight \n(A) for the component in the tissue are meaning. The calculation results show that the Ziegler equation gives better results than using \nthe Bethe equation. However, in terms of the loss of proton energy in the tissue, the four methods used are approximately the same. \n&nbsp; ",
-    "tags": [
-      "Bethe Equation",
-      "Proton Therapy",
-      "Stopping Power",
-      "SRIM Program",
-      "Ziegler Equation"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2021-12-25",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.5842881",
-    "creators": [
-      "Hadi, Shaima M."
-    ],
-    "record_type": "publication",
     "heuristic_particle_hits": 2,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 8,
@@ -3325,37 +3242,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Simulated shielding performance of 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO",
-    "url": "https://zenodo.org/records/7621281",
-    "summary": " The 4Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), kevlar (G4_KEVLAR), tungsten (G4_W), stainless steel (G4_STAINLESS_STEEL) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 4Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 6.6e+10 electrons and 3.8e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the four layers being 0.375 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: N",
-    "tags": [
-      "Radiation Shielding",
-      "Geant4",
-      "GRAS",
-      "Total Ionizing Dose",
-      "Multilayer Shielding",
-      "Satellite Shielding"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-02-08",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.7621281",
-    "creators": [
-      "Fetzer, Anton"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Simulated shielding performance of 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO",
     "url": "https://zenodo.org/records/7622159",
     "summary": " The 5Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), tungsten (G4_W) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 5Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 1.4e+11 electrons and 3.1e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the five layers being 0.3 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: Name of the second layer material. \nColumn D: Name of the third lay",
@@ -3372,6 +3258,37 @@
     "downloads": null,
     "likes": null,
     "doi": "10.5281/zenodo.7622159",
+    "creators": [
+      "Fetzer, Anton"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Simulated shielding performance of 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO",
+    "url": "https://zenodo.org/records/7621281",
+    "summary": " The 4Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), kevlar (G4_KEVLAR), tungsten (G4_W), stainless steel (G4_STAINLESS_STEEL) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 4Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 6.6e+10 electrons and 3.8e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the four layers being 0.375 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: N",
+    "tags": [
+      "Radiation Shielding",
+      "Geant4",
+      "GRAS",
+      "Total Ionizing Dose",
+      "Multilayer Shielding",
+      "Satellite Shielding"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2023-02-08",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.7621281",
     "creators": [
       "Fetzer, Anton"
     ],
@@ -3790,38 +3707,6 @@
       "Vretenar, Maurizio"
     ],
     "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Fabrication of Spherical Colloidal Supraparticles via Membrane Emulsification",
-    "url": "https://zenodo.org/records/13604216",
-    "summary": " This is the raw data for the manuscript \"Fabrication of Spherical Colloidal Supraparticles via Membrane Emulsification\". \n Abstract \n Colloidal supraparticles are micron-assemblies of primary particles. These supraparticles have potential application in photonic materials, catalysis, gas adsorption and drug delivery. Thus, synthesis of colloidal supraparticles with a narrow size distribution and high yield has become essential for their application in different fields of science and technology. Here, we demonstrate membrane emulsification as a high-throughput approach for fabricating spherical supraparticles with narrow size distribution and control over particle size and crystallinity. Spherical supraparticles with well-ordered surface structures are synthesized by generating emulsion droplets of an aqueous colloidal dispersion in fluorocarbon oil using a Shirasu Porous Glass membrane, followed by the consolidation of particles through water removal within the emulsion. We systematically investigate process parameters, including the flow rate of particle dispersion, particle concentration, and average pore diameter of the membrane on the mean size and size distribution of the sup",
-    "tags": [
-      "Supraparticles",
-      "Membrane emulsification",
-      "Structural color",
-      "Self-assembly",
-      "High-throughput"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2024-09-02",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.13604216",
-    "creators": [
-      "Naveenkumar, Parinamipura M",
-      "Roemling, Lukas J",
-      "Sultan, Umair",
-      "Vogel, Nicolas"
-    ],
-    "record_type": "dataset",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 0,
     "heuristic_total_score": 4,

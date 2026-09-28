@@ -2,16 +2,16 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **50**
+Included repositories: **51**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
 | Repository | Platform | Stars | Type | Categories | Summary |
 |---|---:|---:|---|---|---|
-| [e0404/matRad](https://github.com/e0404/matRad) | github | 292 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
+| [e0404/matRad](https://github.com/e0404/matRad) | github | 295 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
 | [OpenTOPAS/OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS) | github | 76 | unclear | monte carlo, software tool | Monte Carlo tool for particle simulation |
 | [opaserr/dota](https://github.com/opaserr/dota) | github | 43 | unclear |  | Data-driven particle transport algorithm for fast dose calculations. |
-| [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 31 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
+| [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 32 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
 | [openmcsquare/opentps](https://gitlab.com/openmcsquare/opentps) | gitlab | 18 | unclear |  | Open source TPS for proton and photon therapy  |
 | [pcabrales/prototwin-pet](https://github.com/pcabrales/prototwin-pet) | github | 13 | unclear | proton therapy, deep learning, PET imaging, dose verification | For fast, 3D delivered dose estimation from a PET image. Also published at https://ieeexplore.ieee.org/document/10847605/ |
 | [BeppeMagro/pymkm](https://github.com/BeppeMagro/pymkm) | github | 6 | unclear | RBE modeling, software tool | Microdosimetric Kinetic Model utilities for radiobiology research and hadrontherapy |
@@ -19,6 +19,7 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [pcabrales/ppw](https://github.com/pcabrales/ppw) | github | 2 | unclear | proton therapy, deep learning, PET imaging, intratumoral heterogeneity | Code for the PROTOTWIN-PET Washout (PPW) framework for mapping biological washout and revealing intratumoral heterogeneity. |
 | [RivettiLuciano/DiffuseRT](https://github.com/RivettiLuciano/DiffuseRT) | github | 2 | unclear | anatomy prediction, diffusion model, adaptation | A probabilistic diffusion model to generate alternative anatomies of a patient |
 | [OpenGATE/IDEAL](https://github.com/OpenGATE/IDEAL) | github | 2 | unclear |  | Independent DosE cAlculation for Light ion beam therapy using Geant4/GATE. The name of the corresponding python module is pyidc. |
+| [KhaledAbuMustafa/LSTM-Model](https://github.com/KhaledAbuMustafa/LSTM-Model) | github | 1 | unclear |  | LSTM prediction of breathing motion 250 ms ahead for real-time dose calculation in carbon ion therapy (B.Sc. thesis) |
 | [wangkaiwan/PhyPriorNet](https://github.com/wangkaiwan/PhyPriorNet) | github | 1 | unclear |  | A unified differentiable physics-prior residual 3D U-Net for beam-level dose prediction across photon/proton x CT/MRI (DoseRAD2026, all four tasks) |
 | [dilipkumar801770/Medical-Particle-Accelerators-Engineering-Healthcare-Applications-and-Emerging-Technologies](https://github.com/dilipkumar801770/Medical-Particle-Accelerators-Engineering-Healthcare-Applications-and-Emerging-Technologies) | github | 1 | unclear |  | This article reviews the biomedical applications of particle accelerators in medical imaging, radioisotope production, proton and heavy-ion therapy, radiation biology, and AI-enabled healthcare. It highlights engineering advances, clinical benefits, and future innovations in precision medicine and cancer treatment. |
 | [Varian-MedicalAffairsAppliedSolutions/MAAS-ProtonSnoutCollision](https://github.com/Varian-MedicalAffairsAppliedSolutions/MAAS-ProtonSnoutCollision) | github | 1 | unclear |  | Medical Affairs Applied Solutions ESAPI single file plugin to visualize and detect collisions between a snout of a proton treatment machine and patient. |
@@ -41,10 +42,9 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [steremma/proton](https://github.com/steremma/proton) | github | 0 | unclear |  | Optimizing proton fraction distribution between patients -  A linear programming project |
 | [mialar/autoscript_lung](https://github.com/mialar/autoscript_lung) | github | 0 | unclear |  | Automatic proton treatment planning script for LA-NSCLC patients |
 | [Cellur-574/opentps](https://gitlab.com/Cellur-574/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton and photon therapy  |
+| [sjswerdloff/opentps](https://gitlab.com/sjswerdloff/opentps) | gitlab | 0 | unclear |  | Social Fork of Open source TPS for proton therapy  |
 | [ayf-9797/Cross-cohort-augmented-prediction-of-acute-radiation-dermatitis](https://github.com/ayf-9797/Cross-cohort-augmented-prediction-of-acute-radiation-dermatitis) | github | 0 | unclear |  | The code of "Predicting acute radiation dermatitis to inform personalized supportive care in breast cancer proton therapy: a cross-cohort machine learning study with temporal validation" |
-| [vvuvv31/MAIGO](https://github.com/vvuvv31/MAIGO) | github | 0 | unclear |  | Monte Carlo for particle therapY on GPU for radiotherapy dOse calculation (MYGO) |
 | [KAVAN-DESAI/Probability-and-stochastic-process](https://github.com/KAVAN-DESAI/Probability-and-stochastic-process) | github | 0 | unclear |  | Detailed Analysis of Probability and stochastic process with reference "Multiscale approach predictions for biological outcomes in ion-beam cancer therapy" |
-| [saisudha-02/MedLens](https://github.com/saisudha-02/MedLens) | github | 0 | unclear |  | MedLens — AI-powered clinical information intelligence platform that transforms fragmented patient information and medical reports into structured, traceable, and reviewable records with responsible AI, source provenance, reference-range awareness, human verification, conflict detection, and patient-friendly summaries. |
 | [stefvcb/opentps](https://gitlab.com/stefvcb/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton and photon therapy  |
 | [ahmadnish/opentps](https://gitlab.com/ahmadnish/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton therapy |
 | [Guo-P/opentps](https://gitlab.com/Guo-P/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton therapy  |
@@ -58,3 +58,4 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [weilidays/opentps](https://gitlab.com/weilidays/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton therapy  |
 | [weisadre/opentps](https://gitlab.com/weisadre/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton therapy  |
 | [Ky-St/MachineLearning](https://github.com/Ky-St/MachineLearning) | github | 0 | unclear |  | This is a MachineLearning project. A large amount of data (protons, etc.) for the treatment of cancer patients is visualized here. |
+| [sanjanapanjiyar/symptomseeker](https://github.com/sanjanapanjiyar/symptomseeker) | github | 0 | unclear |  | An open-source text-crawling algorithm that allows for users to cross-reference medical symptoms to a range of verified pages exactly instead of operating in a black box that search results and AIs risk |
