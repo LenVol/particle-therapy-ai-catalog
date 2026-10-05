@@ -17,7 +17,7 @@
     ],
     "license": null,
     "updated_at": "2025-04-18T08:21:49+00:00",
-    "downloads": 7,
+    "downloads": 5,
     "likes": 0,
     "doi": null,
     "creators": [],
@@ -1761,37 +1761,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Measuring Changes in Myocardial Perfusion in Left-Sided Breast Cancer Patients",
-    "url": "https://zenodo.org/records/14643830",
-    "summary": " Abstract \n Left-sided Breast Cancer patients often undergo radiation therapy, including Proton or Photon Therapy, which can affect nearby cardiac structures, causing chronic vascular damage and fibrosing inflammation. This leads to microvascular changes in the heart, manifesting as reduced perfusion and cardiac motion. Advances in 3-dimensional imaging have detailed the actual radiation doses received by critical cardiac structures, revealing the significance of low-dose radiation injury in breast cancer patients. Our study aims to delve deeper into the relationship between changes in myocardial perfusion and heart function (EF), comparing post-treatment images of X-ray (photon therapy) and proton therapy patients. This research highlights the complexity of the relationship between myocardial perfusion and heart function. Understanding these compensatory mechanisms and their impact on perfusion and overall cardiac function is crucial. Our findings emphasize the need for further study to refine our models and improve clinical interventions, ultimately aiming to reduce radiation-induced cardiac injury and improve the survival and quality of life for breast cancer patients undergoing",
-    "tags": [
-      "myocardial perfusion",
-      "radiation therapy",
-      "Left Ventricle Ejection Fraction (LVEF)",
-      "cardiac toxicity",
-      "breast cancer",
-      "left-sided breast cancer"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2025-01-15",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.14643830",
-    "creators": [
-      "Suresh, Arjun"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 2,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 10,
-    "heuristic_reasons": [
-      "Matched 2 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Geomagnetic Storm Effects on the LEO Proton Flux During Solar Energetic Particle Events",
     "url": "https://zenodo.org/records/15172799",
     "summary": " During a few solar energetic particle (SEP) events, solar protons were trapped within the geomagnetic field and reached the outer edge of the inner radiation belt. We reproduced this phenomenon by modeling the proton flux distribution at the Low-Earth Orbit (LEO) for different geomagnetic conditions during solar particle events. We developed a three-dimensional relativistic test particle simulation code to compute the 70&ndash;180&nbsp;MeV solar proton Lorentz trajectories in low  L -shell range from 1 to 3. The Tsyganenko model (T01) generated the background static magnetic field with the IGRF (v12) model. We have selected three  Dst  index values: &minus;7, &minus;150, and &minus;210&nbsp;nT, to define quiet time, strong, and severe geomagnetic storms and to generate the corresponding inner magnetic field configurations. Our results showed that the simulated solar proton flux was more enhanced in the high-latitude regions and more expanded toward the lower latitude range as long as the geomagnetic storm was intensified. Satellite observations and geomagnetic cutoff rigidities confirmed the numerical results. Furthermore, the LEO proton flux distribution was deformed, so the stru",
@@ -2611,6 +2580,35 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Stopping Power and Range for Proton Interaction with Lymph Tissues",
+    "url": "https://zenodo.org/records/5842881",
+    "summary": " &nbsp; \n\n In this paper, we calculated the mass stopping power (in MeV cm2/g) and the range (cm) of proton in one of the types \nof body tissues (lymph), from 1 Kev to 200 MeV energy range. They are using the Bethe and Ziegler equations, SRIM program (version \n2013) and Ziegler (Vol. 3) data by considering the tissue composed of several elements, so the atomic number (Z) and atomic weight \n(A) for the component in the tissue are meaning. The calculation results show that the Ziegler equation gives better results than using \nthe Bethe equation. However, in terms of the loss of proton energy in the tissue, the four methods used are approximately the same. \n&nbsp; ",
+    "tags": [
+      "Bethe Equation",
+      "Proton Therapy",
+      "Stopping Power",
+      "SRIM Program",
+      "Ziegler Equation"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2021-12-25",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.5842881",
+    "creators": [
+      "Hadi, Shaima M."
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 2,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 8,
+    "heuristic_reasons": [
+      "Matched 2 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Updated 4DCT(MRI)",
     "url": "https://zenodo.org/records/7052585",
     "summary": "  Code for generating a synthetic 4DCT(MRI) from&nbsp;a reference CT and a 4DMRI or moving mesh data.  \n\n This is the updated version of the code for 4DCT(MRI) generation including ribcage motion and density scaling [1]. The previous version [2] can still be found at  10.5281/zenodo.5010964 . \n\n The newest version of the code and instructions on how to use it can be found on  https://gitlab.psi.ch/4DCT-MRI_updated/4DCT-MRI . \n\n 4DMRI moving lung mesh data for the generation of 4DCT(MRI)s can be found here  https://gitlab.psi.ch/4DCT-MRI_updated/4DMRI_moving_meshes . \n\n Please cite the following publications when using the code: \n\n [1] Jenny, T., Duetschler, A., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Technical Note: Towards more realistic 4DCT(MRI) numerical lung phantoms . Manuscript submitted for publication. \n\n [2] Duetschler, A., Bauman, G., Bieri, O., Cattin, P.C., Ehrbar, S., Engin-Deniz, G., Giger, A., Josipovic, M., Jud, C., Krieger, M., Nguyen, D., Persson, G.F., Salomir, R., Weber, D.C., Lomax, A.J. and Zhang, Y. (2022),  Synthetic 4DCT(MRI) lung phantom generation for 4D radiotherapy and image guidance investigations.  Med. Phys..  https://doi.org/10.1002/mp.1559",
@@ -3078,19 +3076,19 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Reclassification of the Proton Phase-Correlation Scale and the Fundamental Scales of Habitatons and Voidons",
-    "url": "https://zenodo.org/records/21862590",
-    "summary": "  This supplementary manuscript revises the length-scale hierarchy used for the proton, habitatons, voidons, and neutrino signals in Habitat Information Physics. The reduced proton Compton wavelength is approximately 2.1031 &times; 10⁻&sup1;⁶ m, about one quarter of the proton root-mean-square charge-response scale. The numerical ratio may be retained as a relation between a collective proton phase scale and an electromagnetic boundary-response scale. It does not establish the geometric radius of a single habitaton and cannot be recursively divided to obtain a voidon radius.   [1, 2]  \n  The reduced proton Compton scale is therefore reclassified as the candidate collective phase-correlation length of the proton. The manuscript distinguishes five non-equivalent quantities: a fundamental constituent scale, local response spacing, collective correlation length, boundary-response scale, and propagation wavelength. Neutrinos have no experimentally established rigid geometric radius comparable with the proton charge radius. Their mass-related Compton scale is extremely large because their mass is small, whereas their propagation wavelength decreases with energy. A neutrino near 0.938 GeV",
+    "title": "uhlerlab/prt-pbmc: Code for \"Deep learning-based analysis reveals patient-level cancer therapy trajectories using single-cell PBMC chromatin images\"",
+    "url": "https://zenodo.org/records/23045384",
+    "summary": "Deep learning-based analysis reveals patient-level proton radiation therapy trajectories using single-cell PBMC chromatin images",
     "tags": [],
     "license": "cc-by-4.0",
-    "updated_at": "2026-08-09",
+    "updated_at": "2026-09-29",
     "downloads": null,
     "likes": null,
-    "doi": "10.5281/zenodo.21862590",
+    "doi": "10.5281/zenodo.23045384",
     "creators": [
-      "Zheng, Zhou"
+      "Hannah Schlueter"
     ],
-    "record_type": "publication",
+    "record_type": "software",
     "heuristic_particle_hits": 1,
     "heuristic_ai_hits": 1,
     "heuristic_total_score": 6,
@@ -3242,37 +3240,6 @@
   {
     "kind": "record",
     "source": "zenodo",
-    "title": "Simulated shielding performance of 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO",
-    "url": "https://zenodo.org/records/7622159",
-    "summary": " The 5Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), tungsten (G4_W) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 5Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 1.4e+11 electrons and 3.1e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the five layers being 0.3 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: Name of the second layer material. \nColumn D: Name of the third lay",
-    "tags": [
-      "Radiation Shielding",
-      "Geant4",
-      "GRAS",
-      "Total Ionizing Dose",
-      "Multilayer Shielding",
-      "Satellite Shielding"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2023-02-08",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.7622159",
-    "creators": [
-      "Fetzer, Anton"
-    ],
-    "record_type": "dataset",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 1,
-    "heuristic_total_score": 6,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 AI/ML term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
     "title": "Simulated shielding performance of 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO",
     "url": "https://zenodo.org/records/7621281",
     "summary": " The 4Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1296 four-layer permutations of six common satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), kevlar (G4_KEVLAR), tungsten (G4_W), stainless steel (G4_STAINLESS_STEEL) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 4Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 6.6e+10 electrons and 3.8e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the four layers being 0.375 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: N",
@@ -3289,6 +3256,37 @@
     "downloads": null,
     "likes": null,
     "doi": "10.5281/zenodo.7621281",
+    "creators": [
+      "Fetzer, Anton"
+    ],
+    "record_type": "dataset",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 6,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s).",
+      "Matched 1 AI/ML term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
+    "title": "Simulated shielding performance of 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO",
+    "url": "https://zenodo.org/records/7622159",
+    "summary": " The 5Layer.csv file contains ionizing dose results of simulating the shielding performance of all 1024 five-layer permutations of four satellite and radiation shielding materials against trapped particles on GTO. \nThe materials are the aluminium alloy 7075 (Al_7075), polyethylene (G4_POLYETHYLENE), tungsten (G4_W) and the circuit board composite material FR4 (FR4). \nThe particle spectra used for this simulation are provided in the files AE9500keV.mac and AP910MeV.mac. \nThe simulated geometry is provided in the file 5Layer.gdml. \n\n The particle spectra were generated with the AE9/AP9 models on SPENVIS, with electron energies starting at 500 keV and proton energies starting at 10 MeV. \nThe simulation was performed with GRAS / Geant4 with the FTFP_BERT physics model using 1.4e+11 electrons and 3.1e+09 protons directed against slabs of shielding materials of 1.5 g/cm2 total depth with each of the five layers being 0.3 g/cm2 in depth. \nThe ionizing dose is recorded in 0.5mm thick silicon plates behind the shielding plates. \n \nColumn A: ID of the material combination \nColumn B: Name of the top layer material. \nColumn C: Name of the second layer material. \nColumn D: Name of the third lay",
+    "tags": [
+      "Radiation Shielding",
+      "Geant4",
+      "GRAS",
+      "Total Ionizing Dose",
+      "Multilayer Shielding",
+      "Satellite Shielding"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2023-02-08",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.7622159",
     "creators": [
       "Fetzer, Anton"
     ],
@@ -4222,6 +4220,41 @@
   {
     "kind": "record",
     "source": "zenodo",
+    "title": "Effects of exposure to high-energy protons on rat's behavior and underlying neurochemical mechanisms",
+    "url": "https://zenodo.org/records/20043192",
+    "summary": " This short communication points towards a potential improvement (at the trend level) in a high-level cognitive task (differential learning in the Y-maze) in rats following proton (165 MeV) irradiation at a dose of 1.5 Gy, but not 3 Gy. ",
+    "tags": [
+      "deep space missions",
+      "cognition",
+      "monoamines",
+      "rats"
+    ],
+    "license": "cc-by-4.0",
+    "updated_at": "2013-12",
+    "downloads": null,
+    "likes": null,
+    "doi": "10.5281/zenodo.20043192",
+    "creators": [
+      "Shtemberg, Andrey",
+      "Bazyan, Ara",
+      "Lebedeva-Georgievskaya, Ksenia",
+      "Marina, Matveeva",
+      "Vladimir, Kudrin",
+      "Narkevich, Viktor",
+      "Klodt, Petr",
+      "Kokhan, Viktor"
+    ],
+    "record_type": "publication",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 0,
+    "heuristic_total_score": 4,
+    "heuristic_reasons": [
+      "Matched 1 particle-therapy term(s)."
+    ]
+  },
+  {
+    "kind": "record",
+    "source": "zenodo",
     "title": "Figure 5 in The anatomy of the basal ornithischian dinosaur Eocursor parvus from the lower Elliot Formation (Late Triassic) of South Africa",
     "url": "https://zenodo.org/records/5755414",
     "summary": "Figure 5. Eocursor parvus, holotype (SAM-PK-K8025). Right hemimandible in lateral (A) and medial (B) views, and an isolated cheek tooth (C). Abbreviations: add, adductor fossa; ang, angular; cnd, coronoid process of dentary; emf, external mandibular fenestra; mc, mandibular canal; rap, retroarticular process; rbe, ridge demarcating lateral extent of buccal emargination; ref, replacement foramina; sa, surangular; spl, surface for splenial; sr, weak ridge on lateral surface of surangular; sym, inturned dentary symphysis. Scale bars = 10 mm (A, B) and 2 mm (C).",
@@ -4289,39 +4322,6 @@
       "Kateb, Fatiha",
       "Pelupessy, Philippe",
       "Bodenhausen, Geoffrey"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 4,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Charm production in 200-GeV p+p collisions",
-    "url": "https://zenodo.org/records/4275179",
-    "summary": " This dissertation presents the measurement of electrons from heavy flavor decays in proton + proton collisions at RHIC at colli&shy;sion energy &radic;s = 200 GeV over a wide range of transverse moment (0.4 &lt; pr &lt; 5 GeV/c). Two independent analysis techniques of signal extraction were performed. This is the first measure&shy;ment of the Open Charm cross section at this collision energy and it is an important baseline measurement for comparison with nucleus + nucleus collisions. ",
-    "tags": [
-      "charm",
-      "photon",
-      "heavy flavor",
-      "electron",
-      "p+p",
-      "cross section",
-      "qcd",
-      "pythia",
-      "run02"
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2005-05-11",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.4275179",
-    "creators": [
-      "Butsyk, Sergey"
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 1,
@@ -4431,32 +4431,6 @@
     "creators": [
       "To'xtamishov Nodirbek To'laboy o'g'li",
       "Erkin Xojiyevich Bozorov"
-    ],
-    "record_type": "publication",
-    "heuristic_particle_hits": 1,
-    "heuristic_ai_hits": 0,
-    "heuristic_total_score": 1,
-    "heuristic_reasons": [
-      "Matched 1 particle-therapy term(s).",
-      "Matched 1 negative term(s)."
-    ]
-  },
-  {
-    "kind": "record",
-    "source": "zenodo",
-    "title": "Proton Pump Inhibitors Cause Kidney Injury – Or Do They?",
-    "url": "https://zenodo.org/records/16737112",
-    "summary": "   Abstract   \n  Proton pump inhibitors (PPIs) are commonly prescribed for acid-related conditions such as gastroesophageal reflux disease (GERD) and acid peptic disease. While their use has been shown to be effective, recent studies have raised concerns about their potential association with kidney injury, particularly chronic kidney disease (CKD). However, the evidence linking PPIs to kidney injury is inconclusive. This article reviews the existing literature and examines whether PPIs directly contribute to kidney injury or CKD progression. While some studies suggest a potential association, the overall evidence does not support a direct causality. Further research, particularly prospective cohort studies and randomized controlled trials, is needed to conclusively determine any nephrotoxic effects of PPIs. Additionally, strategies for patient selection, monitoring, and the exploration of non-PPI alternatives are crucial for mitigating risks, especially in high-risk populations.  ",
-    "tags": [
-      "Proton Pump Inhibitors, Kidney Injury, Chronic Kidney Disease, Acute Interstitial Nephritis, Renal Function."
-    ],
-    "license": "cc-by-4.0",
-    "updated_at": "2025-05-30",
-    "downloads": null,
-    "likes": null,
-    "doi": "10.5281/zenodo.16737112",
-    "creators": [
-      "International Journal of Medical Science and Advanced Clinical Research (IJMACR)"
     ],
     "record_type": "publication",
     "heuristic_particle_hits": 1,

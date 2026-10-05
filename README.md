@@ -2,14 +2,14 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **51**
+Included repositories: **50**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
 | Repository | Platform | Stars | Type | Categories | Summary |
 |---|---:|---:|---|---|---|
-| [e0404/matRad](https://github.com/e0404/matRad) | github | 295 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
-| [OpenTOPAS/OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS) | github | 76 | unclear | monte carlo, software tool | Monte Carlo tool for particle simulation |
+| [e0404/matRad](https://github.com/e0404/matRad) | github | 296 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
+| [OpenTOPAS/OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS) | github | 78 | unclear | monte carlo, software tool | Monte Carlo tool for particle simulation |
 | [opaserr/dota](https://github.com/opaserr/dota) | github | 43 | unclear |  | Data-driven particle transport algorithm for fast dose calculations. |
 | [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 32 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
 | [openmcsquare/opentps](https://gitlab.com/openmcsquare/opentps) | gitlab | 18 | unclear |  | Open source TPS for proton and photon therapy  |
@@ -58,4 +58,3 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [weilidays/opentps](https://gitlab.com/weilidays/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton therapy  |
 | [weisadre/opentps](https://gitlab.com/weisadre/opentps) | gitlab | 0 | unclear |  | Open source TPS for proton therapy  |
 | [Ky-St/MachineLearning](https://github.com/Ky-St/MachineLearning) | github | 0 | unclear |  | This is a MachineLearning project. A large amount of data (protons, etc.) for the treatment of cancer patients is visualized here. |
-| [sanjanapanjiyar/symptomseeker](https://github.com/sanjanapanjiyar/symptomseeker) | github | 0 | unclear |  | An open-source text-crawling algorithm that allows for users to cross-reference medical symptoms to a range of verified pages exactly instead of operating in a black box that search results and AIs risk |

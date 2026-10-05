@@ -2,6 +2,35 @@
   {
     "kind": "paper",
     "source": "arxiv",
+    "title": "Quantifying the Impact of Upright Patient Positioning on Cardiac Substructures Using Deep Learning",
+    "url": "http://arxiv.org/abs/2609.36449v1",
+    "abstract": "Upright patient positioners with diagnostic-quality vertical CT at treatment isocenter may improve image-guided radiation therapy (RT). However, cardiac substructure (CS) geometry in upright patients remains insufficiently characterized. This work evaluated if a supine-trained deep-learning (DL) CS segmentation model generalizes to upright CT images and quantified posture-dependent CS changes in thoracic patients, to assess potential CS-sparing benefits. 8 thoracic proton therapy patients underwent paired supine/upright 4DCT imaging. 20 CS and lungs were manually labeled on both datasets for positional comparisons. A previously developed supine-trained, DL pipeline generated the same CS, and performance was evaluated using Dice similarity coefficient (DSC) and 95% Hausdorff distance (HD95). Upright CTs were rigidly registered to corresponding supine CTs by aligning the thoracic vertebrae, and CS centroid shifts were measured in the registered coordinate frame and relative to the carina. Paired differences were assessed using Wilcoxon signed-rank tests (p<0.05). The DL model successfully predicted all 20 CS on both upright (DSC, 0.65(0.24); HD95, 7.6(5.6)mm) and supine (DSC, 0.72(0.19); HD95, 5.8(2.6)mm) images yet with lower (p<0.05) performance upright. Upright positioning significantly increased median lung volume by 20.6% (range, -8.9%-42.8%). After vertebral alignment, most CS centroids shifted significantly inferior (median heart shift, 23mm; range, 18-37mm) and anterior (median heart shift, 5.0mm; range, 1.0-13.0mm) when upright. Relative to the carina, most CS shifted significantly inferior and closer anterior-posterior. A supine-trained DL model generalized to upright CT images for CS segmentation. Upright positioning produced increased lung volumes and significant inferior CS displacement, suggesting favorable geometry changes that may support cardiac-sparing workflows.",
+    "authors": [
+      "Nicholas Summerfield",
+      "Yuhao Yan",
+      "Chase Ruff",
+      "Mark Pankuch",
+      "Shae Gans",
+      "Niek Schreuder",
+      "Carri K Glide-Hurst"
+    ],
+    "journal": null,
+    "published_at": "2026-09-29T01:10:59Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 13,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 1 AI/ML phrase(s)."
+    ],
+    "cached": false
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
     "title": "Towards real-time ion range verification via hybrid Compton-PET 3D imaging at isochronous cyclotrons",
     "url": "http://arxiv.org/abs/2609.25993v1",
     "abstract": "Range uncertainties remain a major limitation to the full clinical exploitation of proton therapy, motivating reliable in-vivo range-verification techniques. This work presents an experimental investigation of a hybrid Prompt-Gamma Imaging (PGI)--Positron-Emission Tomography (PET) concept at the isochronous cyclotron of the West German Proton Therapy Centre under clinically representative pencil-beam-scanning conditions.\n  Because this accelerator delivers a quasi-continuous beam, a pulsed shoot-and-step structure was imposed to mimic the interruptions associated with clinical energy-layer switching. This enabled PGI during irradiation and PET and delayed Compton imaging during beam-off intervals within the same sequence. Four two-plane Compton cameras were arranged in a co-planar cross-shaped geometry around the beam isocenter.\n  Polyethylene phantoms were irradiated with 100~MeV protons at known positions along the beam axis. Their positions were estimated from reconstructed one-dimensional profiles using supervised machine-learning models trained exclusively on Monte Carlo simulations.\n  PET achieved the best performance, with a root-mean-square deviation of 0.8~mm, followed by PGI with 1.6~mm. Delayed Compton imaging based on e$^{+}$ annihilation photons and $^{10}$C$^{*}$ decays yielded 2.4~mm and 3.8~mm, respectively. PET retained good performance down to 1% of the original event statistics, whereas PGI became increasingly statistics-limited.\n  These results demonstrate the complementary strengths of hybrid PGI--PET and support its development towards millimetre-scale proton-range verification under clinically relevant irradiation conditions.",
@@ -31,7 +60,7 @@
       "Matched 2 contextual particle-therapy phrase(s).",
       "Matched 1 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
@@ -66,7 +95,7 @@
       "Matched 1 strong particle-therapy phrase(s).",
       "Matched 1 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",
