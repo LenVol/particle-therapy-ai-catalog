@@ -2,6 +2,33 @@
   {
     "kind": "paper",
     "source": "arxiv",
+    "title": "Optimization of Deep Learning Model for Denoising Dose Profiles in Proton Therapy",
+    "url": "http://arxiv.org/abs/2610.08843v1",
+    "abstract": "Proton therapy offers a dosimetric advantage over conventional radiotherapy through the Bragg peak, enabling precise dose delivery to the tumour while sparing surrounding tissue. Monte Carlo (MC) simulation provides the most accurate dose calculation but is computationally expensive for clinical workflows. A promising compromise is to simulate with a reduced number of primary histories and recover a high-quality dose distribution through a deep learning denoising step.\n  In this work, we take a 3D multiscale U-Net from recent literature as a case study and investigate two improvements critical for clinical deployment. First, we replace the standard MSE training objective with a differentiable $γ$-index-based loss, extended to native 3D operation, and demonstrate that directly optimising the clinical evaluation metric yields a mean Gamma Passing Rate of 99.47\\% at 2mm/2\\% and 95.67\\% at 1mm/1\\% on the test set, compared to 92.10\\% and 71.13\\% for MSE. Second, we apply L1-norm structured filter pruning to reduce the model's memory footprint, achieving a 13.3\\% parameter reduction with negligible performance loss under partial pruning, and 20\\% reduction under full-block pruning after fine-tuning.",
+    "authors": [
+      "Junaid Jawaid",
+      "Matteo Spezialetti",
+      "Gabriele Libardi",
+      "Giovanni Stilo",
+      "Filippo Mignosi"
+    ],
+    "journal": null,
+    "published_at": "2026-09-30T15:22:37Z",
+    "doi": null,
+    "is_preprint": true,
+    "paper_type": "preprint",
+    "heuristic_particle_hits": 1,
+    "heuristic_ai_hits": 1,
+    "heuristic_total_score": 13,
+    "heuristic_reasons": [
+      "Matched 1 strong particle-therapy phrase(s).",
+      "Matched 1 AI/ML phrase(s)."
+    ],
+    "cached": false
+  },
+  {
+    "kind": "paper",
+    "source": "arxiv",
     "title": "Quantifying the Impact of Upright Patient Positioning on Cardiac Substructures Using Deep Learning",
     "url": "http://arxiv.org/abs/2609.36449v1",
     "abstract": "Upright patient positioners with diagnostic-quality vertical CT at treatment isocenter may improve image-guided radiation therapy (RT). However, cardiac substructure (CS) geometry in upright patients remains insufficiently characterized. This work evaluated if a supine-trained deep-learning (DL) CS segmentation model generalizes to upright CT images and quantified posture-dependent CS changes in thoracic patients, to assess potential CS-sparing benefits. 8 thoracic proton therapy patients underwent paired supine/upright 4DCT imaging. 20 CS and lungs were manually labeled on both datasets for positional comparisons. A previously developed supine-trained, DL pipeline generated the same CS, and performance was evaluated using Dice similarity coefficient (DSC) and 95% Hausdorff distance (HD95). Upright CTs were rigidly registered to corresponding supine CTs by aligning the thoracic vertebrae, and CS centroid shifts were measured in the registered coordinate frame and relative to the carina. Paired differences were assessed using Wilcoxon signed-rank tests (p<0.05). The DL model successfully predicted all 20 CS on both upright (DSC, 0.65(0.24); HD95, 7.6(5.6)mm) and supine (DSC, 0.72(0.19); HD95, 5.8(2.6)mm) images yet with lower (p<0.05) performance upright. Upright positioning significantly increased median lung volume by 20.6% (range, -8.9%-42.8%). After vertebral alignment, most CS centroids shifted significantly inferior (median heart shift, 23mm; range, 18-37mm) and anterior (median heart shift, 5.0mm; range, 1.0-13.0mm) when upright. Relative to the carina, most CS shifted significantly inferior and closer anterior-posterior. A supine-trained DL model generalized to upright CT images for CS segmentation. Upright positioning produced increased lung volumes and significant inferior CS displacement, suggesting favorable geometry changes that may support cardiac-sparing workflows.",
@@ -26,7 +53,7 @@
       "Matched 1 strong particle-therapy phrase(s).",
       "Matched 1 AI/ML phrase(s)."
     ],
-    "cached": false
+    "cached": true
   },
   {
     "kind": "paper",

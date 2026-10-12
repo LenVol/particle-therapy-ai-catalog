@@ -2,16 +2,16 @@
 
 Automatically discovered repositories relevant to both particle therapy and machine learning / AI.
 
-Included repositories: **50**
+Included repositories: **52**
 
 Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
 | Repository | Platform | Stars | Type | Categories | Summary |
 |---|---:|---:|---|---|---|
-| [e0404/matRad](https://github.com/e0404/matRad) | github | 296 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
-| [OpenTOPAS/OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS) | github | 78 | unclear | monte carlo, software tool | Monte Carlo tool for particle simulation |
+| [e0404/matRad](https://github.com/e0404/matRad) | github | 295 | unclear | treatment planning, software tool | An open source multi-modality radiation treatment planning sytem developed by e0404 @ DKFZ |
+| [OpenTOPAS/OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS) | github | 79 | unclear | monte carlo, software tool | Monte Carlo tool for particle simulation |
 | [opaserr/dota](https://github.com/opaserr/dota) | github | 43 | unclear |  | Data-driven particle transport algorithm for fast dose calculations. |
-| [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 32 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
+| [MGHPhysicsResearch/moquimc](https://github.com/MGHPhysicsResearch/moquimc) | github | 33 | unclear |  | MOnte carlo code for QUIck proton dose calculation |
 | [openmcsquare/opentps](https://gitlab.com/openmcsquare/opentps) | gitlab | 18 | unclear |  | Open source TPS for proton and photon therapy  |
 | [pcabrales/prototwin-pet](https://github.com/pcabrales/prototwin-pet) | github | 13 | unclear | proton therapy, deep learning, PET imaging, dose verification | For fast, 3D delivered dose estimation from a PET image. Also published at https://ieeexplore.ieee.org/document/10847605/ |
 | [BeppeMagro/pymkm](https://github.com/BeppeMagro/pymkm) | github | 6 | unclear | RBE modeling, software tool | Microdosimetric Kinetic Model utilities for radiobiology research and hadrontherapy |
@@ -35,8 +35,10 @@ Live site: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 | [uhlerlab/prt-pbmc](https://github.com/uhlerlab/prt-pbmc) | github | 0 | unclear |  | Deep learning-based analysis reveals patient-level proton radiation therapy trajectories using single-cell PBMC chromatin images |
 | [amitkumarcodes/MSc-Thesis-FRED-vs-MCsquare](https://github.com/amitkumarcodes/MSc-Thesis-FRED-vs-MCsquare) | github | 0 | unclear |  | MSc thesis: Comparison of fast Monte Carlo dose calculation algorithms for proton therapy: FRED versus MCsquare. |
 | [schillingalex/proton-rv-dtc](https://github.com/schillingalex/proton-rv-dtc) | github | 0 | unclear |  | Proton therapy range verification and spot rejection rate implementation with a digital tracking calorimeter |
+| [vvuvv31/MAIGO](https://github.com/vvuvv31/MAIGO) | github | 0 | unclear |  | Monte Carlo for particle therapY on GPU for radiotherapy dOse calculation (MYGO) |
 | [Nnamdi-Ike/Proton-therapy-patient-QA-optimizer](https://github.com/Nnamdi-Ike/Proton-therapy-patient-QA-optimizer) | github | 0 | unclear |  | Re-organizes proton therapy patient QA for shortest time... |
 | [DilendraSajini/Proton-Therapy-QA](https://github.com/DilendraSajini/Proton-Therapy-QA) | github | 0 | unclear |  | The project aims to deliver a modern SQL-based database with a web interface for Proton Beam Therapy (PBT) QA data management at UCLH, replacing an unsupported Microsoft Access system. The objective is to enable efficient data input, analysis, and long-term tracking to support clinical workflows and patient safety.  |
+| [NairVonMuehlenen/4D_ProtonTherapy_TreatmentPlanning](https://github.com/NairVonMuehlenen/4D_ProtonTherapy_TreatmentPlanning) | github | 0 | unclear |  | Included by heuristic/manual filtering. |
 | [17AlbinoZebras/outreach-heatmap](https://github.com/17AlbinoZebras/outreach-heatmap) | github | 0 | unclear |  | A frontend-only web application for visualizing the geographic distribution of proton therapy referral activity across Florida, centered on a generated target hospital. The map displays where referring doctors and referred patients are located, with choropleth shading by region and a range of display and filtering options. |
 | [Zeinab-Haroon/AIMS-Project-Uveal-Melanoma-Python](https://github.com/Zeinab-Haroon/AIMS-Project-Uveal-Melanoma-Python) | github | 0 | unclear |  | Final Thesis: investigated the optic nerve shape changes under different gaze angles to improve the proton therapy planning for uveal melanoma patients using MeVislab Software. |
 | [steremma/proton](https://github.com/steremma/proton) | github | 0 | unclear |  | Optimizing proton fraction distribution between patients -  A linear programming project |
